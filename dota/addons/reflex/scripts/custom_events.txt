@@ -1,0 +1,77 @@
+// No spaces in event names, max length 32
+// All strings are case sensitive
+//
+// valid data key types are:
+//   string : a zero terminated string
+//   bool   : unsigned int, 1 bit
+//   byte   : unsigned int, 8 bit
+//   short  : signed int, 16 bit
+//   long   : signed int, 32 bit
+//   float  : float, 32 bit
+//   uint64 : unsigned int 64 bit
+//   local  : any data, but not networked to clients
+//
+// following key names are reserved:
+//   local      : if set to 1, event is not networked to clients
+//   unreliable : networked, but unreliable
+//   suppress   : never fire this event
+//   time	: firing server time
+//   eventid	: holds the event ID
+
+"CustomEvents"
+{
+	// This is fired when a client asks for the state (once they have joined)
+	// The data is encoded differently depending on the state
+	"afs_initial_state"
+	{
+		"nState"			"short"
+		"d"					"string"
+	}
+
+	// Same as above, but will force a state change, and can't be requested by clients
+	"afs_update_state"
+	{
+		"nState"			"short"
+		"d"					"string"
+	}
+
+	// Sending the status of a vote
+	"afs_vote_status"
+	{
+		"nState"			"short"
+		"d"					"string"
+	}
+
+	// Sending an updated list of the currect builds
+	"afs_update_builds"
+	{
+		"d"					"string"
+	}
+
+	// Sending a list of steam IDs
+	"afs_steam_ids"
+	{
+		"d"					"string"
+	}
+
+	// Sending updated timer data
+	"afs_timer_update"
+	{
+		"d"					"string"
+	}
+
+	// Sending the scores
+	"afs_score_update"
+	{
+		"d"					"string"
+	}
+
+	"afs_testa"
+	{
+	}
+
+	"afs_testb"
+	{
+	}
+}
+

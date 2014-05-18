@@ -1,0 +1,2745 @@
+
+// Dota Abilities Override File
+"DOTAAbilities"
+{
+	"Version"		"1"
+	
+	"reflex_dash"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"102"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"BaseClass"						"item_force_staff"
+		"AbilityTextureName"			"dark_seer_surge"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"ItemCost"						"0"
+		"ItemInitialCharges"			"0"
+		"ItemCombinable"				"1"
+		"ItemPermanent"					"1"
+		"ItemStackable"					"0"
+		"ItemRecipe"					"0"
+		"ItemDroppable"					"1"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"1"
+		"ItemRequiresCharges"			"0"
+		"ItemKillable"					"1"
+		"ItemDisassemblable"			"0"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		//"ItemDeclaresPurchase"			"0"
+		//"ItemCost"						"2250"
+		//"ItemShopTags"					"int;damage;attack_speed;hard_to_tag"
+		//"ItemQuality"					"rare"
+		//"ItemAliases"					"fs;force staff"
+		//"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		//"ItemPurchasable"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"	"3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"push_length"			"600"
+			}
+		}
+	}
+	
+	"reflex_haste"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "nyx_assassin_mana_burn"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7.0 6.5 6.0 5.5"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"Duration"		"%duration"
+				"ModifierName"	"modifier_rune_haste"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Dark_Seer.Surge"
+				"Target"		"CASTER"
+			}
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"1.0 1.5 2.0 2.5"
+			}
+		}
+	}
+	
+	"reflex_phase_shift"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5072"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"BaseClass"						"puck_phase_shift"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+		
+		"precache"
+		{
+			//"particlefile"				"particles/hero_puck.pcf"
+			"particlefile"				"particles/units/heroes/hero_puck.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_puck.txt"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0 0 0 0"
+		"AbilityChannelTime"			"0.5 1.0 1.50 2.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.0 5.5 5.0 4.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 90 80 70"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"0.5 1.0 1.50 2.0"
+			}
+		}
+	}
+	
+	"reflex_power_cogs"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5238"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"BaseClass"						"rattletrap_power_cogs"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+		
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_rattletrap.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_rattletrap.txt"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15.0 13.0 11.0 9.0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"250 225 200 175"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"225"
+			}
+			"02"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"1.5 2.0 2.5 3.0"
+			}
+			"03"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"drain_amount"		"100 125 150 175"
+			}
+			"04"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"attacks_to_destroy"	"2 2 2 3"
+			}
+			"05"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"push_length"		"252"
+			}
+			"06"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"push_speed"		"600"
+			}
+			"07"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"spacing"			"160 160 160 160"
+			}
+		}
+	}
+	
+	"reflex_kinetic_field"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5460"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"BaseClass"						"disruptor_kinetic_field"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+		
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_disruptor.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_disruptor.txt"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.05 0.05 0.05 0.05"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"14 12 10 8"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"250 225 200 175"
+		
+		// Cast Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500 600 700 800"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"250 275 300 325"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"formation_time"			"1.5 1.3 1.1 0.9"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"1.75 2.25 2.75 3.25"
+			}
+		}
+	}
+	
+	"reflex_borrowed_time"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5588"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"BaseClass"						"abaddon_borrowed_time"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+		
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_abaddon.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_abaddon.txt"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4 0.3 0.2 0.1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40.0 35.0 30.0 25.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"250 200 150 100"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hp_threshold"				"0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"0.5 0.75 1.0 1.25"
+			}
+			//"03"
+			//{
+			//	"var_type"					"FIELD_FLOAT"
+			//	"duration_scepter"			"5.0 6.0 7.0"
+			//}
+			//"04"
+			//{
+			//	"var_type"					"FIELD_FLOAT"
+			//	"redirect"					"0.35"
+			//}
+			//"05"
+			//{
+			//	"var_type"					"FIELD_FLOAT"
+			//	"redirect_range_tooltip_scepter"		"900"
+			//}
+		}
+	}
+	
+	"reflex_power_shot"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"windrunner_powershot"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1800"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5.0 4.5 4.0 3.5"
+		"AbilityChannelTime"			"1.0 1.0 1.0 1.0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"120 160 200 240"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"250 200 150 100"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_reduction"		"0.3 0.3 0.3 0.3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed_reduction"		"0.4 0.4 0.4 0.4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"arrow_width"			"125 135 145 155"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"arrow_range"			"1825"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"arrow_speed"			"2400.0 2600.0 3800.0 3000.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"tree_width"			"75 75 75 75"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"800 800 800 800"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"vision_duration"		"3.34 3.34 3.34 3.34"
+			}
+		}
+	}
+	
+	"reflex_flame_breath"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityName"					"creature_fire_breath"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"ogre_magi_fireblast"
+		"BaseClass"						"creature_fire_breath"
+		//"MaxLevel"						"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10.0"
+		"AbilityChannelTime"			"2.3"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"250.0 300.0 350.0 400.0"
+		"AbilityCastPoint"				"0.15 0.15 0.15 0.15"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"300 275 250 225"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"250.0 300.0 350.0 400.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"20.0 35.0 50.0 65.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"rotation_angle"		"90.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_count"		"12"
+			}
+		}
+	}
+	
+	"reflex_wisp_spirits"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5486"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"						"wisp_spirits"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+		
+		"precache"
+		{
+			"particlefile"				"particles/units/heroes/hero_wisp.pcf"
+			"soundfile"					"scripts/game_sounds_heroes/game_sounds_wisp.txt"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20.0 18.0 16.0 14.0"
+		"AbilityDuration"				"10.0 11.0 12.0 13.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"300 270 240 210"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			//"02"
+			//{
+			//	"var_type"					"FIELD_INTEGER"
+			//	"creep_damage"				"8 14 20 26"
+			//}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hero_damage"				"25 50 75 100"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"revolution_time"			"2.0 3.0 4.0 5.0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"min_range"					"400 400 400 400"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_range"					"400 400 400 400"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hero_hit_radius"			"70 70 70 70"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"explode_radius"			"200 200 200 200"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hit_radius"				"400 400 400 400"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"default_radius"			"400"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"spirit_movement_rate"		"250 250 250 250"
+			}
+			"12"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"spirit_duration"			"10.0 11.0 12.0 13.0"
+			}
+		}
+	}	
+	
+	"reflex_energy_drain"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName" 			"invoker_emp"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500 600 700 800"
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15.0 14.0 13.0 12.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"250 225 200 175"
+		
+		"precache"
+		{
+			"particlefile"				"particles/econ/generic/generic_aoe_explosion_sphere_1.pcf"
+		}
+
+		"OnSpellStart"
+		{
+			"CreateThinker"
+			{
+				"ModifierName"	"reflex_energy_drain_effect"
+				"Target"		"POINT"
+			}
+		}
+		
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------	
+		"Modifiers"
+		{
+			"reflex_energy_drain_degen"
+			{
+				"Properties"
+				{	
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%energy_degen"
+				}
+			}
+			"reflex_energy_drain_effect"
+			{
+				"Duration" "%duration"
+				"ThinkInterval" "0.25"
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName" "reflex_energy_drain_degen"
+						"Duration" "%stickiness"
+						"Target"
+						{
+							"Center" "TARGET"
+							"Radius" "%radius"
+							"Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_OTHER"
+						}
+					}
+				}
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"enigma_midnight_pulse"//"alchemist_acid_spray"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius 1 1"
+							"15" "28 225 28"
+							"16" "1 0 0"
+						}
+					}
+					"FireSound"
+					{
+						"EffectName"		"Hero_Enigma.Midnight_Pulse"
+						"Target"			"TARGET"
+					}
+				}
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"5.0 7.0 9.0 11.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"energy_degen"			"-30 -50 -70 -90"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"500 600 700 800"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stickiness"			"1.0 1.0 1.0 1.0"
+			}
+		}
+	}
+	
+	"reflex_bristleback"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5550"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"bristleback_bristleback"
+		
+				
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"side_damage_reduction"			"3 6 9 12"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"back_damage_reduction"			"12 18 24 30"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"side_angle"					"110"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"back_angle"					"70"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"quill_release_threshold"				"250.0"
+			}
+		}
+	}
+	
+	"reflex_hp_boost"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"invoker_quas"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"Modifiers"
+		{
+			"health_boost"
+			{
+				"IsHidden" "1"
+				"Passive" "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"%health_boost"
+				}
+			}
+		}
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_boost"			"200 400 600 800"
+			}
+		}
+	}
+	
+	"reflex_energy_boost"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"invoker_wex"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"Modifiers"
+		{
+			"energy_boost"
+			{
+				"IsHidden" "1"
+				"Passive" "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"%mana_boost"
+				}
+			}
+		}
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_boost"			"100 150 200 250"
+			}
+		}
+	}
+	
+	"reflex_energy_regen_boost"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"invoker_exort"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"Modifiers"
+		{
+			"energy_regen_boost"
+			{
+				"IsHidden" "1"
+				"Passive" "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%mana_regen"
+				}
+			}
+		}
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_regen"			"20 40 60 80"
+			}
+		}
+	}
+	
+	"reflex_bulk_up"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"invoker_invoke"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"Modifiers"
+		{
+			"bulk_up"
+			{
+				"IsHidden" "1"
+				"Passive" "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"%health_boost"
+					"MODIFIER_PROPERTY_MANA_BONUS"	"%mana_boost"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%mana_regen"
+				}
+			}
+		}
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_boost"			"100 200 300 400"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_boost"			"50 75 100 125"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_regen"			"10 20 30 40"
+			}
+		}
+	}
+	
+	"reflex_vengeance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"vengefulspirit_command_aura"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_reduction"		"-60 -70 -80 -90"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"6 7 8 9"
+			}
+		}
+	}
+	
+	"reflex_scaredy_cat"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"courier_burst"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_speed"		"20 30 40 50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"6 7 8 9"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_per_tick"			"40 40 50 50"
+			}
+		}
+	}
+
+	"reflex_empty1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+	}
+	
+	"reflex_empty2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+	}
+	
+	"reflex_empty3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+	}
+	
+	"reflex_empty4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+	}
+	
+	"reflex_empty5"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+	}
+	
+	"reflex_empty6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5343"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"0"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+	}
+	
+	
+//------------------------
+//	Item Abilities
+//-----------------------
+	"reflex_sun_strike"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5386"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT  | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"BaseClass"						"invoker_sun_strike"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"20000"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+			
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"area_of_effect"		"175 185 195 205"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"delay"					"1.7 1.6 1.5 1.4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"250 350 450 550"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_distance"		"400"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"vision_duration"		"4.0"
+			}
+		}
+	}
+	
+	"reflex_illuminate"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5479"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"BaseClass"						"keeper_of_the_light_spirit_form_illuminate"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1800"
+		"AbilityCastPoint"				"0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0.0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_second"		"100.0 120.0 150.0 190.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"320 340 360 380"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1550"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed"					"1050.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"max_channel_time"		"4.0 3.5 3.0 2.5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"800 800 800 800"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"vision_duration"		"3.34 3.34 3.34 3.34"
+			}
+			"08"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"channel_vision_radius"	"350"
+			}
+			"09"
+			{	
+				"var_type"					"FIELD_FLOAT"
+				"channel_vision_interval"	"0.5"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"channel_vision_duration"	"10.34"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"channel_vision_step"		"150"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"400.0 410.0 450.0 475.0"
+			}
+		}
+	}
+	
+	"reflex_mystic_flare"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5584"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"						"skywrath_mage_mystic_flare"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"20000"
+		"AbilityCastPoint"				"0.0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+			
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"350 400 500 600"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"600 900 1200 1500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_interval"		"0.1"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"scepter_cooldown"	"20 10 0 0"
+			}
+		}
+	}
+	
+	"reflex_rocket_flare"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5239"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"BaseClass"						"rattletrap_rocket_flare"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		"AbilityCastRange"				"20000"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"19.0 18.0 17.0 16.0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200"
+		
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"500 750 1000 1250"
+			}
+			"02"
+			{	
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"10.0"
+			}
+			"03"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"1500"
+			}
+			"04"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"vision_radius"		"500 750 1000 1250"
+			}
+		}
+	}
+	
+	"reflex_earthbind"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"					"5430"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"BaseClass"						"meepo_earthbind"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700 800 900 1000"
+		"AbilityCastPoint"				"0.0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1.0 1.2 1.4 1.6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"220"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"857"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_range"			"700 800 900 1000"
+			}
+		}
+	}
+	
+//------------------------
+// Modifier Appliers
+//------------------------
+	
+	"modifier_item_shotgun_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"6"
+				"ModifierName"			"modifier_item_shotgun"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_shotgun"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_shotgun"
+				"Duration" "6"
+				"ThinkInterval" "6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"ALL"
+						"Item"					"item_reflex_shotgun"
+						"ChargeModifier"		"modifier_item_shotgun"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_shotgun_2_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"6"
+				"ModifierName"			"modifier_item_shotgun_2"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_shotgun_2"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_shotgun_2"
+				"Duration" "6"
+				"ThinkInterval" "6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"ALL"
+						"Item"					"item_reflex_shotgun_2"
+						"ChargeModifier"		"modifier_item_shotgun_2"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_shotgun_3_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"6"
+				"ModifierName"			"modifier_item_shotgun_3"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_shotgun_3"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_shotgun_3"
+				"Duration" "6"
+				"ThinkInterval" "6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"ALL"
+						"Item"					"item_reflex_shotgun_3"
+						"ChargeModifier"		"modifier_item_shotgun_3"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_shotgun_4_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"6"
+				"ModifierName"			"modifier_item_shotgun_4"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_shotgun_4"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_shotgun_4"
+				"Duration" "6"
+				"ThinkInterval" "6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"ALL"
+						"Item"					"item_reflex_shotgun_4"
+						"ChargeModifier"		"modifier_item_shotgun_4"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_long_shot_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"2"
+				"ModifierName"			"modifier_item_long_shot"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_long_shot"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_long_shot"
+				"Duration" "2"
+				"ThinkInterval" "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"FULL"
+						"Item"					"item_reflex_long_shot"
+						"ChargeModifier"		"modifier_item_long_shot"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_long_shot_2_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"2"
+				"ModifierName"			"modifier_item_long_shot_2"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_long_shot_2"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_long_shot_2"
+				"Duration" "2"
+				"ThinkInterval" "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"FULL"
+						"Item"					"item_reflex_long_shot_2"
+						"ChargeModifier"		"modifier_item_long_shot_2"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_long_shot_3_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"2"
+				"ModifierName"			"modifier_item_long_shot_3"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_long_shot_3"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_long_shot_3"
+				"Duration" "2"
+				"ThinkInterval" "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"FULL"
+						"Item"					"item_reflex_long_shot_3"
+						"ChargeModifier"		"modifier_item_long_shot_3"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_long_shot_4_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"2"
+				"ModifierName"			"modifier_item_long_shot_4"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_long_shot_4"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_long_shot_4"
+				"Duration" "2"
+				"ThinkInterval" "2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"FULL"
+						"Item"					"item_reflex_long_shot_4"
+						"ChargeModifier"		"modifier_item_long_shot_4"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_barrier_wall_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"6"
+				"ModifierName"			"modifier_item_barrier_wall"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_barrier_wall"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_wall_of_pain"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "6"
+				"ThinkInterval" "6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"FULL"
+						"Item"					"item_reflex_wall_of_pain"
+						"ChargeModifier"		"modifier_item_barrier_wall"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_barrier_wall_2_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"6"
+				"ModifierName"			"modifier_item_barrier_wall_2"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_barrier_wall_2"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_wall_of_pain_2"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "6"
+				"ThinkInterval" "6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"FULL"
+						"Item"					"item_reflex_wall_of_pain_2"
+						"ChargeModifier"		"modifier_item_barrier_wall_2"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_barrier_wall_3_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"6"
+				"ModifierName"			"modifier_item_barrier_wall_3"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_barrier_wall_3"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_wall_of_pain_3"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "6"
+				"ThinkInterval" "6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"FULL"
+						"Item"					"item_reflex_wall_of_pain_3"
+						"ChargeModifier"		"modifier_item_barrier_wall_3"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_barrier_wall_4_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"6"
+				"ModifierName"			"modifier_item_barrier_wall_4"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_barrier_wall_4"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_wall_of_pain_4"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "6"
+				"ThinkInterval" "6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"FULL"
+						"Item"					"item_reflex_wall_of_pain_4"
+						"ChargeModifier"		"modifier_item_barrier_wall_4"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_sun_strike_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"25"
+				"ModifierName"			"modifier_item_sun_strike"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_sun_strike"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_sunstrike_barrage"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "25"
+				"ThinkInterval" "25"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"ALL"
+						"Item"					"item_reflex_sunstrike_barrage"
+						"ChargeModifier"		"modifier_item_sun_strike"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_sun_strike_2_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"25"
+				"ModifierName"			"modifier_item_sun_strike_2"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_sun_strike_2"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_sunstrike_barrage_2"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "25"
+				"ThinkInterval" "25"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"ALL"
+						"Item"					"item_reflex_sunstrike_barrage_2"
+						"ChargeModifier"		"modifier_item_sun_strike_2"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_sun_strike_3_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"25"
+				"ModifierName"			"modifier_item_sun_strike_3"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_sun_strike_3"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_sunstrike_barrage_3"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "25"
+				"ThinkInterval" "25"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"ALL"
+						"Item"					"item_reflex_sunstrike_barrage_3"
+						"ChargeModifier"		"modifier_item_sun_strike_3"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_sun_strike_4_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"25"
+				"ModifierName"			"modifier_item_sun_strike_4"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_sun_strike_4"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_sunstrike_barrage_4"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "25"
+				"ThinkInterval" "25"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"ALL"
+						"Item"					"item_reflex_sunstrike_barrage_4"
+						"ChargeModifier"		"modifier_item_sun_strike_4"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_net_cannon_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"12"
+				"ModifierName"			"modifier_item_net_cannon"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_net_cannon"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_net_cannon"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "12"
+				"ThinkInterval" "12"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"ALL"
+						"Item"					"item_reflex_net_cannon"
+						"ChargeModifier"		"modifier_item_net_cannon"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_net_cannon_2_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"12"
+				"ModifierName"			"modifier_item_net_cannon_2"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_net_cannon_2"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_net_cannon_2"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "12"
+				"ThinkInterval" "12"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"ALL"
+						"Item"					"item_reflex_net_cannon_2"
+						"ChargeModifier"		"modifier_item_net_cannon_2"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_net_cannon_3_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"12"
+				"ModifierName"			"modifier_item_net_cannon_3"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_net_cannon_3"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_net_cannon_3"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "12"
+				"ThinkInterval" "12"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"ALL"
+						"Item"					"item_reflex_net_cannon_3"
+						"ChargeModifier"		"modifier_item_net_cannon_3"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_net_cannon_4_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"12"
+				"ModifierName"			"modifier_item_net_cannon_4"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_net_cannon_4"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_net_cannon_4"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "12"
+				"ThinkInterval" "12"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"ALL"
+						"Item"					"item_reflex_net_cannon_4"
+						"ChargeModifier"		"modifier_item_net_cannon_4"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_illuminate_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"10"
+				"ModifierName"			"modifier_item_illuminate"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_illuminate"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_illuminate"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "10"
+				"ThinkInterval" "10"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"FULL"
+						"Item"					"item_reflex_illuminate"
+						"ChargeModifier"		"modifier_item_illuminate"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_illuminate_2_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"10"
+				"ModifierName"			"modifier_item_illuminate_2"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_illuminate_2"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_illuminate_2"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "10"
+				"ThinkInterval" "10"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"FULL"
+						"Item"					"item_reflex_illuminate_2"
+						"ChargeModifier"		"modifier_item_illuminate_2"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_illuminate_3_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"10"
+				"ModifierName"			"modifier_item_illuminate_3"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_illuminate_3"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_illuminate_3"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "10"
+				"ThinkInterval" "10"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"FULL"
+						"Item"					"item_reflex_illuminate_3"
+						"ChargeModifier"		"modifier_item_illuminate_3"
+					}
+				}
+			}
+		}
+	}
+	
+	"modifier_item_illuminate_4_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"10"
+				"ModifierName"			"modifier_item_illuminate_4"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_illuminate_4"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_illuminate_4"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "10"
+				"ThinkInterval" "10"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"ChargeType"			"FULL"
+						"Item"					"item_reflex_illuminate_4"
+						"ChargeModifier"		"modifier_item_illuminate_4"
+					}
+				}
+			}
+		}
+	}
+	
+	"reflex_vengeance_1_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_vengeance"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_reflex_vengeance"
+			{
+				"EffectName"		"ember_spirit_flameGuard"
+				"EffectAttachType"	"follow_origin"
+				"Target"			"CASTER"
+				
+				"Duration" 			"6"
+				"TextureName" 		"vengefulspirit_command_aura"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-60"
+					//"MODIFIER_PROPERTY_MODEL_SCALE"  "10"
+				}
+			}
+		}
+	}
+	
+	"reflex_vengeance_2_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_vengeance"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_reflex_vengeance"
+			{
+				"EffectName"		"ember_spirit_flameGuard"
+				"EffectAttachType"	"follow_origin"
+				"Target"			"CASTER"
+				
+				"Duration" 			"7"
+				"TextureName" 		"vengefulspirit_command_aura"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-70"
+					//"MODIFIER_PROPERTY_MODEL_SCALE"  "10"
+				}
+			}
+		}
+	}
+	
+	"reflex_vengeance_3_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_vengeance"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_reflex_vengeance"
+			{
+				"EffectName"		"ember_spirit_flameGuard"
+				"EffectAttachType"	"follow_origin"
+				"Target"			"CASTER"
+				
+				"Duration" 			"8"
+				"TextureName" 		"vengefulspirit_command_aura"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-80"
+					//"MODIFIER_PROPERTY_MODEL_SCALE"  "10"
+				}
+			}
+		}	}
+	
+	"reflex_vengeance_4_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_vengeance"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_reflex_vengeance"
+			{
+				"EffectName"		"ember_spirit_flameGuard"
+				"EffectAttachType"	"follow_origin"
+				"Target"			"CASTER"
+				
+				"Duration" 			"9"
+				"TextureName" 		"vengefulspirit_command_aura"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-90"
+					//"MODIFIER_PROPERTY_MODEL_SCALE"  "10"
+				}
+			}
+		}
+	}
+	
+	"reflex_scaredy_cat_1_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_scaredy_cat"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_reflex_scaredy_cat"
+			{
+				"TextureName" "courier_burst"
+				"EffectName" "healing_flask"
+				"EffectAttachType" "follow_origin"
+				"Duration" "6"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "40"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "20"
+					//"MODIFIER_PROPERTY_MODEL_SCALE"  "2"
+				}
+				"OnTakeDamage"
+				{
+					"RemoveModifier"
+					{
+						"Target" "UNIT"
+						"ModifierName" "modifier_reflex_scaredy_cat"
+					}
+				}
+			}
+		}
+	}
+	
+	"reflex_scaredy_cat_2_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_scaredy_cat"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_reflex_scaredy_cat"
+			{
+				"TextureName" "courier_burst"
+				"EffectName" "healing_flask"
+				"EffectAttachType" "follow_origin"
+				"Duration" "7"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "40"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "30"
+					//"MODIFIER_PROPERTY_MODEL_SCALE"  "2"
+				}
+				"OnTakeDamage"
+				{
+					"RemoveModifier"
+					{
+						"Target" "UNIT"
+						"ModifierName" "modifier_reflex_scaredy_cat"
+					}
+				}
+			}
+		}
+	}
+	
+	"reflex_scaredy_cat_3_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_scaredy_cat"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_reflex_scaredy_cat"
+			{
+				"TextureName" "courier_burst"
+				"EffectName" "healing_flask"
+				"EffectAttachType" "follow_origin"
+				"Duration" "8"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "50"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "40"
+					//"MODIFIER_PROPERTY_MODEL_SCALE"  "2"
+				}
+				"OnTakeDamage"
+				{
+					"RemoveModifier"
+					{
+						"Target" "UNIT"
+						"ModifierName" "modifier_reflex_scaredy_cat"
+					}
+				}
+			}
+		}
+	}
+	
+	"reflex_scaredy_cat_4_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_scaredy_cat"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_reflex_scaredy_cat"
+			{
+				"TextureName" "courier_burst"
+				"EffectName" "healing_flask"
+				"EffectAttachType" "follow_origin"
+				"Duration" "9"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "50"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "50"
+					//"MODIFIER_PROPERTY_MODEL_SCALE"  "2"
+				}
+				"OnTakeDamage"
+				{
+					"RemoveModifier"
+					{
+						"Target" "UNIT"
+						"ModifierName" "modifier_reflex_scaredy_cat"
+					}
+				}
+			}
+		}
+	}
+	
+	"reflex_lms_friendly_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_lms_friendly"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_lms_friendly"
+			{
+				"TextureName" "ursa_enrage"
+				"EffectName" "bloodseeker_rupture"
+				"EffectAttachType" "follow_origin"
+				"Duration" "20"
+			}
+		}
+	}
+	
+	"reflex_lms_enemy_1_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_lms_enemy"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_lms_enemy"
+			{
+				"Passive" "1"
+				"IsHidden" "1"
+				//"TextureName" "ursa_enrage"
+				//"EffectName" "life_stealer_rage"
+				//"EffectAttachType" "follow_origin"
+				"Duration" "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "25"
+				}
+			}
+		}
+	}
+	
+	"reflex_lms_enemy_2_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_lms_enemy"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_lms_enemy"
+			{
+				"Passive" "1"
+				"IsHidden" "1"
+				//"TextureName" "ursa_enrage"
+				//"EffectName" "life_stealer_rage"
+				//"EffectAttachType" "follow_origin"
+				"Duration" "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "50"
+				}
+			}
+		}
+	}
+	
+	"reflex_lms_enemy_3_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_lms_enemy"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_lms_enemy"
+			{
+				"Passive" "1"
+				"IsHidden" "1"
+				//"TextureName" "ursa_enrage"
+				//"EffectName" "life_stealer_rage"
+				//"EffectAttachType" "follow_origin"
+				"Duration" "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "75"
+				}
+			}
+		}
+	}
+	
+	"reflex_lms_enemy_4_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_lms_enemy"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_lms_enemy"
+			{
+				"Passive" "1"
+				"IsHidden" "1"
+				//"TextureName" "ursa_enrage"
+				//"EffectName" "ogre_magi_bloodlust_buff"
+				//"EffectAttachType" "follow_origin"
+				"Duration" "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "100"
+				}
+			}
+		}
+	}
+}

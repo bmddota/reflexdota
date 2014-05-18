@@ -1,0 +1,30 @@
+"itembuilds"
+{
+	"author"		"Reflex"
+	"hero"			"npc_dota_hero_magnataur"
+	"Title"			"Recommended items for Reflex"
+	
+	"Items"
+	{		
+		"#DOTA_Item_Build_Starting_Items"
+		{	
+			"item"	"item_reflex_dash"
+			"item"	"item_simple_shooter"
+		}
+		
+		"#DOTA_Item_Build_Early_Game"
+		{	
+
+		}
+		
+		"#DOTA_Item_Build_Core_Items"
+		{
+				
+		}
+		
+		"#DOTA_Item_Build_Luxury"
+		{
+
+		}
+	}
+}

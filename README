@@ -1,13 +1,17 @@
-To Install
+Automatic Installation
+----------------------
+Double click on "Reflex Install.bat".  The script will find the dota directory and copy over the necessary files
+
+
+Manual Installation
 ----------------
 Drop the "dota" directory on top of your base dota directory, which is usually located at
 	C:\Program Files(x86)\Steam\steamapps\common\dota 2 beta
 
 This will copy in the "reflex" addon to the "dota\addons\reflex" path and the "reflex.cfg" file to "dota\cfg".
-To start the game mode, you can execute the "Dota Reflex Game Mode".  
+
+
+Running the Game
+-----------------
+To start the game mode, make sure Dota isn't running and double click the "Play Reflex" link.  
 You will be prompted to accept a string of launch commands for dota, and hitting OK will start DOTA up with the ability to run "reflex".
-
-Once the game loads, you will see a console prompt, simply type
-	exec reflex.cfg
-
-and the game will load and connect to my server.
