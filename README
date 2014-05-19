@@ -17,6 +17,7 @@ Running the Game
 -----------------
 To start the game mode, make sure Dota isn't running and double click the "Play Reflex" link.  
 You will be prompted to accept a string of launch commands for dota, and hitting OK will start DOTA up with the ability to run "reflex".
+You will be given access to the console in dota, and can execute "connect <IP>:<PORT>" to connect to a dedicated server running reflex.
 
 
 ------------
