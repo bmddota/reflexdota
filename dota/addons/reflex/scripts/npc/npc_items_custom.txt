@@ -78,7 +78,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"1701"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_dash"
@@ -192,7 +192,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"1703"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_dash_2"
@@ -306,7 +306,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"1709"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_dash_3"
@@ -420,7 +420,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"1710"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_dash_4"
@@ -6701,7 +6701,7 @@
 	"item_reflex_sunstrike_barrage"
 	{
 		"ID"							"1760"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_sunstrike_barrage"
@@ -6856,7 +6856,7 @@
 	"item_reflex_sunstrike_barrage_2"
 	{
 		"ID"							"1761"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_sunstrike_barrage_2"
@@ -7011,7 +7011,7 @@
 	"item_reflex_sunstrike_barrage_3"
 	{
 		"ID"							"1762"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_sunstrike_barrage_3"
@@ -7166,7 +7166,7 @@
 	"item_reflex_sunstrike_barrage_4"
 	{
 		"ID"							"1763"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_sunstrike_barrage_4"
@@ -10328,7 +10328,7 @@
 	"item_reflex_mega_flare"
 	{
 		"ID"							"1844"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_mega_flare"
@@ -10471,7 +10471,7 @@
 	"item_reflex_mega_flare_2"
 	{
 		//"ID"							"1817"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_mega_flare_2"
@@ -10614,7 +10614,7 @@
 	"item_reflex_mega_flare_3"
 	{
 		//"ID"							"1818"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_mega_flare_3"
@@ -10757,7 +10757,7 @@
 	"item_reflex_mega_flare_4"
 	{
 		//"ID"							"1819"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_mega_flare_4"

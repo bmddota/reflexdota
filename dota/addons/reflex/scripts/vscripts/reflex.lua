@@ -139,6 +139,46 @@ function ReflexGameMode:InitGameMode()
 	Convars:RegisterCommand( "reflex_set_ability", _boundSetAbilityConsoleCommand, "Set a hero ability", 0 )
 	print('[[REFLEX]] reflex_set_ability set')
 	
+	Convars:RegisterCommand( "reflex_spawn_hero", function()
+		local cmdPlayer = Convars:GetCommandClient()
+        if cmdPlayer then
+            local playerID = cmdPlayer:GetPlayerID()
+            if playerID ~= nil and playerID ~= -1 then
+				--[[local ply = self.vPlayers[playerID]
+				local hero = Entities:CreateByClassname("npc_dota_hero_ancient")
+				hero:SetOrigin(ply.hero:GetOrigin())
+				hero:SetTeam(DOTA_TEAM_BADGUYS)
+				hero:SetOwner(cmdPlayer)
+				
+				print( 'asdf ' .. tostring(hero))
+				PrintTable(hero)
+				PrintTable(getmetatable(hero))
+				hero:SetGold(30000, true)
+				print( 'asdf1 ' .. tostring(hero))
+				hero:AddExperience(1000, true)
+				print( 'asdf2 ' .. tostring(hero))
+				local dash = CreateItem("item_reflex_dash", heroEntity, heroEntity)
+				print( 'asdf3 ' .. tostring(hero))
+				--hero:AddItem(dash)
+				print( 'asdf4 ' .. tostring(hero))
+				local shooter = CreateItem("item_simple_shooter", heroEntity, heroEntity)
+				print( 'asdf5 ' .. tostring(hero))
+				--hero:AddItem(shooter)
+				print( 'asdf6 ' .. tostring(hero))]]
+				local ply = self.vPlayers[playerID]
+                local hero = CreateHeroForPlayer("npc_dota_hero_axe", cmdPlayer)
+				hero:SetGold(30000, true)
+				hero:AddExperience(1000, true)
+				local dash = CreateItem("item_reflex_dash", heroEntity, heroEntity)
+				hero:AddItem(dash)
+				local shooter = CreateItem("item_simple_shooter", heroEntity, heroEntity)
+				hero:AddItem(shooter)
+				hero:SetTeam(DOTA_TEAM_BADGUYS)
+				hero:RespawnHero(false, false, false)
+            end
+        end
+	end, "Create a hero under your control", 0)
+	
     Convars:RegisterCommand('reflex_reset_all', function()
         self:LoopOverPlayers(function(player, plyID)
 			print ( '[[REFLEX]] Resetting player ' .. plyID)
@@ -399,7 +439,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
 					self.vPlayers[playerID] = heroTable
 					
 					print ( "[[REFLEX]] setting stuff for player"  .. playerID)
-					heroEntity:__KeyValueFromInt('StatusManaRegen', 100)
+					--heroEntity:__KeyValueFromInt('StatusManaRegen', 100)
 					local dash = CreateItem("item_reflex_dash", heroEntity, heroEntity)
 					heroEntity:AddItem(dash)
 					local shooter = CreateItem("item_simple_shooter", heroEntity, heroEntity)
