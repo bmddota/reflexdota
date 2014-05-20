@@ -1,29 +1,5 @@
---[[
-	"RunScript"
-			{
-				"ScriptFile"			"scripts/vscripts/abilities.lua"
-				"Function"				"itemSpellStart"
-				"Target"				"POINT"
-				"Ability"				"reflex_dash"
-				"ChargeModifier"		"modifier_item_reflex_dash"
-				"AbilityLevel"			"1"									// Optional.  Defaults to level of item used
-				"ChargeType"			"UNLINKED" 	// Optional: "UNLINKED", "HALF", "FULL", "ALL"
-			}
-]]
 
 function itemSpellStart (keys)
-	--print ( '[[REFLEX]] item spell start called' )
-	--PrintTable(keys)
-	--print ('[[REFLEX]] ' .. keys.ChargeModifier .. " -- " .. keys.ability:GetAbilityName() .. " -- " .. keys.ChargeType)
-	
-	--[[local ent = Entities:First()
-	while ent ~= nil do
-		print(ent:GetName() .. " -- " .. ent:GetClassname())
-		PrintTable(ent)
-		PrintTable(getmetatable(ent))
-		print('')
-		ent = Entities:Next(ent)
-	end]]
 	
 	local target = keys.Target
 	local caster = keys.caster
