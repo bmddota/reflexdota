@@ -1,5 +1,7 @@
 print ('[[REFLEX]] reflex.lua' )
 
+DEBUG=false
+
 REFLEX_VERSION = "0.1"
 
 ROUNDS_TO_WIN = 10
@@ -38,8 +40,8 @@ ADDED_ABILITIES = {
 }
 
 ABILITY_ON_DEATH = {
-  "reflex_vengeance",
-  "reflex_scaredy_cat"
+  reflex_vengeance = 1.50,
+  reflex_scaredy_cat = 0.6
 }
 
 bInPreRound = true
@@ -115,37 +117,95 @@ function ReflexGameMode:InitGameMode()
   print('[[REFLEX]] reflex_set_ability set')
 
   Convars:RegisterCommand('reflex_reset_all', function()
-    self:LoopOverPlayers(function(player, plyID)
-      print ( '[[REFLEX]] Resetting player ' .. plyID)
-      PlayerResource:SetGold(plyID, 30000, true)
-      player.hero:AddExperience(1000, true)
+    if not Convars:GetCommandClient() or DEBUG then
+      self:LoopOverPlayers(function(player, plyID)
+        print ( '[[REFLEX]] Resetting player ' .. plyID)
+        --PlayerResource:SetGold(plyID, 30000, true)
+        player.hero:SetGold(30000, true)
+        player.hero:AddExperience(1000, true)
 
-      --Remove dangerous abilities
-      for i=1,#ADDED_ABILITIES do
-        local ability = ADDED_ABILITIES[i]
-        self:FindAndRemove(player.hero, ability)
-      end
+        --Remove dangerous abilities
+        for i=1,#ADDED_ABILITIES do
+          local ability = ADDED_ABILITIES[i]
+          self:FindAndRemove(player.hero, ability)
+        end
 
-      if player.hero:HasModifier("modifier_stunned") then
-        player.hero:RemoveModifierByName("modifier_stunned")
-      end
+        if player.hero:HasModifier("modifier_stunned") then
+          player.hero:RemoveModifierByName("modifier_stunned")
+        end
 
-      if player.hero:HasModifier("modifier_invulnerable") then
-        player.hero:RemoveModifierByName("modifier_invulnerable")
-      end
+        if player.hero:HasModifier("modifier_invulnerable") then
+          player.hero:RemoveModifierByName("modifier_invulnerable")
+        end
 
-      for i=0,11 do
-        local item = player.hero:GetItemInSlot( i )
-        if item ~= nil then
-          local name = item:GetAbilityName()
-          if string.find(name, "item_reflex_dash") == nil and string.find(name, "item_simple_shooter") == nil then
-            item:Remove()
+        for i=0,11 do
+          local item = player.hero:GetItemInSlot( i )
+          if item ~= nil then
+            local name = item:GetAbilityName()
+            if string.find(name, "item_reflex_dash") == nil and string.find(name, "item_simple_shooter") == nil then
+              item:Remove()
+            end
+            --item:SetCurrentCharges(item:GetInitialCharges())
           end
-          --item:SetCurrentCharges(item:GetInitialCharges())
+        end
+      end)
+    end
+  end, 'Resets all players.', 0)
+  
+  -- Fill server with fake clients
+  Convars:RegisterCommand('fake', function()
+    -- Check if the server ran it
+    if not Convars:GetCommandClient() or DEBUG then
+      -- Create fake Players
+      SendToServerConsole('dota_create_fake_clients')
+        
+      self:CreateTimer('assign_fakes', {
+        endTime = Time(),
+        callback = function(reflex, args)
+          for i=0, 9 do
+            -- Check if this player is a fake one
+            if PlayerResource:IsFakeClient(i) then
+              -- Grab player instance
+              local ply = PlayerResource:GetPlayer(i)
+              -- Make sure we actually found a player instance
+              if ply then
+                CreateHeroForPlayer('npc_dota_hero_axe', ply)
+              end
+            end
+          end
+        end})
+    end
+  end, 'Connects and assigns fake Players.', 0)
+  
+  Convars:RegisterCommand('reflex_test_death', function()
+    local cmdPlayer = Convars:GetCommandClient()
+    if DEBUG and cmdPlayer ~= nil then
+      local playerID = cmdPlayer:GetPlayerID()
+      local player = self.vPlayers[playerID]
+      for onDeath,scale in pairs(ABILITY_ON_DEATH) do
+        local ability = player.hero:FindAbilityByName(onDeath)
+        --print('     ' .. onDeath .. ' -- ' .. tostring(ability or 'NOPE'))
+        if ability ~= nil and ability:GetLevel() ~= 0 then
+          callModApplier(player.hero, onDeath, ability:GetLevel())
+          print(tostring(1 + ((scale - 1) * (ability:GetLevel() / 4))))
+          player.hero:SetModelScale(1 + ((scale - 1) * (ability:GetLevel() / 4)), 1)
+          self:CreateTimer('',{
+            endTime = GameRules:GetGameTime() + ability:GetSpecialValueFor("duration"),
+            useGameTime = true,
+            callback = function() 
+              player.hero:SetModelScale(1, 1)
+            end})
         end
       end
-    end)
-  end, 'Resets all players.', 0)
+    end
+  end, 'Tests the death function', 0)
+  
+  Convars:RegisterCommand('reflex_test_round_complete', function()
+    local cmdPlayer = Convars:GetCommandClient()
+    if DEBUG then
+      self:RoundComplete(true)
+    end
+  end, 'Tests the death function', 0)
 
 
   -- Change random seed
@@ -240,6 +300,22 @@ function ReflexGameMode:AutoAssignPlayer(keys)
     self.vUserIds[keys.userid] = ply
     return
   end
+  
+  if DEBUG and playerID == -1 then
+    print ('[[REFLEX]] team sizes ' ..  #self.vRadiant .. "  --  " .. #self.vDire)
+    if #self.vRadiant > #self.vDire then
+      print ('[[REFLEX]] setting to bad guys')
+      ply:SetTeam(DOTA_TEAM_BADGUYS)
+      ply:__KeyValueFromInt('teamnumber', DOTA_TEAM_BADGUYS)
+      table.insert (self.vDire, ply)
+    else
+      print ('[[REFLEX]] setting to good guys')
+      ply:SetTeam(DOTA_TEAM_GOODGUYS)
+      ply:__KeyValueFromInt('teamnumber', DOTA_TEAM_GOODGUYS)
+      table.insert (self.vRadiant, ply)
+    end
+    playerID = ply:GetPlayerID()
+  end
 
   print ('[[REFLEX]] playerID: ' .. playerID)
   print('[[REFLEX]] SteamID: ' .. PlayerResource:GetSteamAccountID(playerID))
@@ -288,8 +364,10 @@ function ReflexGameMode:AutoAssignPlayer(keys)
         heroEntity:AddItem(shooter)
         heroEntity:SetCustomDeathXP(0)
 
-        PlayerResource:SetGold( playerID, 0, false )
-        PlayerResource:SetGold( playerID, STARTING_GOLD, true )
+        heroEntity:SetGold(0, false)
+        heroEntity:SetGold(STARTING_GOLD, true)
+        --PlayerResource:SetGold( playerID, 0, false )
+        --PlayerResource:SetGold( playerID, STARTING_GOLD, true )
         print ( "[[REFLEX]] GOLD SET FOR PLAYER "  .. playerID)
         PlayerResource:SetBuybackCooldownTime( playerID, 0 )
         PlayerResource:SetBuybackGoldLimitTime( playerID, 0 )
@@ -305,7 +383,8 @@ function ReflexGameMode:AutoAssignPlayer(keys)
             heroTable.nKillsThisRound = 0
             heroTable.bDead = false
 
-            PlayerResource:SetGold(playerID, 0, true)
+            --PlayerResource:SetGold(playerID, 0, true)
+            heroTable.hero:SetGold(0, true)
             heroTable.nUnspentAbilityPoints = heroTable.hero:GetAbilityPoints()
             heroTable.hero:SetAbilityPoints(0)
 
@@ -490,7 +569,8 @@ function ReflexGameMode:InitializeRound()
         --player.hero:RespawnUnit()
         player.nKillsThisRound = 0
         player.bDead = false
-        PlayerResource:SetGold(plyID, player.nUnspentGold, true)
+        --PlayerResource:SetGold(plyID, player.nUnspentGold, true)
+        player.hero:SetGold(player.nUnspentGold, true)
         player.hero:SetAbilityPoints(player.nUnspentAbilityPoints)
 
         for i=0,11 do
@@ -577,7 +657,8 @@ function ReflexGameMode:InitializeRound()
         end
 
         player.nUnspentGold = PlayerResource:GetGold(plyID)
-        PlayerResource:SetGold(plyID, 0, true)
+        --PlayerResource:SetGold(plyID, 0, true)
+        player.hero:SetGold(player.nUnspentGold, true)
         player.nUnspentAbilityPoints = player.hero:GetAbilityPoints()
         player.hero:SetAbilityPoints(0)
 
@@ -957,8 +1038,10 @@ function ReflexGameMode:OnEntityKilled( keys )
 
     -- Fix Gold
     self:LoopOverPlayers(function(player, plyID)
-      PlayerResource:SetGold(plyID, 0, true)
-      PlayerResource:SetGold(plyID, 0, false)
+      player.hero:SetGold(0, true)
+      player.hero:SetGold(0, false)
+      --PlayerResource:SetGold(plyID, 0, true)
+      --PlayerResource:SetGold(plyID, 0, false)
     end)
 
     if killedUnit:GetTeam() == DOTA_TEAM_GOODGUYS then
@@ -973,11 +1056,12 @@ function ReflexGameMode:OnEntityKilled( keys )
     self:LoopOverPlayers(function(player, plyID)
       --print('Player ' .. plyID .. ' -- Dead: ' .. tostring(player.bDead) .. ' -- Team: ' .. tostring(player.nTeam))
       if player.bDead == false and player.nTeam == killedUnit:GetTeam() then
-        for k,onDeath in pairs(ABILITY_ON_DEATH) do
+        for onDeath,scale in pairs(ABILITY_ON_DEATH) do
           local ability = player.hero:FindAbilityByName(onDeath)
           --print('     ' .. onDeath .. ' -- ' .. tostring(ability or 'NOPE'))
           if ability ~= nil and ability:GetLevel() ~= 0 then
             callModApplier(player.hero, onDeath, ability:GetLevel())
+            player.hero:SetModelScale(scale, ability:GetSpecialValueFor("duration"))
           end
         end
       end
@@ -999,11 +1083,16 @@ function ReflexGameMode:OnEntityKilled( keys )
     print ('RAlive: ' .. tostring(nRadiantAlive) .. ' -- DAlive: ' .. tostring(nDireAlive))
 
     if nRadiantAlive == 0 or nDireAlive == 0 then
+      self:LoopOverPlayers(function(player, plyID)
+        if player.bDead == false then
+          player.hero:AddNewModifier( player.hero, nil , "modifier_invulnerable", {})
+        end
+      end)  
       self:CreateTimer('victory', {
-      endTime = Time() + POST_ROUND_TIME,
-      callback = function(reflex, args)
-        ReflexGameMode:RoundComplete(false)
-      end})
+        endTime = Time() + POST_ROUND_TIME,
+        callback = function(reflex, args)
+          ReflexGameMode:RoundComplete(false)
+        end})
       return
     end
 
