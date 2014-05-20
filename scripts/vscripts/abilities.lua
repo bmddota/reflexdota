@@ -220,6 +220,10 @@ function itemChannelEnd( keys )
 	local start = channelTable[ID]
 	channelTable[ID] = nil
 	
+	if start == nil then
+		start = now + 0.5
+	end
+	
 	local channelTime = start - now
 	if string.find(itemName, "item_reflex_meteor_cannon") ~= nil then
 		itemTranquilBoots(channelTime, point, keys.ability, caster)
