@@ -69,13 +69,6 @@ if ReflexGameMode == nil then
 	ReflexGameMode.szEntityClassName = "reflex"
 	ReflexGameMode.szNativeClassName = "dota_base_game_mode"
 	ReflexGameMode.__index = ReflexGameMode
-
-	-- Preserve this across script reloads
-	-- How many guys this round are we respawning right now (to avoid ending early)
-	--ReflexGameMode.nExecutingRespawns = 0
-	-- How many guys this round have already respawned (to update quest text)
-	--ReflexGameMode.nExecutedRespawns = 0
-	--ReflexGameMode.bQuestTextDirty = false
 end
 
 function ReflexGameMode:new( o )
@@ -101,24 +94,6 @@ function ReflexGameMode:InitGameMode()
 	print('[[REFLEX]] Rules set')
 	
 	InitLogFile( "log/reflex.txt","")
-	--AppendToLogFile("log/reflex.txt", "[[Reflex Log Start]]\n")
-	
-	
-	--LogDeepSetLogFile("log/reflex.txt")
-	--LogDeepPrintTable(dota_base_game_mode, "[[Reflex]]", true)
-	--DeepPrintTable(dota_base_game_mode, "[[Reflex]]", true)
-	
-	--_scriptBind
-	--self:SetRecommendedItemsDisabled( true )
-	--self._scriptBind:SetCameraDistanceOverride( 1504.0 )
-	--SendToConsole("dota_camera_distance 1504")
-	--CDOTABaseGameMode:SetCameraDistanceOverride( 1504.0 )
-	-- self._scriptBind:SetRemoveIllusionsOnDeath( true )
-	-- self._scriptBind:SetFogOfWarDisabled( true )
-	--self._scriptBind:SetCustomBuybackCostEnabled( true )
-	--self._scriptBind:SetCustomBuybackCooldownEnabled( true )
-	
-	-- GameRules:Playtesting_UpdateCustomKeyValues( )
 	
 	-- Hooks
     ListenToGameEvent('entity_killed', Dynamic_Wrap(ReflexGameMode, 'OnEntityKilled'), self)
@@ -138,46 +113,6 @@ function ReflexGameMode:InitGameMode()
 	end
 	Convars:RegisterCommand( "reflex_set_ability", _boundSetAbilityConsoleCommand, "Set a hero ability", 0 )
 	print('[[REFLEX]] reflex_set_ability set')
-	
-	Convars:RegisterCommand( "reflex_spawn_hero", function()
-		local cmdPlayer = Convars:GetCommandClient()
-        if cmdPlayer then
-            local playerID = cmdPlayer:GetPlayerID()
-            if playerID ~= nil and playerID ~= -1 then
-				--[[local ply = self.vPlayers[playerID]
-				local hero = Entities:CreateByClassname("npc_dota_hero_ancient")
-				hero:SetOrigin(ply.hero:GetOrigin())
-				hero:SetTeam(DOTA_TEAM_BADGUYS)
-				hero:SetOwner(cmdPlayer)
-				
-				print( 'asdf ' .. tostring(hero))
-				PrintTable(hero)
-				PrintTable(getmetatable(hero))
-				hero:SetGold(30000, true)
-				print( 'asdf1 ' .. tostring(hero))
-				hero:AddExperience(1000, true)
-				print( 'asdf2 ' .. tostring(hero))
-				local dash = CreateItem("item_reflex_dash", heroEntity, heroEntity)
-				print( 'asdf3 ' .. tostring(hero))
-				--hero:AddItem(dash)
-				print( 'asdf4 ' .. tostring(hero))
-				local shooter = CreateItem("item_simple_shooter", heroEntity, heroEntity)
-				print( 'asdf5 ' .. tostring(hero))
-				--hero:AddItem(shooter)
-				print( 'asdf6 ' .. tostring(hero))]]
-				local ply = self.vPlayers[playerID]
-                local hero = CreateHeroForPlayer("npc_dota_hero_axe", cmdPlayer)
-				hero:SetGold(30000, true)
-				hero:AddExperience(1000, true)
-				local dash = CreateItem("item_reflex_dash", heroEntity, heroEntity)
-				hero:AddItem(dash)
-				local shooter = CreateItem("item_simple_shooter", heroEntity, heroEntity)
-				hero:AddItem(shooter)
-				hero:SetTeam(DOTA_TEAM_BADGUYS)
-				hero:RespawnHero(false, false, false)
-            end
-        end
-	end, "Create a hero under your control", 0)
 	
     Convars:RegisterCommand('reflex_reset_all', function()
         self:LoopOverPlayers(function(player, plyID)
@@ -210,38 +145,8 @@ function ReflexGameMode:InitGameMode()
 				end
 			end
 		end)
-    end, 'Connects and assigns fake Players.', 0)
+    end, 'Resets all players.', 0)
 	
-	-- Fill server with fake clients
-    Convars:RegisterCommand('fake', function()
-        -- Check if the server ran it
-        --if not Convars:GetCommandClient() then
-            -- Create fake Players
-            SendToServerConsole('dota_create_fake_clients')
-			
-			self:CreateTimer('assign_fakes', {
-                endTime = Time(),
-                callback = function(reflex, args)
-                    for i=0, 9 do
-                        -- Check if this player is a fake one
-                        if PlayerResource:IsFakeClient(i) then
-                            -- Grab player instance
-                            local ply = PlayerResource:GetPlayer(i)
-
-                            -- Make sure we actually found a player instance
-                            if ply then
-                                self:AutoAssignPlayer({
-                                    userid = 0,
-                                    index = ply:entindex()-1
-                                })
-                            end
-                        end
-                    end
-                end,
-                persist = true
-            })
-        --end
-    end, 'Connects and assigns fake Players.', 0)
 	
 	-- Change random seed
     local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '0','')
@@ -274,15 +179,6 @@ function ReflexGameMode:InitGameMode()
 	self.bPlayersInit = false
 	print('[[REFLEX]] values set')
 
-    --Convars:SetFloat('dota_suppress_invalid_orders', 1)
-
-    -- Stores the playerIDs that are taken
-    --self.takenPlayerIDs = {}
-
-    -- Start thinkers
-    --self._scriptBind:BeginThink('FrotaThink', Dynamic_Wrap(FrotaGameMode, 'Think'), 0.1)
-
-    -- Precache everything -- Having issues with the arguments changing
     print('[[REFLEX]] Precaching stuff...')
 	PrecacheUnitByName('npc_precache_everything')
 	--PrecacheUnit('npc_precache_everything', {})
@@ -1040,23 +936,6 @@ function ReflexGameMode:_WatConsoleCommand()
         end
 		
 	PrintTable(self.vPlayers)
-	--[[print( string.format( 'Round number %d', self.nRoundNumber ) )
-	print( string.format( 'Round has finished? %s', tostring( self.bRoundHasFinished ) ) )
-	print( string.format( 'Round has spawned all entities? %s', tostring( self.bRoundHasSpawnedAllEnemies ) ) )
-	print( string.format( 'Round is executing respawns %d', self.nExecutingRespawns ) )
-	print( string.format( 'Enemies remaining %d', #self.vEnemiesRemaining ) )
-	for i=1,#self.vEnemiesRemaining do
-		local enemy = self.vEnemiesRemaining[i].hEnemy
-		local className = '<unknown>'
-		if enemy.GetClassname then
-			className = enemy:GetClassname()
-		end
-		local unitName = '<no name>'
-		if enemy.GetUnitName then
-			unitName = enemy:GetUnitName()
-		end
-		print( string.format( '%d %s %s', i, className, unitName ) )
-	end]]
 	print( '*********************************************' )
 end
 
