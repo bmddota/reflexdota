@@ -330,19 +330,7 @@ end
 -- Cleanup a player when they leave
 function ReflexGameMode:CleanupPlayer(keys)
     print('[[REFLEX]] Player Disconnected ' .. tostring(keys.userid))
-	PrintTable(keys)
-	
-	self.nConnected = self.nConnected - 1
-
-	if self.nConnected == 0 then
-		self:RemoveTimer('all_disconnect')
-		self:CreateTimer('all_disconnect', {
-        endTime = Time()+30,
-        callback = function(reflex, args)
-            self:CloseServer()
-        end
-		})
-	end
+    self.nConnected = self.nConnected - 1
 end
 
 function ReflexGameMode:CloseServer()
@@ -355,17 +343,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
 	PrintTable ( keys )
 	
 	self:CaptureGameMode()
-	
-	--self:SetRecommendedItemsDisabled( true )
-	--self._scriptBind:SetCameraDistanceOverride( 1504.0 )
-	--SendToConsole("dota_camera_distance 1504")
-	--CDOTABaseGameMode:SetCameraDistanceOverride( 1504.0 )
-	-- self._scriptBind:SetRemoveIllusionsOnDeath( true )
-	-- self._scriptBind:SetFogOfWarDisabled( true )
-	--self._scriptBind:SetCustomBuybackCostEnabled( true )
-	--self._scriptBind:SetCustomBuybackCooldownEnabled( true )
-	
-	-- Grab the entity index of this player
+
 	print ('[[REFLEX]] getting index')
     local entIndex = keys.index+1
     local ply = EntIndexToHScript(entIndex)
@@ -382,19 +360,6 @@ function ReflexGameMode:AutoAssignPlayer(keys)
 		-- Reconnecting player??
 		return
 	end
-	
-	print ('[[REFLEX]] team sizes ' ..  #self.vRadiant .. "  --  " .. #self.vDire)
-	if #self.vRadiant > #self.vDire then
-		print ('[[REFLEX]] setting to bad guys')
-        ply:SetTeam(DOTA_TEAM_BADGUYS)
-        ply:__KeyValueFromInt('teamnumber', DOTA_TEAM_BADGUYS)
-		table.insert (self.vDire, ply)
-    else
-		print ('[[REFLEX]] setting to good guys')
-        ply:SetTeam(DOTA_TEAM_GOODGUYS)
-        ply:__KeyValueFromInt('teamnumber', DOTA_TEAM_GOODGUYS)
-		table.insert (self.vRadiant, ply)
-    end
 	
 	playerID = ply:GetPlayerID()
 	print ('[[REFLEX]] playerID: ' .. playerID)
