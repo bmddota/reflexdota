@@ -637,6 +637,10 @@ end
 
 function ReflexGameMode:RoundComplete(timedOut)
   print ('[[REFLEX]] Round Complete')
+  
+  self:RemoveTimer('round_start_timer')
+  self:RemoveTimer('round_time_out')
+  self:RemoveTimer('victory')
 
   local elapsedTime = GameRules:GetGameTime() - self.fRoundStartTime - POST_ROUND_TIME
 
