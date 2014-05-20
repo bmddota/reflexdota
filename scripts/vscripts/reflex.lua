@@ -972,8 +972,7 @@ function ReflexGameMode:OnEntityKilled( keys )
         for k,onDeath in pairs(ABILITY_ON_DEATH) do
           local ability = player.hero:FindAbilityByName(onDeath)
           --print('     ' .. onDeath .. ' -- ' .. tostring(ability or 'NOPE'))
-          if ability ~= nil then
-            --print ('    ' .. tostring(ability:GetLevel()))
+          if ability ~= nil and ability:GetLevel() ~= 0 then
             callModApplier(player.hero, onDeath, ability:GetLevel())
           end
         end
