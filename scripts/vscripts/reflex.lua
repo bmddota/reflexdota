@@ -2,7 +2,7 @@ print ('[[REFLEX]] reflex.lua' )
 
 DEBUG=false
 
-REFLEX_VERSION = "0.1"
+REFLEX_VERSION = "0.02"
 
 ROUNDS_TO_WIN = 10
 ROUND_TIME = 150 --240

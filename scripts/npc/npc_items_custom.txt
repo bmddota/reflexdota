@@ -2633,7 +2633,7 @@
 		"AbilityCooldown"				"0.75"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"200 240 280 320"
+		"AbilityDamage"					"150 175 200 225"
 		
 		"precache"
 		{
@@ -2727,7 +2727,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 240 280 320"
+				"damage"				"150 175 200 225"
 			}
 			
 			"03"
@@ -2776,7 +2776,7 @@
 		"AbilityCooldown"				"0.75"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"200 240 280 320"
+		"AbilityDamage"					"150 175 200 225"
 		
 		"precache"
 		{
@@ -2870,7 +2870,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 240 280 320"
+				"damage"				"150 175 200 225"
 			}
 			
 			"03"
@@ -2919,7 +2919,7 @@
 		"AbilityCooldown"				"0.75"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"200 240 280 320"
+		"AbilityDamage"					"150 175 200 225"
 		
 		"precache"
 		{
@@ -3013,7 +3013,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 240 280 320"
+				"damage"				"150 175 200 225"
 			}
 			
 			"03"
@@ -3062,7 +3062,7 @@
 		"AbilityCooldown"				"0.75"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"200 240 280 320"
+		"AbilityDamage"					"150 175 200 225"
 		
 		"precache"
 		{
@@ -3156,7 +3156,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 240 280 320"
+				"damage"				"150 175 200 225"
 			}
 			
 			"03"
