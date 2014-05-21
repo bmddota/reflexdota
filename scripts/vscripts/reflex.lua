@@ -472,9 +472,13 @@ function ReflexGameMode:ShopReplacement( keys )
   --local abilityToAdd = ABILITY_ITEM_TABLE[item:GetAbilityName()]
   local abilityToAdd = string.gsub(item:GetAbilityName(), "item_ability_", "")
 
+  local cost = item:GetCost()
   item:Remove()
 
-  if player.hero:FindAbilityByName (abilityToAdd) ~= nil then return end
+  if player.hero:FindAbilityByName (abilityToAdd) ~= nil then 
+    player.hero:SetGold(player.hero:GetGold() + cost, true)
+    return 
+  end
 
   if ABILITY_ITEM_TABLE[abilityToAdd] == 1 then
     --Is passive, Reverse order
@@ -1061,7 +1065,14 @@ function ReflexGameMode:OnEntityKilled( keys )
           --print('     ' .. onDeath .. ' -- ' .. tostring(ability or 'NOPE'))
           if ability ~= nil and ability:GetLevel() ~= 0 then
             callModApplier(player.hero, onDeath, ability:GetLevel())
-            player.hero:SetModelScale(scale, ability:GetSpecialValueFor("duration"))
+            print(tostring(1 + ((scale - 1) * (ability:GetLevel() / 4))))
+            player.hero:SetModelScale(1 + ((scale - 1) * (ability:GetLevel() / 4)), 1)
+            self:CreateTimer('',{
+              endTime = GameRules:GetGameTime() + ability:GetSpecialValueFor("duration"),
+              useGameTime = true,
+              callback = function() 
+                player.hero:SetModelScale(1, 1)
+              end})
           end
         end
       end
