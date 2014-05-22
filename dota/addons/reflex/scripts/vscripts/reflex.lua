@@ -784,7 +784,11 @@ function ReflexGameMode:InitializeRound()
 				end)
 				
 				bInPreRound = false;
-				Say(nil, "FIGHT!", false)
+				local msg = {
+					message = "FIGHT!",
+					duration = 0.9
+				}
+				FireGameEvent("show_center_message",msg)
 				return
 			elseif startCount == 6 then
 				Say(nil, "10 seconds remaining!", false)
