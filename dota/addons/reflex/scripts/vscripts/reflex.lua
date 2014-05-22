@@ -255,7 +255,7 @@ function ReflexGameMode:InitGameMode()
 	self.nCurrentRound = 1
 	self.nRadiantDead = 0
 	self.nDireDead = 0
-	self.nLastKill = DOTA_TEAM_GOODGUYS
+	self.nLastKill = nil
 	self.fRoundStartTime = 0
 	
 	-- Timers
@@ -773,20 +773,32 @@ function ReflexGameMode:InitializeRound()
 								Say(nil, "30 seconds remaining!", false)
 								return GameRules:GetGameTime() + 20
 							else 
-								Say(nil, tostring(timeoutCount), false)
+								local msg = {
+									message = tostring(timeoutCount),
+									duration = 0.9
+								}
+								FireGameEvent("show_center_message",msg)
 								return GameRules:GetGameTime() + 1
 							end
 						end})
 				end)
 				
 				bInPreRound = false;
-				Say(nil, "FIGHT!", false)
+				local msg = {
+					message = "FIGHT!",
+					duration = 0.9
+				}
+				FireGameEvent("show_center_message",msg)
 				return
 			elseif startCount == 6 then
 				Say(nil, "10 seconds remaining!", false)
 				return GameRules:GetGameTime() + 5
 			else
-				Say(nil, tostring(startCount), false)
+				local msg = {
+					message = tostring(startCount),
+					duration = 0.9
+				}
+				FireGameEvent("show_center_message",msg)
 				return GameRules:GetGameTime() + 1
 			end
 		end})
@@ -802,8 +814,14 @@ function ReflexGameMode:RoundComplete(timedOut)
 	local victor = DOTA_TEAM_GOODGUYS
 	local s = "Radiant"
 	if timedOut then
+		--If noteam score any kill, the team on inferior position win this round to prevent from negative attitude
+		if self.nLastKill == nil then 
+			if self.nRadiantScore > self.nDireScore then
+				victor = DOTA_TEAM_BADGUYS
+				s = "Dire"
+			end
 		-- Victor is whoever has least dead
-		if self.nDireDead < self.nRadiantDead then
+		elseif self.nDireDead < self.nRadiantDead then
 			victor = DOTA_TEAM_BADGUYS
 			s = "Dire"
 		-- If both have same number of dead go by last team that got a kill
@@ -842,6 +860,7 @@ function ReflexGameMode:RoundComplete(timedOut)
 	GameMode:SetTopBarTeamValue ( DOTA_TEAM_GOODGUYS, self.nRadiantScore )
 	
 	Say(nil, s .. " WINS the round!         TimeBonus: " .. tostring(timeBonus) .. "g", false)
+	if self.timers[round_time_out] then self:RemoveTimer(round_time_out) end
 	--Say(nil, "Overall Score:  " .. self.nRadiantScore .. " - " .. self.nDireScore, false)
 	
 	-- Check if at max round
@@ -910,7 +929,7 @@ function ReflexGameMode:RoundComplete(timedOut)
 	self.nCurrentRound = self.nCurrentRound + 1
 	self.nRadiantDead = 0
 	self.nDireDead = 0
-	self.nLastKill = DOTA_TEAM_GOODGUYS
+	self.nLastKill = nil
 	
 	self:InitializeRound()
 end
