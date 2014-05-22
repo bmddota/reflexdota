@@ -773,7 +773,11 @@ function ReflexGameMode:InitializeRound()
 								Say(nil, "30 seconds remaining!", false)
 								return GameRules:GetGameTime() + 20
 							else 
-								Say(nil, tostring(timeoutCount), false)
+								local msg = {
+									message = tostring(timeoutCount),
+									duration = 0.9
+								}
+								FireGameEvent("show_center_message",msg)
 								return GameRules:GetGameTime() + 1
 							end
 						end})
@@ -786,7 +790,11 @@ function ReflexGameMode:InitializeRound()
 				Say(nil, "10 seconds remaining!", false)
 				return GameRules:GetGameTime() + 5
 			else
-				Say(nil, tostring(startCount), false)
+				local msg = {
+					message = tostring(startCount),
+					duration = 0.9
+				}
+				FireGameEvent("show_center_message",msg)
 				return GameRules:GetGameTime() + 1
 			end
 		end})
@@ -842,6 +850,7 @@ function ReflexGameMode:RoundComplete(timedOut)
 	GameMode:SetTopBarTeamValue ( DOTA_TEAM_GOODGUYS, self.nRadiantScore )
 	
 	Say(nil, s .. " WINS the round!         TimeBonus: " .. tostring(timeBonus) .. "g", false)
+	if self.timers[round_time_out] then self:RemoveTimer(round_time_out) end
 	--Say(nil, "Overall Score:  " .. self.nRadiantScore .. " - " .. self.nDireScore, false)
 	
 	-- Check if at max round
