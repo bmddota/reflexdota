@@ -1,0 +1,1912 @@
+��"lang"
+
+{
+
+	"Language"		"schinese"
+
+	"Tokens"
+
+	{		
+
+		"game_mode_15"				"REFLEX"
+
+		"addon_game_name"			"REFLEX"
+
+		
+
+		"DOTA_Basics"							"技能"
+
+		"DOTA_Upgrades"							"物品"
+
+		"DOTA_Shop_Category_Basics"				"技能"
+
+		"DOTA_Shop_Category_Upgrades"			"物品"
+
+		
+
+		//--------------
+
+		// Ability Items
+
+		//--------------
+
+		"DOTA_Tooltip_ability_item_ability_reflex_haste"										"急速"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_haste_Description"							"使施法者移动速度达到极限，持续%duration%秒"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_haste_Lore"								""
+
+		"DOTA_Tooltip_ability_item_ability_reflex_haste_duration"							"持续时间:"
+
+		
+
+		"DOTA_Tooltip_ability_item_ability_reflex_phase_shift"										"相位转移"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_phase_shift_Description"							"使施法者进入相位转移状态，持续%duration%秒，闪避一切攻击"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_phase_shift_Lore"								""
+
+		"DOTA_Tooltip_ability_item_ability_reflex_phase_shift_duration"							"持续时间:"
+
+		
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_cogs"									"能量齿轮"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_cogs_Description"						"在施法者周围形成一个能量齿轮陷阱，困住附近的敌人，陷阱外的敌人碰触到齿轮会被击退，并损失魔法值及生命值。"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_cogs_Lore"								""
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_cogs_Note0"								"能量齿轮能击中隐身目标."
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_cogs_duration"							"持续时间:"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_cogs_attacks_to_destroy"					"所需攻击次数:"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_cogs_drain_amount"						"魔法/生命值损毁:"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_cogs_notes"								"注意:\n\n能量齿轮对魔法免疫及隐身单位均有效.\n\n但是能量及生命损毁对魔法免疫单位无效\n\n被击退的单位将会被短暂眩晕。"
+
+		
+
+		"DOTA_Tooltip_ability_item_ability_reflex_kinetic_field"							"能量力场"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_kinetic_field_Description"				"经过一段时间，形成一个敌人无法通过的能量力场。"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_kinetic_field_Lore"						""
+
+		"DOTA_Tooltip_ability_item_ability_reflex_kinetic_field_Note0"					"魔免单位将能够通过能量力场"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_kinetic_field_formation_time"			"形成时间:"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_kinetic_field_duration"					"持续时间:"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_kinetic_field_radius"					"范围:"
+
+		
+
+		"DOTA_Tooltip_ability_item_ability_reflex_borrowed_time"				"回光返照"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_borrowed_time_Description"	"当此技能激活时，能够吸收伤害并治疗自己，大多数负面效果也将会被移除。"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_borrowed_time_Lore"			""
+
+		"DOTA_Tooltip_ability_item_ability_reflex_borrowed_time_duration"		"持续时间:"
+
+		
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_shot"										"强力击"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_shot_Description"							"最多蓄力一秒并释放一次强力击，蓄力时间越长，伤害越高，击中的多个目标，后击中的目标伤害会递减"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_shot_Lore"								""
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_shot_Note0"								"强力箭矢的初始移动速度为%speed%，在击中敌人或树木之后，移动速度回降低。"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_shot_Note1"								""
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_shot_arrow_range"							"范围:"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_shot_arrow_speed"							"速度:"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_power_shot_arrow_width"							"箭矢宽度:"
+
+		
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_flame_breath"									"火焰吐息"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_flame_breath_Description"						"在施法者前方吐出四道火焰伤害敌人。"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_flame_breath_Lore"								""
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_flame_breath_radius"							"范围:"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_flame_breath_damage"							"每道伤害:"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_flame_breath_rotation_angle"					"旋转角度:"
+
+		
+
+		"DOTA_Tooltip_ability_item_ability_reflex_wisp_spirits"										"幽光之魂"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_wisp_spirits_Description"							"召唤五个幽光之魂环绕施法者，对碰到的敌人造成伤害，持续一段时间后，幽光之魂将消失。"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_wisp_spirits_Lore"								""
+
+		"DOTA_Tooltip_ability_item_ability_reflex_wisp_spirits_Note0"								""
+
+		"DOTA_Tooltip_ability_item_ability_reflex_wisp_spirits_hero_damage"							"对英雄伤害:"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_wisp_spirits_max_range"							"最大范围:"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_wisp_spirits_explode_radius"						"碰撞范围:"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_wisp_spirits_spirit_duration"						"持续时间:"
+
+		
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_energy_drain"							"负能力场"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_energy_drain_Description"				"在目标区域创造一个负能立场，身处其中的单位会损失能量且能量恢复速度将会降低。"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_energy_drain_Lore"							""
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_energy_drain_radius"							"范围:"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_energy_drain_duration"							"持续时间:"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_energy_drain_energy_degen"					"每秒损失能量:"
+
+		
+
+		"DOTA_Tooltip_ability_item_ability_reflex_bristleback"							"钢毛后背"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_bristleback_Description"				"击中英雄背后的伤害将会降低"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_bristleback_Lore"						""
+
+		"DOTA_Tooltip_ability_item_ability_reflex_bristleback_Note0"					""
+
+		"DOTA_Tooltip_ability_item_ability_reflex_bristleback_Note1"					""
+
+		"DOTA_Tooltip_ability_item_ability_reflex_bristleback_side_damage_reduction"	"%侧面伤害降低:"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_bristleback_back_damage_reduction"	"%背后伤害降低:"
+
+		//"DOTA_Tooltip_ability_item_ability_reflex_bristleback_quill_spray_threshold"	"伤害阈值:"
+
+		
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_hp_boost"							"生命增强"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_hp_boost_Description"				"增加英雄生命总量"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_hp_boost_Lore"						""
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_hp_boost_health_boost"				"生命值增加："
+
+		
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_energy_boost"							"能量增强"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_energy_boost_Description"				"增加英雄能量总量"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_energy_boost_Lore"						""
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_energy_boost_mana_boost"				"能量增加:"
+
+		
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_energy_regen_boost"							"能量恢复增强"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_energy_regen_boost_Description"				"为英雄的能量恢复速度增加一个固定值"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_energy_regen_boost_Lore"						""
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_energy_regen_boost_mana_regen"				"能量恢复:"
+
+		
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_bulk_up"							"全面增强"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_bulk_up_Description"				"增强英雄的生命总量，能量总量和能量恢复速度。"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_bulk_up_Lore"						""
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_bulk_up_health_boost"				"生命总量增加:"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_bulk_up_mana_boost"				"能量总量增加:"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_bulk_up_mana_regen"				"能量恢复增加:"
+
+		
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_rocket_flare"							"照明弹"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_rocket_flare_Description"				"往目标区域发射一个照明弹，照亮10秒。"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_rocket_flare_Lore"						""
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_rocket_flare_radius"				"视野范围:"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_rocket_flare_duration"				"持续时间:"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_rocket_flare_speed"				"发射速度:"
+
+		
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_vengeance"							"复仇"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_vengeance_Description"				"当有友方英雄阵亡时，受到的伤害显著降低，持续一小段时间。"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_vengeance_Lore"						""
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_vengeance_damage_reduction"		"%伤害减免:"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_vengeance_duration"				"持续时间:"
+
+		
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_scaredy_cat"							"惊弓之鸟"
+
+		"DOTA_Tooltip_ability_item_ability_reflex_scaredy_cat_Description"				"当有友方英雄阵亡时，英雄的移动速度显著提高，并获得持续恢复效果，当受到伤害时，效果消失。"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_scaredy_cat_Lore"						""
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_scaredy_cat_movement_speed"		"%移动速度提升:"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_scaredy_cat_duration"				"持续时间:"
+
+		"DOTA_Tooltip_Ability_item_ability_reflex_scaredy_cat_hp_per_tick"			"每秒生命恢复:"
+
+		
+
+		
+
+		//--------------------
+
+		//Abilities
+
+		//--------------------
+
+		"DOTA_Tooltip_ability_reflex_haste"										"急速"
+
+		"DOTA_Tooltip_ability_reflex_haste_Description"							"使施法者移动速度达到极限，持续%duration%秒"
+
+		"DOTA_Tooltip_ability_reflex_haste_Lore"								""
+
+		"DOTA_Tooltip_ability_reflex_haste_duration"							"持续时间:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_phase_shift"										"相位转移"
+
+		"DOTA_Tooltip_ability_reflex_phase_shift_Description"							"使施法者进入相位转移状态，持续%duration%秒，闪避一切攻击"
+
+		"DOTA_Tooltip_ability_reflex_phase_shift_Lore"								""
+
+		"DOTA_Tooltip_ability_reflex_phase_shift_duration"							"持续时间:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_power_cogs"									"能量齿轮"
+
+		"DOTA_Tooltip_ability_reflex_power_cogs_Description"						"在施法者周围形成一个能量齿轮陷阱，困住附近的敌人，陷阱外的敌人碰触到齿轮会被击退，并损失魔法值及生命值。"
+
+		"DOTA_Tooltip_ability_reflex_power_cogs_Lore"								""
+
+		"DOTA_Tooltip_ability_reflex_power_cogs_Note0"								"能量齿轮能击中隐身目标."
+
+		"DOTA_Tooltip_ability_reflex_power_cogs_duration"							"持续时间:"
+
+		"DOTA_Tooltip_ability_reflex_power_cogs_attacks_to_destroy"					"所需攻击次数:"
+
+		"DOTA_Tooltip_ability_reflex_power_cogs_drain_amount"						"魔法/生命值损毁:"
+
+		"DOTA_Tooltip_ability_reflex_power_cogs_notes"								"注意:\n\n能量齿轮对魔法免疫及隐身单位均有效.\n\n但是能量及生命损毁对魔法免疫单位无效\n\n被击退的单位将会被短暂眩晕。"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_kinetic_field"							"能量力场"
+
+		"DOTA_Tooltip_ability_reflex_kinetic_field_Description"				"经过一段时间，形成一个敌人无法通过的能量力场。"
+
+		"DOTA_Tooltip_ability_reflex_kinetic_field_Lore"						""
+
+		"DOTA_Tooltip_ability_reflex_kinetic_field_Note0"					"魔免单位将能够通过能量力场"
+
+		"DOTA_Tooltip_ability_reflex_kinetic_field_formation_time"			"形成时间:"
+
+		"DOTA_Tooltip_ability_reflex_kinetic_field_duration"					"持续时间:"
+
+		"DOTA_Tooltip_ability_reflex_kinetic_field_radius"					"范围:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_borrowed_time"				"回光返照"
+
+		"DOTA_Tooltip_ability_reflex_borrowed_time_Description"	"当此技能激活时，能够吸收伤害并治疗自己，大多数负面效果也将会被移除。"
+
+		"DOTA_Tooltip_ability_reflex_borrowed_time_Lore"			""
+
+		"DOTA_Tooltip_ability_reflex_borrowed_time_duration"		"持续时间:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_power_shot"										"强力击"
+
+		"DOTA_Tooltip_ability_reflex_power_shot_Description"							"最多蓄力一秒并释放一次强力击，蓄力时间越长，伤害越高，击中的多个目标，后击中的目标伤害会递减"
+
+		"DOTA_Tooltip_ability_reflex_power_shot_Lore"								""
+
+		"DOTA_Tooltip_ability_reflex_power_shot_Note0"								"强力箭矢的初始移动速度为%speed%，在击中敌人或树木之后，移动速度回降低。"
+
+		"DOTA_Tooltip_ability_reflex_power_shot_Note1"								""
+
+		"DOTA_Tooltip_ability_reflex_power_shot_arrow_range"							"范围:"
+
+		"DOTA_Tooltip_ability_reflex_power_shot_arrow_speed"							"速度:"
+
+		"DOTA_Tooltip_ability_reflex_power_shot_arrow_width"							"箭矢宽度:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_flame_breath"									"火焰吐息"
+
+		"DOTA_Tooltip_ability_reflex_flame_breath_Description"						"在施法者前方吐出四道火焰伤害敌人。"
+
+		"DOTA_Tooltip_ability_reflex_flame_breath_Lore"								""
+
+		"DOTA_Tooltip_ability_reflex_flame_breath_radius"							"范围:"
+
+		"DOTA_Tooltip_ability_reflex_flame_breath_damage"							"每道伤害:"
+
+		"DOTA_Tooltip_ability_reflex_flame_breath_rotation_angle"					"旋转角度:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_wisp_spirits"										"幽光之魂"
+
+		"DOTA_Tooltip_ability_reflex_wisp_spirits_Description"							"召唤五个幽光之魂环绕施法者，对碰到的敌人造成伤害，持续一段时间后，幽光之魂将消失。"
+
+		"DOTA_Tooltip_ability_reflex_wisp_spirits_Lore"								""
+
+		"DOTA_Tooltip_ability_reflex_wisp_spirits_Note0"								""
+
+		"DOTA_Tooltip_ability_reflex_wisp_spirits_hero_damage"							"对英雄伤害:"
+
+		"DOTA_Tooltip_ability_reflex_wisp_spirits_max_range"							"最大范围:"
+
+		"DOTA_Tooltip_ability_reflex_wisp_spirits_explode_radius"						"碰撞范围:"
+
+		"DOTA_Tooltip_ability_reflex_wisp_spirits_spirit_duration"						"持续时间:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_energy_drain"							"负能力场"
+
+		"DOTA_Tooltip_ability_reflex_energy_drain_Description"				"在目标区域创造一个负能立场，身处其中的单位会损失能量且能量恢复速度将会降低。"
+
+		"DOTA_Tooltip_ability_reflex_energy_drain_Lore"							""
+
+		"DOTA_Tooltip_ability_reflex_energy_drain_radius"							"范围:"
+
+		"DOTA_Tooltip_ability_reflex_energy_drain_duration"							"持续时间:"
+
+		"DOTA_Tooltip_ability_reflex_energy_drain_energy_degen"					"每秒损失能量:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_bristleback"							"钢毛后背"
+
+		"DOTA_Tooltip_ability_reflex_bristleback_Description"				"击中英雄背后的伤害将会降低"
+
+		"DOTA_Tooltip_ability_reflex_bristleback_Lore"						""
+
+		"DOTA_Tooltip_ability_reflex_bristleback_Note0"					""
+
+		"DOTA_Tooltip_ability_reflex_bristleback_Note1"					""
+
+		"DOTA_Tooltip_ability_reflex_bristleback_side_damage_reduction"	"%侧面伤害降低:"
+
+		"DOTA_Tooltip_ability_reflex_bristleback_back_damage_reduction"	"%背后伤害降低:"
+
+		//"DOTA_Tooltip_ability_reflex_bristleback_quill_spray_threshold"	"伤害阈值:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_hp_boost"							"生命增强"
+
+		"DOTA_Tooltip_ability_reflex_hp_boost_Description"				"增加英雄生命总量"
+
+		"DOTA_Tooltip_ability_reflex_hp_boost_Lore"						""
+
+		"DOTA_Tooltip_ability_reflex_hp_boost_health_boost"				"生命值增加："
+
+		
+
+		"DOTA_Tooltip_ability_reflex_energy_boost"							"能量增强"
+
+		"DOTA_Tooltip_ability_reflex_energy_boost_Description"				"增加英雄能量总量"
+
+		"DOTA_Tooltip_ability_reflex_energy_boost_Lore"						""
+
+		"DOTA_Tooltip_ability_reflex_energy_boost_mana_boost"				"能量增加:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_energy_regen_boost"							"能量恢复增强"
+
+		"DOTA_Tooltip_ability_reflex_energy_regen_boost_Description"				"为英雄的能量恢复速度增加一个固定值"
+
+		"DOTA_Tooltip_ability_reflex_energy_regen_boost_Lore"						""
+
+		"DOTA_Tooltip_ability_reflex_energy_regen_boost_mana_regen"				"能量恢复:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_bulk_up"							"全面增强"
+
+		"DOTA_Tooltip_ability_reflex_bulk_up_Description"				"增强英雄的生命总量，能量总量和能量恢复速度。"
+
+		"DOTA_Tooltip_ability_reflex_bulk_up_Lore"						""
+
+		"DOTA_Tooltip_ability_reflex_bulk_up_health_boost"				"生命总量增加:"
+
+		"DOTA_Tooltip_ability_reflex_bulk_up_mana_boost"				"能量总量增加:"
+
+		"DOTA_Tooltip_ability_reflex_bulk_up_mana_regen"				"能量恢复增加:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_rocket_flare"							"照明弹"
+
+		"DOTA_Tooltip_ability_reflex_rocket_flare_Description"				"往目标区域发射一个照明弹，照亮10秒。"
+
+		"DOTA_Tooltip_ability_reflex_rocket_flare_Lore"						""
+
+		"DOTA_Tooltip_ability_reflex_rocket_flare_radius"				"视野范围:"
+
+		"DOTA_Tooltip_ability_reflex_rocket_flare_duration"				"持续时间:"
+
+		"DOTA_Tooltip_ability_reflex_rocket_flare_speed"				"发射速度:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_vengeance"							"复仇"
+
+		"DOTA_Tooltip_ability_reflex_vengeance_Description"				"当有友方英雄阵亡时，受到的伤害显著降低，持续一小段时间。"
+
+		"DOTA_Tooltip_ability_reflex_vengeance_Lore"						""
+
+		"DOTA_Tooltip_ability_reflex_vengeance_damage_reduction"		"%伤害减免:"
+
+		"DOTA_Tooltip_ability_reflex_vengeance_duration"				"持续时间:"
+
+		
+
+		"DOTA_Tooltip_ability_reflex_scaredy_cat"							"惊弓之鸟"
+
+		"DOTA_Tooltip_ability_reflex_scaredy_cat_Description"				"当有友方英雄阵亡时，英雄的移动速度显著提高，并获得持续恢复效果，当受到伤害时，效果消失。"
+
+		"DOTA_Tooltip_ability_reflex_scaredy_cat_Lore"						""
+
+		"DOTA_Tooltip_ability_reflex_scaredy_cat_movement_speed"		"%移动速度提升:"
+
+		"DOTA_Tooltip_ability_reflex_scaredy_cat_duration"				"持续时间:"
+
+		"DOTA_Tooltip_ability_reflex_scaredy_cat_hp_per_tick"			"每秒生命恢复:"
+
+
+		//------------------------
+
+		// Items
+
+		//------------------------
+
+		"DOTA_Tooltip_ability_item_reflex_dash"						"火箭靴"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_Description"			"火箭靴能够将你向前推进一段距离，需要充能，每次充能时间为%recharge_time%。"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_dash_Note0"				"每次施法的充能时间相互独立。"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_recharge_time"		"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_max_charges"			"最大充能:"
+		
+
+		"DOTA_Tooltip_ability_item_reflex_dash_2"						"火箭靴LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_2_Description"			"火箭靴能够将你向前推进一段距离，需要充能，每次充能时间为%recharge_time%。"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_2_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_dash_2_Note0"				"每次施法的充能时间相互独立。"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_2_recharge_time"		"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_2_max_charges"			"最大充能:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_dash_3"						"火箭靴LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_3_Description"			"火箭靴能够将你向前推进一段距离，需要充能，每次充能时间为%recharge_time%。"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_3_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_dash_3_Note0"				"每次施法的充能时间相互独立。"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_3_recharge_time"		"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_3_max_charges"			"最大充能:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_dash_4"						"火箭靴LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_4_Description"			"火箭靴能够将你向前推进一段距离，需要充能，每次充能时间为%recharge_time%。"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_4_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_dash_4_Note0"				"每次施法的充能时间相互独立。"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_4_recharge_time"		"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_dash_4_max_charges"			"最大充能:"
+		
+		
+
+		"DOTA_Tooltip_ability_item_simple_shooter"									"简易火枪"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_Description"						"发射一发又慢，伤害又低的子弹，伤害一个目标"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_Lore"								""
+
+		"DOTA_Tooltip_ability_item_simple_shooter_speed"							"速度:"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_damage"							"伤害:"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_range"							"距离:"
+		
+
+		"DOTA_Tooltip_ability_item_simple_shooter_2"									"简易火枪LV2"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_2_Description"						"发射一发又慢，伤害又低的子弹，伤害一个目标"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_2_Lore"								""
+
+		"DOTA_Tooltip_ability_item_simple_shooter_2_speed"							"速度:"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_2_damage"							"伤害:"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_2_range"							"距离:"
+		
+		
+		"DOTA_Tooltip_ability_item_simple_shooter_3"									"简易火枪LV3"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_3_Description"						"发射一发又慢，伤害又低的子弹，伤害一个目标"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_3_Lore"								""
+
+		"DOTA_Tooltip_ability_item_simple_shooter_3_speed"							"速度:"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_3_damage"							"伤害:"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_3_range"							"距离:"
+		
+		
+		"DOTA_Tooltip_ability_item_simple_shooter_4"									"简易火枪LV4"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_4_Description"						"发射一发又慢，伤害又低的子弹，伤害一个目标"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_4_Lore"								""
+
+		"DOTA_Tooltip_ability_item_simple_shooter_4_speed"							"速度:"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_4_damage"							"伤害:"
+
+		"DOTA_Tooltip_ability_item_simple_shooter_4_range"							"距离:"
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield"						"圣盾"
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_Description"			"圣盾将能够减免目标单位所受的伤害。"
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_Note0"				""
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_duration"			"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_damage_reduction"	"%伤害减免:"
+
+		"DOTA_Tooltip_modifier_item_shield"							"圣盾守护"
+
+		"DOTA_Tooltip_modifier_item_shield_Description"				"圣盾守护着你"
+
+		
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_2"						"圣盾LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_2_Description"			"圣盾将能够减免目标单位所受的伤害。"
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_2_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_2_Note0"				""
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_2_duration"			"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_2_damage_reduction"	"%伤害减免:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_3"						"圣盾LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_3_Description"			"圣盾将能够减免目标单位所受的伤害。"
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_3_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_3_Note0"				""
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_3_duration"			"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_3_damage_reduction"	"%伤害减免:"
+		
+	
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_4"						"圣盾LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_4_Description"			"圣盾将能够减免目标单位所受的伤害。"
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_4_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_4_Note0"				""
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_4_duration"			"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_holy_shield_4_damage_reduction"	"%伤害减免:"
+
+		
+		"DOTA_Tooltip_ability_item_reflex_shotgun"					"散弹"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_Description"		"对前方小范围的所有敌人造成伤害。"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_Note0"				"充能方式：当充能时间完成后，将会恢复到最大充能数"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_distance"			"距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_begin_radius"		"初始范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_end_radius"		"最终范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_recharge_time"		"充能时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_shotgun_2"					"散弹LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_2_Description"		"对前方小范围的所有敌人造成伤害。"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_2_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_2_Note0"				"充能方式：当充能时间完成后，将会恢复到最大充能数"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_2_distance"			"距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_2_begin_radius"		"初始范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_2_end_radius"		"最终范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_2_recharge_time"		"充能时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_shotgun_3"					"散弹LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_3_Description"		"对前方小范围的所有敌人造成伤害。"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_3_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_3_Note0"				"充能方式：当充能时间完成后，将会恢复到最大充能数"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_3_distance"			"距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_3_begin_radius"		"初始范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_3_end_radius"		"最终范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_3_recharge_time"		"充能时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_shotgun_4"					"散弹LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_4_Description"		"对前方小范围的所有敌人造成伤害。"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_4_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_4_Note0"				"充能方式：当充能时间完成后，将会恢复到最大充能数"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_4_distance"			"距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_4_begin_radius"		"初始范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_4_end_radius"		"最终范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_shotgun_4_recharge_time"		"充能时间:"
+		
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot"						"长枪"
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_Description"			"长枪能够释放长距离的冲击波，对目标造成较低伤害。"
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_Note0"				"充能方式：每次使用将会重置充能时间。"
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_recharge_time"		"充能时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_long_shot_2"						"长枪LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_2_Description"			"长枪能够释放长距离的冲击波，对目标造成较低伤害。"
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_2_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_2_Note0"				"充能方式：每次使用将会重置充能时间。"
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_2_recharge_time"		"充能时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_long_shot_3"						"长枪LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_3_Description"			"长枪能够释放长距离的冲击波，对目标造成较低伤害。"
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_3_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_3_Note0"				"充能方式：每次使用将会重置充能时间。"
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_3_recharge_time"		"充能时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_long_shot_4"						"长枪LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_4_Description"			"长枪能够释放长距离的冲击波，对目标造成较低伤害。"
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_4_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_4_Note0"				"充能方式：每次使用将会重置充能时间。"
+
+		"DOTA_Tooltip_ability_item_reflex_long_shot_4_recharge_time"		"充能时间:"
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst"						"气爆"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_Description"			"在施法者脚下形成气爆，将所有敌人吹飞。"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_Note0"					""
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_height"					"吹飞高度:"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_distance"				"吹飞距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_radius"					"作用范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_duration"				"滞空时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_air_burst_2"						"气爆LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_2_Description"			"在施法者脚下形成气爆，将所有敌人吹飞。"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_2_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_2_Note0"					""
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_2_height"					"吹飞高度:"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_2_distance"				"吹飞距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_2_radius"					"作用范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_2_duration"				"滞空时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_air_burst_3"						"气爆LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_3_Description"			"在施法者脚下形成气爆，将所有敌人吹飞。"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_3_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_3_Note0"					""
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_3_height"					"吹飞高度:"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_3_distance"				"吹飞距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_3_radius"					"作用范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_3_duration"				"滞空时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_air_burst_4"						"气爆LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_4_Description"			"在施法者脚下形成气爆，将所有敌人吹飞。"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_4_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_4_Note0"					""
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_4_height"					"吹飞高度:"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_4_distance"				"吹飞距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_4_radius"					"作用范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_air_burst_4_duration"				"滞空时间:"
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain"									"苦痛之墙"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_Description"						"创造一个苦痛之墙，每半秒对通过它的敌人造成伤害并减速。"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_Lore"								""
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_Note0"								"充能方式：当释放之后，充能将会暂停。"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_duration"							"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_width"								"宽度:"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_recharge_time"						"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_max_charges"						"最大充能:"
+
+		"DOTA_Tooltip_modifier_dark_seer_wall_of_discord_target"				"苦痛"
+
+		"DOTA_Tooltip_modifier_dark_seer_wall_of_discord_target_Description"	"苦痛之墙造成伤害和减速。"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_2"									"苦痛之墙LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_2_Description"						"创造一个苦痛之墙，每半秒对通过它的敌人造成伤害并减速。"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_2_Lore"								""
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_2_Note0"								"充能方式：当释放之后，充能将会暂停。"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_2_duration"							"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_2_width"								"宽度:"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_2_recharge_time"						"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_2_max_charges"						"最大充能:"
+
+
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_3"									"苦痛之墙LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_3_Description"						"创造一个苦痛之墙，每半秒对通过它的敌人造成伤害并减速。"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_3_Lore"								""
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_3_Note0"								"充能方式：当释放之后，充能将会暂停。"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_3_duration"							"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_3_width"								"宽度:"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_3_recharge_time"						"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_3_max_charges"						"最大充能:"
+
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_4"									"苦痛之墙LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_4_Description"						"创造一个苦痛之墙，每半秒对通过它的敌人造成伤害并减速。"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_4_Lore"								""
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_4_Note0"								"充能方式：当释放之后，充能将会暂停。"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_4_duration"							"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_4_width"								"宽度:"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_4_recharge_time"						"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_wall_of_pain_4_max_charges"						"最大充能:"
+
+
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon"						"加农炮"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_Description"			"加农炮能够释放一道中等距离的弹道，并推开击中的敌人。"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_Note0"				"充能方式：每次充能互相独立。"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_recharge_time"		"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_max_charges"			"最大充能:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_2"						"加农炮LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_2_Description"			"加农炮能够释放一道中等距离的弹道，并推开击中的敌人。"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_2_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_2_Note0"				"充能方式：每次充能互相独立。"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_2_recharge_time"		"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_2_max_charges"			"最大充能:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_3"						"加农炮LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_3_Description"			"加农炮能够释放一道中等距离的弹道，并推开击中的敌人。"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_3_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_3_Note0"				"充能方式：每次充能互相独立。"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_3_recharge_time"		"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_3_max_charges"			"最大充能:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_4"						"加农炮LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_4_Description"			"加农炮能够释放一道中等距离的弹道，并推开击中的敌人。"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_4_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_4_Note0"				"充能方式：每次充能互相独立。"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_4_recharge_time"		"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_blast_cannon_4_max_charges"			"最大充能:"
+
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_detonator"					"爆！"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_Description"		"施法结束后，对施法者周围的单位造成伤害并击飞。"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_Note0"			""
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_duration"			"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_radius"			"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_distance"			"距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_height"			"高度:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_detonator_2"					"爆！ LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_2_Description"		"施法结束后，对施法者周围的单位造成伤害并击飞。"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_2_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_2_Note0"			""
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_2_duration"			"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_2_radius"			"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_2_distance"			"距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_2_height"			"高度:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_detonator_3"					"爆！ LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_3_Description"		"施法结束后，对施法者周围的单位造成伤害并击飞。"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_3_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_3_Note0"			""
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_3_duration"			"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_3_radius"			"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_3_distance"			"距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_3_height"			"高度:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_detonator_4"					"爆！ LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_4_Description"		"施法结束后，对施法者周围的单位造成伤害并击飞。"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_4_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_4_Note0"			""
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_4_duration"			"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_4_radius"			"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_4_distance"			"距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_detonator_4_height"			"高度:"
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage"							"轨道炮"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_Description"				"在目标区域召唤一个轨道炮，在一段时间后造成伤害，轨道炮的标记双方队伍都能看到。"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_Lore"						""
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_Note0"					"充能方式：当充能时间完成后，将会恢复到最大充能数。"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_area_of_effect"			"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_delay"					"延迟:"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_recharge_time"			"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_max_charges"				"最大充能:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_2"							"轨道炮LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_2_Description"				"在目标区域召唤一个轨道炮，在一段时间后造成伤害，轨道炮的标记双方队伍都能看到。"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_2_Lore"						""
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_2_Note0"					"充能方式：当充能时间完成后，将会恢复到最大充能数。"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_2_area_of_effect"			"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_2_delay"					"延迟:"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_2_recharge_time"			"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_2_max_charges"				"最大充能:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_3"							"轨道炮LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_3_Description"				"在目标区域召唤一个轨道炮，在一段时间后造成伤害，轨道炮的标记双方队伍都能看到。"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_3_Lore"						""
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_3_Note0"					"充能方式：当充能时间完成后，将会恢复到最大充能数。"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_3_area_of_effect"			"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_3_delay"					"延迟:"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_3_recharge_time"			"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_3_max_charges"				"最大充能:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_4"							"轨道炮LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_4_Description"				"在目标区域召唤一个轨道炮，在一段时间后造成伤害，轨道炮的标记双方队伍都能看到。"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_4_Lore"						""
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_4_Note0"					"充能方式：当充能时间完成后，将会恢复到最大充能数。"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_4_area_of_effect"			"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_4_delay"					"延迟:"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_4_recharge_time"			"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_sunstrike_barrage_4_max_charges"				"最大充能:"
+
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon"						"陨石炮"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_Description"			"需要蓄力，往目标方向释放一个巨大的陨石，击中目标造成伤害并击飞，蓄力时间越长，速度越快。"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_Note0"				""
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_speed"				"每秒蓄力提升速度:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_damage"				"伤害:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_radius"				"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_knockback"			"击飞距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_height"				"击飞高度:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_duration"				"滞空时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_2"						"陨石炮LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_2_Description"			"需要蓄力，往目标方向释放一个巨大的陨石，击中目标造成伤害并击飞，蓄力时间越长，速度越快。"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_2_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_2_Note0"				""
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_2_speed"				"每秒蓄力提升速度:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_2_damage"				"伤害:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_2_radius"				"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_2_knockback"			"击飞距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_2_height"				"击飞高度:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_2_duration"				"滞空时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_3"						"陨石炮LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_3_Description"			"需要蓄力，往目标方向释放一个巨大的陨石，击中目标造成伤害并击飞，蓄力时间越长，速度越快。"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_3_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_3_Note0"				""
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_3_speed"				"每秒蓄力提升速度:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_3_damage"				"伤害:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_3_radius"				"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_3_knockback"			"击飞距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_3_height"				"击飞高度:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_3_duration"				"滞空时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_4"						"陨石炮LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_4_Description"			"需要蓄力，往目标方向释放一个巨大的陨石，击中目标造成伤害并击飞，蓄力时间越长，速度越快。"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_4_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_4_Note0"				""
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_4_speed"				"每秒蓄力提升速度:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_4_damage"				"伤害:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_4_radius"				"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_4_knockback"			"击飞距离:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_4_height"				"击飞高度:"
+
+		"DOTA_Tooltip_ability_item_reflex_meteor_cannon_4_duration"				"滞空时间:"
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon"						"猎网"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_Description"			"猎网能够发射一枚炮弹，击中目标后炸开，将范围内的敌人定身且无法使用位移技能或物品。"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_Note0"				"充能方式：当充能时间完成后，将会恢复到最大充能数"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_duration"			"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_distance"			"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_explosion_radius"	"定身范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_max_charges"			"最大充能:"
+
+		"DOTA_Tooltip_modifier_item_net_cannon_root"				"定身"
+
+		"DOTA_Tooltip_modifier_item_net_cannon_root_Description"	"猎网定身。"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_2"						"猎网LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_2_Description"			"猎网能够发射一枚炮弹，击中目标后炸开，将范围内的敌人定身且无法使用位移技能或物品。"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_2_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_2_Note0"				"充能方式：当充能时间完成后，将会恢复到最大充能数"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_2_duration"			"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_2_distance"			"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_2_explosion_radius"	"定身范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_2_max_charges"			"最大充能:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_3"						"猎网LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_3_Description"			"猎网能够发射一枚炮弹，击中目标后炸开，将范围内的敌人定身且无法使用位移技能或物品。"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_3_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_3_Note0"				"充能方式：当充能时间完成后，将会恢复到最大充能数"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_3_duration"			"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_3_distance"			"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_3_explosion_radius"	"定身范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_3_max_charges"			"最大充能:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_4"						"猎网LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_4_Description"			"猎网能够发射一枚炮弹，击中目标后炸开，将范围内的敌人定身且无法使用位移技能或物品。"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_4_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_4_Note0"				"充能方式：当充能时间完成后，将会恢复到最大充能数"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_4_duration"			"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_4_distance"			"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_4_explosion_radius"	"定身范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_net_cannon_4_max_charges"			"最大充能:"
+
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_crippler"					"粘稠弹"
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_Description"		"发射一枚粘稠弹，击中目标并造成伤害，目标将会被减速且无法使用位移。"
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_Note0"				""
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_duration"			"持续时间:"
+
+		"DOTA_Tooltip_modifier_hamstring"							"粘稠"
+
+		"DOTA_Tooltip_modifier_hamstring_Description"				"哎哟，我脚被粘住了啦。"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_crippler_2"					"粘稠弹LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_2_Description"		"发射一枚粘稠弹，击中目标并造成伤害，目标将会被减速且无法使用位移。"
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_2_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_2_Note0"				""
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_2_duration"			"持续时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_crippler_3"					"粘稠弹LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_3_Description"		"发射一枚粘稠弹，击中目标并造成伤害，目标将会被减速且无法使用位移。"
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_3_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_3_Note0"				""
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_3_duration"			"持续时间:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_crippler_4"					"粘稠弹LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_4_Description"		"发射一枚粘稠弹，击中目标并造成伤害，目标将会被减速且无法使用位移。"
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_4_Lore"				""
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_4_Note0"				""
+
+		"DOTA_Tooltip_ability_item_reflex_crippler_4_duration"			"持续时间:"
+
+		
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate"							"耀目"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_Description"				"创造一个施法者的替身，蓄力释放一道巨大的冲击波。"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_Note0"					"充能方式：当充能时间完成后，将会恢复到最大充能数"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_damage"					"伤害:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_radius"					"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_max_channel_time"		"蓄力时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_recharge_time"			"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_max_charges"				"最大充能:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_illuminate_2"							"耀目LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_2_Description"				"创造一个施法者的替身，蓄力释放一道巨大的冲击波。"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_2_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_2_Note0"					"充能方式：当充能时间完成后，将会恢复到最大充能数"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_2_damage"					"伤害:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_2_radius"					"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_2_max_channel_time"		"蓄力时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_2_recharge_time"			"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_2_max_charges"				"最大充能:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_illuminate_3"							"耀目LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_3_Description"				"创造一个施法者的替身，蓄力释放一道巨大的冲击波。"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_3_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_3_Note0"					"充能方式：当充能时间完成后，将会恢复到最大充能数"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_3_damage"					"伤害:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_3_radius"					"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_3_max_channel_time"		"蓄力时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_3_recharge_time"			"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_3_max_charges"				"最大充能:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_illuminate_4"							"耀目LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_4_Description"				"创造一个施法者的替身，蓄力释放一道巨大的冲击波。"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_4_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_4_Note0"					"充能方式：当充能时间完成后，将会恢复到最大充能数"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_4_damage"					"伤害:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_4_radius"					"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_4_max_channel_time"		"蓄力时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_4_recharge_time"			"充能时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_illuminate_4_max_charges"				"最大充能:"
+
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare"							"奥术冲击"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_Description"				"一段时间后，往目标地点释放一道奥术冲击，这个冲击伤害将会被范围内敌人均摊，地点指示双方均可见。"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_Lore"						""
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_Note0"						""
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_duration"					"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_radius"					"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_damage"					"伤害:"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_hit_delay"					"延迟:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_2"							"奥术冲击LV2"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_2_Description"				"一段时间后，往目标地点释放一道奥术冲击，这个冲击伤害将会被范围内敌人均摊，地点指示双方均可见。"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_2_Lore"						""
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_2_Note0"						""
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_2_duration"					"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_2_radius"					"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_2_damage"					"伤害:"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_2_hit_delay"					"延迟:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_3"							"奥术冲击LV3"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_3_Description"				"一段时间后，往目标地点释放一道奥术冲击，这个冲击伤害将会被范围内敌人均摊，地点指示双方均可见。"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_3_Lore"						""
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_3_Note0"						""
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_3_duration"					"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_3_radius"					"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_3_damage"					"伤害:"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_3_hit_delay"					"延迟:"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_4"							"奥术冲击LV4"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_4_Description"				"一段时间后，往目标地点释放一道奥术冲击，这个冲击伤害将会被范围内敌人均摊，地点指示双方均可见。"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_4_Lore"						""
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_4_Note0"						""
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_4_duration"					"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_4_radius"					"范围:"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_4_damage"					"伤害:"
+
+		"DOTA_Tooltip_ability_item_reflex_mega_flare_4_hit_delay"					"延迟:"
+
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster"						"生命球"
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_Description"			"提升生命值。"
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_Note0"					""
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_health_boost"			"+$生命值"
+		
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_2"						"生命球2"
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_2_Description"			"提升生命值。"
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_2_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_2_Note0"					""
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_2_health_boost"			"+$生命值"
+		
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_3"						"生命球3"
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_3_Description"			"提升生命值。"
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_3_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_3_Note0"					""
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_3_health_boost"			"+$生命值"
+		
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_4"						"生命球4"
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_4_Description"			"提升生命值。"
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_4_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_4_Note0"					""
+
+		"DOTA_Tooltip_ability_item_reflex_hp_booster_4_health_boost"			"+$生命值"
+
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster"								"能量球"
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_Description"					"提升能量值"
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_Lore"							""
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_Note0"						""
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_mana_boost"					"+$$health"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_2"								"能量球2"
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_2_Description"					"提升能量值"
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_2_Lore"							""
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_2_Note0"						""
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_2_mana_boost"					"+$$health"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_3"								"能量球3"
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_3_Description"					"提升能量值"
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_3_Lore"							""
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_3_Note0"						""
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_3_mana_boost"					"+$$health"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_4"								"能量球"4
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_4_Description"					"提升能量值"
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_4_Lore"							""
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_4_Note0"						""
+
+		"DOTA_Tooltip_ability_item_reflex_energy_booster_4_mana_boost"					"+$$health"
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster"								"魔法石"
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_Description"					"提升能量恢复速度"
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_Lore"							""
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_Note0"							""
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_mana_regen"						"+$mana_regen"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_2"								"魔法石2"
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_2_Description"					"提升能量恢复速度"
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_2_Lore"							""
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_2_Note0"							""
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_2_mana_regen"						"+$mana_regen"
+		
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_3"								"魔法石3"
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_3_Description"					"提升能量恢复速度"
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_3_Lore"							""
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_3_Note0"							""
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_3_mana_regen"						"+$mana_regen"
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_4"								"魔法石4"
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_4_Description"					"提升能量恢复速度"
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_4_Lore"							""
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_4_Note0"							""
+
+		"DOTA_Tooltip_ability_item_reflex_regen_booster_4_mana_regen"						"+$mana_regen"
+
+	
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster"							"灵魂石"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_Description"				"提升生命值，能量值和能量恢复速度"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_Lore"						""
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_Note0"						""
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_health_boost"				"+$health"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_mana_boost"					"+$mana"
+
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_2"							"灵魂石2"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_2_Description"				"提升生命值，能量值和能量恢复速度"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_2_Lore"						""
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_2_Note0"						""
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_2_health_boost"				"+$health"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_2_mana_boost"					"+$mana"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_2_mana_regen"					"+$mana_regen"
+
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_3"							"灵魂石3"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_3_Description"				"提升生命值，能量值和能量恢复速度"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_3_Lore"						""
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_3_Note0"						""
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_3_health_boost"				"+$health"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_3_mana_boost"					"+$mana"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_3_mana_regen"					"+$mana_regen"
+
+		
+		
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_4"							"灵魂石4"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_4_Description"				"提升生命值，能量值和能量恢复速度"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_4_Lore"						""
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_4_Note0"						""
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_4_health_boost"				"+$health"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_4_mana_boost"					"+$mana"
+
+		"DOTA_Tooltip_ability_item_reflex_soul_booster_4_mana_regen"					"+$mana_regen"
+
+
+
+
+		"DOTA_Tooltip_ability_item_reflex_smoke_grenade"						"烟雾弹"
+
+		"DOTA_Tooltip_ability_item_reflex_smoke_grenade_Description"			"将自己及周围的队友进入一小段时间的隐身状态，使用后消失。"
+
+		"DOTA_Tooltip_ability_item_reflex_smoke_grenade_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_smoke_grenade_Note0"					""
+
+		"DOTA_Tooltip_ability_item_reflex_smoke_grenade_duration"				"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_smoke_grenade_radius"				"范围:"
+
+		"DOTA_Tooltip_modifier_grenade_invis"						"烟雾弹"
+
+		"DOTA_Tooltip_modifier_grenade_invis_Description"			"隐身，移动速度降低。"
+
+		
+
+		"DOTA_Tooltip_ability_item_reflex_haste_grenade"							"冲锋号"
+
+		"DOTA_Tooltip_ability_item_reflex_haste_grenade_Description"				"使自身及周围的队友达到最大移动速度，持续一段时间，使用后消失。"
+
+		"DOTA_Tooltip_ability_item_reflex_haste_grenade_Lore"					""
+
+		"DOTA_Tooltip_ability_item_reflex_haste_grenade_Note0"					""
+
+		"DOTA_Tooltip_ability_item_reflex_haste_grenade_duration"				"持续时间:"
+
+		"DOTA_Tooltip_ability_item_reflex_haste_grenade_radius"					"范围:"
+
+		
+
+		
+
+		//---------------------------
+
+		// Recharge Modifiers
+
+		//---------------------------
+
+		"DOTA_Tooltip_modifier_item_reflex_dash"							"Reflex Dash Recharge"
+
+		"DOTA_Tooltip_modifier_item_reflex_dash_Description"				"Reflex Dash Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_reflex_dash_2"							"Reflex Dash 2 Recharge"
+
+		"DOTA_Tooltip_modifier_item_reflex_dash_2_Description"				"Reflex Dash 2 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_reflex_dash_3"							"Reflex Dash 3 Recharge"
+
+		"DOTA_Tooltip_modifier_item_reflex_dash_3_Description"				"Reflex Dash 3 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_reflex_dash_4"							"Reflex Dash 4 Recharge"
+
+		"DOTA_Tooltip_modifier_item_reflex_dash_4_Description"				"Reflex Dash 4 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_shotgun"							"Shotgun Recharge"
+
+		"DOTA_Tooltip_modifier_item_shotgun_Description"				"Shotgun Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_shotgun_2"							"Shotgun 2 Recharge"
+
+		"DOTA_Tooltip_modifier_item_shotgun_2_Description"				"Shotgun 2 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_shotgun_3"							"Shotgun 3 Recharge"
+
+		"DOTA_Tooltip_modifier_item_shotgun_3_Description"				"Shotgun 3 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_shotgun_4"							"Shotgun 4 Recharge"
+
+		"DOTA_Tooltip_modifier_item_shotgun_4_Description"				"Shotgun 4 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_long_shot"							"Long Shot Recharge"
+
+		"DOTA_Tooltip_modifier_item_long_shot_Description"				"Long Shot Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_long_shot_2"							"Long Shot 2 Recharge"
+
+		"DOTA_Tooltip_modifier_item_long_shot_2_Description"				"Long Shot 2 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_long_shot_3"							"Long Shot 3 Recharge"
+
+		"DOTA_Tooltip_modifier_item_long_shot_3_Description"				"Long Shot 3 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_long_shot_4"							"Long Shot 4 Recharge"
+
+		"DOTA_Tooltip_modifier_item_long_shot_4_Description"				"Long Shot 4 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_barrier_wall"							"Wall of Pain Recharge"
+
+		"DOTA_Tooltip_modifier_item_barrier_wall_Description"				"Wall of Pain Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_barrier_wall_2"							"Wall of Pain 2 Recharge"
+
+		"DOTA_Tooltip_modifier_item_barrier_wall_2_Description"				"Wall of Pain 2 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_barrier_wall_3"							"Wall of Pain 3 Recharge"
+
+		"DOTA_Tooltip_modifier_item_barrier_wall_3_Description"				"Wall of Pain 3 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_barrier_wall_4"							"Wall of Pain 4 Recharge"
+
+		"DOTA_Tooltip_modifier_item_barrier_wall_4_Description"				"Wall of Pain 4 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_reflex_blast_cannon"							"Blast Cannon Recharge"
+
+		"DOTA_Tooltip_modifier_item_reflex_blast_cannon_Description"				"Blast Cannon Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_reflex_blast_cannon_2"							"Blast Cannon 2 Recharge"
+
+		"DOTA_Tooltip_modifier_item_reflex_blast_cannon_2_Description"				"Blast Cannon 2 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_reflex_blast_cannon_3"							"Blast Cannon 3 Recharge"
+
+		"DOTA_Tooltip_modifier_item_reflex_blast_cannon_3_Description"				"Blast Cannon 3 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_reflex_blast_cannon_4"							"Blast Cannon 4 Recharge"
+
+		"DOTA_Tooltip_modifier_item_reflex_blast_cannon_4_Description"				"Blast Cannon 4 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_sun_strike"							"Sunstrike Barrage Recharge"
+
+		"DOTA_Tooltip_modifier_item_sun_strike_Description"				"Sunstrike Barrage Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_sun_strike_2"							"Sunstrike 2 Barrage Recharge"
+
+		"DOTA_Tooltip_modifier_item_sun_strike_2_Description"				"Sunstrike 2 Barrage Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_sun_strike_3"							"Sunstrike 3 Barrage Recharge"
+
+		"DOTA_Tooltip_modifier_item_sun_strike_3_Description"				"Sunstrike 3 Barrage Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_sun_strike_4"							"Sunstrike 4 Barrage Recharge"
+
+		"DOTA_Tooltip_modifier_item_sun_strike_4_Description"				"Sunstrike 4 Barrage Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_net_cannon"							"Net Cannon Recharge"
+
+		"DOTA_Tooltip_modifier_item_net_cannon_Description"				"Net Cannon Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_net_cannon_2"							"Net Cannon 2 Recharge"
+
+		"DOTA_Tooltip_modifier_item_net_cannon_2_Description"				"Net Cannon 2 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_net_cannon_3"							"Net Cannon 3 Recharge"
+
+		"DOTA_Tooltip_modifier_item_net_cannon_3_Description"				"Net Cannon 3 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_net_cannon_4"							"Net Cannon 4 Recharge"
+
+		"DOTA_Tooltip_modifier_item_net_cannon_4_Description"				"Net Cannon 4 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_illuminate"							"Illuminate Recharge"
+
+		"DOTA_Tooltip_modifier_item_illuminate_Description"				"Illuminate Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_illuminate_2"							"Illuminate 2 Recharge"
+
+		"DOTA_Tooltip_modifier_item_illuminate_2_Description"				"Illuminate 2 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_illuminate_3"							"Illuminate 3 Recharge"
+
+		"DOTA_Tooltip_modifier_item_illuminate_3_Description"				"Illuminate 3 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_item_illuminate_4"							"Illuminate 4 Recharge"
+
+		"DOTA_Tooltip_modifier_item_illuminate_4_Description"				"Illuminate 4 Recharge Timer"
+
+		
+
+		"DOTA_Tooltip_modifier_lms_friendly"							"绝境求生"
+
+		"DOTA_Tooltip_modifier_lms_friendly_Description"				"你是最后一人，背水一战吧！你将会对敌人造成 <font color='#70EA72'>25/50/75/100%</font> 的额外伤害.  额外伤害的数值根据己方已经阵亡的英雄数目而定。"
+
+	}
+
+}
