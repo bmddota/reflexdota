@@ -255,7 +255,7 @@ function ReflexGameMode:InitGameMode()
 	self.nCurrentRound = 1
 	self.nRadiantDead = 0
 	self.nDireDead = 0
-	self.nLastKill = DOTA_TEAM_GOODGUYS
+	self.nLastKill = nil
 	self.fRoundStartTime = 0
 	
 	-- Timers
@@ -814,8 +814,14 @@ function ReflexGameMode:RoundComplete(timedOut)
 	local victor = DOTA_TEAM_GOODGUYS
 	local s = "Radiant"
 	if timedOut then
+		--If noteam score any kill, the team on inferior position win this round to prevent from negative attitude
+		if self.nLastKill == nil then 
+			if self.nRadiantScore > self.nDireScore then
+				victor = DOTA_TEAM_BADGUYS
+				s = "Dire"
+			end
 		-- Victor is whoever has least dead
-		if self.nDireDead < self.nRadiantDead then
+		elseif self.nDireDead < self.nRadiantDead then
 			victor = DOTA_TEAM_BADGUYS
 			s = "Dire"
 		-- If both have same number of dead go by last team that got a kill
@@ -923,7 +929,7 @@ function ReflexGameMode:RoundComplete(timedOut)
 	self.nCurrentRound = self.nCurrentRound + 1
 	self.nRadiantDead = 0
 	self.nDireDead = 0
-	self.nLastKill = DOTA_TEAM_GOODGUYS
+	self.nLastKill = nil
 	
 	self:InitializeRound()
 end
