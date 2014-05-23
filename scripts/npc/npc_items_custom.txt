@@ -78,7 +78,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"1701"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_dash"
@@ -192,7 +192,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"1703"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_dash_2"
@@ -306,7 +306,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"1709"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_dash_3"
@@ -420,7 +420,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"1710"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		//"Model"							"models/props_gameplay/salve_blue.mdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_dash_4"
@@ -2633,7 +2633,7 @@
 		"AbilityCooldown"				"0.75"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"200 240 280 320"
+		"AbilityDamage"					"150 180 210 240"
 		
 		"precache"
 		{
@@ -2727,7 +2727,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"150 175 200 225"
+				"damage"				"150 180 210 240"
 			}
 			
 			"03"
@@ -2776,7 +2776,7 @@
 		"AbilityCooldown"				"0.75"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"150 175 200 225"
+		"AbilityDamage"					"150 180 210 240"
 		
 		"precache"
 		{
@@ -2870,7 +2870,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"150 175 200 225"
+				"damage"				"150 180 210 240"
 			}
 			
 			"03"
@@ -2919,7 +2919,7 @@
 		"AbilityCooldown"				"0.75"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"200 240 280 320"
+		"AbilityDamage"					"150 180 210 240"
 		
 		"precache"
 		{
@@ -3013,7 +3013,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 240 280 320"
+				"damage"				"150 180 210 240"
 			}
 			
 			"03"
@@ -3062,7 +3062,7 @@
 		"AbilityCooldown"				"0.75"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"200 240 280 320"
+		"AbilityDamage"					"150 180 210 240"
 		
 		"precache"
 		{
@@ -3156,7 +3156,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 240 280 320"
+				"damage"				"150 180 210 240"
 			}
 			
 			"03"
@@ -8497,7 +8497,6 @@
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				
 			}
 		}
 		
