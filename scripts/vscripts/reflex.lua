@@ -280,13 +280,13 @@ function ReflexGameMode:CaptureGameMode()
 end
 
 --[[function ReflexGameMode:AbilityUsed(keys)
-  print('[[REFLEX]] AbilityUsed')
+  print('[REFLEX] AbilityUsed')
   PrintTable(keys)
   PrintTable(getmetatable(keys))
   
   local ent = Entities:First()
   repeat
-    print('\t[[REFLEX]] ENTName: ' .. tostring(ent:GetName()) .. " -- ClassName: " .. tostring(ent:GetClassname()) .. " -- entindex: " .. tostring(ent:entindex()))
+    print('\t[REFLEX] ENTName: ' .. tostring(ent:GetName()) .. " -- ClassName: " .. tostring(ent:GetClassname()) .. " -- entindex: " .. tostring(ent:entindex()))
     PrintTable(ent)
     PrintTable(getmetatable(ent))
     ent = Entities:Next(ent)
