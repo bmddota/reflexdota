@@ -120,7 +120,7 @@ function itemSpellStart (keys)
 			return
 		end
 		
-		-- print ("[[REFLEX]] " ..target .. " -- " ..abilityName  .. " -- " .. tostring(point))
+		-- print ("[REFLEX] " ..target .. " -- " ..abilityName  .. " -- " .. tostring(point))
 		-- PrintTable(ability)
 		if target == nil then
 			caster:CastAbilityNoTarget (ability, -1 )
@@ -131,7 +131,7 @@ function itemSpellStart (keys)
 		end
 	end
 	
-	--print ( '[[REFLEX]] removing dash ability' )
+	--print ( '[REFLEX] removing dash ability' )
 	--caster:RemoveAbility('reflex_dash')
 	
 	--local charges = item:GetCurrentCharges()
@@ -151,10 +151,10 @@ end
 			}
 ]]
 function itemChargeThink (keys)
-	--print ('[[REFLEX]] itemChargeThink called')
+	--print ('[REFLEX] itemChargeThink called')
 	--PrintTable(keys)
 	local chargeType = keys.ChargeType or "UNLINKED"
-	--print ('[[REFLEX]] ' .. (keys.ChargeModifier or "nil") .. " -- " .. keys.Item .. " -- " .. chargeType)
+	--print ('[REFLEX] ' .. (keys.ChargeModifier or "nil") .. " -- " .. keys.Item .. " -- " .. chargeType)
 
 	local itemName = keys.Item
 	local caster = keys.caster
@@ -197,7 +197,7 @@ channelTable = {}
 
 function itemChannelStart( keys )
 	local now = GameRules:GetGameTime()
-	-- print ('[[REFLEX]] itemChannelStart called: ' .. now)
+	-- print ('[REFLEX] itemChannelStart called: ' .. now)
 	-- PrintTable(keys)
 	
 	local caster = keys.caster
@@ -213,7 +213,7 @@ end
 
 function itemChannelEnd( keys )
 	local now = GameRules:GetGameTime()
-	--print ('[[REFLEX]] itemChannelEnd called: ' .. now)
+	--print ('[REFLEX] itemChannelEnd called: ' .. now)
 	--PrintTable(keys)
 	
 	local caster = keys.caster
@@ -258,7 +258,7 @@ function itemChannelEnd( keys )
 end
 
 function itemTranquilBoots( channelTime, point, item , caster)
-	--print ('[[REFLEX]] itemTranquilBoots called: ' .. channelTime .. " -- point: " .. tostring(point) .. " -- item: " ..item:GetAbilityName())
+	--print ('[REFLEX] itemTranquilBoots called: ' .. channelTime .. " -- point: " .. tostring(point) .. " -- item: " ..item:GetAbilityName())
 	
 	local info = {
 		EffectName = "invoker_chaos_meteor",
@@ -277,13 +277,13 @@ function itemTranquilBoots( channelTime, point, item , caster)
 	}
 
 	local speed = tonumber(item:GetSpecialValueFor("speed")) + (item:GetLevel() - 1) * 100 --1000
-  print ('[[REFLEX]] Meteor Speed: ' .. tostring(speed))
-	--print ('[[REFLEX]] ' .. tostring(point))
+  print ('[REFLEX] Meteor Speed: ' .. tostring(speed))
+	--print ('[REFLEX] ' .. tostring(point))
 	--PrintTable(point)
 	--PrintTable(getmetatable(point))	
 	-- caster:GetAngles() .y is angle with 270 being straight down i think
 	--local angles = caster:GetAngles()
-	--print ('[[REFLEX]] ' .. tostring(angles))
+	--print ('[REFLEX] ' .. tostring(angles))
 	--PrintTable(angles)
 	--PrintTable(getmetatable(angles))
 	
@@ -292,9 +292,9 @@ function itemTranquilBoots( channelTime, point, item , caster)
 	
 	point.z = 0
 	local pos = caster:GetAbsOrigin()
-	--print ('[[Reflex]] ' .. tostring(pos))
+	--print ('[REFLEX] ' .. tostring(pos))
 	local diff = pos - point
-	--print ('[[Reflex]] ' .. tostring(diff))
+	--print ('[REFLEX] ' .. tostring(diff))
 	
 	--point = point:Normalized()
 	info.vVelocity = diff:Normalized() * speed * channelTime
@@ -309,16 +309,16 @@ function getItemByName( hero, name )
 		return nil
 	end
 	
-	--print ( '[[REFLEX]] find item in inventory' )
+	--print ( '[REFLEX] find item in inventory' )
 	-- Find item by slot
 	for i=0,11 do
-		--print ( '\t[[REFLEX]] finding item ' .. i)
+		--print ( '\t[REFLEX] finding item ' .. i)
 		local item = hero:GetItemInSlot( i )
-		--print ( '\t[[REFLEX]] item: ' .. tostring(item) )
+		--print ( '\t[REFLEX] item: ' .. tostring(item) )
 		if item ~= nil then
-			--print ( '\t[[REFLEX]] getting ability name' .. i)
+			--print ( '\t[REFLEX] getting ability name' .. i)
 			local lname = item:GetAbilityName()
-			--print ( string.format ('[[REFLEX]] item slot %d: %s', i, lname) )
+			--print ( string.format ('[REFLEX] item slot %d: %s', i, lname) )
 			if lname == name then
 				return item
 			end
