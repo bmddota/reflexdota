@@ -107,6 +107,8 @@ function ReflexGameMode:InitGameMode()
   ListenToGameEvent('player_connect_full', Dynamic_Wrap(ReflexGameMode, 'AutoAssignPlayer'), self)
   ListenToGameEvent('player_disconnect', Dynamic_Wrap(ReflexGameMode, 'CleanupPlayer'), self)
   ListenToGameEvent('dota_item_purchased', Dynamic_Wrap(ReflexGameMode, 'ShopReplacement'), self)
+  ------
+  --ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(ReflexGameMode, 'AbilityUsed'), self)
 
   local function _boundWatConsoleCommand(...)
     return self:_WatConsoleCommand(...)
@@ -277,6 +279,20 @@ function ReflexGameMode:CaptureGameMode()
   end
 end
 
+--[[function ReflexGameMode:AbilityUsed(keys)
+  print('[[REFLEX]] AbilityUsed')
+  PrintTable(keys)
+  PrintTable(getmetatable(keys))
+  
+  local ent = Entities:First()
+  repeat
+    print('\t[[REFLEX]] ENTName: ' .. tostring(ent:GetName()) .. " -- ClassName: " .. tostring(ent:GetClassname()) .. " -- entindex: " .. tostring(ent:entindex()))
+    PrintTable(ent)
+    PrintTable(getmetatable(ent))
+    ent = Entities:Next(ent)
+  until ent == nil
+end]]
+
 -- Cleanup a player when they leave
 function ReflexGameMode:CleanupPlayer(keys)
   print('[[REFLEX]] Player Disconnected ' .. tostring(keys.userid))
@@ -292,6 +308,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
   print ('[[REFLEX]] AutoAssignPlayer')
   self:CaptureGameMode()
   print ('[[REFLEX]] getting index')
+  --print(keys.index)
   local entIndex = keys.index+1
   local ply = EntIndexToHScript(entIndex)
   local playerID = ply:GetPlayerID()
@@ -328,8 +345,8 @@ function ReflexGameMode:AutoAssignPlayer(keys)
 
   print ('[[REFLEX]] playerID: ' .. playerID)
   
-  PrintTable(PlayerResource)
-  PrintTable(getmetatable(PlayerResource))
+  --PrintTable(PlayerResource)
+  --PrintTable(getmetatable(PlayerResource))
   
   print('[[REFLEX]] SteamID: ' .. PlayerResource:GetSteamAccountID(playerID))
   self.vUserIds[keys.userid] = ply
