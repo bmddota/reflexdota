@@ -1,6 +1,7 @@
 print ('[[REFLEX]] reflex.lua' )
 
-DEBUG=false
+USE_LOBBY=false
+DEBUG=true
 
 REFLEX_VERSION = "0.02"
 
@@ -34,7 +35,10 @@ end
 ADDED_ABILITIES = {
   "reflex_dash",
   "reflex_sun_strike",
-  "reflex_illuminate",
+  "reflex_illuminate_1",
+  "reflex_illuminate_2",
+  "reflex_illuminate_3",
+  "reflex_illuminate_4",
   "reflex_mystic_flare",
   "reflex_earthbind"
 }
@@ -188,9 +192,10 @@ function ReflexGameMode:InitGameMode()
         if ability ~= nil and ability:GetLevel() ~= 0 then
           callModApplier(player.hero, onDeath, ability:GetLevel())
           print(tostring(1 + ((scale - 1) * (ability:GetLevel() / 4))))
+          print(tostring(ability:GetSpecialValueFor("duration")) + (ability:GetLevel() - 1))
           player.hero:SetModelScale(1 + ((scale - 1) * (ability:GetLevel() / 4)), 1)
-          self:CreateTimer('',{
-            endTime = GameRules:GetGameTime() + ability:GetSpecialValueFor("duration"),
+          self:CreateTimer('resetScale' .. playerID,{
+            endTime = GameRules:GetGameTime() + ability:GetSpecialValueFor("duration") + (ability:GetLevel() - 1),
             useGameTime = true,
             callback = function() 
               player.hero:SetModelScale(1, 1)
@@ -220,7 +225,7 @@ function ReflexGameMode:InitGameMode()
   self.nCurrentRound = 1
   self.nRadiantDead = 0
   self.nDireDead = 0
-  self.nLastKill = DOTA_TEAM_GOODGUYS
+  self.nLastKill = nil
   self.fRoundStartTime = 0
 
   -- Timers
@@ -293,6 +298,10 @@ function ReflexGameMode:AutoAssignPlayer(keys)
 
   self.nConnected = self.nConnected + 1
   self:RemoveTimer('all_disconnect')
+  
+  if PlayerResource:IsBroadcaster(playerID) then
+    return
+  end
 
   playerID = ply:GetPlayerID()
   if self.vPlayers[playerID] ~= nil then
@@ -301,7 +310,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
     return
   end
   
-  if DEBUG and playerID == -1 then
+  if not USE_LOBBY and playerID == -1 then
     print ('[[REFLEX]] team sizes ' ..  #self.vRadiant .. "  --  " .. #self.vDire)
     if #self.vRadiant > #self.vDire then
       print ('[[REFLEX]] setting to bad guys')
@@ -318,6 +327,10 @@ function ReflexGameMode:AutoAssignPlayer(keys)
   end
 
   print ('[[REFLEX]] playerID: ' .. playerID)
+  
+  PrintTable(PlayerResource)
+  PrintTable(getmetatable(PlayerResource))
+  
   print('[[REFLEX]] SteamID: ' .. PlayerResource:GetSteamAccountID(playerID))
   self.vUserIds[keys.userid] = ply
   self.vSteamIds[PlayerResource:GetSteamAccountID(playerID)] = ply
@@ -601,8 +614,8 @@ function ReflexGameMode:InitializeRound()
           player.hero:AddNewModifier( player.hero, nil , "modifier_stunned", {})
         end
 
-        if player.hero:HasModifier("modifier_invulnerable") then
-          player.hero:RemoveModifierByName("modifier_invulnerable")
+        if not player.hero:HasModifier("modifier_invulnerable") then
+          player.hero:AddNewModifier(player.hero, nil , "modifier_invulnerable", {})
         end
 
         local curXP = PlayerResource:GetTotalEarnedXP(plyID)
@@ -662,13 +675,17 @@ function ReflexGameMode:InitializeRound()
 
         player.nUnspentGold = PlayerResource:GetGold(plyID)
         --PlayerResource:SetGold(plyID, 0, true)
-        player.hero:SetGold(player.nUnspentGold, true)
+        player.hero:SetGold(0, true)
         player.nUnspentAbilityPoints = player.hero:GetAbilityPoints()
         player.hero:SetAbilityPoints(0)
 
         --if has modifier remove it
         if player.hero:HasModifier("modifier_stunned") then
           player.hero:RemoveModifierByName("modifier_stunned")
+        end
+        
+        if player.hero:HasModifier("modifier_invulnerable") then
+          player.hero:RemoveModifierByName("modifier_invulnerable")
         end
 
         local timeoutCount = 14
@@ -700,20 +717,32 @@ function ReflexGameMode:InitializeRound()
             Say(nil, "30 seconds remaining!", false)
             return GameRules:GetGameTime() + 20
           else 
-            Say(nil, tostring(timeoutCount), false)
+            local msg = {
+							message = tostring(timeoutCount),
+							duration = 0.9
+            }
+            FireGameEvent("show_center_message",msg)
             return GameRules:GetGameTime() + 1
           end
         end})
       end)
 
       bInPreRound = false;
-      Say(nil, "FIGHT!", false)
+      local msg = {
+			  message = "FIGHT!",
+				duration = 0.9
+			}
+			FireGameEvent("show_center_message",msg)
       return
     elseif startCount == 6 then
       Say(nil, "10 seconds remaining!", false)
       return GameRules:GetGameTime() + 5
     else
-      Say(nil, tostring(startCount), false)
+			local msg = {
+			  message = tostring(startCount),
+			  duration = 0.9
+			}
+			FireGameEvent("show_center_message",msg)
       return GameRules:GetGameTime() + 1
     end
   end})
@@ -733,8 +762,14 @@ function ReflexGameMode:RoundComplete(timedOut)
   local victor = DOTA_TEAM_GOODGUYS
   local s = "Radiant"
   if timedOut then
+    --If noteam score any kill, the team on inferior position win this round to prevent from negative attitude
+    if self.nLastKill == nil then 
+      if self.nRadiantScore > self.nDireScore then
+        victor = DOTA_TEAM_BADGUYS
+        s = "Dire"
+      end
     -- Victor is whoever has least dead
-    if self.nDireDead < self.nRadiantDead then
+    elseif self.nDireDead < self.nRadiantDead then
       victor = DOTA_TEAM_BADGUYS
       s = "Dire"
       -- If both have same number of dead go by last team that got a kill
@@ -841,7 +876,7 @@ function ReflexGameMode:RoundComplete(timedOut)
   self.nCurrentRound = self.nCurrentRound + 1
   self.nRadiantDead = 0
   self.nDireDead = 0
-  self.nLastKill = DOTA_TEAM_GOODGUYS
+  self.nLastKill = nil
 
   self:InitializeRound()
 end
@@ -1067,8 +1102,8 @@ function ReflexGameMode:OnEntityKilled( keys )
             callModApplier(player.hero, onDeath, ability:GetLevel())
             print(tostring(1 + ((scale - 1) * (ability:GetLevel() / 4))))
             player.hero:SetModelScale(1 + ((scale - 1) * (ability:GetLevel() / 4)), 1)
-            self:CreateTimer('',{
-              endTime = GameRules:GetGameTime() + ability:GetSpecialValueFor("duration"),
+            self:CreateTimer('resetScale' .. plyID,{
+              endTime = GameRules:GetGameTime() + ability:GetSpecialValueFor("duration") + (ability:GetLevel() - 1),
               useGameTime = true,
               callback = function() 
                 player.hero:SetModelScale(1, 1)
@@ -1126,7 +1161,7 @@ function ReflexGameMode:OnEntityKilled( keys )
           callModApplier(player.hero, "reflex_lms_friendly")
         elseif player.bDead == false and player.nTeam == DOTA_TEAM_BADGUYS then
           --print ('     Rad Dead:' .. self.nRadiantDead)
-          callModApplier(player.hero, "reflex_lms_enemy", self.nRadiantDead)
+          callModApplier(player.hero, "reflex_lms_enemy", nDireAlive)
         end
       end)
     elseif killedUnit:GetTeam() == DOTA_TEAM_BADGUYS and nDireAlive == 1 then
@@ -1136,7 +1171,7 @@ function ReflexGameMode:OnEntityKilled( keys )
           callModApplier(player.hero, "reflex_lms_friendly")
         elseif player.bDead == false and player.nTeam == DOTA_TEAM_GOODGUYS then
           --print ('     Dire Dead:' .. self.nDireDead)
-          callModApplier(player.hero, "reflex_lms_enemy", self.nDireDead)
+          callModApplier(player.hero, "reflex_lms_enemy", nRadiantAlive)
         end
       end)
     end

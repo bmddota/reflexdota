@@ -225,7 +225,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		//"ID"							"5460"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"BaseClass"						"disruptor_kinetic_field"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		
@@ -1031,7 +1031,274 @@
 		}
 	}
 	
-	"reflex_illuminate"
+	"reflex_illuminate_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5479"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"BaseClass"						"keeper_of_the_light_spirit_form_illuminate"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1800"
+		"AbilityCastPoint"				"0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0.0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_second"		"100.0 120.0 150.0 190.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"320 340 360 380"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1550"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed"					"1050.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"max_channel_time"		"4.0 3.5 3.0 2.5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"800 800 800 800"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"vision_duration"		"3.34 3.34 3.34 3.34"
+			}
+			"08"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"channel_vision_radius"	"350"
+			}
+			"09"
+			{	
+				"var_type"					"FIELD_FLOAT"
+				"channel_vision_interval"	"0.5"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"channel_vision_duration"	"10.34"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"channel_vision_step"		"150"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"400.0 410.0 450.0 475.0"
+			}
+		}
+	}
+  
+  "reflex_illuminate_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5479"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"BaseClass"						"keeper_of_the_light_spirit_form_illuminate"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1800"
+		"AbilityCastPoint"				"0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0.0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_second"		"100.0 120.0 150.0 190.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"320 340 360 380"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1550"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed"					"1050.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"max_channel_time"		"4.0 3.5 3.0 2.5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"800 800 800 800"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"vision_duration"		"3.34 3.34 3.34 3.34"
+			}
+			"08"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"channel_vision_radius"	"350"
+			}
+			"09"
+			{	
+				"var_type"					"FIELD_FLOAT"
+				"channel_vision_interval"	"0.5"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"channel_vision_duration"	"10.34"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"channel_vision_step"		"150"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"400.0 410.0 450.0 475.0"
+			}
+		}
+	}
+  
+  "reflex_illuminate_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5479"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"BaseClass"						"keeper_of_the_light_spirit_form_illuminate"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1800"
+		"AbilityCastPoint"				"0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0.0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_second"		"100.0 120.0 150.0 190.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"320 340 360 380"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1550"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed"					"1050.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"max_channel_time"		"4.0 3.5 3.0 2.5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"800 800 800 800"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"vision_duration"		"3.34 3.34 3.34 3.34"
+			}
+			"08"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"channel_vision_radius"	"350"
+			}
+			"09"
+			{	
+				"var_type"					"FIELD_FLOAT"
+				"channel_vision_interval"	"0.5"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"channel_vision_duration"	"10.34"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"channel_vision_step"		"150"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"400.0 410.0 450.0 475.0"
+			}
+		}
+	}
+  
+  "reflex_illuminate_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1160,7 +1427,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"600 900 1200 1500"
+				"damage"				"600 700 800 900"
 			}
 			"04"
 			{
