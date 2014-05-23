@@ -8479,6 +8479,12 @@
 						"Target" "TARGET"
 						"ModifierName"		"modifier_item_net_cannon_root"
 					}
+          "ApplyModifier"
+          {
+            "Target" "TARGET"
+            "Duration"  "%duration"
+            "ModifierName"    "modifier_rooted"
+          }
 				}
 			}
 		}
@@ -8654,6 +8660,12 @@
 						"Target" "TARGET"
 						"ModifierName"		"modifier_item_net_cannon_root_2"
 					}
+          "ApplyModifier"
+          {
+            "Target" "TARGET"
+            "Duration"  "%duration"
+            "ModifierName"    "modifier_rooted"
+          }
 				}
 			}
 		}
@@ -8830,6 +8842,12 @@
 						"Target" "TARGET"
 						"ModifierName"		"modifier_item_net_cannon_root_3"
 					}
+          "ApplyModifier"
+          {
+            "Target" "TARGET"
+            "Duration"  "%duration"
+            "ModifierName"    "modifier_rooted"
+          }
 				}
 			}
 		}
@@ -9006,6 +9024,12 @@
 						"Target" "TARGET"
 						"ModifierName"		"modifier_item_net_cannon_root_4"
 					}
+          "ApplyModifier"
+          {
+            "Target" "TARGET"
+            "Duration"  "%duration"
+            "ModifierName"    "modifier_rooted"
+          }
 				}
 			}
 		}
