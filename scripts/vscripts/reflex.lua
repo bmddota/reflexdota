@@ -1,4 +1,4 @@
-print ('[[REFLEX]] reflex.lua' )
+print ('[REFLEX] reflex.lua' )
 
 USE_LOBBY=true
 DEBUG=false
@@ -70,7 +70,7 @@ ABILITY_ITEM_TABLE = {
 }
 
 if ReflexGameMode == nil then
-  print ( '[[REFLEX]] creating reflex game mode' )
+  print ( '[REFLEX] creating reflex game mode' )
   ReflexGameMode = {}
   ReflexGameMode.szEntityClassName = "reflex"
   ReflexGameMode.szNativeClassName = "dota_base_game_mode"
@@ -78,14 +78,14 @@ if ReflexGameMode == nil then
 end
 
 function ReflexGameMode:new( o )
-  print ( '[[REFLEX]] ReflexGameMode:new' )
+  print ( '[REFLEX] ReflexGameMode:new' )
   o = o or {}
   setmetatable( o, ReflexGameMode )
   return o
 end
 
 function ReflexGameMode:InitGameMode()
-  print('[[REFLEX]] Starting to load Reflex gamemode...')
+  print('[REFLEX] Starting to load Reflex gamemode...')
 
   -- Setup rules
   GameRules:SetHeroRespawnEnabled( false )
@@ -97,13 +97,13 @@ function ReflexGameMode:InitGameMode()
   GameRules:SetTreeRegrowTime( 60.0 )
   GameRules:SetUseCustomHeroXPValues ( true )
   GameRules:SetGoldPerTick(0)
-  print('[[REFLEX]] Rules set')
+  print('[REFLEX] Rules set')
 
   InitLogFile( "log/reflex.txt","")
 
   -- Hooks
   ListenToGameEvent('entity_killed', Dynamic_Wrap(ReflexGameMode, 'OnEntityKilled'), self)
-  print('[[REFLEX]] entity_killed event set')
+  print('[REFLEX] entity_killed event set')
   ListenToGameEvent('player_connect_full', Dynamic_Wrap(ReflexGameMode, 'AutoAssignPlayer'), self)
   ListenToGameEvent('player_disconnect', Dynamic_Wrap(ReflexGameMode, 'CleanupPlayer'), self)
   ListenToGameEvent('dota_item_purchased', Dynamic_Wrap(ReflexGameMode, 'ShopReplacement'), self)
@@ -114,18 +114,18 @@ function ReflexGameMode:InitGameMode()
     return self:_WatConsoleCommand(...)
   end
   Convars:RegisterCommand( "reflex_wat", _boundWatConsoleCommand, "Report the status of Reflex", 0 )
-  print('[[REFLEX]] reflex_wat set')
+  print('[REFLEX] reflex_wat set')
 
   local function _boundSetAbilityConsoleCommand(...)
     return self:_SetAbilityConsoleCommand(...)
   end
   Convars:RegisterCommand( "reflex_set_ability", _boundSetAbilityConsoleCommand, "Set a hero ability", 0 )
-  print('[[REFLEX]] reflex_set_ability set')
+  print('[REFLEX] reflex_set_ability set')
 
   Convars:RegisterCommand('reflex_reset_all', function()
     if not Convars:GetCommandClient() or DEBUG then
       self:LoopOverPlayers(function(player, plyID)
-        print ( '[[REFLEX]] Resetting player ' .. plyID)
+        print ( '[REFLEX] Resetting player ' .. plyID)
         --PlayerResource:SetGold(plyID, 30000, true)
         player.hero:SetGold(30000, true)
         player.hero:AddExperience(1000, true)
@@ -244,22 +244,22 @@ function ReflexGameMode:InitGameMode()
   -- Active Hero Map
   self.vPlayerHeroData = {}
   self.bPlayersInit = false
-  print('[[REFLEX]] values set')
+  print('[REFLEX] values set')
 
-  print('[[REFLEX]] Precaching stuff...')
+  print('[REFLEX] Precaching stuff...')
   PrecacheUnitByName('npc_precache_everything')
-  print('[[REFLEX]] Done precaching!') 
+  print('[REFLEX] Done precaching!') 
 
   self.thinkState = Dynamic_Wrap( ReflexGameMode, '_thinkState_Prep' )
 
-  print('[[REFLEX]] Done loading Reflex gamemode!\n\n')
+  print('[REFLEX] Done loading Reflex gamemode!\n\n')
 end
 
 GameMode = nil
 
 function ReflexGameMode:CaptureGameMode()
   if GameMode == nil then
-    print('[[REFLEX]] Capturing game mode...')
+    print('[REFLEX] Capturing game mode...')
     GameMode = GameRules:GetGameModeEntity()		
     GameMode:SetRecommendedItemsDisabled( true )
     GameMode:SetCameraDistanceOverride( 1504.0 )
@@ -274,7 +274,7 @@ function ReflexGameMode:CaptureGameMode()
 
     GameMode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 
-    print( '[[REFLEX]] Beginning Think' ) 
+    print( '[REFLEX] Beginning Think' ) 
     GameMode:SetContextThink("ReflexThink", Dynamic_Wrap( ReflexGameMode, 'Think' ), 0.25 )
   end
 end
@@ -295,7 +295,7 @@ end]]
 
 -- Cleanup a player when they leave
 function ReflexGameMode:CleanupPlayer(keys)
-  print('[[REFLEX]] Player Disconnected ' .. tostring(keys.userid))
+  print('[REFLEX] Player Disconnected ' .. tostring(keys.userid))
   self.nConnected = self.nConnected - 1
 end
 
@@ -305,9 +305,9 @@ function ReflexGameMode:CloseServer()
 end
 
 function ReflexGameMode:AutoAssignPlayer(keys)
-  print ('[[REFLEX]] AutoAssignPlayer')
+  print ('[REFLEX] AutoAssignPlayer')
   self:CaptureGameMode()
-  print ('[[REFLEX]] getting index')
+  print ('[REFLEX] getting index')
   --print(keys.index)
   local entIndex = keys.index+1
   local ply = EntIndexToHScript(entIndex)
@@ -328,14 +328,14 @@ function ReflexGameMode:AutoAssignPlayer(keys)
   end
   
   if not USE_LOBBY and playerID == -1 then
-    print ('[[REFLEX]] team sizes ' ..  #self.vRadiant .. "  --  " .. #self.vDire)
+    print ('[REFLEX] team sizes ' ..  #self.vRadiant .. "  --  " .. #self.vDire)
     if #self.vRadiant > #self.vDire then
-      print ('[[REFLEX]] setting to bad guys')
+      print ('[REFLEX] setting to bad guys')
       ply:SetTeam(DOTA_TEAM_BADGUYS)
       ply:__KeyValueFromInt('teamnumber', DOTA_TEAM_BADGUYS)
       table.insert (self.vDire, ply)
     else
-      print ('[[REFLEX]] setting to good guys')
+      print ('[REFLEX] setting to good guys')
       ply:SetTeam(DOTA_TEAM_GOODGUYS)
       ply:__KeyValueFromInt('teamnumber', DOTA_TEAM_GOODGUYS)
       table.insert (self.vRadiant, ply)
@@ -343,12 +343,12 @@ function ReflexGameMode:AutoAssignPlayer(keys)
     playerID = ply:GetPlayerID()
   end
 
-  print ('[[REFLEX]] playerID: ' .. playerID)
+  print ('[REFLEX] playerID: ' .. playerID)
   
   --PrintTable(PlayerResource)
   --PrintTable(getmetatable(PlayerResource))
   
-  print('[[REFLEX]] SteamID: ' .. PlayerResource:GetSteamAccountID(playerID))
+  print('[REFLEX] SteamID: ' .. PlayerResource:GetSteamAccountID(playerID))
   self.vUserIds[keys.userid] = ply
   self.vSteamIds[PlayerResource:GetSteamAccountID(playerID)] = ply
 
@@ -357,7 +357,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
   endTime = Time(),
   callback = function(reflex, args)
     if GameRules:State_Get() >= DOTA_GAMERULES_STATE_PRE_GAME then
-      print ('[[REFLEX]] in pregame')
+      print ('[REFLEX] in pregame')
       -- Assign a hero to a fake client
       local heroEntity = ply:GetAssignedHero()
       if PlayerResource:IsFakeClient(playerID) then
@@ -368,10 +368,10 @@ function ReflexGameMode:AutoAssignPlayer(keys)
         end
       end
       heroEntity = ply:GetAssignedHero()
-      print ('[[REFLEX]] got assigned hero')
+      print ('[REFLEX] got assigned hero')
       -- Check if we have a reference for this player's hero
       if heroEntity ~= nil and IsValidEntity(heroEntity) then
-        print ('[[REFLEX]] setting hero assignment')
+        print ('[REFLEX] setting hero assignment')
         local heroTable = {
           hero = heroEntity,
           nKillsThisRound = 0,
@@ -383,10 +383,10 @@ function ReflexGameMode:AutoAssignPlayer(keys)
           nUnspentAbilityPoints = 1,
           bConnected = true
         }
-        print ('[[REFLEX]] playerID: ' .. playerID)
+        print ('[REFLEX] playerID: ' .. playerID)
         self.vPlayers[playerID] = heroTable
 
-        print ( "[[REFLEX]] setting stuff for player"  .. playerID)
+        print ( "[REFLEX] setting stuff for player"  .. playerID)
         --heroEntity:__KeyValueFromInt('StatusManaRegen', 100)
         local dash = CreateItem("item_reflex_dash", heroEntity, heroEntity)
         heroEntity:AddItem(dash)
@@ -398,7 +398,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
         heroEntity:SetGold(STARTING_GOLD, true)
         --PlayerResource:SetGold( playerID, 0, false )
         --PlayerResource:SetGold( playerID, STARTING_GOLD, true )
-        print ( "[[REFLEX]] GOLD SET FOR PLAYER "  .. playerID)
+        print ( "[REFLEX] GOLD SET FOR PLAYER "  .. playerID)
         PlayerResource:SetBuybackCooldownTime( playerID, 0 )
         PlayerResource:SetBuybackGoldLimitTime( playerID, 0 )
         PlayerResource:ResetBuybackCostTime( playerID )
@@ -406,7 +406,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
         if GameRules:State_Get() > DOTA_GAMERULES_STATE_PRE_GAME then
 
           if heroTable.bRoundInit == false then
-            print ( '[[REFLEX]] Initializing player ' .. playerID)
+            print ( '[REFLEX] Initializing player ' .. playerID)
             heroTable.bRoundInit = true
             heroTable.hero:RespawnHero(false, false, false)
             --player.hero:RespawnUnit()
@@ -448,7 +448,7 @@ function ReflexGameMode:LoopOverPlayers(callback)
 end
 
 function ReflexGameMode:ShopReplacement( keys )
-  --print ( '[[REFLEX]] ShopReplacement' )
+  --print ( '[REFLEX] ShopReplacement' )
   PrintTable(keys)
 
   local plyID = keys.PlayerID
@@ -477,13 +477,13 @@ function ReflexGameMode:ShopReplacement( keys )
     baseName = baseName:sub(1, -2)
   end
   for i=0,11 do
-    --print ( '\t[[REFLEX]] finding item ' .. i)
+    --print ( '\t[REFLEX] finding item ' .. i)
     local item2 = player.hero:GetItemInSlot( i )
-    --print ( '\t[[REFLEX]] item: ' .. tostring(item) )
+    --print ( '\t[REFLEX] item: ' .. tostring(item) )
     if item2 ~= nil then
-      --print ( '\t[[REFLEX]] getting ability name' .. i)
+      --print ( '\t[REFLEX] getting ability name' .. i)
       local lname = item2:GetAbilityName()
-      --print ( string.format ('[[REFLEX]] item slot %d: %s', i, lname) )
+      --print ( string.format ('[REFLEX] item slot %d: %s', i, lname) )
       if string.find(lname, baseName) then
         count = count + 1
         if count > 1 then
@@ -517,7 +517,7 @@ function ReflexGameMode:ShopReplacement( keys )
       if not found then
         local ability = player.hero:FindAbilityByName( 'reflex_empty' .. i)
         if ability ~= nil then
-          --print ( '[[REFLEX]] found empty' .. i .. " replacing")
+          --print ( '[REFLEX] found empty' .. i .. " replacing")
           player.hero:RemoveAbility('reflex_empty' .. i)
           player.hero:AddAbility(abilityToAdd)
           found = true
@@ -531,7 +531,7 @@ function ReflexGameMode:ShopReplacement( keys )
       if not found then
         local ability = player.hero:FindAbilityByName( 'reflex_empty' .. i)
         if ability ~= nil then
-          --print ( '[[REFLEX]] found empty' .. i .. " replacing")
+          --print ( '[REFLEX] found empty' .. i .. " replacing")
           player.hero:RemoveAbility('reflex_empty' .. i)
           player.hero:AddAbility(abilityToAdd)
           found = true
@@ -546,16 +546,16 @@ function ReflexGameMode:getItemByName( hero, name )
   --	return nil
   --end
 
-  --print ( '[[REFLEX]] find item in inventory' )
+  --print ( '[REFLEX] find item in inventory' )
   -- Find item by slot
   for i=0,11 do
-    --print ( '\t[[REFLEX]] finding item ' .. i)
+    --print ( '\t[REFLEX] finding item ' .. i)
     local item = hero:GetItemInSlot( i )
-    --print ( '\t[[REFLEX]] item: ' .. tostring(item) )
+    --print ( '\t[REFLEX] item: ' .. tostring(item) )
     if item ~= nil then
-      --print ( '\t[[REFLEX]] getting ability name' .. i)
+      --print ( '\t[REFLEX] getting ability name' .. i)
       local lname = item:GetAbilityName()
-      --print ( string.format ('[[REFLEX]] item slot %d: %s', i, lname) )
+      --print ( string.format ('[REFLEX] item slot %d: %s', i, lname) )
       if lname == name then
         return item
       end
@@ -566,7 +566,7 @@ function ReflexGameMode:getItemByName( hero, name )
 end
 
 function ReflexGameMode:_thinkState_Prep( dt )
-  --print ( '[[REFLEX]] _thinkState_Prep' )
+  --print ( '[REFLEX] _thinkState_Prep' )
   if GameRules:State_Get() ~= DOTA_GAMERULES_STATE_PRE_GAME then
     -- Waiting on the game to start...
     return
@@ -583,7 +583,7 @@ function ReflexGameMode:_thinkState_None( dt )
 end
 
 function ReflexGameMode:InitializeRound()
-  print ( '[[REFLEX]] InitializeRound called' )
+  print ( '[REFLEX] InitializeRound called' )
   bInPreRound = true
 
   --cancelTimer = false
@@ -597,7 +597,7 @@ function ReflexGameMode:InitializeRound()
     end
     self:LoopOverPlayers(function(player, plyID)
       if player.bRoundInit == false then
-        print ( '[[REFLEX]] Initializing player ' .. plyID)
+        print ( '[REFLEX] Initializing player ' .. plyID)
         player.bRoundInit = true
         player.hero:RespawnHero(false, false, false)
         --player.hero:RespawnUnit()
@@ -637,9 +637,9 @@ function ReflexGameMode:InitializeRound()
 
         local curXP = PlayerResource:GetTotalEarnedXP(plyID)
         local nextXP = player.fLevel * 100
-        print ( '[[REFLEX]] NextXP: ' .. tostring(nextXP))
+        print ( '[REFLEX] NextXP: ' .. tostring(nextXP))
         if nextXP > curXP then
-          print ( '[[REFLEX]] XP Boost ' .. tostring(nextXP - curXP))
+          print ( '[REFLEX] XP Boost ' .. tostring(nextXP - curXP))
           --PrintTable(player.hero)
           --PrintTable(getmetatable(player.hero))
           --local diff = math.floor((nextXP - curXP) / 100)
@@ -767,7 +767,7 @@ function ReflexGameMode:InitializeRound()
 end
 
 function ReflexGameMode:RoundComplete(timedOut)
-  print ('[[REFLEX]] Round Complete')
+  print ('[REFLEX] Round Complete')
   
   self:RemoveTimer('round_start_timer')
   self:RemoveTimer('round_time_out')
@@ -899,7 +899,7 @@ function ReflexGameMode:RoundComplete(timedOut)
 end
 
 function ReflexGameMode:Think()
-  --print ( '[[REFLEX]] Thinking' )
+  --print ( '[REFLEX] Thinking' )
   -- If the game's over, it's over.
   if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
     -- self._scriptBind:EndThink( "GameThink" )
@@ -928,7 +928,7 @@ function ReflexGameMode:Think()
       -- Remove from timers list
       ReflexGameMode.timers[k] = nil
 
-      --print ( '[[REFLEX]] Running timer: ' .. k)
+      --print ( '[REFLEX] Running timer: ' .. k)
 
       -- Run the callback
       local status, nextCall = pcall(v.callback, ReflexGameMode, v)
@@ -1062,22 +1062,22 @@ function ReflexGameMode:_WatConsoleCommand()
 end
 
 function ReflexGameMode:OnEntityKilled( keys )
-  print( '[[REFLEX]] OnEntityKilled Called' )
+  print( '[REFLEX] OnEntityKilled Called' )
   PrintTable( keys )
   local killedUnit = EntIndexToHScript( keys.entindex_killed )
-  print( '[[REFLEX]] Got KilledUnit' )
+  print( '[REFLEX] Got KilledUnit' )
   local killerEntity = nil
 
   if keys.entindex_attacker ~= nil then
     killerEntity = EntIndexToHScript( keys.entindex_attacker )
   end
 
-  print( '[[REFLEX]] Got KillerEntity if exists' )
+  print( '[REFLEX] Got KillerEntity if exists' )
 
   -- Clean up units remaining...
   local enemyData = nil
   if killedUnit then
-    print( '[[REFLEX]] KilledUnit exists' )
+    print( '[REFLEX] KilledUnit exists' )
     if killerEntity then
       local killerID = killerEntity:GetPlayerOwnerID()
       self.vPlayers[killerID].nKillsThisRound = self.vPlayers[killerID].nKillsThisRound + 1
@@ -1087,9 +1087,9 @@ function ReflexGameMode:OnEntityKilled( keys )
     local killedID = killedUnit:GetPlayerOwnerID()
     self.vPlayers[killedID].bDead = true
     if killedUnit:GetUnitName() then
-      print( string.format( '[[REFLEX]] %s died', killedUnit:GetUnitName() ) )
+      print( string.format( '[REFLEX] %s died', killedUnit:GetUnitName() ) )
     else
-      print ( "[[REFLEX]] couldn't get unit name")
+      print ( "[REFLEX] couldn't get unit name")
     end
 
     -- Fix Gold
