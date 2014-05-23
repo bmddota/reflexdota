@@ -56,3 +56,56 @@ Ability Examples
 -Vengeance: When an ally dies, gain a massive reduction in received damage for a short time.  Go HAM!
 -Scaredy Cat: When an ally dies, gain a movement speed boost and a healing salve effect.  Run Away!
 And many more...
+
+
+
+
+=============
+= ChangeLog =
+=============
+.02.08
+------------
+-Incorporated some new heroes for selection(Thanks to OrangeSodaSmurf)
+-Adjusted the Countdown to show in the center message at 10 seconds left (Thanks to XavierCHN)
+-Added logic for determining victor in the case that no one is killed during a round.  The round goes to whichever team is losing overall (Thanks to XavierCHN)
+-Added SChinese language support (Huge thanks to XavierCHN)
+-Fixed illuminate not doing damage often and mega flare not doing damage occasionally
+-Mega Flare damage adjusted from 600/900/1200/1500 to 600/700/800/900
+-Fixed the model scaling to appropriately rescale heroes after vengeance/scaredy cat wears off
+-Fixed Simple shooter 2/3 to use their correct statistics
+-Update addoninfo.txt
+-Fixed an issue with meteor speed not scaling with levels appropriately
+-Rescaled meteor speed so that level 1 and 2 are a little slower than before but 3 and 4 are a bit faster
+-Added invulnerability during pre-round to prevent leftover projectiles from causing damage
+-Fixed gold not being removed when a round begins
+-Simple shooter and Shotgun projectiles now appropriately trace the terrain
+-If you attempt to dash while crippled now, you hear a "failure" sound and no longer lose mana or charges.
+-Fixed Illuminate damage getting clipped by other illuminates.  It now does full damage every time
+-Fixed Last Man Standing to base its damage buff % on the number of enemies alive when the hero is orphaned, not the number of enemies in total
+-Fixed the shotgun tooltips to show the correct damage
+-Fixed heroes being able to walk barely out of vision on the bottom of the map
+
+
+.02.00
+------------
+-Added a danger indicator to Detonator explosion
+-Made all items droppable/stash swappable
+-Added a .38 second cooldown to Reflex Dash to prevent double-tap charge wasting
+-Timer-caused Free-win Issue should be fixed
+-Vengeance now scales the model of the hero up based on the level of vengeance ability
+-Scaredy cat now scales the model of the hero down based on the level of scaredy cat ability
+-Scaredy Cat now heals for more, a total of about 400/600/800/1000 if the heal is uninterrupted
+-Added invulnerability when all heroes on one team die, preventing cross kills at round end
+-Lowered gold costs of smoke and haste grenades
+-Removed the movement speed snare from smoke grenade
+-Boosted the range/radius and damage of flame breath 
+-Fixed a tooltip on the Energy Drain ability showing Damage despite dealing none
+-Increased the duration of the haste ability by 1 second per level to 2.0/2.5/3.0/3.5
+-Increased the duration of holy shield by 1 second per level to 4.0/4.5/5.0/5.5 and reduced the cast point from 0.3 to 0.1
+-Rebalanced Kinetic Field.  It now lasts longer at level 3 and 4, has 200 more cast range at all levels, and can be cast on the point target without turning (helpful for escaping/baiting)
+-Net Cannon is now a Tier 2 item (2300 base cost, 700 each upgrade) and has 2 charges at all levels
+-Crippler is now a Tier 2 item (2300 base cost, 700 each upgrade)
+-Reduced the health gain from HP Booster/Soul Booster to 200/300/400/500 from 200/400/600/800 since you can buy multiple and to give the passive ability versions an advantage
+-Reduced the meteor cannon speed scaling.  It's still quite fast with a full charge but far less potent with less than half a charge.
+-Reduced the early level damage of power shot
+-Reduced the early level damage/mana drain of cogs

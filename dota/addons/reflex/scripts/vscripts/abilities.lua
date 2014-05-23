@@ -1,29 +1,7 @@
---[[
-	"RunScript"
-			{
-				"ScriptFile"			"scripts/vscripts/abilities.lua"
-				"Function"				"itemSpellStart"
-				"Target"				"POINT"
-				"Ability"				"reflex_dash"
-				"ChargeModifier"		"modifier_item_reflex_dash"
-				"AbilityLevel"			"1"									// Optional.  Defaults to level of item used
-				"ChargeType"			"UNLINKED" 	// Optional: "UNLINKED", "HALF", "FULL", "ALL"
-			}
-]]
+
+vPlayerIlluminate = {}
 
 function itemSpellStart (keys)
-	--print ( '[[REFLEX]] item spell start called' )
-	--PrintTable(keys)
-	--print ('[[REFLEX]] ' .. keys.ChargeModifier .. " -- " .. keys.ability:GetAbilityName() .. " -- " .. keys.ChargeType)
-	
-	--[[local ent = Entities:First()
-	while ent ~= nil do
-		print(ent:GetName() .. " -- " .. ent:GetClassname())
-		PrintTable(ent)
-		PrintTable(getmetatable(ent))
-		print('')
-		ent = Entities:Next(ent)
-	end]]
 	
 	local target = keys.Target
 	local caster = keys.caster
@@ -39,6 +17,7 @@ function itemSpellStart (keys)
 	
 	--PrintTable(caster)
 	--PrintTable(getmetatable(caster))
+  --print(caster:GetMana())
 	
 	local item = getItemByName(caster, itemName )
 	--print ('Item')
@@ -53,9 +32,21 @@ function itemSpellStart (keys)
 	if string.find(itemName, "item_reflex_dash") ~= nil then
 		--print (tostring(caster:HasModifier("modifier_hamstring")))
 		if caster:HasModifier("modifier_hamstring") then
-			--local charges = item:GetCurrentCharges()
-			--item:SetCurrentCharges(charges + 1)
+			local charges = item:GetCurrentCharges()
+			local maxCharges = item:GetInitialCharges()
+	
+      if charges + 1 <= maxCharges then
+        item:SetCurrentCharges(charges + 1)
+      end
+      
+      EmitSoundOnClient("General.CantAttack" , caster:GetPlayerOwner())
 			
+      local mana = caster:GetMana() + 80
+      if mana > caster:GetMaxMana() then
+        caster:SetMana(caster:GetMaxMana())
+      else
+        caster:SetMana(mana)
+      end
 			-- TODO Maybe add back mana lost?
 			return
 		end
@@ -102,6 +93,18 @@ function itemSpellStart (keys)
 	end
 	
 	if abilityName ~= nil then
+    if string.find(abilityName, "reflex_illuminate") ~= nil then
+      local plyID = caster:GetPlayerOwner():GetPlayerID()
+      if (plyID ~= nil) then
+        if vPlayerIlluminate[plyID] == nil then
+          vPlayerIlluminate[plyID] = 1
+        else
+          vPlayerIlluminate[plyID] = (vPlayerIlluminate[plyID] % 4) + 1
+        end
+        
+        abilityName = "reflex_illuminate_" .. vPlayerIlluminate[plyID]
+      end
+    end
 		local ability = caster:FindAbilityByName( abilityName )
 		if ability == nil then
 			caster:AddAbility(abilityName)
@@ -244,6 +247,10 @@ function itemChannelEnd( keys )
 	local start = channelTable[ID]
 	channelTable[ID] = nil
 	
+	if start == nil then
+		start = now + 0.5
+	end
+	
 	local channelTime = start - now
 	if string.find(itemName, "item_reflex_meteor_cannon") ~= nil then
 		itemTranquilBoots(channelTime, point, keys.ability, caster)
@@ -269,7 +276,8 @@ function itemTranquilBoots( channelTime, point, item , caster)
 		fExpireTime = GameRules:GetGameTime() + 10.0,
 	}
 
-	local speed = tonumber(item:GetSpecialValueFor("speed"))--1000
+	local speed = tonumber(item:GetSpecialValueFor("speed")) + (item:GetLevel() - 1) * 100 --1000
+  print ('[[REFLEX]] Meteor Speed: ' .. tostring(speed))
 	--print ('[[REFLEX]] ' .. tostring(point))
 	--PrintTable(point)
 	--PrintTable(getmetatable(point))	

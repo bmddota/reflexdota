@@ -50,12 +50,12 @@
 		"item"		"item_reflex_detonator"
 		"item"		"item_reflex_sunstrike_barrage"
 		"item"		"item_reflex_meteor_cannon"
+    "item"		"item_reflex_net_cannon"
+		"item"		"item_reflex_crippler"
 	}
 
 	"magics"
 	{
-		"item"		"item_reflex_net_cannon"
-		"item"		"item_reflex_crippler"
 		"item"		"item_reflex_illuminate"
 		"item"		"item_reflex_mega_flare"
 	}

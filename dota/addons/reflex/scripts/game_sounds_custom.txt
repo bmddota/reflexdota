@@ -1064,3 +1064,12 @@
 		}
 	}
 }
+
+"General.CantAttack"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"0.5"
+	"pitch"			"PITCH_NORM"
+	"soundlevel"	"SNDLVL_NONE"
+	"wave"			"ui/ui_general_deny.wav" 
+}
