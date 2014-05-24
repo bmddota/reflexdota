@@ -711,19 +711,25 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"900 1050 1200 1350"
+				"speed"					"900 1000 1100 1200"
 			}
 			
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"100 130 160 190"
+				"damage"				"100 125 150 175"
 			}
 			
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"radius"				"100"
+			}
+			
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"range"					"1000 1030 1065 1100"
 			}
 		}
 	}
@@ -837,13 +843,13 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"900 1050 1200 1350"
+				"speed"					"900 1000 1100 1200"
 			}
 			
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"100 130 160 190"
+				"damage"				"100 125 150 175"
 			}
 			
 			"03"
@@ -852,10 +858,10 @@
 				"radius"				"100"
 			}
 			
-			"03"
+			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"range"					"1000 1100 1200 1300"
+				"range"					"1000 1030 1065 1100"
 			}
 		}
 	}
@@ -969,13 +975,13 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"900 1050 1200 1350"
+				"speed"					"900 1000 1100 1200"
 			}
 			
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"100 130 160 190"
+				"damage"				"100 125 150 175"
 			}
 			
 			"03"
@@ -984,10 +990,10 @@
 				"radius"				"100"
 			}
 			
-			"03"
+			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"range"					"1000 1100 1200 1300"
+				"range"					"1000 1030 1065 1100"
 			}
 		}
 	}
@@ -1101,13 +1107,13 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"900 1050 1200 1350"
+				"speed"					"900 1000 1100 1200"
 			}
 			
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"100 130 160 190"
+				"damage"				"100 125 150 175"
 			}
 			
 			"03"
@@ -1116,10 +1122,10 @@
 				"radius"				"100"
 			}
 			
-			"03"
+			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"range"					"1000 1100 1200 1300"
+				"range"					"1000 1030 1065 1100"
 			}
 		}
 	}
@@ -6954,7 +6960,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"30"
+				"recharge_time"			"15"
 			}
 			"07"
 			{
@@ -7109,7 +7115,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"30"
+				"recharge_time"			"15"
 			}
 			"07"
 			{
@@ -7264,7 +7270,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"30"
+				"recharge_time"			"15"
 			}
 			"07"
 			{
@@ -7419,7 +7425,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"30"
+				"recharge_time"			"15"
 			}
 			"07"
 			{

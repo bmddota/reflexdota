@@ -47,7 +47,6 @@ function itemSpellStart (keys)
       else
         caster:SetMana(mana)
       end
-			-- TODO Maybe add back mana lost?
 			return
 		end
 	end

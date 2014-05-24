@@ -469,23 +469,34 @@ function ReflexGameMode:ShopReplacement( keys )
     item:Remove()
     return
   end
+  
+  if (string.find(item:GetAbilityName(), "item_recipe_") ~= nil) then
+    local cost = item:GetCost()
+    player.hero:SetGold(player.hero:GetGold() + cost, true)
+    item:Remove()
+    return
+  end
 
   -- Prevent rebuying existing items
   local baseName = item:GetAbilityName()
   local count = 0
   if string.find(baseName:sub(-1), "2") ~= nil or string.find(baseName:sub(-1), "3") ~= nil or string.find(baseName:sub(-1), "4") ~= nil then
-    baseName = baseName:sub(1, -2)
+    --print('[REFLEX] BaseName: ' .. baseName)
+    baseName = baseName:sub(1, -3)
+    --print('[REFLEX] BaseName: ' .. baseName)
   end
+  
   for i=0,11 do
     --print ( '\t[REFLEX] finding item ' .. i)
     local item2 = player.hero:GetItemInSlot( i )
     --print ( '\t[REFLEX] item: ' .. tostring(item) )
     if item2 ~= nil then
-      --print ( '\t[REFLEX] getting ability name' .. i)
+      --print ( '\t[REFLEX] getting item name' .. i)
       local lname = item2:GetAbilityName()
       --print ( string.format ('[REFLEX] item slot %d: %s', i, lname) )
       if string.find(lname, baseName) then
         count = count + 1
+        --print (tostring(count))
         if count > 1 then
           local cost = item:GetCost()
           player.hero:SetGold(player.hero:GetGold() + cost, true)
