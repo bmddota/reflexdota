@@ -1,7 +1,7 @@
 print ('[REFLEX] reflex.lua' )
 
-USE_LOBBY=false
-DEBUG=true
+USE_LOBBY=true
+DEBUG=false
 
 REFLEX_VERSION = "0.02"
 
@@ -227,7 +227,7 @@ function ReflexGameMode:InitGameMode()
   self.nCurrentRound = 1
   self.nRadiantDead = 0
   self.nDireDead = 0
-  self.nLastKill = nil
+  self.nLastKilled = nil
   self.fRoundStartTime = 0
 
   -- Timers
@@ -791,7 +791,7 @@ function ReflexGameMode:RoundComplete(timedOut)
   local s = "Radiant"
   if timedOut then
     --If noteam score any kill, the team on inferior position win this round to prevent from negative attitude
-    if self.nLastKill == nil then 
+    if self.nLastKilled == nil then 
       if self.nRadiantScore > self.nDireScore then
         victor = DOTA_TEAM_BADGUYS
         s = "Dire"
@@ -801,7 +801,7 @@ function ReflexGameMode:RoundComplete(timedOut)
       victor = DOTA_TEAM_BADGUYS
       s = "Dire"
       -- If both have same number of dead go by last team that got a kill
-    elseif self.nDireDead == self.nRadiantDead and self.nLastKill == DOTA_TEAM_BADGUYS then
+    elseif self.nDireDead == self.nRadiantDead and self.nLastKilled == DOTA_TEAM_GOODGUYS then
       victor = DOTA_TEAM_BADGUYS
       s = "Dire"
     end
@@ -904,7 +904,7 @@ function ReflexGameMode:RoundComplete(timedOut)
   self.nCurrentRound = self.nCurrentRound + 1
   self.nRadiantDead = 0
   self.nDireDead = 0
-  self.nLastKill = nil
+  self.nLastKilled = nil
 
   self:InitializeRound()
 end
@@ -1113,10 +1113,10 @@ function ReflexGameMode:OnEntityKilled( keys )
 
     if killedUnit:GetTeam() == DOTA_TEAM_GOODGUYS then
       self.nRadiantDead = self.nRadiantDead + 1
-      self.nLastKill = DOTA_TEAM_GOODGUYS
+      self.nLastKilled = DOTA_TEAM_GOODGUYS
     else
       self.nDireDead = self.nDireDead + 1
-      self.nLastKill = DOTA_TEAM_BADGUYS
+      self.nLastKilled = DOTA_TEAM_BADGUYS
     end
 
     -- Trigger OnDeath abilities
