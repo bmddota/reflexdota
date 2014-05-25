@@ -3807,7 +3807,7 @@
 
 		"VisionNighttimeRange"		"1800"									// Range of vision at night time.
 	}
-
+  
   "npc_dota_hero_clinkz_reflex"
 	{
 		"AbilityLayout" 		"6"
