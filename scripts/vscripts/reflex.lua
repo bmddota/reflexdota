@@ -3,7 +3,7 @@ print ('[REFLEX] reflex.lua' )
 USE_LOBBY=true
 DEBUG=false
 
-REFLEX_VERSION = "0.02"
+REFLEX_VERSION = "0.02.19"
 
 ROUNDS_TO_WIN = 10
 ROUND_TIME = 150 --240
@@ -68,6 +68,8 @@ ABILITY_ITEM_TABLE = {
   reflex_vengeance = 1,
   reflex_scaredy_cat = 1
 }
+
+roundOne = true
 
 if ReflexGameMode == nil then
   print ( '[REFLEX] creating reflex game mode' )
@@ -676,8 +678,24 @@ function ReflexGameMode:InitializeRound()
 
   local roundTime = PRE_ROUND_TIME + PRE_GAME_TIME
   PRE_GAME_TIME = 0
-
+  
   Say(nil, string.format("Round %d starts in %d seconds!", self.nCurrentRound, roundTime), false)
+  
+  if roundOne then
+    self:CreateTimer('reflexDetail', {
+      endTime = GameRules:GetGameTime() + 10,
+      useGameTime = true,
+      callback = function(reflex, args)
+        GameRules:SendCustomMessage("Welcome to Reflex!", 0, 0)
+        GameRules:SendCustomMessage("Version: " .. REFLEX_VERSION, 0, 0)
+        GameRules:SendCustomMessage("Created by BMD and MoD", 0, 0)
+        GameRules:SendCustomMessage("Send feedback to bmddota@gmail.com", 0, 0)
+      end
+    })
+  end
+ 
+  roundOne = false
+  
   local startCount = 7
   --Set Timers for round start announcements
   self:CreateTimer('round_start_timer', {
