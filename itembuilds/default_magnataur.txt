@@ -1,4 +1,4 @@
-"itembuilds"
+"itembuilds/default_generic.txt"
 {
 	"author"		"Reflex"
 	"hero"			"npc_dota_hero_magnataur"
@@ -8,23 +8,74 @@
 	{		
 		"#DOTA_Item_Build_Starting_Items"
 		{	
-			"item"	"item_reflex_dash"
-			"item"	"item_simple_shooter"
+      "item"		"item_ability_reflex_power_cogs"
+      "item"		"item_ability_reflex_power_shot"
+      "item"		"item_ability_reflex_wisp_spirits"
+      "item"		"item_ability_reflex_rocket_flare"
+      "item"		"item_ability_reflex_haste"
 		}
 		
-		"#DOTA_Item_Build_Early_Game"
+		"#DOTA_Item_Build_Passives"
 		{	
-
+      "item"		"item_ability_reflex_bristleback"
+      "item"		"item_ability_reflex_hp_boost"
+      "item"		"item_ability_reflex_energy_boost"
+      "item"		"item_ability_reflex_energy_regen_boost"
+      "item"		"item_ability_reflex_bulk_up"
+      "item"		"item_ability_reflex_vengeance"
+      "item"		"item_ability_reflex_scaredy_cat"
 		}
 		
-		"#DOTA_Item_Build_Core_Items"
+		"#DOTA_Item_Build_Tier_1_Items"
 		{
-				
+      "item"		"item_reflex_holy_shield"
+      "item"		"item_reflex_shotgun"
+      "item"		"item_reflex_long_shot"
+		}
+    
+    "#DOTA_Item_Build_Tier_2_Abilities"
+		{
+      "item"		"item_ability_reflex_phase_shift"
+      "item"		"item_ability_reflex_flame_breath"
+      "item"		"item_ability_reflex_energy_drain"
 		}
 		
-		"#DOTA_Item_Build_Luxury"
+		"#DOTA_Item_Build_Tier_2_Items"
 		{
-
+			"item"		"item_reflex_air_burst"
+      "item"		"item_reflex_wall_of_pain"
+      "item"		"item_reflex_blast_cannon"
+      "item"		"item_reflex_detonator"
+      "item"		"item_reflex_sunstrike_barrage"
+      "item"		"item_reflex_meteor_cannon"
+      "item"		"item_reflex_net_cannon"
+      "item"		"item_reflex_crippler"
+		}
+    
+    "#DOTA_Item_Build_Tier_3_Abilities"
+		{
+			"item"		"item_ability_reflex_kinetic_field"
+      "item"		"item_ability_reflex_borrowed_time"
+		}
+    
+    "#DOTA_Item_Build_Tier_3_Items"
+		{
+			"item"		"item_reflex_illuminate"
+      "item"		"item_reflex_mega_flare"
+		}
+    
+    "#DOTA_Item_Build_Reflex_Boosters"
+		{
+			"item"		"item_reflex_hp_booster"
+      "item"		"item_reflex_energy_booster"
+      "item"		"item_reflex_regen_booster"
+      "item"		"item_reflex_soul_booster"
+		}
+    
+    "#DOTA_Item_Build_Reflex_Consumables"
+		{
+			"item"		"item_reflex_smoke_grenade"
+      "item"		"item_reflex_haste_grenade"
 		}
 	}
 }
