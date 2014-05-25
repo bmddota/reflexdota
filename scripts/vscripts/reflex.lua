@@ -1,7 +1,7 @@
 print ('[REFLEX] reflex.lua' )
 
-USE_LOBBY=true
-DEBUG=false
+USE_LOBBY=false
+DEBUG=true
 
 REFLEX_VERSION = "0.02"
 

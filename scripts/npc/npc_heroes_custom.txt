@@ -11,6 +11,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -57,6 +67,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -103,6 +123,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -149,6 +179,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -195,6 +235,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -241,6 +291,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -287,6 +347,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -333,6 +403,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -379,6 +459,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -425,6 +515,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -471,6 +571,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -517,6 +627,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -563,6 +683,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -609,6 +739,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -655,6 +795,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -701,6 +851,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -747,6 +907,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -793,6 +963,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -839,6 +1019,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -885,6 +1075,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -931,6 +1131,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -977,6 +1187,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1023,6 +1243,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1069,6 +1299,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1115,6 +1355,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1161,6 +1411,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1207,6 +1467,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1253,6 +1523,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1299,6 +1579,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1345,6 +1635,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1391,6 +1691,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1437,6 +1747,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1483,6 +1803,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1529,6 +1859,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1575,6 +1915,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1621,6 +1971,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1667,6 +2027,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1713,6 +2083,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1759,6 +2139,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1805,6 +2195,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1851,6 +2251,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1897,6 +2307,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1943,6 +2363,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -1989,6 +2419,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2035,6 +2475,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2081,6 +2531,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2127,6 +2587,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2173,6 +2643,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2208,10 +2688,10 @@
 		"VisionNighttimeRange"		"1800"									// Range of vision at night time.
 	}
 
-  "npc_dota_hero_venomancer _reflex"
+  "npc_dota_hero_venomancer_reflex"
 	{
 		"AbilityLayout" 		"6"
-		"override_hero"			"npc_dota_hero_venomancer "
+		"override_hero"			"npc_dota_hero_venomancer"
 		"SoundSet"					"0"	
 		"Ability1"				"reflex_empty1" //"reflex_small_dagger"
 		"Ability2"				"reflex_empty2" //"reflex_meat_hook"
@@ -2219,6 +2699,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2265,6 +2755,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2311,6 +2811,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2357,6 +2867,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2403,6 +2923,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2449,6 +2979,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2495,6 +3035,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2541,6 +3091,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2587,6 +3147,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2633,6 +3203,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2679,6 +3259,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2725,6 +3315,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2771,6 +3371,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2817,6 +3427,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2863,6 +3483,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2909,6 +3539,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -2955,6 +3595,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3001,6 +3651,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3047,6 +3707,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3093,6 +3763,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3139,6 +3819,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3185,6 +3875,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3231,6 +3931,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3277,6 +3987,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3323,6 +4043,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3369,6 +4099,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3415,6 +4155,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3461,6 +4211,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3507,6 +4267,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3553,6 +4323,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3599,6 +4379,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3645,6 +4435,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3691,6 +4491,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3737,6 +4547,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3783,6 +4603,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3829,6 +4659,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3875,6 +4715,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3921,6 +4771,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -3967,6 +4827,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4013,6 +4883,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4059,6 +4939,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4105,6 +4995,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4151,6 +5051,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4197,6 +5107,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4243,6 +5163,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4289,6 +5219,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4335,6 +5275,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4381,6 +5331,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4427,6 +5387,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4473,6 +5443,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4519,6 +5499,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4565,6 +5555,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4611,6 +5611,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4657,6 +5667,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4703,6 +5723,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4749,6 +5779,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4795,6 +5835,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4841,6 +5891,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
@@ -4887,6 +5947,16 @@
 		"Ability4"				"reflex_empty4"
 		"Ability5"				"reflex_empty5"
 		"Ability6"				"reflex_empty6"
+    "Ability7"				""
+    "Ability8"				""
+    "Ability9"				""
+    "Ability10"				""
+    "Ability11"				""
+    "Ability12"				""
+    "Ability13"				""
+    "Ability14"				""
+    "Ability15"				""
+    "Ability16"				""
 
 		"ArmorPhysical"				"0"									// Physical protection.
 		"MagicalResistance"				"0"									// Magical protection (percentage).
