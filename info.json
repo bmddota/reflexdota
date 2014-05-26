@@ -1,0 +1,17 @@
+{
+  "name": "reflex",
+  "fullname": "Reflex",
+  "version": "0.02.19",
+  "author": "BMDDota",
+  "authorimage": "",
+  "thumbnail": "https://s3-us-west-2.amazonaws.com/d2mpimages/reflexLogo.png",
+  "spreadimage": "",
+  "spreadvideo": "https://s3-us-west-2.amazonaws.com/d2mpimages/reflex.webm",
+  "website": "https://github.com/bmddota/reflexdota",
+  "subtitle": "A high-intensity fast paced action game.",
+  "description": "",
+  "features": ["Fast-paced and intense action.", "Develop skill and fast reaction times.", "Experiment with unique combos.", "Counter-pick your opponents with dynamic hero builds"],
+  "public": true,
+  "playable": true,
+  "requirements": {}
+}
