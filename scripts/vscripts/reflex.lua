@@ -13,7 +13,7 @@ POST_ROUND_TIME = 2
 POST_GAME_TIME = 30
 
 STARTING_GOLD = 650--500
-GOLD_PER_ROUND_LOSER = 600
+GOLD_PER_ROUND_LOSER = 750
 GOLD_PER_ROUND_WINNER = 1100
 GOLD_PER_KILL = 300
 GOLD_PER_MVP = 500
@@ -125,7 +125,7 @@ function ReflexGameMode:InitGameMode()
   print('[REFLEX] reflex_set_ability set')
 
   Convars:RegisterCommand('reflex_reset_all', function()
-    if not Convars:GetCommandClient() or DEBUG then
+    if not Convars:GetCommandClient() or DEBUG then      
       self:LoopOverPlayers(function(player, plyID)
         print ( '[REFLEX] Resetting player ' .. plyID)
         --PlayerResource:SetGold(plyID, 30000, true)
@@ -215,6 +215,20 @@ function ReflexGameMode:InitGameMode()
       self:RoundComplete(true)
     end
   end, 'Tests the death function', 0)
+  
+  Convars:RegisterCommand('reflex_hp_percent', function()
+    local cmdPlayer = Convars:GetCommandClient()
+    if DEBUG then
+      local playerID = cmdPlayer:GetPlayerID()
+      local player = self.vPlayers[playerID]
+      
+      player.hero:SetHealth(player.hero:GetHealth() - 80)
+      
+      self:LoopOverPlayers(function(player, plyID)
+        print('Hp: ' .. tostring(player.hero:GetHealthPercent()))
+      end)
+    end
+  end, 'Prints hp percentages', 0)
 
 
   -- Change random seed
@@ -818,10 +832,24 @@ function ReflexGameMode:RoundComplete(timedOut)
     elseif self.nDireDead < self.nRadiantDead then
       victor = DOTA_TEAM_BADGUYS
       s = "Dire"
-      -- If both have same number of dead go by last team that got a kill
-    elseif self.nDireDead == self.nRadiantDead and self.nLastKilled == DOTA_TEAM_GOODGUYS then
-      victor = DOTA_TEAM_BADGUYS
-      s = "Dire"
+      -- If both have same number of dead go by final hp percent of heroes
+    elseif self.nDireDead == self.nRadiantDead then 
+      local radiantHPpercent = 0
+      local direHPpercent = 0
+      self:LoopOverPlayers(function(player, plyID)
+        if player.bDead == false then
+          if player.nTeam == DOTA_TEAM_GOODGUYS then
+            radiantHPpercent = radiantHPpercent + player.hero:GetHealthPercent()
+          else
+            direHPpercent = direHPpercent + player.hero:GetHealthPercent()
+          end
+        end
+      end)
+      
+      if direHPpercent >= radiantHPpercent then
+        victor = DOTA_TEAM_BADGUYS
+        s = "Dire"
+      end
     end
   else
     -- Find someone alive and declare that team the winner (since all other team is dead)
