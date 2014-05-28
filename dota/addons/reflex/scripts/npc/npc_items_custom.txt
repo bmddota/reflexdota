@@ -7588,7 +7588,7 @@
 			{
 				"EffectName"			"generic_aoe_explosion_sphere_1"
 				"EffectAttachType"		"follow_origin"
-				"EffectRadius"			"150"--"%radius"
+				"EffectRadius"			"150" //"%radius"
 				"EffectDurationScale"	"2"
 				"EffectLifeDurationScale" "2"
 				"EffectColorA"			"255 60 0"
