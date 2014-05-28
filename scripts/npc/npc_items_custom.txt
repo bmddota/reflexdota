@@ -3274,7 +3274,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"2000"
+		"AbilityCastRange"				"2000 2300 2650 3000"
 		"AbilityCastPoint"				"0.25"
 		"AbilityCooldown"				"0.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -3317,7 +3317,7 @@
 				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
 				"HasFrontalCone"		"0"
 				"StartPosition"			"attach_attack1"
-				"FixedDistance"			"2000"
+				"FixedDistance"			"%range"
 			}
 			"FireSound"
 			{
@@ -3394,6 +3394,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"recharge_time"			"2"
 			}
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "range"           "2000 2300 2650 3000"
+      }
 		}
 	}
 	
@@ -3410,7 +3415,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"2000"
+		"AbilityCastRange"				"2000 2300 2650 3000"
 		"AbilityCastPoint"				"0.25"
 		"AbilityCooldown"				"0.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -3453,7 +3458,7 @@
 				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
 				"HasFrontalCone"		"0"
 				"StartPosition"			"attach_attack1"
-				"FixedDistance"			"2000"
+				"FixedDistance"			"%range"
 			}
 			"FireSound"
 			{
@@ -3530,6 +3535,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"recharge_time"			"2"
 			}
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "range"           "2000 2300 2650 3000"
+      }
 		}
 	}
 	
@@ -3546,7 +3556,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"2000"
+		"AbilityCastRange"				"2000 2300 2650 3000"
 		"AbilityCastPoint"				"0.25"
 		"AbilityCooldown"				"0.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -3589,7 +3599,7 @@
 				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
 				"HasFrontalCone"		"0"
 				"StartPosition"			"attach_attack1"
-				"FixedDistance"			"2000"
+				"FixedDistance"			"%range"
 			}
 			"FireSound"
 			{
@@ -3666,6 +3676,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"recharge_time"			"2"
 			}
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "range"           "2000 2300 2650 3000"
+      }
 		}
 	}
 	
@@ -3682,7 +3697,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"2000"
+		"AbilityCastRange"				"2000 2300 2650 3000"
 		"AbilityCastPoint"				"0.25"
 		"AbilityCooldown"				"0.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -3725,7 +3740,7 @@
 				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
 				"HasFrontalCone"		"0"
 				"StartPosition"			"attach_attack1"
-				"FixedDistance"			"2000"
+				"FixedDistance"			"%range"
 			}
 			"FireSound"
 			{
@@ -3802,6 +3817,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"recharge_time"			"2"
 			}
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "range"           "2000 2300 2650 3000"
+      }
 		}
 	}
 	
@@ -3926,10 +3946,7 @@
 				"ControlPoints"
 				{
 					"00" "0 0 0"
-					"01" "500 100 100"
-					"02" "5 0 .8" // telegraph
-					"03" "150 150 150"
-					"04" "0 0 0"
+					"01" "%radius 500 500"
 				}
 			}
 			
@@ -3942,8 +3959,10 @@
 					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
 				}
+        "Center" "CASTER"
 				"Duration"	"%duration"
 				"Distance"	"%distance"
+        "IsFixedDistance" "1"
 				"Height"	"%height"
 			}
 			
@@ -3961,19 +3980,19 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"height"				"150 200 250 300"
+				"height"				"250 350 450 550"
 			}
 			
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"distance"				"400 450 500 550"
+				"distance"				"750 1000 1250 1500"
 			}
 			
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"500 550 600 650"
+				"radius"				"750 850 950 1050"
 			}
 			
 			"04"
@@ -4035,10 +4054,7 @@
 				"ControlPoints"
 				{
 					"00" "0 0 0"
-					"01" "500 100 100"
-					"02" "5 0 .8" // telegraph
-					"03" "150 150 150"
-					"04" "0 0 0"
+					"01" "%radius 500 500"
 				}
 			}
 			
@@ -4051,8 +4067,10 @@
 					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
 				}
+        "Center" "CASTER"
 				"Duration"	"%duration"
 				"Distance"	"%distance"
+        "IsFixedDistance" "1"
 				"Height"	"%height"
 			}
 			
@@ -4070,19 +4088,19 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"height"				"150 200 250 300"
+				"height"				"250 350 450 550"
 			}
 			
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"distance"				"400 450 500 550"
+				"distance"				"750 1000 1250 1500"
 			}
 			
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"500 550 600 650"
+				"radius"				"750 850 950 1050"
 			}
 			
 			"04"
@@ -4144,10 +4162,7 @@
 				"ControlPoints"
 				{
 					"00" "0 0 0"
-					"01" "500 100 100"
-					"02" "5 0 .8" // telegraph
-					"03" "150 150 150"
-					"04" "0 0 0"
+					"01" "%radius 500 500"
 				}
 			}
 			
@@ -4160,8 +4175,10 @@
 					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
 				}
+        "Center" "CASTER"
 				"Duration"	"%duration"
 				"Distance"	"%distance"
+        "IsFixedDistance" "1"
 				"Height"	"%height"
 			}
 			
@@ -4179,19 +4196,19 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"height"				"150 200 250 300"
+				"height"				"250 350 450 550"
 			}
 			
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"distance"				"400 450 500 550"
+				"distance"				"750 1000 1250 1500"
 			}
 			
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"500 550 600 650"
+				"radius"				"750 850 950 1050"
 			}
 			
 			"04"
@@ -4253,10 +4270,7 @@
 				"ControlPoints"
 				{
 					"00" "0 0 0"
-					"01" "500 100 100"
-					"02" "5 0 .8" // telegraph
-					"03" "150 150 150"
-					"04" "0 0 0"
+					"01" "%radius 500 500"
 				}
 			}
 			
@@ -4269,8 +4283,10 @@
 					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
 				}
+        "Center" "CASTER"
 				"Duration"	"%duration"
 				"Distance"	"%distance"
+        "IsFixedDistance" "1"
 				"Height"	"%height"
 			}
 			
@@ -4288,19 +4304,19 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"height"				"150 200 250 300"
+				"height"				"250 350 450 550"
 			}
 			
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"distance"				"400 450 500 550"
+				"distance"				"750 1000 1250 1500"
 			}
 			
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"500 550 600 650"
+				"radius"				"750 850 950 1050"
 			}
 			
 			"04"
@@ -4400,7 +4416,7 @@
 		"AbilityCooldown"				"0.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"100 160 220 280"
+		"AbilityDamage"					"160 220 280 340"
 		
 		"precache"
 		{
@@ -4525,7 +4541,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"50 80 110 140"
+				"damage"				"80 110 140 170"
 			}
 			"03"
 			{
@@ -4563,7 +4579,7 @@
 		"AbilityCooldown"				"0.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"100 160 220 280"
+		"AbilityDamage"					"160 220 280 340"
 		
 		"precache"
 		{
@@ -4688,7 +4704,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"50 80 110 140"
+				"damage"				"80 110 140 170"
 			}
 			"03"
 			{
@@ -4726,7 +4742,7 @@
 		"AbilityCooldown"				"0.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"100 160 220 280"
+		"AbilityDamage"					"160 220 280 340"
 		
 		"precache"
 		{
@@ -4851,7 +4867,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"50 80 110 140"
+				"damage"				"80 110 140 170"
 			}
 			"03"
 			{
@@ -4889,7 +4905,7 @@
 		"AbilityCooldown"				"0.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"100 160 220 280"
+		"AbilityDamage"					"160 220 280 340"
 		
 		"precache"
 		{
@@ -5014,7 +5030,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"50 80 110 140"
+				"damage"				"80 110 140 170"
 			}
 			"03"
 			{
@@ -6825,6 +6841,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
+    "AOERadius"						"%area_of_effect"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -6935,7 +6952,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"275 300 325 350"
+				"area_of_effect"		"225 250 275 300"
 			}
 			"02"
 			{
@@ -6980,6 +6997,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
+    "AOERadius"						"%area_of_effect"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -7090,7 +7108,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"275 300 325 350"
+				"area_of_effect"		"225 250 275 300"
 			}
 			"02"
 			{
@@ -7135,6 +7153,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
+    "AOERadius"						"%area_of_effect"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -7245,7 +7264,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"275 300 325 350"
+				"area_of_effect"		"225 250 275 300"
 			}
 			"02"
 			{
@@ -7290,6 +7309,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
+    "AOERadius"						"%area_of_effect"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -7400,7 +7420,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"275 300 325 350"
+				"area_of_effect"		"225 250 275 300"
 			}
 			"02"
 			{
@@ -7594,7 +7614,7 @@
 			{
 				"EffectName"			"generic_aoe_explosion_sphere_1"
 				"EffectAttachType"		"follow_origin"
-				"EffectRadius"			"150"--"%radius"
+				"EffectRadius"			"150"//"%radius"
 				"EffectDurationScale"	"2"
 				"EffectLifeDurationScale" "2"
 				"EffectColorA"			"255 60 0"
@@ -7634,6 +7654,7 @@
 				"Duration"	"%duration"
 				"Distance"	"%knockback"
 				"Height"	"%height"
+        "ShouldStun" "0"
 			}
 		}
 		
@@ -7793,7 +7814,7 @@
 			{
 				"EffectName"			"generic_aoe_explosion_sphere_1"
 				"EffectAttachType"		"follow_origin"
-				"EffectRadius"			"150"--"%radius"
+				"EffectRadius"			"150"//"%radius"
 				"EffectDurationScale"	"2"
 				"EffectLifeDurationScale" "2"
 				"EffectColorA"			"255 60 0"
@@ -7833,6 +7854,7 @@
 				"Duration"	"%duration"
 				"Distance"	"%knockback"
 				"Height"	"%height"
+        "ShouldStun" "0"
 			}
 		}
 		
@@ -7992,7 +8014,7 @@
 			{
 				"EffectName"			"generic_aoe_explosion_sphere_1"
 				"EffectAttachType"		"follow_origin"
-				"EffectRadius"			"150"--"%radius"
+				"EffectRadius"			"150"//"%radius"
 				"EffectDurationScale"	"2"
 				"EffectLifeDurationScale" "2"
 				"EffectColorA"			"255 60 0"
@@ -8032,6 +8054,7 @@
 				"Duration"	"%duration"
 				"Distance"	"%knockback"
 				"Height"	"%height"
+        "ShouldStun" "0"
 			}
 		}
 		
@@ -8191,7 +8214,7 @@
 			{
 				"EffectName"			"generic_aoe_explosion_sphere_1"
 				"EffectAttachType"		"follow_origin"
-				"EffectRadius"			"150"--"%radius"
+				"EffectRadius"			"150"//"%radius"
 				"EffectDurationScale"	"2"
 				"EffectLifeDurationScale" "2"
 				"EffectColorA"			"255 60 0"
@@ -8231,6 +8254,7 @@
 				"Duration"	"%duration"
 				"Distance"	"%knockback"
 				"Height"	"%height"
+        "ShouldStun" "0"
 			}
 		}
 		
@@ -10475,6 +10499,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
+    "AOERadius"						"%radius"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -10618,6 +10643,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
+    "AOERadius"						"%radius"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -10761,6 +10787,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
+    "AOERadius"						"%radius"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -10904,6 +10931,7 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
+    "AOERadius"						"%radius"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -12383,7 +12411,7 @@
 					{
 						"Target" "TARGET"
 						"Duration"		"%duration"
-						"ModifierName"		"modifier_invisible"--"modifier_grenade_invis"
+						"ModifierName"		"modifier_invisible"//"modifier_grenade_invis"
 					}
 					//"ApplyModifier"
 					//{
