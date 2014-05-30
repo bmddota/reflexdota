@@ -5,7 +5,7 @@ apm = 0
 USE_LOBBY=true
 DEBUG=false
 
-REFLEX_VERSION = "0.03.01"
+REFLEX_VERSION = "0.03.02"
 
 ROUNDS_TO_WIN = 10
 ROUND_TIME = 150 --240
@@ -431,36 +431,7 @@ function ReflexGameMode:PlayerSay(keys)
     APM:CreateCurvedProjectile(info, hero:GetAbsOrigin(), Vector(0,0,0), 15, 0.2, 10, 2000)
     --ProjectileManager:CreateTrackingProjectile(info)
   end
-  
-  if string.find(text, "^-reverse") and DEBUG then
-    local hero = player.hero
-    if apm == 0 then
-      local info = {
-        EffectName = "magnataur_shockwave", --"windrunner_spell_powershot",
-        Ability = self:getItemByName(hero, "item_reflex_meteor_cannon"),
-        vSpawnOrigin = hero:GetOrigin(),
-        fDistance = 5000,
-        fStartRadius = 125,
-        fEndRadius = 125,
-        Source = hero,
-        bReplaceExisting = true,
-        bHasFrontalCone = false,
-        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_OTHER,
-        --fMaxSpeed = 5200,
-        fExpireTime = GameRules:GetGameTime() + 10.0,
-      }
-      
-      --info.vAcceleration
-      APM:CreateProjectile(info, hero:GetAbsOrigin(), Vector(0,0,0), 800)
-      apm = 1
-    else
-      apm = 0
-      APM:ReverseProjectile()
-    end
-  end
-  
+
   if string.find(text, "^-sequence") and DEBUG then
     local hero = player.hero
     local info = {

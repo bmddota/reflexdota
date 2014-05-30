@@ -142,6 +142,10 @@ end
 function APM:DoSequence(projectile)
   local sequence = projectile.sequence[projectile.sequenceIndex]
   
+  if sequence == nil then
+    return
+  end
+  
   local nextSequenceTime = GameRules:GetGameTime()
   local tp = sequence.type
   local projID = nil
