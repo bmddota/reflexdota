@@ -5880,10 +5880,12 @@
 		
 		"OnSpellStart"
 		{
-      "CreateThinker"
+      "RunScript"
       {
-        "ModifierName"  "target_telegraph_fx"
-        "Target"  "CASTER"
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"dangerIndicator"
+				"Target"				"CASTER"
+				"Radius"        "%radius"
       }
 			"ApplyModifier"
 			{
@@ -6112,10 +6114,12 @@
 		
 		"OnSpellStart"
 		{
-      "CreateThinker"
+      "RunScript"
       {
-        "ModifierName"  "target_telegraph_fx"
-        "Target"  "CASTER"
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"dangerIndicator"
+				"Target"				"CASTER"
+				"Radius"        "%radius"
       }
 			"ApplyModifier"
 			{
@@ -6344,10 +6348,12 @@
 		
 		"OnSpellStart"
 		{
-      "CreateThinker"
+      "RunScript"
       {
-        "ModifierName"  "target_telegraph_fx"
-        "Target"  "CASTER"
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"dangerIndicator"
+				"Target"				"CASTER"
+				"Radius"        "%radius"
       }
 			"ApplyModifier"
 			{
@@ -6576,10 +6582,12 @@
 		
 		"OnSpellStart"
 		{
-      "CreateThinker"
+      "RunScript"
       {
-        "ModifierName"  "target_telegraph_fx"
-        "Target"  "CASTER"
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"dangerIndicator"
+				"Target"				"CASTER"
+				"Radius"        "%radius"
       }
 			"ApplyModifier"
 			{
@@ -6881,11 +6889,13 @@
 		
 		"OnSpellStart"
 		{
-			"CreateThinker"
-			{
-				"ModifierName"	"target_telegraph_fx"
-				"Target"		"POINT"
-			}
+			"RunScript"
+      {
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"dangerIndicator"
+				"Target"				"POINT"
+				"Radius"        "%area_of_effect"
+      }
 			"SpendCharge"
 			{}
 			"RunScript"
@@ -7037,11 +7047,13 @@
 		
 		"OnSpellStart"
 		{
-			"CreateThinker"
-			{
-				"ModifierName"	"target_telegraph_fx"
-				"Target"		"POINT"
-			}
+			"RunScript"
+      {
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"dangerIndicator"
+				"Target"				"POINT"
+				"Radius"        "%area_of_effect"
+      }
 			"SpendCharge"
 			{}
 			"RunScript"
@@ -7193,11 +7205,13 @@
 		
 		"OnSpellStart"
 		{
-			"CreateThinker"
-			{
-				"ModifierName"	"target_telegraph_fx"
-				"Target"		"POINT"
-			}
+			"RunScript"
+      {
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"dangerIndicator"
+				"Target"				"POINT"
+				"Radius"        "%area_of_effect"
+      }
 			"SpendCharge"
 			{}
 			"RunScript"
@@ -7349,11 +7363,13 @@
 		
 		"OnSpellStart"
 		{
-			"CreateThinker"
-			{
-				"ModifierName"	"target_telegraph_fx"
-				"Target"		"POINT"
-			}
+			"RunScript"
+      {
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"dangerIndicator"
+				"Target"				"POINT"
+				"Radius"        "%area_of_effect"
+      }
 			"SpendCharge"
 			{}
 			"RunScript"
@@ -10529,11 +10545,13 @@
 		
 		"OnSpellStart"
 		{
-			"CreateThinker"
-			{
-				"ModifierName"	"target_telegraph_fx"
-				"Target"		"POINT"
-			}
+      "RunScript"
+      {
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"dangerIndicator"
+				"Target"				"POINT"
+				"Radius"        "%radius"
+      }
 			"DelayedAction"		
 			{
 				"Delay"			"%hit_delay"
@@ -10673,11 +10691,13 @@
 		
 		"OnSpellStart"
 		{
-			"CreateThinker"
-			{
-				"ModifierName"	"target_telegraph_fx"
-				"Target"		"POINT"
-			}
+			"RunScript"
+      {
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"dangerIndicator"
+				"Target"				"POINT"
+				"Radius"        "%radius"
+      }
 			"DelayedAction"		
 			{
 				"Delay"			"%hit_delay"
@@ -10817,11 +10837,13 @@
 		
 		"OnSpellStart"
 		{
-			"CreateThinker"
-			{
-				"ModifierName"	"target_telegraph_fx"
-				"Target"		"POINT"
-			}
+			"RunScript"
+      {
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"dangerIndicator"
+				"Target"				"POINT"
+				"Radius"        "%radius"
+      }
 			"DelayedAction"		
 			{
 				"Delay"			"%hit_delay"
@@ -10961,11 +10983,13 @@
 		
 		"OnSpellStart"
 		{
-			"CreateThinker"
-			{
-				"ModifierName"	"target_telegraph_fx"
-				"Target"		"POINT"
-			}
+			"RunScript"
+      {
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"dangerIndicator"
+				"Target"				"POINT"
+				"Radius"        "%radius"
+      }
 			"DelayedAction"		
 			{
 				"Delay"			"%hit_delay"

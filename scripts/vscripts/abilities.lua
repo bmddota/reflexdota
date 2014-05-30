@@ -1,8 +1,63 @@
 
 vPlayerIlluminate = {}
 
+function dangerIndicator(keys)
+  local target = keys.Target
+  local caster = keys.caster
+  
+  if caster == nil or keys.Radius == nil then
+		return
+	end
+  
+  local radius = tonumber(keys.Radius)
+  
+  local targetEntity = nil
+  
+  local point = nil
+	if target == "POINT" and keys.target_points[1] then
+		point = keys.target_points[1]
+    targetEntity = CreateUnitByName("npc_dota_danger_indicator", point, false, nil, nil, DOTA_TEAM_NOTEAM)
+    targetEntity:AddNewModifier(unit, nil, "modifier_invulnerable", {})
+    targetEntity:AddNewModifier(unit, nil, "modifier_phased", {})
+	end
+	if keys.target_entities[1] then
+		targetEntity = keys.target_entities[1]
+	end
+	if target == "CASTER" then
+		targetEntity = caster
+	end
+  
+  local team = caster:GetTeam()
+  print ('team: ' .. team)
+  
+  ReflexGameMode:LoopOverPlayers(function(ply, plyID)
+    local particle = ParticleManager:CreateParticleForPlayer("generic_aoe_shockwave_1", PATTACH_ABSORIGIN_FOLLOW, targetEntity, PlayerResource:GetPlayer(plyID))--cmdPlayer:GetAssignedHero())
+    ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
+    ParticleManager:SetParticleControl(particle, 1, Vector(radius,0,0)) -- radius
+    ParticleManager:SetParticleControl(particle, 2, Vector(6,0,1)) -- something
+    if ply.nTeam == team then
+      ParticleManager:SetParticleControl(particle, 3, Vector(0,200,0)) -- color
+    else
+      ParticleManager:SetParticleControl(particle, 3, Vector(200,0,0)) -- color
+    end
+    ParticleManager:SetParticleControl(particle, 4, Vector(0,0,0)) -- something
+  end)
+  -- Test Lua-particle generation
+  
+  if target == "POINT" then
+    ReflexGameMode:CreateTimer(DoUniqueString("danger"), {
+      endTime = GameRules:GetGameTime() + 0.5,
+      useGameTime = true,
+      callback = function(reflex, args)
+        targetEntity:Destroy()
+      end
+    })
+  end
+end
+
 function itemSpellStart (keys)
-	
+	--PrintTable(keys)
+  
 	local target = keys.Target
 	local caster = keys.caster
 	local abilityName = keys.Ability
@@ -252,12 +307,12 @@ function itemChannelEnd( keys )
 	
 	local channelTime = start - now
 	if string.find(itemName, "item_reflex_meteor_cannon") ~= nil then
-		itemTranquilBoots(channelTime, point, keys.ability, caster)
+		itemMeteorCannon(channelTime, point, keys.ability, caster)
 	end
 end
 
-function itemTranquilBoots( channelTime, point, item , caster)
-	--print ('[REFLEX] itemTranquilBoots called: ' .. channelTime .. " -- point: " .. tostring(point) .. " -- item: " ..item:GetAbilityName())
+function itemMeteorCannon( channelTime, point, item , caster)
+	--print ('[REFLEX] itemMeteorCannon called: ' .. channelTime .. " -- point: " .. tostring(point) .. " -- item: " ..item:GetAbilityName())
 	
 	local info = {
 		EffectName = "invoker_chaos_meteor",

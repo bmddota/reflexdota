@@ -1,9 +1,11 @@
 print ('[REFLEX] reflex.lua' )
 
+apm = 0
+
 USE_LOBBY=true
 DEBUG=false
 
-REFLEX_VERSION = "0.02.21"
+REFLEX_VERSION = "0.03.01"
 
 ROUNDS_TO_WIN = 10
 ROUND_TIME = 150 --240
@@ -109,7 +111,10 @@ function ReflexGameMode:InitGameMode()
   ListenToGameEvent('player_connect_full', Dynamic_Wrap(ReflexGameMode, 'AutoAssignPlayer'), self)
   ListenToGameEvent('player_disconnect', Dynamic_Wrap(ReflexGameMode, 'CleanupPlayer'), self)
   ListenToGameEvent('dota_item_purchased', Dynamic_Wrap(ReflexGameMode, 'ShopReplacement'), self)
+  ListenToGameEvent('player_say', Dynamic_Wrap(ReflexGameMode, 'PlayerSay'), self)
+  ListenToGameEvent('player_connect', Dynamic_Wrap(ReflexGameMode, 'PlayerConnect'), self)
   ------
+  --ListenToGameEvent('player_info', Dynamic_Wrap(ReflexGameMode, 'PlayerInfo'), self)
   --ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(ReflexGameMode, 'AbilityUsed'), self)
 
   local function _boundWatConsoleCommand(...)
@@ -117,12 +122,6 @@ function ReflexGameMode:InitGameMode()
   end
   Convars:RegisterCommand( "reflex_wat", _boundWatConsoleCommand, "Report the status of Reflex", 0 )
   print('[REFLEX] reflex_wat set')
-
-  local function _boundSetAbilityConsoleCommand(...)
-    return self:_SetAbilityConsoleCommand(...)
-  end
-  Convars:RegisterCommand( "reflex_set_ability", _boundSetAbilityConsoleCommand, "Set a hero ability", 0 )
-  print('[REFLEX] reflex_set_ability set')
 
   Convars:RegisterCommand('reflex_reset_all', function()
     if not Convars:GetCommandClient() or DEBUG then      
@@ -215,21 +214,6 @@ function ReflexGameMode:InitGameMode()
       self:RoundComplete(true)
     end
   end, 'Tests the death function', 0)
-  
-  Convars:RegisterCommand('reflex_hp_percent', function()
-    local cmdPlayer = Convars:GetCommandClient()
-    if DEBUG then
-      local playerID = cmdPlayer:GetPlayerID()
-      local player = self.vPlayers[playerID]
-      
-      player.hero:SetHealth(player.hero:GetHealth() - 80)
-      
-      self:LoopOverPlayers(function(player, plyID)
-        print('Hp: ' .. tostring(player.hero:GetHealthPercent()))
-      end)
-    end
-  end, 'Prints hp percentages', 0)
-
 
   -- Change random seed
   local timeTxt = string.gsub(string.gsub(GetSystemTime(), ':', ''), '0','')
@@ -250,6 +234,7 @@ function ReflexGameMode:InitGameMode()
   self.timers = {}
 
   -- userID map
+  self.vUserNames = {}
   self.vUserIds = {}
   self.vSteamIds = {}
 
@@ -291,7 +276,7 @@ function ReflexGameMode:CaptureGameMode()
     GameMode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 
     print( '[REFLEX] Beginning Think' ) 
-    GameMode:SetContextThink("ReflexThink", Dynamic_Wrap( ReflexGameMode, 'Think' ), 0.25 )
+    GameMode:SetContextThink("ReflexThink", Dynamic_Wrap( ReflexGameMode, 'Think' ), 0.1 )
   end
 end
 
@@ -320,6 +305,189 @@ function ReflexGameMode:CloseServer()
   SendToServerConsole('exit')
 end
 
+function ReflexGameMode:PlayerConnect(keys)
+  self.vUserNames[keys.userid] = keys.name
+end
+
+function ReflexGameMode:PlayerSay(keys)
+  --print ('[REFLEX] PlayerSay')
+  --PrintTable(keys)
+  
+  local ply = self.vUserIds[keys.userid]
+  if ply == nil then
+    return
+  end
+  
+  local plyID = ply:GetPlayerID()
+  if not PlayerResource:IsValidPlayer(plyID) then
+    return
+  end
+  
+  local player = self.vPlayers[plyID]
+  if player == nil then
+    return
+  end
+  
+  -- Should have a valid, in-game player saying something at this points/gold
+  local text = keys.text
+  local matchA, matchB = string.match(text, "^-swap%s+(%d)%s+(%d)")
+  
+  if matchA ~= nil and matchB ~= nil then
+    -- Found a match, let's do the ability swap
+    --print('[REFLEX] matches: ' .. tostring(matchA) .. '  --  ' .. tostring(matchB))
+    local a = tonumber(matchA)
+    local b = tonumber(matchB)
+    --print('[REFLEX] a: ' .. a .. "    -- b: " .. b)
+    
+    if a > 6 or a < 1 or b > 6 or b < 1 or a == b then
+      -- Invalid Swap values provided
+      return
+    end
+    
+    local abilityA = player.vAbilities[a]
+    local levelA = player.hero:FindAbilityByName(abilityA):GetLevel()
+    local abilityB = player.vAbilities[b]
+    local levelB = player.hero:FindAbilityByName(abilityB):GetLevel()
+    
+    player.hero:RemoveAbility(abilityA)
+    player.hero:RemoveAbility(abilityB)
+    
+    -- Place emptys back with the correct index name value for ShopReplacement functionality
+    if string.find(abilityA, "reflex_empty") then
+      abilityA = "reflex_empty" .. b
+    end
+    if string.find(abilityB, "reflex_empty") then
+      abilityB = "reflex_empty" .. a
+    end
+    
+    if a < b then
+      --Add B first
+      player.hero:AddAbility(abilityB)
+      player.hero:AddAbility(abilityA)
+    else
+      --Add A first
+      player.hero:AddAbility(abilityA)
+      player.hero:AddAbility(abilityB)
+    end
+    
+    player.hero:FindAbilityByName(abilityA):SetLevel(levelA)
+    player.hero:FindAbilityByName(abilityB):SetLevel(levelB)
+    
+    player.vAbilities[a] = abilityB
+    player.vAbilities[b] = abilityA
+    
+    return
+  end
+  
+  if string.find(text, "^-dmg") then
+    if string.find(text, "all") then
+      local team = player.nTeam
+      self:LoopOverPlayers(function(player, plyID)
+        if player.nTeam == team then
+          local name = player.name
+          local total = PlayerResource:GetRawPlayerDamage(plyID)
+          local roundDamage = player.nLastRoundDamage
+          Say(ply, "  " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
+        end
+      end)
+    else
+      local name = player.name
+      local total = PlayerResource:GetRawPlayerDamage(plyID)
+      local roundDamage = player.nLastRoundDamage
+      Say(ply, "  " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
+    end
+  end
+  
+  if string.find(text, "^-curveshot") and DEBUG then
+    local hero = player.hero
+    
+    local targetEntity = nil
+  
+    targetEntity = CreateUnitByName("npc_dota_danger_indicator", Vector(0,0,128), false, nil, nil, DOTA_TEAM_NOTEAM)
+    targetEntity:AddNewModifier(unit, nil, "modifier_invulnerable", {})
+    targetEntity:AddNewModifier(unit, nil, "modifier_phased", {})
+    
+    local info = {
+      EffectName = "magnataur_shockwave", --"obsidian_destroyer_arcane_orb", --,
+      Ability = self:getItemByName(hero, "item_reflex_meteor_cannon"),
+      vSpawnOrigin = hero:GetOrigin(),
+      fDistance = 5000,
+      fStartRadius = 125,
+      fEndRadius = 125,
+      --Target = targetEntity,
+      Source = hero,
+      iMoveSpeed = 500,
+      bReplaceExisting = true,
+      bHasFrontalCone = false,
+      iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+      iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+      iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_OTHER,
+      --fMaxSpeed = 5200,
+      fExpireTime = GameRules:GetGameTime() + 10.0,
+    }
+    
+    --info.vAcceleration
+    --APM:CreateProjectile(info, hero:GetAbsOrigin(), Vector(0,0,0), 600)
+    APM:CreateCurvedProjectile(info, hero:GetAbsOrigin(), Vector(0,0,0), 15, 0.2, 10, 2000)
+    --ProjectileManager:CreateTrackingProjectile(info)
+  end
+  
+  if string.find(text, "^-reverse") and DEBUG then
+    local hero = player.hero
+    if apm == 0 then
+      local info = {
+        EffectName = "magnataur_shockwave", --"windrunner_spell_powershot",
+        Ability = self:getItemByName(hero, "item_reflex_meteor_cannon"),
+        vSpawnOrigin = hero:GetOrigin(),
+        fDistance = 5000,
+        fStartRadius = 125,
+        fEndRadius = 125,
+        Source = hero,
+        bReplaceExisting = true,
+        bHasFrontalCone = false,
+        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_OTHER,
+        --fMaxSpeed = 5200,
+        fExpireTime = GameRules:GetGameTime() + 10.0,
+      }
+      
+      --info.vAcceleration
+      APM:CreateProjectile(info, hero:GetAbsOrigin(), Vector(0,0,0), 800)
+      apm = 1
+    else
+      apm = 0
+      APM:ReverseProjectile()
+    end
+  end
+  
+  if string.find(text, "^-sequence") and DEBUG then
+    local hero = player.hero
+    local info = {
+      EffectName = "magnataur_shockwave", --"windrunner_spell_powershot",
+      Ability = self:getItemByName(hero, "item_reflex_meteor_cannon"),
+      vSpawnOrigin = hero:GetOrigin(),
+      fDistance = 5000,
+      fStartRadius = 125,
+      fEndRadius = 125,
+      Source = hero,
+      bReplaceExisting = true,
+      bHasFrontalCone = false,
+      iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+      iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+      iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_OTHER,
+      --fMaxSpeed = 5200,
+      fExpireTime = GameRules:GetGameTime() + 10.0,
+    }
+    
+    --info.vAcceleration
+    local proj = APM:CreateProjectile(info, {
+      {type=APM_LINEAR, distance=1000, speed=1000, toward=Vector(0,0,0)},
+      {type=APM_LINEAR, time=2, toward=function() return hero:GetOrigin() end}}, nil, nil, nil)
+    
+  end
+end
+
 function ReflexGameMode:AutoAssignPlayer(keys)
   print ('[REFLEX] AutoAssignPlayer')
   self:CaptureGameMode()
@@ -338,7 +506,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
 
   playerID = ply:GetPlayerID()
   if self.vPlayers[playerID] ~= nil then
-    self.vUserIds[playerID] = nil
+    --self.vUserIds[playerID] = nil
     self.vUserIds[keys.userid] = ply
     return
   end
@@ -397,7 +565,17 @@ function ReflexGameMode:AutoAssignPlayer(keys)
           nTeam = ply:GetTeam(),
           bRoundInit = false,
           nUnspentAbilityPoints = 1,
-          bConnected = true
+          bConnected = true,
+          nLastRoundDamage = 0,
+          name = self.vUserNames[keys.userid],
+          vAbilities = {
+            "reflex_empty1",
+            "reflex_empty2",
+            "reflex_empty3",
+            "reflex_empty4",
+            "reflex_empty5",
+            "reflex_empty6"
+          }
         }
         print ('[REFLEX] playerID: ' .. playerID)
         self.vPlayers[playerID] = heroTable
@@ -547,6 +725,7 @@ function ReflexGameMode:ShopReplacement( keys )
           --print ( '[REFLEX] found empty' .. i .. " replacing")
           player.hero:RemoveAbility('reflex_empty' .. i)
           player.hero:AddAbility(abilityToAdd)
+          player.vAbilities[i] = abilityToAdd
           found = true
         end
       end
@@ -561,6 +740,7 @@ function ReflexGameMode:ShopReplacement( keys )
           --print ( '[REFLEX] found empty' .. i .. " replacing")
           player.hero:RemoveAbility('reflex_empty' .. i)
           player.hero:AddAbility(abilityToAdd)
+          player.vAbilities[i] = abilityToAdd
           found = true
         end
       end
@@ -630,6 +810,7 @@ function ReflexGameMode:InitializeRound()
         --player.hero:RespawnUnit()
         player.nKillsThisRound = 0
         player.bDead = false
+        player.nLastRoundDamage = PlayerResource:GetRawPlayerDamage(plyID) - player.nLastRoundDamage
         --PlayerResource:SetGold(plyID, player.nUnspentGold, true)
         player.hero:SetGold(player.nUnspentGold, true)
         player.hero:SetAbilityPoints(player.nUnspentAbilityPoints)
@@ -776,7 +957,7 @@ function ReflexGameMode:InitializeRound()
           elseif timeoutCount == 11 then
             Say(nil, "30 seconds remaining!", false)
             return GameRules:GetGameTime() + 20
-          else 
+          else
             local msg = {
 							message = tostring(timeoutCount),
 							duration = 0.9
@@ -966,6 +1147,7 @@ function ReflexGameMode:Think()
 
   -- Track game time, since the dt passed in to think is actually wall-clock time not simulation time.
   local now = GameRules:GetGameTime()
+  --print("now: " .. now)
   if ReflexGameMode.t0 == nil then
     ReflexGameMode.t0 = now
   end
@@ -1008,7 +1190,7 @@ function ReflexGameMode:Think()
     end
   end
 
-  return 0.25
+  return 0.1
 end
 
 function ReflexGameMode:HandleEventError(name, event, err)
@@ -1091,17 +1273,6 @@ function ReflexGameMode:RemoveTimers(killAll)
 
   -- Store the new batch of timers
   self.timers = timers
-end
-
-function ReflexGameMode:_SetAbilityConsoleCommand( ... )
-  --[[local nArgs = select( '#', ... )
-  if nArgs < 3 then
-  print ('reflex_set_ability <ability_slot_number> <ability_name>')
-  return
-  end
-  local nSlot = tonumber (select ( 1, ... ))
-  local sAbName = select ( 2, ... ))
-  print ( 'Set Ability called %d %s', nSlot, sAbName )]]
 end
 
 function ReflexGameMode:_WatConsoleCommand()

@@ -31,4 +31,5 @@ end
 print ( '[[REFLEX]] test' )
 
 loadModule ( 'util' )
+loadModule ( 'apm')
 loadModule ( 'reflex')
