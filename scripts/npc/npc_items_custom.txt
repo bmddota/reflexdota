@@ -5885,7 +5885,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"CASTER"
-				"Radius"        "%radius"
+				"Radius"        "%radius + 100"
       }
 			"ApplyModifier"
 			{
@@ -6119,7 +6119,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"CASTER"
-				"Radius"        "%radius"
+				"Radius"        "%radius + 125"
       }
 			"ApplyModifier"
 			{
@@ -6297,6 +6297,7 @@
 				"var_type"				"FIELD_INTEGER"
 				"height"				"100 200 300 400"
 			}
+      
 		}
 	}
 	
@@ -6353,7 +6354,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"CASTER"
-				"Radius"        "%radius"
+				"Radius"        "%radius + 135"
       }
 			"ApplyModifier"
 			{
@@ -6587,7 +6588,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"CASTER"
-				"Radius"        "%radius"
+				"Radius"        "%radius + 140"
       }
 			"ApplyModifier"
 			{
@@ -6894,7 +6895,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"POINT"
-				"Radius"        "%area_of_effect"
+				"Radius"        "%area_of_effect + 75"
       }
 			"SpendCharge"
 			{}
@@ -7052,7 +7053,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"POINT"
-				"Radius"        "%area_of_effect"
+				"Radius"        "%area_of_effect + 85"
       }
 			"SpendCharge"
 			{}
@@ -7210,7 +7211,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"POINT"
-				"Radius"        "%area_of_effect"
+				"Radius"        "%area_of_effect + 95"
       }
 			"SpendCharge"
 			{}
@@ -7368,7 +7369,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"POINT"
-				"Radius"        "%area_of_effect"
+				"Radius"        "%area_of_effect + 105"
       }
 			"SpendCharge"
 			{}
@@ -10550,7 +10551,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"POINT"
-				"Radius"        "%radius"
+				"Radius"        "%radius + 75"
       }
 			"DelayedAction"		
 			{
@@ -10696,7 +10697,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"POINT"
-				"Radius"        "%radius"
+				"Radius"        "%radius + 100"
       }
 			"DelayedAction"		
 			{
@@ -10842,7 +10843,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"POINT"
-				"Radius"        "%radius"
+				"Radius"        "%radius + 125"
       }
 			"DelayedAction"		
 			{
@@ -10988,7 +10989,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"POINT"
-				"Radius"        "%radius"
+				"Radius"        "%radius + 150"
       }
 			"DelayedAction"		
 			{

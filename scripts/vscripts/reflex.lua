@@ -1,11 +1,9 @@
 print ('[REFLEX] reflex.lua' )
 
-apm = 0
-
 USE_LOBBY=true
 DEBUG=false
 
-REFLEX_VERSION = "0.03.02"
+REFLEX_VERSION = "0.03.03"
 
 ROUNDS_TO_WIN = 10
 ROUND_TIME = 150 --240
