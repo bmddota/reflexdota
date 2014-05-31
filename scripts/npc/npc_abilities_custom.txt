@@ -1548,6 +1548,114 @@
 			}
 		}
 	}
+  
+//-------------------
+//
+//-------------------
+
+  "modifier_damage_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TURN |DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+    "AbilityCastRange"				"GLOBAL"
+    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "MaxLevel"						"20"
+    
+    "OnSpellStart"
+    {
+      "Damage"
+			{
+				"Type"					"DAMAGE_TYPE_PURE"
+        "Damage"				"%damage"
+        "Target"        "TARGET"
+			}
+    }
+		
+		"Modifiers"
+		{
+			"modifier_damage"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+        //"IsHidden" "1"
+				"TextureName" "item_reflex_shotgun"
+				"OnCreated"
+				{
+          "Damage"
+          {
+            "Type"					"DAMAGE_TYPE_PURE"
+            "Damage"				"%damage"
+            "Target"        "TARGET"
+          }
+        }
+      }
+		}
+    "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"
+			}
+    }
+	}
+  
+  "modifier_damage_applier2"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TURN |DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+    "AbilityCastRange"				"GLOBAL"
+    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "MaxLevel"						"20"
+    
+    "OnSpellStart"
+    {
+      "Damage"
+			{
+				"Type"					"DAMAGE_TYPE_PURE"
+        "Damage"				"%damage"
+        "Target"        "TARGET"
+			}
+    }
+		
+		"Modifiers"
+		{
+			"modifier_damage"
+			{
+				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+        //"IsHidden" "1"
+				"TextureName" "item_reflex_shotgun"
+				"OnCreated"
+				{
+          "Damage"
+          {
+            "Type"					"DAMAGE_TYPE_PURE"
+            "Damage"				"%damage"
+            "Target"        "TARGET"
+          }
+        }
+      }
+		}
+    "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"20 40 60 80 100 120 140 160 180 200 220 240 260 280 300 320 340 360 380 400"
+			}
+    }
+	}
 	
 //------------------------
 // Modifier Appliers

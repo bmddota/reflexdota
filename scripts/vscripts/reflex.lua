@@ -3,7 +3,7 @@ print ('[REFLEX] reflex.lua' )
 USE_LOBBY=true
 DEBUG=false
 
-REFLEX_VERSION = "0.03.03"
+REFLEX_VERSION = "0.03.04"
 
 ROUNDS_TO_WIN = 10
 ROUND_TIME = 150 --240
@@ -384,14 +384,14 @@ function ReflexGameMode:PlayerSay(keys)
         if player.nTeam == team then
           local name = player.name
           local total = PlayerResource:GetRawPlayerDamage(plyID)
-          local roundDamage = player.nLastRoundDamage
+          local roundDamage = player.nRoundDamage
           Say(ply, "  " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
         end
       end)
     else
       local name = player.name
       local total = PlayerResource:GetRawPlayerDamage(plyID)
-      local roundDamage = player.nLastRoundDamage
+      local roundDamage = player.nRoundDamage
       Say(ply, "  " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
     end
   end
@@ -536,6 +536,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
           nUnspentAbilityPoints = 1,
           bConnected = true,
           nLastRoundDamage = 0,
+          nRoundDamage = 0,
           name = self.vUserNames[keys.userid],
           vAbilities = {
             "reflex_empty1",
@@ -779,7 +780,8 @@ function ReflexGameMode:InitializeRound()
         --player.hero:RespawnUnit()
         player.nKillsThisRound = 0
         player.bDead = false
-        player.nLastRoundDamage = PlayerResource:GetRawPlayerDamage(plyID) - player.nLastRoundDamage
+        player.nRoundDamage = PlayerResource:GetRawPlayerDamage(plyID) - player.nLastRoundDamage
+        player.nLastRoundDamage = PlayerResource:GetRawPlayerDamage(plyID)
         --PlayerResource:SetGold(plyID, player.nUnspentGold, true)
         player.hero:SetGold(player.nUnspentGold, true)
         player.hero:SetAbilityPoints(player.nUnspentAbilityPoints)

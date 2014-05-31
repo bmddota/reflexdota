@@ -28,7 +28,7 @@ function dangerIndicator(keys)
 	end
   
   local team = caster:GetTeam()
-  print ('team: ' .. team)
+  --print ('team: ' .. team)
   
   ReflexGameMode:LoopOverPlayers(function(ply, plyID)
     local particle = ParticleManager:CreateParticleForPlayer("generic_aoe_shockwave_1", PATTACH_ABSORIGIN_FOLLOW, targetEntity, PlayerResource:GetPlayer(plyID))--cmdPlayer:GetAssignedHero())
@@ -243,11 +243,8 @@ function itemChargeThink (keys)
 	--item:EndCooldown()
 end
 
-channelAct = {
-	item_tranquil_boots = itemTranquilBoots
-}
-
 channelTable = {}
+channelTimeTable = {}
 
 function itemChannelStart( keys )
 	local now = GameRules:GetGameTime()
@@ -302,10 +299,12 @@ function itemChannelEnd( keys )
 	channelTable[ID] = nil
 	
 	if start == nil then
-		start = now + 0.5
+		start = now + 0.3
 	end
 	
-	local channelTime = start - now
+	local channelTime = now - start
+  channelTimeTable[ID] = channelTime
+  
 	if string.find(itemName, "item_reflex_meteor_cannon") ~= nil then
 		itemMeteorCannon(channelTime, point, keys.ability, caster)
 	end
@@ -327,11 +326,11 @@ function itemMeteorCannon( channelTime, point, item , caster)
 		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_OTHER,
 		--fMaxSpeed = 5200,
-		fExpireTime = GameRules:GetGameTime() + 10.0,
+		fExpireTime = GameRules:GetGameTime() + 8.0,
 	}
 
 	local speed = tonumber(item:GetSpecialValueFor("speed")) + (item:GetLevel() - 1) * 100 --1000
-  print ('[REFLEX] Meteor Speed: ' .. tostring(speed))
+  --print ('[REFLEX] Meteor Speed: ' .. tostring(speed))
 	--print ('[REFLEX] ' .. tostring(point))
 	--PrintTable(point)
 	--PrintTable(getmetatable(point))	
@@ -347,7 +346,7 @@ function itemMeteorCannon( channelTime, point, item , caster)
 	point.z = 0
 	local pos = caster:GetAbsOrigin()
 	--print ('[REFLEX] ' .. tostring(pos))
-	local diff = pos - point
+	local diff = point - pos
 	--print ('[REFLEX] ' .. tostring(diff))
 	
 	--point = point:Normalized()
@@ -356,6 +355,99 @@ function itemMeteorCannon( channelTime, point, item , caster)
 	--info.vAcceleration = info.vVelocity * -0.15
 
 	ProjectileManager:CreateLinearProjectile( info )
+end
+
+function itemApplyChannelDamage(keys)
+  --print('[REFLEX] itemApplyChannelDamage')
+  --PrintTable(keys)
+  
+  local now = GameRules:GetGameTime()
+	
+	local caster = keys.caster
+	local itemName = keys.ability:GetAbilityName()
+	
+	if caster == nil or itemName == nil or keys.target == nil then
+		return
+	end
+	
+	local item = keys.ability
+  
+  local ID = tostring(caster:GetPlayerID()) .. itemName
+	
+	local channelTime = channelTimeTable[ID]
+  if channelTime == nil then
+    channelTime = 0.3
+  end
+  --print(channelTime)
+  
+  local damage = item:GetSpecialValueFor("damage") + (item:GetLevel() - 1) * 40
+  local minDamage = damage / 2
+  --print('[REFLEX] meteoer damage: ' .. damage)
+  local mult = channelTime / 1.5
+  if mult > 1 then
+    mult = 1
+  end
+  
+  damage = mult * (minDamage) + minDamage
+  print('[REFLEX] meteor damage: ' .. damage)
+  
+  local abilityName = "modifier_damage_applier"
+  local ability = caster:FindAbilityByName( abilityName )
+  if ability == nil then
+    caster:AddAbility(abilityName)
+    ability = caster:FindAbilityByName( abilityName )
+  end
+  
+  dealDamage(caster, keys.target, damage)
+  --keys.target:AddNewModifier(caster, nil, "modifier_kunkka_ghost_ship_damage_delay", {damage = damage, duration = 1})--, duration = 0})
+  --keys.target:AddNewModifier(caster, nil, "modifier_item_orb_of_venom_slow", {damage = damage, slow = 0, duration = 1})--, duration = 0})
+  --keys.target:AddNewModifier(caster, nil, "modifier_invoker_chaos_meteor_burn", {burn_dps = damage, freeze_damage = damage, damage = damage, hero_slow_duration = 2, duration = 1})--, duration = 0})
+  --keys.target:AddNewModifier(caster, nil, "modifier_invoker_chaos_meteor_burn", {burn_dps = damage, freeze_damage = damage, damage = damage, hero_slow_duration = 2, duration = 1})--, duration = 0})
+  --keys.target:AddNewModifier(caster, nil, "modifier_roshan_halloween_apocalypse", {damage = damage, duration = 0})
+  --keys.target:AddNewModifier(caster, nil, "modifier_invoker_tornado", {land_damage = damage, duration = 0} )
+end
+
+function dealDamage(source, target, damage)
+  local unit = CreateUnitByName("npc_dota_danger_indicator", target:GetAbsOrigin(), false, source, source, source:GetTeamNumber())
+  unit:AddNewModifier(unit, nil, "modifier_invulnerable", {})
+  unit:AddNewModifier(unit, nil, "modifier_phased", {})
+  
+  local abilityName = "modifier_damage_applier"
+  unit:AddAbility(abilityName)
+  ability = unit:FindAbilityByName( abilityName )
+  
+  local abilityName2 = "modifier_damage_applier2"
+  unit:AddAbility(abilityName2)
+  ability2 = unit:FindAbilityByName( abilityName2 )
+  
+  local maxTimesTwo = math.floor(damage / 400)
+  local twoLevel = math.floor((damage % 400) / 20)
+  local level = math.floor(damage % 20)
+  
+  local i = 0
+  while i < maxTimesTwo do
+    ability2:SetLevel( 20 )
+    unit:CastAbilityOnTarget(target, ability2, 0 )
+    i = i + 1
+  end
+  
+  ability2:SetLevel( twoLevel )
+  if twoLevel > 0 then
+    unit:CastAbilityOnTarget(target, ability2, 0)
+  end
+
+  ability:SetLevel( level)
+  if level > 0 then
+    unit:CastAbilityOnTarget(target, ability, 0 )
+  end
+  
+  ReflexGameMode:CreateTimer(DoUniqueString("damage"), {
+    endTime = GameRules:GetGameTime() + 0.1,
+    useGameTime = true,
+    callback = function(reflex, args)
+      unit:Destroy()
+    end
+  })
 end
 
 function getItemByName( hero, name )

@@ -4509,7 +4509,7 @@
 				{
 					"Damage"
 					{
-						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Type"		"DAMAGE_TYPE_PURE"
 						"Damage"	"%damage"
 						"Target"	"TARGET"
 					}
@@ -4672,7 +4672,7 @@
 				{
 					"Damage"
 					{
-						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Type"		"DAMAGE_TYPE_PURE"
 						"Damage"	"%damage"
 						"Target"	"TARGET"
 					}
@@ -4835,7 +4835,7 @@
 				{
 					"Damage"
 					{
-						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Type"		"DAMAGE_TYPE_PURE"
 						"Damage"	"%damage"
 						"Target"	"TARGET"
 					}
@@ -4998,7 +4998,7 @@
 				{
 					"Damage"
 					{
-						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Type"		"DAMAGE_TYPE_PURE"
 						"Damage"	"%damage"
 						"Target"	"TARGET"
 					}
@@ -5847,7 +5847,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1.0"
+		"AbilityCooldown"				"3.0"
 		"AbilityChannelTime"			"2.0 1.8 1.6 1.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
@@ -6081,7 +6081,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1.0"
+		"AbilityCooldown"				"3.0"
 		"AbilityChannelTime"			"2.0 1.8 1.6 1.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
@@ -6316,7 +6316,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1.0"
+		"AbilityCooldown"				"3.0"
 		"AbilityChannelTime"			"2.0 1.8 1.6 1.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
@@ -6550,7 +6550,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1.0"
+		"AbilityCooldown"				"3.0"
 		"AbilityChannelTime"			"2.0 1.8 1.6 1.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
@@ -7646,18 +7646,37 @@
 			}
 		
 			"DeleteOnHit" "1"
-			"Damage"
+      "ActOnTargets"
 			{
-				"Type"					"DAMAGE_TYPE_PURE"
-				"Damage"				"%damage"
 				"Target"
 				{
 					"Center"			"PROJECTILE"
-					"Radius"			"%radius"
 					"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+					"Radius"			"%radius"
+				}
+				"Action"
+				{
+					"RunScript"
+          {
+            "ScriptFile"			"scripts/vscripts/abilities.lua"
+            "Function"				"itemApplyChannelDamage"
+            "Target"				"TARGET"
+          }
 				}
 			}
+			//"Damage"
+			//{
+			//	"Type"					"DAMAGE_TYPE_PURE"
+			//	"Damage"				"%damage"
+			//	"Target"
+			//	{
+			//		"Center"			"PROJECTILE"
+			//		"Radius"			"%radius"
+			//		"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			//		"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			//	}
+			//}
 			
 			"Knockback"
 			{
@@ -7710,32 +7729,38 @@
 				"var_type"				"FIELD_INTEGER"
 				"speed"					"950 1050 1150 1250"
 			}
-			
-			"02"
+      
+      "02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"400 430 465 500"
+				"min_damage"		"190 210 230 250"
 			}
 			
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"radius"				"300 350 400 450"
+				"damage"				"380 420 460 500"
 			}
 			
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"knockback"				"200 300 400 500"
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"300 300 350 350"
 			}
 			
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"height"				"200 300 400 500"
+				"knockback"				"200 300 400 500"
 			}
 			
 			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"height"				"200 300 400 500"
+			}
+			
+			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"0.3 0.35 0.4 0.45"
@@ -7846,18 +7871,37 @@
 			}
 		
 			"DeleteOnHit" "1"
-			"Damage"
+			"ActOnTargets"
 			{
-				"Type"					"DAMAGE_TYPE_PURE"
-				"Damage"				"%damage"
 				"Target"
 				{
 					"Center"			"PROJECTILE"
-					"Radius"			"%radius"
 					"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+					"Radius"			"%radius"
+				}
+				"Action"
+				{
+					"RunScript"
+          {
+            "ScriptFile"			"scripts/vscripts/abilities.lua"
+            "Function"				"itemApplyChannelDamage"
+            "Target"				"TARGET"
+          }
 				}
 			}
+			//"Damage"
+			//{
+			//	"Type"					"DAMAGE_TYPE_PURE"
+			//	"Damage"				"%damage"
+			//	"Target"
+			//	{
+			//		"Center"			"PROJECTILE"
+			//		"Radius"			"%radius"
+			//		"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			//		"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			//	}
+			//}
 			
 			"Knockback"
 			{
@@ -7910,32 +7954,38 @@
 				"var_type"				"FIELD_INTEGER"
 				"speed"					"950 1050 1150 1250"
 			}
-			
-			"02"
+      
+      "02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"400 430 465 500"
+				"min_damage"		"190 210 230 250"
 			}
 			
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"radius"				"300 350 400 450"
+				"damage"				"380 420 460 500"
 			}
 			
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"knockback"				"200 300 400 500"
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"300 300 350 350"
 			}
 			
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"height"				"200 300 400 500"
+				"knockback"				"200 300 400 500"
 			}
 			
 			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"height"				"200 300 400 500"
+			}
+			
+			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"0.3 0.35 0.4 0.45"
@@ -8046,18 +8096,37 @@
 			}
 		
 			"DeleteOnHit" "1"
-			"Damage"
+			"ActOnTargets"
 			{
-				"Type"					"DAMAGE_TYPE_PURE"
-				"Damage"				"%damage"
 				"Target"
 				{
 					"Center"			"PROJECTILE"
-					"Radius"			"%radius"
 					"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+					"Radius"			"%radius"
+				}
+				"Action"
+				{
+					"RunScript"
+          {
+            "ScriptFile"			"scripts/vscripts/abilities.lua"
+            "Function"				"itemApplyChannelDamage"
+            "Target"				"TARGET"
+          }
 				}
 			}
+			//"Damage"
+			//{
+			//	"Type"					"DAMAGE_TYPE_PURE"
+			//	"Damage"				"%damage"
+			//	"Target"
+			//	{
+			//		"Center"			"PROJECTILE"
+			//		"Radius"			"%radius"
+			//		"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			//		"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			//	}
+			//}
 			
 			"Knockback"
 			{
@@ -8110,32 +8179,38 @@
 				"var_type"				"FIELD_INTEGER"
 				"speed"					"950 1050 1150 1250"
 			}
-			
-			"02"
+      
+      "02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"400 430 465 500"
+				"min_damage"		"190 210 230 250"
 			}
 			
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"radius"				"300 350 400 450"
+				"damage"				"380 420 460 500"
 			}
 			
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"knockback"				"200 300 400 500"
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"300 300 350 350"
 			}
 			
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"height"				"200 300 400 500"
+				"knockback"				"200 300 400 500"
 			}
 			
 			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"height"				"200 300 400 500"
+			}
+			
+			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"0.3 0.35 0.4 0.45"
@@ -8246,18 +8321,37 @@
 			}
 		
 			"DeleteOnHit" "1"
-			"Damage"
+			"ActOnTargets"
 			{
-				"Type"					"DAMAGE_TYPE_PURE"
-				"Damage"				"%damage"
 				"Target"
 				{
 					"Center"			"PROJECTILE"
-					"Radius"			"%radius"
 					"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+					"Radius"			"%radius"
+				}
+				"Action"
+				{
+					"RunScript"
+          {
+            "ScriptFile"			"scripts/vscripts/abilities.lua"
+            "Function"				"itemApplyChannelDamage"
+            "Target"				"TARGET"
+          }
 				}
 			}
+			//"Damage"
+			//{
+			//	"Type"					"DAMAGE_TYPE_PURE"
+			//	"Damage"				"%damage"
+			//	"Target"
+			//	{
+			//		"Center"			"PROJECTILE"
+			//		"Radius"			"%radius"
+			//		"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			//		"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			//	}
+			//}
 			
 			"Knockback"
 			{
@@ -8310,32 +8404,38 @@
 				"var_type"				"FIELD_INTEGER"
 				"speed"					"950 1050 1150 1250"
 			}
-			
-			"02"
+      
+      "02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"400 430 465 500"
+				"min_damage"		"190 210 230 250"
 			}
 			
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"radius"				"300 350 400 450"
+				"damage"				"380 420 460 500"
 			}
 			
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"knockback"				"200 300 400 500"
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"300 300 350 350"
 			}
 			
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"height"				"200 300 400 500"
+				"knockback"				"200 300 400 500"
 			}
 			
 			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"height"				"200 300 400 500"
+			}
+			
+			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"0.3 0.35 0.4 0.45"
