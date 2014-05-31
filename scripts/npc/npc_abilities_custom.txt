@@ -3123,4 +3123,38 @@
 			}
 		}
 	}
+  
+  "reflex_lms_enemy_5_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_lms_enemy"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_lms_enemy"
+			{
+				"Passive" "1"
+				"IsHidden" "1"
+				//"TextureName" "ursa_enrage"
+				//"EffectName" "ogre_magi_bloodlust_buff"
+				//"EffectAttachType" "follow_origin"
+				"Duration" "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "125"
+				}
+			}
+		}
+	}
 }

@@ -3,7 +3,7 @@ print ('[REFLEX] reflex.lua' )
 USE_LOBBY=true
 DEBUG=false
 
-REFLEX_VERSION = "0.03.06"
+REFLEX_VERSION = "0.03.07"
 
 ROUNDS_TO_WIN = 10
 ROUND_TIME = 150 --240
@@ -1368,6 +1368,7 @@ function ReflexGameMode:OnEntityKilled( keys )
           self:FindAndRemoveMod(player.hero, 'reflex_lms_enemy_2')
           self:FindAndRemoveMod(player.hero, 'reflex_lms_enemy_3')
           self:FindAndRemoveMod(player.hero, 'reflex_lms_enemy_4')
+          self:FindAndRemoveMod(player.hero, 'reflex_lms_enemy_5')
         end
       end)
     elseif killedUnit:GetTeam() == DOTA_TEAM_GOODGUYS and nRadiantAlive == 1 then
