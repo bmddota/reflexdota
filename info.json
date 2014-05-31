@@ -1,10 +1,10 @@
 {
   "name": "reflex",
   "fullname": "Reflex",
-  "version": "0.03.05",
+  "version": "0.03.06",
   "author": "BMDDota",
   "authorimage": "",
-  "thumbnail": "https://s3-us-west-2.amazonaws.com/d2mpimages/reflexLogo.png",
+  "thumbnail": "http://i.imgur.com/s9gHtPn.png",
   "spreadimage": "",
   "spreadvideo": "https://s3-us-west-2.amazonaws.com/d2mpimages/reflex.webm",
   "website": "https://github.com/bmddota/reflexdota",
