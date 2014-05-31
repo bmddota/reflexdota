@@ -391,13 +391,6 @@ function itemApplyChannelDamage(keys)
   damage = mult * (minDamage) + minDamage
   print('[REFLEX] meteor damage: ' .. damage)
   
-  local abilityName = "modifier_damage_applier"
-  local ability = caster:FindAbilityByName( abilityName )
-  if ability == nil then
-    caster:AddAbility(abilityName)
-    ability = caster:FindAbilityByName( abilityName )
-  end
-  
   dealDamage(caster, keys.target, damage)
   --keys.target:AddNewModifier(caster, nil, "modifier_kunkka_ghost_ship_damage_delay", {damage = damage, duration = 1})--, duration = 0})
   --keys.target:AddNewModifier(caster, nil, "modifier_item_orb_of_venom_slow", {damage = damage, slow = 0, duration = 1})--, duration = 0})
@@ -408,7 +401,12 @@ function itemApplyChannelDamage(keys)
 end
 
 function dealDamage(source, target, damage)
-  local unit = CreateUnitByName("npc_dota_danger_indicator", target:GetAbsOrigin(), false, source, source, source:GetTeamNumber())
+  local unit = nil
+  if source ~= nil then
+    unit = CreateUnitByName("npc_dota_danger_indicator", target:GetAbsOrigin(), false, source, source, source:GetTeamNumber())
+  else
+    unit = CreateUnitByName("npc_dota_danger_indicator", target:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NOTEAM)
+  end
   unit:AddNewModifier(unit, nil, "modifier_invulnerable", {})
   unit:AddNewModifier(unit, nil, "modifier_phased", {})
   
