@@ -1017,12 +1017,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"delay"					"1.7 1.6 1.5 1.4"
+				"delay"					"1.6 1.6 1.6 1.6"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"250 350 450 550"
+				"damage"				"350 385 420 455"
 			}
 			"04"
 			{
