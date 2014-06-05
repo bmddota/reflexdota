@@ -2,8 +2,9 @@ print ('[REFLEX] reflex.lua' )
 
 USE_LOBBY=true
 DEBUG=false
+THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.03.08"
+REFLEX_VERSION = "0.04.00"
 
 ROUNDS_TO_WIN = 10
 ROUND_TIME = 150 --240
@@ -40,7 +41,8 @@ ADDED_ABILITIES = {
   "reflex_illuminate_3",
   "reflex_illuminate_4",
   "reflex_mystic_flare",
-  "reflex_earthbind"
+  "reflex_earthbind",
+  "reflex_worm_hole"
 }
 
 ABILITY_ON_DEATH = {
@@ -60,6 +62,7 @@ ABILITY_ITEM_TABLE = {
   reflex_flame_breath = 0,
   reflex_wisp_spirits = 0,
   reflex_energy_drain = 0,
+  reflex_magnetic_orb = 0,
   reflex_bristleback = 1,
   reflex_hp_boost = 1,
   reflex_energy_boost = 1,
@@ -307,6 +310,9 @@ function ReflexGameMode:PlayerConnect(keys)
   self.vUserNames[keys.userid] = keys.name
 end
 
+local hook = nil
+local attach = 0
+
 function ReflexGameMode:PlayerSay(keys)
   --print ('[REFLEX] PlayerSay')
   --PrintTable(keys)
@@ -430,15 +436,246 @@ function ReflexGameMode:PlayerSay(keys)
     --ProjectileManager:CreateTrackingProjectile(info)
   end
 
-  if string.find(text, "^-sequence") and DEBUG then
+  local mA, mB, mC = string.match(text, "^-sequence%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)")
+  
+  local hooks = {}
+  local speed = 1500
+  local distance = 9000
+  local radius = 150
+  local hookCount = 1
+  local hooked = nil
+  local dropped = false
+  local damage = 400
+  local topBound = 700
+  local bottomBound = -700
+  local leftBound = -700
+  local rightBound = 700
+  local centerRadius = 150
+  local rebounceTolerance = 0
+  local ancientPosition = Vector(0,-10,0)
+  
+  --[[local topBound = 1600
+  local bottomBound = -1600
+  local leftBound = -1472
+  local rightBound = 1472]]
+  
+  local complete = false
+  
+  if mA ~= nil and mB ~= nil and mC ~= nil and DEBUG then
+    local hero = player.hero
+    
+    local dir = Vector(tonumber(mA),tonumber(mB),tonumber(mC)) - hero:GetAbsOrigin()
+    dir = dir:Normalized()
+    
+    hooks[hookCount] = CreateUnitByName("npc_reflex_hook_test", hero:GetOrigin() + dir * 75, false, hero, hero, hero:GetTeamNumber())
+    hooks[hookCount]:FindAbilityByName("reflex_dummy_unit"):SetLevel(1)
+    hookCount = hookCount + 1
+    
+    local timeout = GameRules:GetGameTime() + distance / speed
+    
+    self:CreateTimer(DoUniqueString('hook_test2'), {
+      endTime = GameRules:GetGameTime(),
+      callback = function(reflex, args)
+        
+        if complete then
+          if hooked ~= nil then
+            hooked:SetAbsOrigin(hooks[1]:GetAbsOrigin())
+            local diff = hero:GetAbsOrigin() - hooked:GetAbsOrigin()
+            if diff:Length() < 150 then
+              hooked:RemoveModifierByName("modifier_rooted")
+              hooked = nil
+              dropped = true
+            end
+          end
+        
+          for i=#hooks - 1,1,-1 do
+            local diff = hooks[i+1]:GetAbsOrigin() - hooks[i]:GetAbsOrigin()
+            if diff:Length() > 80 then
+              hooks[i]:SetAbsOrigin(hooks[i]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - 80))
+              diff = diff:Normalized() * -1
+              diff.z = 0
+              hooks[i]:SetForwardVector(diff)
+            end
+          end
+          
+          local diff = hooks[#hooks]:GetAbsOrigin() - hero:GetAbsOrigin()
+          if diff:Length() < 75 then
+            hooks[#hooks]:Destroy()
+            hooks[#hooks] = nil
+          end
+          
+          if #hooks == 0 then
+            if hooked ~= nil then
+              hooked:RemoveModifierByName("modifier_rooted")
+              dropped = true
+            end
+            return
+          end
+          
+          local direction = hero:GetAbsOrigin() - hooks[#hooks]:GetAbsOrigin()
+          direction = direction:Normalized()
+          hooks[#hooks]:SetAbsOrigin(hooks[#hooks]:GetAbsOrigin() + direction * speed / 30)
+          hooks[#hooks]:SetForwardVector(Vector(direction.x, direction.y, 0) * -1)
+          
+          --print(tostring(hooks[#hooks]:GetAbsOrigin()) .. " -- " .. tostring(dir) .. " -- " .. speed .. " -- " .. tostring(#hooks))
+          
+          if hooked == nil and not dropped then
+            local entities = Entities:FindAllInSphere(hooks[1]:GetAbsOrigin(), radius)
+            if entities ~= nil then
+              for k,v in pairs(entities) do
+                --if string.find(v:GetClassname(), "pudge") or string.find(v:GetClassname(), "mine") then
+                if string.find(v:GetClassname(), "axe") and v ~= hero then
+                  print(k .. " -- " .. v:GetClassname() .. " -- " .. v:GetName())
+                  complete = true
+                  v:AddNewModifier(hero, nil, "modifier_rooted", {})
+                  if (hero:GetTeamNumber() ~= v:GetTeamNumber()) then
+                    dealDamage(hero, v, damage)
+                  end
+                  hooked = v
+                end
+              end
+            end
+          end
+        else
+          for i=2,#hooks do
+            local diff = hooks[i-1]:GetAbsOrigin() - hooks[i]:GetAbsOrigin()
+            if diff:Length() > 80 then
+              hooks[i]:SetAbsOrigin(hooks[i]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - 80))
+              local d = diff:Normalized()
+              d.z = 0
+              hooks[i]:SetForwardVector(d)
+            end
+          end
+          
+          local diff = hooks[#hooks]:GetAbsOrigin() - hero:GetAbsOrigin()
+          if diff:Length() > 150 then
+            local direction = hooks[#hooks]:GetAbsOrigin() - hero:GetAbsOrigin()
+            direction = direction:Normalized()
+            hooks[hookCount] = CreateUnitByName("npc_reflex_hook_chain", hero:GetOrigin() + direction * 75, false, hero, hero, hero:GetTeamNumber())
+            direction.z = 0
+            hooks[hookCount]:SetForwardVector(direction)
+            hooks[hookCount]:FindAbilityByName("reflex_dummy_unit"):SetLevel(1)
+            --hooks[hookCount]:FindAbilityByName("reflex_flame_guard"):SetLevel(1)
+            --hooks[hookCount]:FindAbilityByName("reflex_double_damage"):SetLevel(1)
+            --hooks[hookCount]:FindAbilityByName("reflex_rupture"):SetLevel(1)
+            
+            hookCount = hookCount + 1
+          end
+          
+          --local direction = Vector(tonumber(mA),tonumber(mB),tonumber(mC)) - hooks[1]:GetAbsOrigin()
+          --dir.z = direction:Normalized().z
+          dir.z = 0
+          --print(tostring(dir))
+          hooks[1]:SetAbsOrigin(hooks[1]:GetAbsOrigin() + dir * speed / 30)
+          dir.z = 0
+          hooks[1]:SetForwardVector(dir)
+          
+          --Collision detection
+          if hooked == nil then
+            local entities = Entities:FindAllInSphere(hooks[1]:GetAbsOrigin(), radius)
+            if entities ~= nil then
+              for k,v in pairs(entities) do
+                -- Bounce entities
+                
+                if hooked == nil then
+                  --if string.find(v:GetClassname(), "pudge") or string.find(v:GetClassname(), "mine") then
+                  if string.find(v:GetClassname(), "axe") and v ~= hero then
+                    print(k .. " -- " .. v:GetClassname() .. " -- " .. v:GetName())
+                    complete = true
+                    v:AddNewModifier(hero, nil, "modifier_rooted", {})
+                    if (hero:GetTeamNumber() ~= v:GetTeamNumber()) then
+                      dealDamage(hero, v, damage)
+                    end
+                    hooked = v
+                  end
+                end
+              end
+            end
+          end
+          
+          -- Bounce wall checks
+          local hookPos = hooks[1]:GetAbsOrigin()
+          local angx = (math.acos(dir.x)/ math.pi * 180)
+          local angy = (math.acos(dir.y)/ math.pi * 180)
+          if hookPos.x > rightBound and dir.x > 0 then
+            local rotAngle = 180 - angx * 2
+            if angy > 90 then
+              rotAngle = 360 - rotAngle
+            end
+            dir = RotatePosition(Vector(0,0,0), QAngle(0,rotAngle,0), dir)
+          elseif hookPos.x < leftBound and dir.x < 0 then
+            local rotAngle =  angx * 2 - 180
+            if angy < 90 then
+              rotAngle = 360 - rotAngle
+            end
+            dir = RotatePosition(Vector(0,0,0), QAngle(0,rotAngle,0), dir)
+          elseif hookPos.y > topBound and dir.y > 0 then
+            local rotAngle =  180 - angy * 2
+            if angx < 90 then
+              rotAngle = 360 - rotAngle
+            end
+            dir = RotatePosition(Vector(0,0,0), QAngle(0,rotAngle,0), dir)
+          elseif hookPos.y < bottomBound and dir.y < 0 then
+            local rotAngle =  angy * 2 - 180
+            if angx > 90 then
+              rotAngle = 360 - rotAngle
+            end
+            dir = RotatePosition(Vector(0,0,0), QAngle(0,rotAngle,0), dir)
+          end
+          
+          -- Bounce center
+          hookPos.z = 0
+          diff = ancientPosition - hookPos
+          rebounceTolerance = rebounceTolerance - 1
+          if diff:Length() < centerRadius and rebounceTolerance < 1 then
+            rebounceTolerance = 3
+            diff = diff:Normalized()
+            --diff = RotatePosition(Vector(0,0,0), QAngle(0, 90, 0), diff)
+            local diffx = (math.acos(diff.x)/ math.pi * 180)
+            local diffy = (math.acos(diff.y)/ math.pi * 180)
+            local angx = (math.acos(dir.x)/ math.pi * 180)
+            local angy = (math.acos(dir.y)/ math.pi * 180)
+            local dx = diffx - angx
+            local dy = diffy - angy
+            
+            local rotAngle = 180 - math.abs(dx) - math.abs(dy)
+            
+            if (math.abs(dir.x) > math.abs(dir.y) and dir.y > 0) or (math.abs(dir.x) < math.abs(dir.y) and dir.y < 0) then
+              rotAngle = 360 - rotAngle
+            end
+
+            if (dx < 0 and dy  < 0 and dir.x > 0 and dir.y < 0) or
+              (dx > 0 and dy < 0 and dir.x > 0 and dir.y > 0) or
+              (dx > 0 and dy > 0 and dir.x < 0 and dir.y > 0) or 
+              (dx < 0 and dy > 0 and dir.x < 0 and dir.y < 0) then
+              rotAngle = 360 - rotAngle
+            end
+            print (rotAngle)
+            print ("****")
+            dir = RotatePosition(Vector(0,0,0), QAngle(0,rotAngle,0), dir)
+          end
+          
+          
+          if GameRules:GetGameTime() > timeout then
+            complete = true
+            return GameRules:GetGameTime()
+          end
+        end
+        return GameRules:GetGameTime()
+      end})
+    
+    
+  end
+  
+  --[[if mA ~= nil and mB ~= nil and mC ~= nil and DEBUG then
     local hero = player.hero
     local info = {
-      EffectName = "magnataur_shockwave", --"windrunner_spell_powershot",
+      EffectName = "hlw_phoenix_sunray", -- "pudge_meathook_chain", -- "magnataur_shockwave", --"windrunner_spell_powershot",
       Ability = self:getItemByName(hero, "item_reflex_meteor_cannon"),
       vSpawnOrigin = hero:GetOrigin(),
       fDistance = 5000,
-      fStartRadius = 125,
-      fEndRadius = 125,
+      fStartRadius = 800,
+      fEndRadius = 800,
       Source = hero,
       bReplaceExisting = true,
       bHasFrontalCone = false,
@@ -447,12 +684,89 @@ function ReflexGameMode:PlayerSay(keys)
       iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_OTHER,
       --fMaxSpeed = 5200,
       fExpireTime = GameRules:GetGameTime() + 10.0,
+      --Target = hook, 
     }
     
-    --info.vAcceleration
-    local proj = APM:CreateProjectile(info, {
-      {type=APM_LINEAR, distance=1000, speed=1000, toward=Vector(0,0,0)},
-      {type=APM_LINEAR, time=2, toward=function() return hero:GetOrigin() end}}, nil, nil, nil)
+    local direction = Vector(0,0,0) - hero:GetAbsOrigin()
+    direction = direction:Normalized()
+    --info.vVelocity = direction * 1000
+
+    local timeout = GameRules:GetGameTime() + 10
+    
+    self:CreateTimer(DoUniqueString('sequence'), {
+      endTime = GameRules:GetGameTime(),
+      callback = function(reflex, args)
+        
+        
+        if GameRules:GetGameTime() > timeout then
+          return
+        end
+        return GameRules:GetGameTime()
+      end})
+    
+    local proj = ProjectileManager:CreateLinearProjectile(info)
+    --local proj = APM:CreateProjectile(info, {
+      --{type=APM_LINEAR, distance=1000, speed=1000, toward=vector},
+      --{type=APM_LINEAR, time=2, toward=function() return hero:GetOrigin() end}}, nil, nil, nil)
+    
+  end]]
+  
+  if string.find(text, "^-hook") and DEBUG then
+    local hero = player.hero
+    --hook = CreateUnitByName("npc_reflex_hook_test", hero:GetOrigin(), false, hero, hero, hero:GetTeamNumber())
+    --hook:FindAbilityByName("reflex_dummy_unit"):SetLevel(1)
+    local direction = Vector(0,0,128) - hero:GetAbsOrigin()
+    direction = direction:Normalized()
+     
+    --hook:SetForwardVector(direction)
+    hero:SetForwardVector(Vector(direction.x, direction.y,0))
+    
+    local origin = hero:GetAbsOrigin()
+    
+    local timeout = GameRules:GetGameTime() + 1.2
+    local complete = false
+
+    player.hero:AddNewModifier( player.hero, nil , "modifier_stunned", {duration = 0.75})
+    local particle = ParticleManager:CreateParticle("pudge_meathook_chain", PATTACH_RENDERORIGIN_FOLLOW, hero)
+    local hookPos = hero:GetAbsOrigin()
+    hookPos.z = hookPos.z + 128
+    
+    self:CreateTimer('hook_test', {
+      endTime = GameRules:GetGameTime(),
+      callback = function(reflex, args)
+        local speed = 1000 / 30
+        --local hookPos = hook:GetAbsOrigin() + hero:GetAbsOrigin() - origin
+        hookPos = hookPos + hero:GetAbsOrigin() - origin
+        origin = hero:GetAbsOrigin()
+        local vector = direction * speed
+        
+        --hook:SetAbsOrigin(hookPos + vector)
+        hookPos = hookPos + vector
+        
+        
+        --ParticleManager:SetParticleControl(particle, 0, hero:GetAbsOrigin()) -- something
+        --ParticleManager:SetParticleControl(particle, 1, Vector(mA, mB, mC)) -- radius
+        ParticleManager:SetParticleControl(particle, 2, Vector(5, 0, 0)) -- something
+        ParticleManager:SetParticleControl(particle, 3, hookPos) -- end point of hook vector
+        ParticleManager:SetParticleControl(particle, 4, Vector(1, 0, 0)) -- X= spins per second, Y-z nothing
+        --ParticleManager:SetParticleControl(particle, 5, Vector(1, 0, 0)) -- X= spins per second, Y-z nothing
+        ParticleManager:SetParticleControl(particle, 6, hookPos) -- X= spins per second, Y-z nothing
+        
+        if complete and GameRules:GetGameTime() > timeout then
+          --hook:Destroy()
+          ParticleManager:SetParticleControl(particle, 2, Vector(0.1, 0, 0)) -- something
+          return
+        end
+        if GameRules:GetGameTime() > timeout then
+          timeout = GameRules:GetGameTime() + 1.1
+          complete = true
+          direction.x = -1 * direction.x
+          direction.y = -1 * direction.y
+          direction.z = -1 * direction.z
+          return GameRules:GetGameTime()
+        end
+        return GameRules:GetGameTime()
+      end})
     
   end
 end
@@ -1161,7 +1475,7 @@ function ReflexGameMode:Think()
     end
   end
 
-  return 0.1
+  return THINK_TIME
 end
 
 function ReflexGameMode:HandleEventError(name, event, err)
@@ -1428,4 +1742,56 @@ function callModApplier( caster, modName, abilityLevel)
   end
   caster:CastAbilityNoTarget(ab, -1)
   caster:RemoveAbility(applier)
+end
+
+function dealDamage(source, target, damage)
+  local unit = nil
+  if source ~= nil then
+    unit = CreateUnitByName("npc_dota_danger_indicator", target:GetAbsOrigin(), false, source, source, source:GetTeamNumber())
+  else
+    unit = CreateUnitByName("npc_dota_danger_indicator", target:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NOTEAM)
+  end
+  unit:AddNewModifier(unit, nil, "modifier_invulnerable", {})
+  unit:AddNewModifier(unit, nil, "modifier_phased", {})
+  
+  local abilityName = "modifier_damage_applier"
+  unit:AddAbility(abilityName)
+  ability = unit:FindAbilityByName( abilityName )
+  
+  local abilityName2 = "modifier_damage_applier2"
+  unit:AddAbility(abilityName2)
+  ability2 = unit:FindAbilityByName( abilityName2 )
+  
+  local maxTimesTwo = math.floor(damage / 400)
+  local twoLevel = math.floor((damage % 400) / 20)
+  local level = math.floor(damage % 20)
+  
+  local diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
+  diff.z = 0
+  unit:SetForwardVector(diff:Normalized())
+  
+  local i = 0
+  while i < maxTimesTwo do
+    ability2:SetLevel( 20 )
+    unit:CastAbilityOnTarget(target, ability2, 0 )
+    i = i + 1
+  end
+  
+  ability2:SetLevel( twoLevel )
+  if twoLevel > 0 then
+    unit:CastAbilityOnTarget(target, ability2, 0)
+  end
+
+  ability:SetLevel( level)
+  if level > 0 then
+    unit:CastAbilityOnTarget(target, ability, 0 )
+  end
+  
+  ReflexGameMode:CreateTimer(DoUniqueString("damage"), {
+    endTime = GameRules:GetGameTime() + 0.1,
+    useGameTime = true,
+    callback = function(reflex, args)
+      unit:Destroy()
+    end
+  })
 end

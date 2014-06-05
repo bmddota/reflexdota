@@ -14,6 +14,7 @@
 		"item"		"item_ability_reflex_phase_shift"
 		"item"		"item_ability_reflex_flame_breath"
 		"item"		"item_ability_reflex_energy_drain"
+    "item"		"item_ability_reflex_magnetic_orb"
 	}
 
 	"weapons_armor"
@@ -79,6 +80,7 @@
 	{
 		"item"		"item_reflex_smoke_grenade"
 		"item"		"item_reflex_haste_grenade"
+    "item"    "item_reflex_worm_hole"
 	}
 
 	"sideshop1"

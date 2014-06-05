@@ -121,7 +121,7 @@
 		"precache"
 		{
 			//"particlefile"				"particles/hero_puck.pcf"
-			"particlefile"				"particles/units/heroes/hero_puck.pcf"
+			//"particlefile"				"particles/units/heroes/hero_puck.pcf"
 			"soundfile"					"scripts/game_sounds_heroes/game_sounds_puck.txt"
 		}
 
@@ -1022,7 +1022,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"350 385 420 455"
+				"damage"				"320 355 390 425"
 			}
 			"04"
 			{
@@ -1500,6 +1500,305 @@
 			}
 		}
 	}
+  
+  "reflex_magnetic_orb"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5610"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"        "ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "AbilityTextureName"        "earth_spirit_geomagnetic_grip"
+    "AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+
+    "precache"
+		{
+			"particlefile"				"particles/test_particle.pcf"
+			"particlefile"				"particles/econ/generic/generic_aoe_explosion_sphere_1.pcf"
+		}
+    
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1600 1800 2000 2200"
+		"AbilityCastPoint"				"0.01"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10.0 8.5 7.0 5.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"225"
+    
+    "OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Hero_Disruptor.Glimpse.Target"
+				"Target"			"CASTER"
+			}
+      
+      "RunScript"
+      {
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+        "Function"				"makeProjectile"
+        "Target"				"POINT"
+        "EffectName"			"nian_roar_projectile_no_explode"//"nian_roar_projectile"
+				"MoveSpeed"				"%speed"
+				"StartPosition"			"attach_attack1"
+        "FixedDistance"   "%distance"
+				"StartRadius"			"%radius"
+				"EndRadius"				"%radius"
+				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"TargetTypes"			"DOTA_UNIT_TARGET_HERO"
+				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
+				"HasFrontalCone"		"0"
+				"ProvidesVision"		"0"
+				"VisionRadius"			"0"
+      }
+
+		}
+    
+    "OnProjectileHitUnit"
+    {
+      "DeleteOnHit" "0"
+      //"FireSound"
+      //{
+        //"EffectName"		"Hero_NagaSiren.Ensnare.Target"
+        //"Target"			"CASTER"
+      //}
+      "RunScript"
+      {
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+        "Function"				"projectileHit"
+        "Target"				"TARGET"
+      }
+    }
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"90"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1400 1600 1800 2000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pull_units_per_second"		"1400 1600 1800 2000"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"total_pull_distance"		"4000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"distance"		"1600 1800 2000 2200"
+			}
+      "06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"area_radius"		  "500"
+			}
+      "07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"		      "100 150 200 250"
+			}
+      "08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"snare_duration"	"1.0 1.5 2.0 2.5"
+			}
+		}
+	}
+  
+  "reflex_magnetic_burst"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5610"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TURN |DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "BaseClass"        "ability_datadriven"
+		"AbilityCastRange"				"GLOBAL"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+    
+    "OnSpellStart"
+    {
+      "ActOnTargets"
+      {
+        "Target"
+				{
+					"Center"			"POINT"
+					"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+					"Radius"			"%area_radius"
+				}
+				"Action"
+				{
+          "Damage"
+          {
+            "Type"		"DAMAGE_TYPE_PURE"
+            "Damage"	"%damage"
+            "Target"	"TARGET"
+          }
+          
+          "FireSound"
+          {
+            "EffectName" "Hero_Dark_Seer.Vacuum"
+            "Target"  "TARGET"
+          }
+          
+          "Knockback"
+          {
+            "Target"		"TARGET"
+            "Center"		"PROJECTILE"
+            "Duration"		"0.4"
+            "Distance"		"-500"
+            "Height"		"150"
+            //"IsFixedDistance" "1"
+            "ShouldStun"	"0"
+          }
+          "ApplyModifier"
+          {
+            "Target"  "TARGET"
+            "ModifierName"  "modifier_reflex_magnetic_orb"
+          }
+				}
+      }
+    }
+    
+    "Modifiers"
+    {
+      "modifier_reflex_magnetic_orb"
+			{
+				"Duration" "%snare_duration" // Encourage you to drag them back and forth through the wall
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"rune_doubledamage"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"
+				}
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"area_radius"		  "500"
+			}
+      "02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"		      "100 130 165 200"
+			}
+      "03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"snare_duration"	"1.0 1.5 2.0 2.5"
+			}
+		}
+  }
+  
+  "reflex_grip"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5610"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TURN |DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "BaseClass"        "earth_spirit_geomagnetic_grip"
+		"AbilityCastRange"				"GLOBAL"
+    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"60"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rock_damage"			"100 150 200 250"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1400 1600 1800 2000"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"				"0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pull_units_per_second"		"1400 1600 1800 2000"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"total_pull_distance"		"4000"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"silence_duration"		"0"
+			}
+		}
+	}
+  
+  "reflex_worm_hole"
+  {
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"							"5246"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "BaseClass" "furion_teleportation"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"GLOBAL"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+  }
 	
 	"reflex_earthbind"
 	{
@@ -1656,6 +1955,116 @@
 			}
     }
 	}
+  
+  "reflex_dummy_unit"
+  {
+    "AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+    "MaxLevel"                      "1"
+    
+    "Modifiers"
+		{
+			"dummy_unit"
+      {
+          "Passive"                        "1"
+          "IsHidden"                        "1"    
+          "States"
+          {
+              "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+              "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+              "MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+          }
+      }
+		}
+  }
+  
+  "reflex_flame_guard"
+  {
+    "AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+    "MaxLevel"                      "1"
+    
+    "OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_flame_guard"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_flame_guard"
+			{
+        "Passive" "1"
+        "IsHidden" "1"
+				"EffectName"		"ember_spirit_flameGuard"
+				"EffectAttachType"	"follow_origin"
+				"Target"			"CASTER"
+			}
+		}
+  }
+  
+  "reflex_rupture"
+  {
+    "AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+    "MaxLevel"                      "1"
+    
+    "OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_rupture"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_rupture"
+			{
+        "Passive" "1"
+        "IsHidden" "1"
+				"EffectName"		"bloodseeker_rupture"
+				"EffectAttachType"	"follow_origin"
+				"Target"			"CASTER"
+			}
+		}
+  }
+  
+  "reflex_double_damage"
+  {
+    "AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "rubick_empty1"
+    "MaxLevel"                      "1"
+    
+    "OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_double_damage"			
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_double_damage"
+			{
+        "Passive" "1"
+        "IsHidden" "1"
+				"EffectName"		"rune_doubledamage"
+				"EffectAttachType"	"follow_origin"
+				"Target"			"CASTER"
+			}
+		}
+  }
 	
 //------------------------
 // Modifier Appliers

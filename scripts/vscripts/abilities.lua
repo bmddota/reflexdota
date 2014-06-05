@@ -1,5 +1,7 @@
 
 vPlayerIlluminate = {}
+vPlayerProjectiles = {}
+vPlayerDummies = {}
 
 function dangerIndicator(keys)
   local target = keys.Target
@@ -80,7 +82,10 @@ function itemSpellStart (keys)
 	--PrintTable(getmetatable(item))
 	--print(item:GetLevel())
 	if item == nil then
-		return
+    item = caster:FindAbilityByName(itemName)
+    if item == nil then 
+      return
+    end
 	end
 	
 		
@@ -310,6 +315,144 @@ function itemChannelEnd( keys )
 	end
 end
 
+function projectileHit(keys)
+  --PrintTable(keys)
+  local caster = keys.caster
+  local ability = keys.ability
+  local projectiles = vPlayerProjectiles[caster:GetPlayerID()]
+  local dummies = vPlayerDummies[caster:GetPlayerID()]
+  local projID = projectiles[ability:GetAbilityName()]
+  local dummy = dummies[ability:GetAbilityName()]
+  
+  ReflexGameMode:RemoveTimer(caster:GetPlayerID() .. ability:GetAbilityName() .. "grip_dummy")
+  
+  local targetEntity = keys.target_entities[1]
+  if caster == nil or targetEntity == nil or targetEntity == caster then
+    return
+  end
+  
+  --local dummy = CreateUnitByName("npc_reflex_dummy_grip", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+  --dummy:FindAbilityByName("reflex_dummy_unit"):SetLevel(1)
+  --dummy:AddNewModifier(dummy, nil, "modifier_phased", {})
+  
+  local grip = dummy:FindAbilityByName("reflex_grip")
+  grip:SetLevel(ability:GetLevel())
+  local burst = dummy:FindAbilityByName("reflex_magnetic_burst")
+  burst:SetLevel(ability:GetLevel())
+  
+  local diff = targetEntity:GetAbsOrigin() - dummy:GetAbsOrigin()
+  diff.z = 0
+  dummy:SetAbsOrigin(caster:GetAbsOrigin())
+  dummy:SetForwardVector(diff:Normalized())
+  
+  local point = targetEntity:GetAbsOrigin()
+  dummy:CastAbilityOnTarget(targetEntity, grip, 0 )
+  dummy:CastAbilityOnPosition(point, burst, 0)
+  
+  local particle = ParticleManager:CreateParticle("nian_roar_prj_gasexplode_shockwave", PATTACH_POINT_FOLLOW, targetEntity)
+  ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0))
+  ParticleManager:SetParticleControl(particle, 1, Vector(100,5,1)) -- radius, thickness, speed
+  ParticleManager:SetParticleControl(particle, 3, targetEntity:GetAbsOrigin()) -- position
+  
+  ReflexGameMode:CreateTimer(DoUniqueString("grip"), {
+    endTime = GameRules:GetGameTime() + 5,
+    useGameTime = true,
+    callback = function(reflex, args)
+      --dummy:CastAbilityOnTarget(caster, grip, 0 )
+      dummy:Destroy()
+    end
+  })
+  
+  ProjectileManager:DestroyLinearProjectile(projID)
+  
+end
+
+--[["Target"				"POINT"
+        "EffectName"			"nian_roar_projectile_no_explode"
+				"MoveSpeed"				"%speed"
+				"StartPosition"			"attach_attack1"
+        "FixedDistance"   "%distance"
+				"StartRadius"			"%radius"
+				"EndRadius"				"%radius"
+				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"TargetTypes"			"DOTA_UNIT_TARGET_HERO"
+				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
+        "ExcludeFlags"    "DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED"
+				"HasFrontalCone"		"0"
+				"ProvidesVision"		"0"
+				"VisionRadius"			"0"]]
+                
+
+function makeProjectile(keys)
+  --PrintTable(keys)
+  local caster = keys.caster
+  local ability = keys.ability
+  local origin = caster:GetOrigin()
+  origin.z = origin.z + 60
+  local projectiles = vPlayerProjectiles[caster:GetPlayerID()]
+  if projectiles == nil then
+    projectiles = {}
+    vPlayerProjectiles[caster:GetPlayerID()] = projectiles
+  end
+  
+  local dummies = vPlayerDummies[caster:GetPlayerID()]
+  if dummies == nil then
+    dummies = {}
+    vPlayerDummies[caster:GetPlayerID()] = dummies
+  end 
+  
+  local info = {
+		EffectName = keys.EffectName,
+		Ability = ability,
+		vSpawnOrigin = caster:GetAbsOrigin(),
+		fDistance = tonumber(keys.FixedDistance),
+		fStartRadius = tonumber(keys.StartRadius),
+		fEndRadius = tonumber(keys.EndRadius),
+		Source = caster,
+		bHasFrontalCone = false,
+    iMoveSpeed = tonumber(keys.MoveSpeed),
+    bReplaceExisting = true,
+    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		--iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+		--iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		--iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_OTHER,
+		--fMaxSpeed = 5200,
+		fExpireTime = GameRules:GetGameTime() + 8.0,
+	}
+  
+  --print ('0-------------0')
+  --PrintTable(info)
+  --print ('0--------------0')
+  local speed = keys.MoveSpeed
+  
+  local point = keys.target_points[1]
+  point.z = 0
+	local pos = caster:GetAbsOrigin()
+  pos.z = 0
+	--print ('[REFLEX] ' .. tostring(pos))
+	local diff = point - pos
+  
+  info.vVelocity = diff:Normalized() * speed
+  
+  local dummy = CreateUnitByName("npc_reflex_dummy_grip", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+  dummy:FindAbilityByName("reflex_dummy_unit"):SetLevel(1)
+  dummy:AddNewModifier(dummy, nil, "modifier_phased", {})
+  
+  ReflexGameMode:CreateTimer(tostring(caster:GetPlayerID()) .. ability:GetAbilityName() .. "grip_dummy", {
+    endTime = GameRules:GetGameTime() + 10,
+    useGameTime = true,
+    callback = function(reflex, args)
+      --dummy:CastAbilityOnTarget(caster, grip, 0 )
+      dummy:Destroy()
+    end
+  })
+  
+  dummies[ability:GetAbilityName()] = dummy
+  projectiles[ability:GetAbilityName()] = ProjectileManager:CreateLinearProjectile( info )
+end
+
 function itemMeteorCannon( channelTime, point, item , caster)
 	--print ('[REFLEX] itemMeteorCannon called: ' .. channelTime .. " -- point: " .. tostring(point) .. " -- item: " ..item:GetAbilityName())
 	
@@ -345,6 +488,7 @@ function itemMeteorCannon( channelTime, point, item , caster)
 	
 	point.z = 0
 	local pos = caster:GetAbsOrigin()
+  pos.z = 0
 	--print ('[REFLEX] ' .. tostring(pos))
 	local diff = point - pos
 	--print ('[REFLEX] ' .. tostring(diff))
@@ -422,6 +566,10 @@ function dealDamage(source, target, damage)
   local twoLevel = math.floor((damage % 400) / 20)
   local level = math.floor(damage % 20)
   
+  local diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
+  diff.z = 0
+  unit:SetForwardVector(diff:Normalized())
+  
   local i = 0
   while i < maxTimesTwo do
     ability2:SetLevel( 20 )
@@ -440,7 +588,7 @@ function dealDamage(source, target, damage)
   end
   
   ReflexGameMode:CreateTimer(DoUniqueString("damage"), {
-    endTime = GameRules:GetGameTime() + 0.1,
+    endTime = GameRules:GetGameTime() + 0.2,
     useGameTime = true,
     callback = function(reflex, args)
       unit:Destroy()
