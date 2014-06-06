@@ -11,7 +11,7 @@
   "subtitle": "A high-intensity fast paced action game.",
   "description": "",
   "features": ["Fast-paced and intense action.", "Develop skill and fast reaction times.", "Experiment with unique combos.", "Counter-pick your opponents with dynamic hero builds"],
-  "public": true,
-  "playable": true,
+  "isPublic": true,
+  "isPlayable": true,
   "requirements": {}
 }
