@@ -12,6 +12,6 @@
   "description": "",
   "features": ["Fast-paced and intense action.", "Develop skill and fast reaction times.", "Experiment with unique combos.", "Counter-pick your opponents with dynamic hero builds"],
   "isPublic": true,
-  "isPlayable": true,
+  "playable": true,
   "requirements": {}
 }
