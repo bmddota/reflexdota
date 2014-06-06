@@ -5427,8 +5427,8 @@
 			{
 				"Target"		"TARGET"
 				"Center"		"CASTER"
-				"Duration"		"0.5"
-				"Distance"		"200"
+				"Duration"		"0.25"
+				"Distance"		"300"
 				"Height"		"0"
 				"ShouldStun"	"0"
 			}
@@ -5587,8 +5587,8 @@
 			{
 				"Target"		"TARGET"
 				"Center"		"CASTER"
-				"Duration"		"0.5"
-				"Distance"		"200"
+				"Duration"		"0.25"
+				"Distance"		"300"
 				"Height"		"0"
 				"ShouldStun"	"0"
 			}
@@ -5747,8 +5747,8 @@
 			{
 				"Target"		"TARGET"
 				"Center"		"CASTER"
-				"Duration"		"0.5"
-				"Distance"		"200"
+				"Duration"		"0.25"
+				"Distance"		"300"
 				"Height"		"0"
 				"ShouldStun"	"0"
 			}
@@ -5907,8 +5907,8 @@
 			{
 				"Target"		"TARGET"
 				"Center"		"CASTER"
-				"Duration"		"0.5"
-				"Distance"		"200"
+				"Duration"		"0.25"
+				"Distance"		"300"
 				"Height"		"0"
 				"ShouldStun"	"0"
 			}
