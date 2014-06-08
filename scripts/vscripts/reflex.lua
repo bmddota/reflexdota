@@ -4,18 +4,18 @@ USE_LOBBY=true
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.04.02"
+REFLEX_VERSION = "0.04.05"
 
-ROUNDS_TO_WIN = 10
+ROUNDS_TO_WIN = 8
 ROUND_TIME = 150 --240
 PRE_GAME_TIME = 30 -- 30
 PRE_ROUND_TIME = 30 --30
 POST_ROUND_TIME = 2
 POST_GAME_TIME = 30
 
-STARTING_GOLD = 650--500
-GOLD_PER_ROUND_LOSER = 750
-GOLD_PER_ROUND_WINNER = 1100
+STARTING_GOLD = 500--650
+GOLD_PER_ROUND_LOSER = 900--750
+GOLD_PER_ROUND_WINNER = 1250--1100
 GOLD_PER_KILL = 300
 GOLD_PER_MVP = 500
 GOLD_PER_SURVIVE = 250
@@ -23,8 +23,8 @@ GOLD_TIME_BONUS_1 = 250
 GOLD_TIME_BONUS_2 = 150
 GOLD_TIME_BONUS_3 = 100
 
-LEVELS_PER_ROUND_LOSER = 2
-LEVELS_PER_ROUND_WINNER = 1
+LEVELS_PER_ROUND_LOSER = 2.5 -- 2
+LEVELS_PER_ROUND_WINNER = 1.25 -- 1
 MAX_LEVEL = 50
 
 XP_PER_LEVEL_TABLE = {}
@@ -41,8 +41,7 @@ ADDED_ABILITIES = {
   "reflex_illuminate_3",
   "reflex_illuminate_4",
   "reflex_mystic_flare",
-  "reflex_earthbind",
-  "reflex_worm_hole"
+  "reflex_earthbind"
 }
 
 ABILITY_ON_DEATH = {
@@ -51,6 +50,7 @@ ABILITY_ON_DEATH = {
 }
 
 bInPreRound = true
+roundOne = true
 
 ABILITY_ITEM_TABLE = {
   reflex_haste = 0,
@@ -72,7 +72,6 @@ ABILITY_ITEM_TABLE = {
   reflex_scaredy_cat = 1
 }
 
-roundOne = true
 
 if ReflexGameMode == nil then
   print ( '[REFLEX] creating reflex game mode' )
@@ -238,6 +237,8 @@ function ReflexGameMode:InitGameMode()
   self.vUserNames = {}
   self.vUserIds = {}
   self.vSteamIds = {}
+  self.vBots = {}
+  self.vBroadcasters = {}
 
   self.vPlayers = {}
   self.vRadiant = {}
@@ -307,11 +308,18 @@ function ReflexGameMode:CloseServer()
 end
 
 function ReflexGameMode:PlayerConnect(keys)
+  --print('[REFLEX] PlayerConnect')
+  --PrintTable(keys)
   self.vUserNames[keys.userid] = keys.name
+  if keys.bot == 1 then
+    self.vBots[keys.userid] = 1
+  end
 end
 
 local hook = nil
 local attach = 0
+local controlPoints = {}
+local particleEffect = ""
 
 function ReflexGameMode:PlayerSay(keys)
   --print ('[REFLEX] PlayerSay')
@@ -434,6 +442,33 @@ function ReflexGameMode:PlayerSay(keys)
     --APM:CreateProjectile(info, hero:GetAbsOrigin(), Vector(0,0,0), 600)
     APM:CreateCurvedProjectile(info, hero:GetAbsOrigin(), Vector(0,0,0), 15, 0.2, 10, 2000)
     --ProjectileManager:CreateTrackingProjectile(info)
+  end
+  
+  local sAttach = string.match(text, "^-setattach%s+(%d+)")
+  if DEBUG and sAttach ~= nil then
+    attach = tonumber(sAttach)
+    Say(nil, 'Attach set ' .. sAttach, false)
+  end
+  
+  local cp,nill = string.match(text, "^-setcp%s+(%d+)%s+nil")
+  if DEBUG and cp ~= nil and nill ~= nil then
+    controlPoints[tonumber(cp)] = nil
+    Say(nil, 'CP ' .. cp .. ' set to nil', false)
+  else
+    local cp,c1,c2,c3 = string.match(text, "^-setcp%s+(%d+)%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)")
+    if DEBUG and cp ~= nil and c1 ~= nil and c2 ~= nil and c3 ~= nil then
+      controlPoints[tonumber(cp)] = Vector(tonumber(c1), tonumber(c2), tonumber(c3))
+      Say(nil, 'CP ' .. cp .. ' set to Vector(' .. c1 .. ', ' .. c2 .. ', ' .. c3 .. ')', false)
+    end
+  end
+  
+  local effect = string.match(text, "^-particle%s*(.*)")
+  if effect ~= nil and effect ~= "" then
+    particleEffect = effect
+    local particle = ParticleManager:CreateParticle(effect, attach, player.hero)--cmdPlayer:GetAssignedHero())
+    for cp,vec in pairs(controlPoints) do
+      ParticleManager:SetParticleControl(particle, cp, vec)--Vector(0,0,0)) -- something
+    end
   end
 
   local mA, mB, mC = string.match(text, "^-sequence%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)")
@@ -774,16 +809,50 @@ end
 function ReflexGameMode:AutoAssignPlayer(keys)
   print ('[REFLEX] AutoAssignPlayer')
   self:CaptureGameMode()
+  --PrintTable(keys)
   print ('[REFLEX] getting index')
   --print(keys.index)
   local entIndex = keys.index+1
   local ply = EntIndexToHScript(entIndex)
+  
+  --[[print('team: ' .. tostring(ply:GetTeam()))
+  print('owner: ' .. tostring(ply:GetOwner()))
+  print('isalive: ' .. tostring(ply:IsAlive()))
+  print('gh: ' .. tostring(ply:GetHealth()))
+  print('gmh: ' .. tostring(ply:GetMaxHealth()))
+  print('classname: ' .. tostring(ply:GetClassname()))
+  print('name: ' .. tostring(ply:GetName()))
+  print('name: ' .. tostring(ply:GetName()))]]
+  
   local playerID = ply:GetPlayerID()
+  
+  --[[print('IsValidPID: '  .. tostring(PlayerResource:IsValidPlayerID(playerID)))
+  print('IsValidP: '  .. tostring(PlayerResource:IsValidPlayer(playerID)))
+  print('IsValidP: '  .. tostring(PlayerResource:IsValidPlayer(playerID)))
+  print('IsFakeClient: '  .. tostring(PlayerResource:IsFakeClient(playerID)))
+  print('IsBroadcaster: '  .. tostring(PlayerResource:IsBroadcaster(playerID)))
+  print('GetBroadcasterChannel: '  .. tostring(PlayerResource:GetBroadcasterChannel(playerID)))
+  print('GetBroadcasterChannelSlot: '  .. tostring(PlayerResource:GetBroadcasterChannelSlot(playerID)))
+  print('SteamAccountID: '  .. tostring(PlayerResource:GetSteamAccountID(playerID)))
+  print('PlayerName: '  .. tostring(PlayerResource:GetPlayerName(playerID)))]]
 
   self.nConnected = self.nConnected + 1
   self:RemoveTimer('all_disconnect')
   
+  self.vUserIds[keys.userid] = ply
+  self.vSteamIds[PlayerResource:GetSteamAccountID(playerID)] = ply
+  
+  --print('--UserIds--')
+  --PrintTable(vUserIds)
+  --print('--SteamIDs--')
+  --PrintTable(vSteamIds)
+  
   if PlayerResource:IsBroadcaster(playerID) then
+    self.vBroadcasters[keys.userid] = 1
+    return
+  end
+  
+  if self.vBots[keys.userid] ~= nil then
     return
   end
 
@@ -816,8 +885,6 @@ function ReflexGameMode:AutoAssignPlayer(keys)
   --PrintTable(getmetatable(PlayerResource))
   
   print('[REFLEX] SteamID: ' .. PlayerResource:GetSteamAccountID(playerID))
-  self.vUserIds[keys.userid] = ply
-  self.vSteamIds[PlayerResource:GetSteamAccountID(playerID)] = ply
 
   --Autoassign player
   self:CreateTimer('assign_player_'..entIndex, {
@@ -845,6 +912,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
           bDead = false,
           nUnspentGold = STARTING_GOLD,
           fLevel = 1.0,
+          nCurXP = 100,
           nTeam = ply:GetTeam(),
           bRoundInit = false,
           nUnspentAbilityPoints = 1,
@@ -1128,18 +1196,18 @@ function ReflexGameMode:InitializeRound()
           player.hero:AddNewModifier(player.hero, nil , "modifier_invulnerable", {})
         end
 
-        local curXP = PlayerResource:GetTotalEarnedXP(plyID)
+        local remainder = player.nCurXP % 100
+        local curXP = player.nCurXP --PlayerResource:GetTotalEarnedXP(plyID)
         local nextXP = player.fLevel * 100
+        player.nCurXP = nextXP
         print ( '[REFLEX] NextXP: ' .. tostring(nextXP))
         if nextXP > curXP then
           print ( '[REFLEX] XP Boost ' .. tostring(nextXP - curXP))
-          --PrintTable(player.hero)
-          --PrintTable(getmetatable(player.hero))
-          --local diff = math.floor((nextXP - curXP) / 100)
-          --local remainder = (nextXP - curXP) % 100
-
+          for i=1,math.floor((nextXP - curXP + remainder) / 100) do
+            player.hero:HeroLevelUp(true)
+          end
           --player.hero:AddExperience(remainder, true)
-          player.hero:AddExperience(nextXP - curXP, false)
+          --player.hero:AddExperience(nextXP - curXP, false)
           --PlayerResource:IncrementTotalEarnedXP(plyID, nextXP - curXP)
         end
       end

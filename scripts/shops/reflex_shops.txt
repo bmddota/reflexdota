@@ -40,12 +40,12 @@
 		"item"		"item_reflex_holy_shield"
 		"item"		"item_reflex_shotgun"
 		"item"		"item_reflex_long_shot"
+    "item"		"item_reflex_air_burst"
 	}
 
 	// Level 2 - Blue Recipes
 	"support"
 	{
-		"item"		"item_reflex_air_burst"
 		"item"		"item_reflex_wall_of_pain"
 		"item"		"item_reflex_blast_cannon"
 		"item"		"item_reflex_detonator"

@@ -517,7 +517,7 @@
       "particlefile"				"particles/reflex_puck.pcf"
       "particlefile"				"particles/hlw_phoenix.pcf"
       "particlefile"				"particles/nian_gameplay.pcf"
-      "particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
+      "particlefile"				"particles/generic_aoe_shockwave_1.pcf" //"particles/econ/generic/generic_aoe_shockwave_1.pcf"
       "particlefile"				"particles/generic_gameplay.pcf"
 			
 			"soundfile"				"scripts/game_sounds_heroes/game_sounds_antimage.txt"

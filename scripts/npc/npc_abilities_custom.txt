@@ -291,7 +291,7 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4 0.3 0.2 0.1"
+		"AbilityCastPoint"				"0"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -313,7 +313,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"0.5 0.75 1.0 1.25"
+				"duration"					"0.5 0.80 1.1 1.4"
 			}
 			//"03"
 			//{
@@ -417,6 +417,8 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"ogre_magi_fireblast"
 		"BaseClass"						"creature_fire_breath"
+    "AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+    
 		//"MaxLevel"						"1"
 
 		// Time		
@@ -563,6 +565,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityTextureName" 			"invoker_emp"
+    "AbilityCastAnimation"			"ACT_DOTA_DISABLED"
     "AOERadius"						"%radius"
 		
 		// Casting
@@ -914,7 +917,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hp_per_tick"			"65 85 100 110"
+				"hp_per_tick"			"40 40 50 50"
 			}
 		}
 	}
@@ -1012,7 +1015,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"225 250 275 300"
+				"area_of_effect"		"225 245 265 285"
 			}
 			"02"
 			{
@@ -1022,7 +1025,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"320 355 390 425"
+				"damage"				"320 340 360 380"
 			}
 			"04"
 			{
@@ -1428,7 +1431,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.0"
+				"duration"				"1.2"
 			}
 			"03"
 			{
@@ -1438,7 +1441,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_interval"		"0.1"
+				"damage_interval"		"0.06"
 			}
 			"05"
 			{
@@ -1585,12 +1588,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"90"
+				"radius"				"150"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"1400 1600 1800 2000"
+				"speed"					"2000 2200 2400 2600"
 			}
 			"03"
 			{
@@ -1783,22 +1786,6 @@
 			}
 		}
 	}
-  
-  "reflex_worm_hole"
-  {
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		//"ID"							"5246"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "BaseClass" "furion_teleportation"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"GLOBAL"
-		"AbilityCastPoint"				"0"
-		"AbilityCooldown"				"0"
-		"AbilityManaCost"				"0"
-  }
 	
 	"reflex_earthbind"
 	{
@@ -2906,7 +2893,7 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				//"Duration"				"10"
+				//"Duration"				"5"
 				"ModifierName"			"modifier_item_illuminate"			
 			}
 		}
@@ -2919,15 +2906,15 @@
 				"TextureName" "item_reflex_illuminate"
 				//"EffectName" "healing_clarity"
 				"EffectAttachType" "follow_origin"
-				"Duration" "10"
-				"ThinkInterval" "10"
+				"Duration" "5"
+				"ThinkInterval" "5"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
 						"ScriptFile"			"scripts/vscripts/abilities.lua"
 						"Function"				"itemChargeThink"
-						"ChargeType"			"FULL"
+						"ChargeType"			"HALF"
 						"Item"					"item_reflex_illuminate"
 						"ChargeModifier"		"modifier_item_illuminate"
 					}
@@ -2948,7 +2935,7 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				//"Duration"				"10"
+				//"Duration"				"5"
 				"ModifierName"			"modifier_item_illuminate_2"			
 			}
 		}
@@ -2961,15 +2948,15 @@
 				"TextureName" "item_reflex_illuminate_2"
 				//"EffectName" "healing_clarity"
 				"EffectAttachType" "follow_origin"
-				"Duration" "10"
-				"ThinkInterval" "10"
+				"Duration" "5"
+				"ThinkInterval" "5"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
 						"ScriptFile"			"scripts/vscripts/abilities.lua"
 						"Function"				"itemChargeThink"
-						"ChargeType"			"FULL"
+						"ChargeType"			"HALF"
 						"Item"					"item_reflex_illuminate_2"
 						"ChargeModifier"		"modifier_item_illuminate_2"
 					}
@@ -2990,7 +2977,7 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				//"Duration"				"10"
+				//"Duration"				"5"
 				"ModifierName"			"modifier_item_illuminate_3"			
 			}
 		}
@@ -3003,15 +2990,15 @@
 				"TextureName" "item_reflex_illuminate_3"
 				//"EffectName" "healing_clarity"
 				"EffectAttachType" "follow_origin"
-				"Duration" "10"
-				"ThinkInterval" "10"
+				"Duration" "5"
+				"ThinkInterval" "5"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
 						"ScriptFile"			"scripts/vscripts/abilities.lua"
 						"Function"				"itemChargeThink"
-						"ChargeType"			"FULL"
+						"ChargeType"			"HALF"
 						"Item"					"item_reflex_illuminate_3"
 						"ChargeModifier"		"modifier_item_illuminate_3"
 					}
@@ -3032,7 +3019,7 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				//"Duration"				"10"
+				//"Duration"				"5"
 				"ModifierName"			"modifier_item_illuminate_4"			
 			}
 		}
@@ -3045,15 +3032,15 @@
 				"TextureName" "item_reflex_illuminate_4"
 				//"EffectName" "healing_clarity"
 				"EffectAttachType" "follow_origin"
-				"Duration" "10"
-				"ThinkInterval" "10"
+				"Duration" "5"
+				"ThinkInterval" "5"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
 						"ScriptFile"			"scripts/vscripts/abilities.lua"
 						"Function"				"itemChargeThink"
-						"ChargeType"			"FULL"
+						"ChargeType"			"HALF"
 						"Item"					"item_reflex_illuminate_4"
 						"ChargeModifier"		"modifier_item_illuminate_4"
 					}

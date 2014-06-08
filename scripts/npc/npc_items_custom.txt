@@ -2295,13 +2295,14 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"						"item_datadriven"
+    "AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		"AbilityTextureName"			"item_reflex_holy_shield"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900 1100 1300 1500"
 		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"16.0 15.0 14.0 13.0"
+		"AbilityCooldown"				"13.0 12.0 11.0 10.0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2327,7 +2328,7 @@
       {
         "EffectName"			"Puck_Illusory_Orb"
 				"MoveSpeed"				"%speed"
-				"StartPosition"	  "attach_attack1"
+				//"StartPosition"	  "attach_attack1"
         "FixedDistance"   "%distance"
 				"StartRadius"			"%radius"
 				"EndRadius"				"%radius"
@@ -2342,6 +2343,11 @@
 			{
 				"EffectName"		"Hero_Abaddon.AphoticShield.Cast"
 				"Target"			  "CASTER"
+			}
+      "ApplyModifier"
+			{
+				"Target"  		"CASTER"
+				"ModifierName"	"modifier_item_shield"
 			}
     }
     
@@ -2390,12 +2396,12 @@
       "03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				  "120"
+				"radius"				  "150"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					  "1250"
+				"speed"					  "1800"
 			}
       "05"
 			{
@@ -2412,13 +2418,14 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"						"item_datadriven"
+    "AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		"AbilityTextureName"			"item_reflex_holy_shield_2"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900 1100 1300 1500"
 		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"16.0 15.0 14.0 13.0"
+		"AbilityCooldown"				"13.0 12.0 11.0 10.0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2445,7 +2452,7 @@
       {
         "EffectName"			"Puck_Illusory_Orb"
 				"MoveSpeed"				"%speed"
-				"StartPosition"	  "attach_attack1"
+				//"StartPosition"	  "attach_attack1"
         "FixedDistance"   "%distance"
 				"StartRadius"			"%radius"
 				"EndRadius"				"%radius"
@@ -2460,6 +2467,11 @@
 			{
 				"EffectName"		"Hero_Abaddon.AphoticShield.Cast"
 				"Target"			  "CASTER"
+			}
+      "ApplyModifier"
+			{
+				"Target"  		"CASTER"
+				"ModifierName"	"modifier_item_shield"
 			}
     }
     
@@ -2508,12 +2520,12 @@
       "03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				  "120"
+				"radius"				  "150"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					  "1250"
+				"speed"					  "1800"
 			}
       "05"
 			{
@@ -2530,13 +2542,14 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"						"item_datadriven"
+    "AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		"AbilityTextureName"			"item_reflex_holy_shield_3"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900 1100 1300 1500"
 		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"16.0 15.0 14.0 13.0"
+		"AbilityCooldown"				"13.0 12.0 11.0 10.0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2563,7 +2576,7 @@
       {
         "EffectName"			"Puck_Illusory_Orb"
 				"MoveSpeed"				"%speed"
-				"StartPosition"	  "attach_attack1"
+				//"StartPosition"	  "attach_attack1"
         "FixedDistance"   "%distance"
 				"StartRadius"			"%radius"
 				"EndRadius"				"%radius"
@@ -2578,6 +2591,11 @@
 			{
 				"EffectName"		"Hero_Abaddon.AphoticShield.Cast"
 				"Target"			  "CASTER"
+			}
+      "ApplyModifier"
+			{
+				"Target"  		"CASTER"
+				"ModifierName"	"modifier_item_shield"
 			}
     }
     
@@ -2626,12 +2644,12 @@
       "03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				  "120"
+				"radius"				  "150"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					  "1250"
+				"speed"					  "1800"
 			}
       "05"
 			{
@@ -2648,13 +2666,14 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"						"item_datadriven"
+    "AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		"AbilityTextureName"			"item_reflex_holy_shield_4"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900 1100 1300 1500"
 		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"16.0 15.0 14.0 13.0"
+		"AbilityCooldown"				"13.0 12.0 11.0 10.0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2681,7 +2700,7 @@
       {
         "EffectName"			"Puck_Illusory_Orb"
 				"MoveSpeed"				"%speed"
-				"StartPosition"	  "attach_attack1"
+				//"StartPosition"	  "attach_attack1"
         "FixedDistance"   "%distance"
 				"StartRadius"			"%radius"
 				"EndRadius"				"%radius"
@@ -2696,6 +2715,11 @@
 			{
 				"EffectName"		"Hero_Abaddon.AphoticShield.Cast"
 				"Target"			  "CASTER"
+			}
+      "ApplyModifier"
+			{
+				"Target"  		"CASTER"
+				"ModifierName"	"modifier_item_shield"
 			}
     }
     
@@ -2744,12 +2768,12 @@
       "03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				  "120"
+				"radius"				  "150"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					  "1250"
+				"speed"					  "1800"
 			}
       "05"
 			{
@@ -2884,7 +2908,7 @@
 			{
 				"EffectName"			"queen_shadow_strike_linear_parent"
 				"MoveSpeed"				"%projectile_speed"
-				"StartPosition"			"attach_attack1"
+				//"StartPosition"			"attach_attack1"
 				"FixedDistance"			"%distance"
 				"StartRadius"			"%begin_radius"
 				"EndRadius"				"%end_radius"
@@ -3027,7 +3051,7 @@
 			{
 				"EffectName"			"queen_shadow_strike_linear_parent"
 				"MoveSpeed"				"%projectile_speed"
-				"StartPosition"			"attach_attack1"
+				//"StartPosition"			"attach_attack1"
 				"FixedDistance"			"%distance"
 				"StartRadius"			"%begin_radius"
 				"EndRadius"				"%end_radius"
@@ -3170,7 +3194,7 @@
 			{
 				"EffectName"			"queen_shadow_strike_linear_parent"
 				"MoveSpeed"				"%projectile_speed"
-				"StartPosition"			"attach_attack1"
+				//"StartPosition"			"attach_attack1"
 				"FixedDistance"			"%distance"
 				"StartRadius"			"%begin_radius"
 				"EndRadius"				"%end_radius"
@@ -3313,7 +3337,7 @@
 			{
 				"EffectName"			"queen_shadow_strike_linear_parent"
 				"MoveSpeed"				"%projectile_speed"
-				"StartPosition"			"attach_attack1"
+				//"StartPosition"			"attach_attack1"
 				"FixedDistance"			"%distance"
 				"StartRadius"			"%begin_radius"
 				"EndRadius"				"%end_radius"
@@ -3525,7 +3549,7 @@
 				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
 				"HasFrontalCone"		"0"
-				"StartPosition"			"attach_attack1"
+				//"StartPosition"			"attach_attack1"
 				"FixedDistance"			"%range"
 			}
 			"FireSound"
@@ -3666,7 +3690,7 @@
 				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
 				"HasFrontalCone"		"0"
-				"StartPosition"			"attach_attack1"
+				//"StartPosition"			"attach_attack1"
 				"FixedDistance"			"%range"
 			}
 			"FireSound"
@@ -3807,7 +3831,7 @@
 				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
 				"HasFrontalCone"		"0"
-				"StartPosition"			"attach_attack1"
+				//"StartPosition"			"attach_attack1"
 				"FixedDistance"			"%range"
 			}
 			"FireSound"
@@ -3948,7 +3972,7 @@
 				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
 				"HasFrontalCone"		"0"
-				"StartPosition"			"attach_attack1"
+				//"StartPosition"			"attach_attack1"
 				"FixedDistance"			"%range"
 			}
 			"FireSound"
@@ -4045,7 +4069,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"700"	
+		"ItemCost"						"500"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -4068,7 +4092,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"700"	
+		"ItemCost"						"500"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -4091,7 +4115,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"700"	
+		"ItemCost"						"500"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -4123,16 +4147,12 @@
 		"AbilityCooldown"				"11.0 10.0 9.0 8.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
+
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"250 225 200 175"
-		"ItemCost"						"2300"
+		"ItemCost"						"750"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
@@ -4231,11 +4251,7 @@
 		"AbilityCooldown"				"11.0 10.0 9.0 8.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
+
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4339,11 +4355,7 @@
 		"AbilityCooldown"				"11.0 10.0 9.0 8.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
+
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4447,11 +4459,7 @@
 		"AbilityCooldown"				"11.0 10.0 9.0 8.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
+
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -6066,7 +6074,6 @@
 		{
 			"particlefile"				"particles/test_particle.pcf"
 			"particlefile"				"particles/econ/generic/generic_aoe_explosion_sphere_1.pcf"
-      "particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
 			//"particlefile"				"particles/units/heroes/hero_gyrocopter.pcf"
 		}
 
@@ -6300,7 +6307,6 @@
 		{
 			"particlefile"				"particles/test_particle.pcf"
 			"particlefile"				"particles/econ/generic/generic_aoe_explosion_sphere_1.pcf"
-      "particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
 			//"particlefile"				"particles/units/heroes/hero_gyrocopter.pcf"
 		}
 
@@ -6535,7 +6541,6 @@
 		{
 			"particlefile"				"particles/test_particle.pcf"
 			"particlefile"				"particles/econ/generic/generic_aoe_explosion_sphere_1.pcf"
-      "particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
 			//"particlefile"				"particles/units/heroes/hero_gyrocopter.pcf"
 		}
 
@@ -6769,7 +6774,6 @@
 		{
 			"particlefile"				"particles/test_particle.pcf"
 			"particlefile"				"particles/econ/generic/generic_aoe_explosion_sphere_1.pcf"
-      "particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
 			//"particlefile"				"particles/units/heroes/hero_gyrocopter.pcf"
 		}
 
@@ -7068,16 +7072,11 @@
 		"AbilityCooldown"				"0.2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"320 355 390 425"
+		"AbilityDamage"					"320 340 360 380"
 		
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7172,7 +7171,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"225 250 275 300"
+				"area_of_effect"		"225 245 265 285"
 			}
 			"02"
 			{
@@ -7182,7 +7181,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"320 355 390 425"
+				"damage"				"320 340 360 380"
 			}
 			"04"
 			{
@@ -7197,7 +7196,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"15"
+				"recharge_time"			"16"
 			}
 			"07"
 			{
@@ -7226,16 +7225,11 @@
 		"AbilityCooldown"				"0.2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"320 355 390 425"
+		"AbilityDamage"					"320 340 360 380"
 		
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7330,7 +7324,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"225 250 275 300"
+				"area_of_effect"		"225 245 265 285"
 			}
 			"02"
 			{
@@ -7340,7 +7334,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"320 355 390 425"
+				"damage"				"320 340 360 380"
 			}
 			"04"
 			{
@@ -7355,7 +7349,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"15"
+				"recharge_time"			"16"
 			}
 			"07"
 			{
@@ -7384,16 +7378,11 @@
 		"AbilityCooldown"				"0.2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"320 355 390 425"
+		"AbilityDamage"					"320 340 360 380"
 		
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7420,7 +7409,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"POINT"
-				"Radius"        "%area_of_effect + 95"
+				"Radius"        "%area_of_effect + 90"
       }
 			"SpendCharge"
 			{}
@@ -7488,7 +7477,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"225 250 275 300"
+				"area_of_effect"		"225 245 265 285"
 			}
 			"02"
 			{
@@ -7498,7 +7487,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"320 355 390 425"
+				"damage"				"320 340 360 380"
 			}
 			"04"
 			{
@@ -7513,7 +7502,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"15"
+				"recharge_time"			"16"
 			}
 			"07"
 			{
@@ -7542,16 +7531,11 @@
 		"AbilityCooldown"				"0.2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"320 355 390 425"
+		"AbilityDamage"					"320 340 360 380"
 		
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7578,7 +7562,7 @@
         "ScriptFile"			"scripts/vscripts/abilities.lua"
 				"Function"				"dangerIndicator"
 				"Target"				"POINT"
-				"Radius"        "%area_of_effect + 105"
+				"Radius"        "%area_of_effect + 100"
       }
 			"SpendCharge"
 			{}
@@ -7646,7 +7630,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"225 250 275 300"
+				"area_of_effect"		"225 245 265 285"
 			}
 			"02"
 			{
@@ -7656,7 +7640,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"320 355 390 425"
+				"damage"				"320 340 360 380"
 			}
 			"04"
 			{
@@ -7671,7 +7655,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"15"
+				"recharge_time"			"16"
 			}
 			"07"
 			{
@@ -8745,11 +8729,6 @@
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -8926,11 +8905,6 @@
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -9109,10 +9083,6 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -9290,11 +9260,6 @@
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -10171,7 +10136,7 @@
 				"Function"				"itemSpellStart"
 				"Target"				"POINT"
 				"Ability"				"reflex_illuminate"
-				"ChargeType"			"FULL"
+				"ChargeType"			"HALF"
 				"ChargeModifier"		"modifier_item_illuminate"
 			}
 			"ApplyModifier"
@@ -10266,7 +10231,7 @@
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"10"
+				"recharge_time"			"5"
 			}
 			"14"
 			{
@@ -10327,7 +10292,7 @@
 				"Function"				"itemSpellStart"
 				"Target"				"POINT"
 				"Ability"				"reflex_illuminate"
-				"ChargeType"			"FULL"
+				"ChargeType"			"HALF"
 				"ChargeModifier"		"modifier_item_illuminate_2"
 			}
 			"ApplyModifier"
@@ -10422,7 +10387,7 @@
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"10"
+				"recharge_time"			"5"
 			}
 			"14"
 			{
@@ -10483,7 +10448,7 @@
 				"Function"				"itemSpellStart"
 				"Target"				"POINT"
 				"Ability"				"reflex_illuminate"
-				"ChargeType"			"FULL"
+				"ChargeType"			"HALF"
 				"ChargeModifier"		"modifier_item_illuminate_3"
 			}
 			"ApplyModifier"
@@ -10578,7 +10543,7 @@
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"10"
+				"recharge_time"			"5"
 			}
 			"14"
 			{
@@ -10639,7 +10604,7 @@
 				"Function"				"itemSpellStart"
 				"Target"				"POINT"
 				"Ability"				"reflex_illuminate"
-				"ChargeType"			"FULL"
+				"ChargeType"			"HALF"
 				"ChargeModifier"		"modifier_item_illuminate_4"
 			}
 			"ApplyModifier"
@@ -10734,7 +10699,7 @@
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"10"
+				"recharge_time"			"5"
 			}
 			"14"
 			{
@@ -10834,11 +10799,6 @@
 		"AbilityCooldown"				"5.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -10936,7 +10896,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.0"
+				"duration"				"1.2"
 			}
 			"03"
 			{
@@ -10980,11 +10940,7 @@
 		"AbilityCooldown"				"5.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
+
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -11082,7 +11038,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.0"
+				"duration"				"1.2"
 			}
 			"03"
 			{
@@ -11126,11 +11082,6 @@
 		"AbilityCooldown"				"5.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -11228,7 +11179,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.0"
+				"duration"				"1.2"
 			}
 			"03"
 			{
@@ -11272,11 +11223,6 @@
 		"AbilityCooldown"				"5.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		
-		"precache"
-		{
-			"particlefile"				"particles/econ/generic/generic_aoe_shockwave_1.pcf"
-		}
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -11374,7 +11320,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.0"
+				"duration"				"1.2"
 			}
 			"03"
 			{
@@ -12514,7 +12460,7 @@
 				"Passive" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"200"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"300"
 					"MODIFIER_PROPERTY_MANA_BONUS"	"150"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"30"
 				}
@@ -12975,9 +12921,8 @@
       "RunScript"
       {
         "ScriptFile"			"scripts/vscripts/abilities.lua"
-				"Function"				"itemSpellStart"
+				"Function"				"warpToPoint"
 				"Target"			  	"POINT"
-				"Ability"			  	"reflex_worm_hole"
       }
 			
 			"AttachEffect"
@@ -13003,30 +12948,6 @@
 			{
 				"EffectName"	"Hero_Antimage.Blink_in"
 				"Target" 	    "POINT"
-			}
-      
-      "ApplyModifier"
-      {
-        "ModifierName" "modifier_item_wormhole_drop_ability"
-        "Target"  "CASTER"
-      }
-    }
-    
-    "Modifiers"
-    {
-      "modifier_item_wormhole_drop_ability"
-			{
-				"IsHidden" "1"
-				"Duration" "1"
-				"ThinkInterval" "1"
-				"OnIntervalThink"
-				{
-					"RemoveAbility"
-					{
-						"Target" "CASTER"
-						"AbilityName" "reflex_worm_hole"
-					}
-				}
 			}
     }
 	}

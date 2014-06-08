@@ -3,9 +3,40 @@ vPlayerIlluminate = {}
 vPlayerProjectiles = {}
 vPlayerDummies = {}
 
+
+function warpToPoint(keys)
+  local target = keys.Target
+  local caster = keys.caster
+  
+  if caster == nil then
+		return
+	end
+
+  local point = nil
+	if target == "POINT" and keys.target_points[1] then
+		point = keys.target_points[1]
+	else
+    return
+  end
+  
+  --print(tostring(point))
+  -- prevent top left
+  if point.x < -2700 and point.y > 2200 then
+    point = Vector(-2180, 1368, 0)
+  end
+  
+  -- prevent top right
+  if point.x > 2700 and point.y > 2200 then
+    point = Vector(2180, 1368, 0)
+  end
+
+  FindClearSpaceForUnit(caster, point, true)
+end
+
 function dangerIndicator(keys)
   local target = keys.Target
   local caster = keys.caster
+  local duration = keys.duration or 1.5
   
   if caster == nil or keys.Radius == nil then
 		return
@@ -14,6 +45,8 @@ function dangerIndicator(keys)
   local radius = tonumber(keys.Radius)
   
   local targetEntity = nil
+    
+  local attach = PATTACH_ABSORIGIN_FOLLOW
   
   local point = nil
 	if target == "POINT" and keys.target_points[1] then
@@ -24,16 +57,18 @@ function dangerIndicator(keys)
 	end
 	if keys.target_entities[1] then
 		targetEntity = keys.target_entities[1]
+    attach = PATTACH_ABSORIGIN_FOLLOW
 	end
 	if target == "CASTER" then
 		targetEntity = caster
+    attach = PATTACH_ABSORIGIN_FOLLOW
 	end
   
   local team = caster:GetTeam()
   --print ('team: ' .. team)
   
   ReflexGameMode:LoopOverPlayers(function(ply, plyID)
-    local particle = ParticleManager:CreateParticleForPlayer("generic_aoe_shockwave_1", PATTACH_ABSORIGIN_FOLLOW, targetEntity, PlayerResource:GetPlayer(plyID))--cmdPlayer:GetAssignedHero())
+    local particle = ParticleManager:CreateParticleForPlayer("generic_aoe_shockwave_1", attach, targetEntity, PlayerResource:GetPlayer(plyID))--cmdPlayer:GetAssignedHero())
     ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
     ParticleManager:SetParticleControl(particle, 1, Vector(radius,0,0)) -- radius
     ParticleManager:SetParticleControl(particle, 2, Vector(6,0,1)) -- something
@@ -45,6 +80,34 @@ function dangerIndicator(keys)
     ParticleManager:SetParticleControl(particle, 4, Vector(0,0,0)) -- something
   end)
   -- Test Lua-particle generation
+
+  -- Bots
+  for k,v in pairs(ReflexGameMode.vBots) do
+    local particle = ParticleManager:CreateParticleForPlayer("generic_aoe_shockwave_1", attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
+    ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
+    ParticleManager:SetParticleControl(particle, 1, Vector(radius,0,0)) -- radius
+    ParticleManager:SetParticleControl(particle, 2, Vector(6,0,1)) -- something
+    if team == DOTA_TEAM_GOODGUYS then
+      ParticleManager:SetParticleControl(particle, 3, Vector(0,200,0)) -- color
+    else
+      ParticleManager:SetParticleControl(particle, 3, Vector(200,0,0)) -- color
+    end
+    ParticleManager:SetParticleControl(particle, 4, Vector(0,0,0)) -- something
+  end
+  
+  -- Broadcasters
+  for k,v in pairs(ReflexGameMode.vBroadcasters) do
+    local particle = ParticleManager:CreateParticleForPlayer("generic_aoe_shockwave_1", attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
+    ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
+    ParticleManager:SetParticleControl(particle, 1, Vector(radius,0,0)) -- radius
+    ParticleManager:SetParticleControl(particle, 2, Vector(6,0,1)) -- something
+    if team == DOTA_TEAM_GOODGUYS then
+      ParticleManager:SetParticleControl(particle, 3, Vector(0,200,0)) -- color
+    else
+      ParticleManager:SetParticleControl(particle, 3, Vector(200,0,0)) -- color
+    end
+    ParticleManager:SetParticleControl(particle, 4, Vector(0,0,0)) -- something
+  end
   
   if target == "POINT" then
     ReflexGameMode:CreateTimer(DoUniqueString("danger"), {
