@@ -158,7 +158,7 @@
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"			// Type of locomotion - ground, air
 		"MovementSpeed"				"450"		// Speed
-		"MovementTurnRate"			"0.5"		// Turning rate.
+		"MovementTurnRate"			"10"		// Turning rate.
 		"FollowRange"				"100"		// Distance to keep when following
 
 		// Status
@@ -249,7 +249,7 @@
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"			// Type of locomotion - ground, air
 		"MovementSpeed"				"450"		// Speed
-		"MovementTurnRate"			"0.5"		// Turning rate.
+		"MovementTurnRate"			"10"		// Turning rate.
 		"FollowRange"				"100"		// Distance to keep when following
 
 		// Status
@@ -340,7 +340,7 @@
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
 		"MovementSpeed"				"450"		// Speed
-		"MovementTurnRate"			"0.5"		// Turning rate.
+		"MovementTurnRate"			"10"		// Turning rate.
 		"FollowRange"				"250"		// Distance to keep when following
 
 		// Status

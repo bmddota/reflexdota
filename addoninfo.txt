@@ -2,7 +2,7 @@
 {
 	"addonSteamAppID"	"816"
 	"addontitle"	"Reflex"
-	"addonversion"	"0.1"
+	"addonversion"	"0.04.07"
 	"addontagline"	"Reflex"
 	"addonauthor"	"BMD"
 	"addonSteamGroupName"	""
