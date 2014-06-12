@@ -1,13 +1,13 @@
 "AddonInfo"
 {
-	"addonSteamAppID"	"816"
-	"addontitle"	"Reflex"
-	"addonversion"	"0.04.07"
-	"addontagline"	"Reflex"
-	"addonauthor"	"BMD"
-	"addonSteamGroupName"	""
-	"addonauthorSteamID"	""
-	"addonContent_Campaign"	"0"
-	"addonURL0"	"https://github.com/bmddota/reflexdota/"
-	"addonDescription"	"Reflex"
+     addonSteamAppID         816
+     addontitle              "Reflex"
+     addonversion            0.04.07
+     addontagline            "Skillshots only."
+     addonauthor             "BMD"
+     addonSteamGroupName     ""                                                 
+     addonauthorSteamID "
+     addonContent_Campaign   0
+     addonURL0               "https://github.com/bmddota/reflexdota/"
+     addonDescription        "Reflex
 }
