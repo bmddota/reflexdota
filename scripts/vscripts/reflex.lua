@@ -4,7 +4,7 @@ USE_LOBBY=true
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.04.05"
+REFLEX_VERSION = "0.04.07"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 150 --240
@@ -442,6 +442,15 @@ function ReflexGameMode:PlayerSay(keys)
     --APM:CreateProjectile(info, hero:GetAbsOrigin(), Vector(0,0,0), 600)
     APM:CreateCurvedProjectile(info, hero:GetAbsOrigin(), Vector(0,0,0), 15, 0.2, 10, 2000)
     --ProjectileManager:CreateTrackingProjectile(info)
+  end
+  
+  local mh1,mh2,mh3 = string.match(text, "^-mh%s+(-?%d+)%s+(%d)%s+(-?%d+)")
+  if DEBUG and mh1 ~= nil and mh2 ~= nil and mh3 ~= nil then
+    local bool = true
+    if mh2 == "0" then
+      bool = false
+    end
+    player.hero:ModifyHealth(tonumber(mh1), player.hero, bool, tonumber(mh3))
   end
   
   local sAttach = string.match(text, "^-setattach%s+(%d+)")
@@ -1061,8 +1070,16 @@ function ReflexGameMode:ShopReplacement( keys )
 
   local cost = item:GetCost()
   item:Remove()
+  
+  -- Make sure we have an empty space
+  local noEmptySpace = true
+  for k,abil in pairs(player.vAbilities) do
+    if string.find(abil, "reflex_empty") then
+      noEmptySpace = false
+    end
+  end
 
-  if player.hero:FindAbilityByName (abilityToAdd) ~= nil then 
+  if player.hero:FindAbilityByName (abilityToAdd) ~= nil or noEmptySpace then 
     player.hero:SetGold(player.hero:GetGold() + cost, true)
     return 
   end
@@ -1236,7 +1253,8 @@ function ReflexGameMode:InitializeRound()
       callback = function(reflex, args)
         GameRules:SendCustomMessage("Welcome to Reflex!", 0, 0)
         GameRules:SendCustomMessage("Version: " .. REFLEX_VERSION, 0, 0)
-        GameRules:SendCustomMessage("Created by BMD and MoD", 0, 0)
+        GameRules:SendCustomMessage("Created by BMD", 0, 0)
+        GameRules:SendCustomMessage("Map by Azarak", 0, 0)
         GameRules:SendCustomMessage("Send feedback to bmddota@gmail.com", 0, 0)
       end
     })

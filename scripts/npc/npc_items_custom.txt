@@ -1993,7 +1993,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"20 40 60 80"
+				"mana_regen"			"20 30 40 50"
 			}
 		}
 	}
@@ -2046,7 +2046,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"10 20 30 40"
+				"mana_regen"			"10 15 20 25"
 			}
 		}
 	}
@@ -2198,17 +2198,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movement_speed"		"20 30 40 50"
+				"movement_speed"		"15 20 30 40"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"6 7 8 9"
+				"duration"				"11 12 13 14"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hp_per_tick"			"40 40 50 50"
+				"hp_per_tick"			"24 26 32 36"
 			}
 		}
 	}
@@ -2326,7 +2326,7 @@
     {
       "LinearProjectile"
       {
-        "EffectName"			"Puck_Illusory_Orb"
+        "EffectName"			"ref_Puck_Illusory_Orb"
 				"MoveSpeed"				"%speed"
 				//"StartPosition"	  "attach_attack1"
         "FixedDistance"   "%distance"
@@ -2450,7 +2450,7 @@
     {
       "LinearProjectile"
       {
-        "EffectName"			"Puck_Illusory_Orb"
+        "EffectName"			"ref_Puck_Illusory_Orb"
 				"MoveSpeed"				"%speed"
 				//"StartPosition"	  "attach_attack1"
         "FixedDistance"   "%distance"
@@ -2574,7 +2574,7 @@
     {
       "LinearProjectile"
       {
-        "EffectName"			"Puck_Illusory_Orb"
+        "EffectName"			"ref_Puck_Illusory_Orb"
 				"MoveSpeed"				"%speed"
 				//"StartPosition"	  "attach_attack1"
         "FixedDistance"   "%distance"
@@ -2698,7 +2698,7 @@
     {
       "LinearProjectile"
       {
-        "EffectName"			"Puck_Illusory_Orb"
+        "EffectName"			"ref_Puck_Illusory_Orb"
 				"MoveSpeed"				"%speed"
 				//"StartPosition"	  "attach_attack1"
         "FixedDistance"   "%distance"
@@ -5353,7 +5353,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0.75"
+		"AbilityCooldown"				"1.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		"AbilityDamage"					"250 300 300 300"
@@ -5513,7 +5513,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0.75"
+		"AbilityCooldown"				"1.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		"AbilityDamage"					"250 300 300 300"
@@ -5673,7 +5673,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0.75"
+		"AbilityCooldown"				"1.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		"AbilityDamage"					"250 300 300 300"
@@ -5833,7 +5833,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0.75"
+		"AbilityCooldown"				"1.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		"AbilityDamage"					"250 300 300 300"
@@ -7072,7 +7072,7 @@
 		"AbilityCooldown"				"0.2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"320 340 360 380"
+		"AbilityDamage"					"320 350 380 410"
 		
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -7181,7 +7181,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"320 340 360 380"
+				"damage"				"320 350 380 410"
 			}
 			"04"
 			{
@@ -7225,7 +7225,7 @@
 		"AbilityCooldown"				"0.2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"320 340 360 380"
+		"AbilityDamage"					"320 350 380 410"
 		
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -7334,7 +7334,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"320 340 360 380"
+				"damage"				"320 350 380 410"
 			}
 			"04"
 			{
@@ -7378,7 +7378,7 @@
 		"AbilityCooldown"				"0.2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"320 340 360 380"
+		"AbilityDamage"					"320 350 380 410"
 		
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -7487,7 +7487,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"320 340 360 380"
+				"damage"				"320 350 380 410"
 			}
 			"04"
 			{
@@ -7531,7 +7531,7 @@
 		"AbilityCooldown"				"0.2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"320 340 360 380"
+		"AbilityDamage"					"320 350 380 410"
 		
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -7640,7 +7640,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"320 340 360 380"
+				"damage"				"320 350 380 410"
 			}
 			"04"
 			{
@@ -10896,7 +10896,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.2"
+				"duration"				"1.4"
 			}
 			"03"
 			{
@@ -10906,7 +10906,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_interval"		"0.1"
+				"damage_interval"		"0.07"
 			}
 			"05"
 			{
@@ -11038,7 +11038,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.2"
+				"duration"				"1.4"
 			}
 			"03"
 			{
@@ -11048,7 +11048,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_interval"		"0.1"
+				"damage_interval"		"0.07"
 			}
 			"05"
 			{
@@ -11179,7 +11179,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.2"
+				"duration"				"1.4"
 			}
 			"03"
 			{
@@ -11189,7 +11189,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_interval"		"0.1"
+				"damage_interval"		"0.07"
 			}
 			"05"
 			{
@@ -11320,7 +11320,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.2"
+				"duration"				"1.4"
 			}
 			"03"
 			{
@@ -11330,7 +11330,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_interval"		"0.1"
+				"damage_interval"		"0.07"
 			}
 			"05"
 			{
@@ -12064,7 +12064,7 @@
 				"Passive" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"20"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"10"
 				}
 			}
 		}
@@ -12076,7 +12076,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"20 30 40 50"
+				"mana_regen"			"10 15 20 25"
 			}
 		}
 	}
@@ -12122,7 +12122,7 @@
 				"Passive" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"30"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"15"
 				}
 			}
 		}
@@ -12134,7 +12134,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"20 30 40 50"
+				"mana_regen"			"10 15 20 25"
 			}
 		}
 	}
@@ -12180,7 +12180,7 @@
 				"Passive" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"40"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"20"
 				}
 			}
 		}
@@ -12192,7 +12192,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"20 30 40 50"
+				"mana_regen"			"10 15 20 25"
 			}
 		}
 	}
@@ -12238,7 +12238,7 @@
 				"Passive" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"50"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"25"
 				}
 			}
 		}
@@ -12250,7 +12250,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"20 30 40 50"
+				"mana_regen"			"10 15 20 25"
 			}
 		}
 	}
@@ -12414,7 +12414,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"20 30 40 50"
+				"mana_regen"			"10 15 20 25"
 			}
 		}
 	}
@@ -12462,7 +12462,7 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS"	"300"
 					"MODIFIER_PROPERTY_MANA_BONUS"	"150"
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"30"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"15"
 				}
 			}
 		}
@@ -12484,7 +12484,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"20 30 40 50"
+				"mana_regen"			"10 15 20 25"
 			}
 		}
 	}
@@ -12532,7 +12532,7 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS"	"400"
 					"MODIFIER_PROPERTY_MANA_BONUS"	"200"
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"40"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"20"
 				}
 			}
 		}
@@ -12554,7 +12554,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"20 30 40 50"
+				"mana_regen"			"10 15 20 25"
 			}
 		}
 	}
@@ -12602,7 +12602,7 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS"	"500"
 					"MODIFIER_PROPERTY_MANA_BONUS"	"250"
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"50"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"25"
 				}
 			}
 		}
@@ -12624,7 +12624,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"20 30 40 50"
+				"mana_regen"			"10 15 20 25"
 			}
 		}
 	}

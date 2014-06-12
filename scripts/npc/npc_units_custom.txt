@@ -519,6 +519,7 @@
       "particlefile"				"particles/nian_gameplay.pcf"
       "particlefile"				"particles/generic_aoe_shockwave_1.pcf" //"particles/econ/generic/generic_aoe_shockwave_1.pcf"
       "particlefile"				"particles/generic_gameplay.pcf"
+      "particlefile"				"particles/econ/generic/generic_timer.pcf"
 			
 			"soundfile"				"scripts/game_sounds_heroes/game_sounds_antimage.txt"
 			//"soundfile"				"scripts/game_sounds_heroes/game_sounds_axe.txt"

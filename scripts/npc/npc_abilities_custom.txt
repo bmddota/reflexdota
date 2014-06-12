@@ -73,7 +73,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"BaseClass" 					"ability_datadriven"
-		"AbilityTextureName"            "nyx_assassin_mana_burn"
+		"AbilityTextureName"            "dark_seer_surge"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 
 		// Stats		
@@ -817,7 +817,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"20 40 60 80"
+				"mana_regen"			"20 30 40 50"
 			}
 		}
 	}
@@ -862,7 +862,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"10 20 30 40"
+				"mana_regen"			"10 15 20 25"
 			}
 		}
 	}
@@ -907,17 +907,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movement_speed"		"20 30 40 50"
+				"movement_speed"		"15 20 30 40"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"6 7 8 9"
+				"duration"				"11 12 13 14"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hp_per_tick"			"40 40 50 50"
+				"hp_per_tick"			"24 26 32 36"
 			}
 		}
 	}
@@ -1025,7 +1025,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"320 340 360 380"
+				"damage"				"320 350 380 410"
 			}
 			"04"
 			{
@@ -1431,7 +1431,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.2"
+				"duration"				"1.4"
 			}
 			"03"
 			{
@@ -1441,7 +1441,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_interval"		"0.06"
+				"damage_interval"		"0.07"
 			}
 			"05"
 			{
@@ -3211,11 +3211,11 @@
 				"TextureName" "courier_burst"
 				"EffectName" "healing_flask"
 				"EffectAttachType" "follow_origin"
-				"Duration" "6"
+				"Duration" "11"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "40"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "20"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "24"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "15"
 					//"MODIFIER_PROPERTY_MODEL_SCALE"  "2"
 				}
 				"OnTakeDamage"
@@ -3253,11 +3253,11 @@
 				"TextureName" "courier_burst"
 				"EffectName" "healing_flask"
 				"EffectAttachType" "follow_origin"
-				"Duration" "7"
+				"Duration" "12"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "40"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "30"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "26"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "20"
 					//"MODIFIER_PROPERTY_MODEL_SCALE"  "2"
 				}
 				"OnTakeDamage"
@@ -3295,11 +3295,11 @@
 				"TextureName" "courier_burst"
 				"EffectName" "healing_flask"
 				"EffectAttachType" "follow_origin"
-				"Duration" "8"
+				"Duration" "13"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "50"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "40"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "32"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "30"
 					//"MODIFIER_PROPERTY_MODEL_SCALE"  "2"
 				}
 				"OnTakeDamage"
@@ -3337,11 +3337,11 @@
 				"TextureName" "courier_burst"
 				"EffectName" "healing_flask"
 				"EffectAttachType" "follow_origin"
-				"Duration" "9"
+				"Duration" "14"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "50"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "50"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "36"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "40"
 					//"MODIFIER_PROPERTY_MODEL_SCALE"  "2"
 				}
 				"OnTakeDamage"

@@ -629,24 +629,33 @@ function dealDamage(source, target, damage)
   local twoLevel = math.floor((damage % 400) / 20)
   local level = math.floor(damage % 20)
   
-  local diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
-  diff.z = 0
-  unit:SetForwardVector(diff:Normalized())
+  local diff = nil
+  
+  local hp = target:GetHealth()
   
   local i = 0
   while i < maxTimesTwo do
     ability2:SetLevel( 20 )
+    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
+    diff.z = 0
+    unit:SetForwardVector(diff:Normalized())
     unit:CastAbilityOnTarget(target, ability2, 0 )
     i = i + 1
   end
   
   ability2:SetLevel( twoLevel )
   if twoLevel > 0 then
+    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
+    diff.z = 0
+    unit:SetForwardVector(diff:Normalized())
     unit:CastAbilityOnTarget(target, ability2, 0)
   end
 
   ability:SetLevel( level)
   if level > 0 then
+    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
+    diff.z = 0
+    unit:SetForwardVector(diff:Normalized())
     unit:CastAbilityOnTarget(target, ability, 0 )
   end
   
@@ -654,6 +663,9 @@ function dealDamage(source, target, damage)
     endTime = GameRules:GetGameTime() + 0.2,
     useGameTime = true,
     callback = function(reflex, args)
+      if target:GetHealth() == hp and hp ~= 0 then
+        print ("[REFLEX] WARNING: dealDamage did no damage: " .. hp)
+      end
       unit:Destroy()
     end
   })
