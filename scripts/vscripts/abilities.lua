@@ -151,7 +151,7 @@ function startFire(keys)
   ExecuteOrderFromTable({
     UnitIndex = unit:entindex(),
     OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-    Position = caster:GetAbsOrigin() + diff * dist,
+    Position = pos,
     Queue = true
   })
   
