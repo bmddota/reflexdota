@@ -2,7 +2,170 @@
 vPlayerIlluminate = {}
 vPlayerProjectiles = {}
 vPlayerDummies = {}
+vPlayerToggles = {}
 
+function toggleStart(keys)
+  local caster = keys.caster
+  local toggles = vPlayerDummies[caster:GetPlayerID()]
+  local delay = tonumber(keys.MaxCharge)
+  
+  if toggles == nil then
+    toggles = {}
+    vPlayerDummies[caster:GetPlayerID()] = toggles
+  end 
+  
+  toggles[keys.ability:GetAbilityName()] = GameRules:GetGameTime()
+  
+  ReflexGameMode:CreateTimer("ding" .. caster:GetPlayerOwnerID(), {
+    endTime = GameRules:GetGameTime() + delay,
+    useGameTime = true,
+    callback = function(reflex, args)
+      print('sound play')
+      EmitSoundOnClient("General.Ping", caster:GetPlayerOwner())
+    end
+  })
+end
+
+function spawnDummy(keys)
+  local caster = keys.caster
+  local maxCharge = tonumber(keys.MaxCharge)
+  
+  local dummies = vPlayerDummies[caster:GetPlayerID()]
+  
+  if dummies == nil then
+    dummies = {}
+    vPlayerDummies[caster:GetPlayerID()] = dummies
+  end 
+  
+  local unit = CreateUnitByName("npc_firefly_dummy", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+  local ability = unit:FindAbilityByName("reflex_dummy_unit")
+  ability:SetLevel(1)
+  
+  unit:AddNewModifier(unit, nil, "modifier_faceless_void_chronosphere_speed", {})
+  
+  dummies[keys.ability:GetAbilityName()] = unit  
+  
+end
+
+function soundDelay(keys)
+  local caster = keys.caster
+  local delay = tonumber(keys.delay)
+  local soundName = keys.EffectName
+  local timerName = keys.TimerName or ""
+  
+  ReflexGameMode:CreateTimer(timerName .. caster:GetPlayerOwnerID(), {
+    endTime = GameRules:GetGameTime() + delay,
+    useGameTime = true,
+    callback = function(reflex, args)
+      print('sound play')
+      EmitSoundOnClient(soundName, caster:GetPlayerOwner())
+    end
+  })
+end
+
+function swordHit(keys)
+  local target = keys.target
+  local caster = keys.caster
+  local damagePerCharge = tonumber(keys.DamagePerSecond)
+  local maxCharge = tonumber(keys.MaxCharge)
+  
+  local toggles = vPlayerDummies[caster:GetPlayerID()]
+  if toggles == nil then
+    return
+  end 
+  
+  local chargeTime = toggles[keys.ability:GetAbilityName()]
+  if chargeTime == nil then
+    chargeTime = 0.2
+  else
+    chargeTime = GameRules:GetGameTime() - chargeTime
+  end
+  
+  if chargeTime > maxCharge then
+    chargeTime = maxCharge
+  end
+  
+  local damage = chargeTime * damagePerCharge
+  dealDamage(caster, target, damage)
+end
+
+function startFire(keys)
+  local target = keys.Target
+  local caster = keys.caster
+  local duration = keys.Duration
+  local distPerCharge = tonumber(keys.DistancePerCharge)
+  local maxCharge = tonumber(keys.MaxCharge)
+  
+  ReflexGameMode:RemoveTimer("ding" .. caster:GetPlayerOwnerID())
+  
+  if caster == nil then
+    return
+  end
+  
+  local toggles = vPlayerDummies[caster:GetPlayerID()]
+  if toggles == nil then
+    return
+  end 
+  
+  local chargeTime = toggles[keys.ability:GetAbilityName()]
+  if chargeTime == nil then
+    chargeTime = 0.2
+  else
+    chargeTime = GameRules:GetGameTime() - chargeTime
+  end
+  
+  if chargeTime > maxCharge then
+    chargeTime = maxCharge
+  end
+  
+  local diff = caster:GetForwardVector()
+  
+  local particle = ParticleManager:CreateParticle("ref_ember_spirit_weapon_blur", PATTACH_ABSORIGIN_FOLLOW, caster)--cmdPlayer:GetAssignedHero())
+  ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
+  
+  local unit = CreateUnitByName("npc_firefly_dummy", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+  local ability = unit:FindAbilityByName("reflex_dummy_unit")
+  ability:SetLevel(1)
+  
+  unit:AddNewModifier(unit, nil, "modifier_faceless_void_chronosphere_speed", {})
+  unit:SetAbsOrigin(caster:GetAbsOrigin() + diff * 100)
+  unit:SetForwardVector(diff)
+  ability = unit:FindAbilityByName("reflex_firefly")
+  ability:SetLevel(keys.ability:GetLevel())
+  unit:CastAbilityImmediately(ability, 0)
+  
+  local bounds = MAP_DATA[GetMapName()].bounds
+  local dist = distPerCharge * chargeTime
+  local pos = caster:GetAbsOrigin() + diff * dist
+  
+  if pos.y < bounds.bottom then
+    pos.y = bounds.bottom
+  elseif pos.y > bounds.top then
+    pos.y = bounds.top
+  elseif pos.x < bounds.left then
+    pos.x = bounds.left
+  elseif pos.x > bounds.right then
+    pos.x = bounds.right
+  end
+
+  ExecuteOrderFromTable({
+    UnitIndex = unit:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = caster:GetAbsOrigin() + diff * dist,
+    Queue = true
+  })
+  
+  ReflexGameMode:CreateTimer(DoUniqueString("firefly"), {
+    endTime = GameRules:GetGameTime() + tonumber(duration),
+    useGameTime = true,
+    callback = function(reflex, args)
+      --unit:MoveToPosition(caster:GetAbsOrigin() + diff * 800)
+      unit:Remove()
+    end
+  })
+  
+  
+end
 
 function warpToPoint(keys)
   local target = keys.Target
@@ -154,7 +317,9 @@ function itemSpellStart (keys)
 		
 	if string.find(itemName, "item_reflex_dash") ~= nil then
 		--print (tostring(caster:HasModifier("modifier_hamstring")))
-		if caster:HasModifier("modifier_hamstring") or caster:HasModifier("modifier_hamstring_2") or caster:HasModifier("modifier_hamstring_3") or caster:HasModifier("modifier_hamstring_4") then
+		if caster:HasModifier("modifier_hamstring") or caster:HasModifier("modifier_hamstring_2") 
+      or caster:HasModifier("modifier_hamstring_3") or caster:HasModifier("modifier_hamstring_4") 
+      or caster:HasModifier("modifier_blade_charge") then
 			local charges = item:GetCurrentCharges()
 			local maxCharges = item:GetInitialCharges()
 	
@@ -194,8 +359,8 @@ function itemSpellStart (keys)
 	
 	if chargeModifier ~= nil then
 		--print (chargeModifier .. ": " .. tostring(caster:HasModifier(chargeModifier)))
-		if chargeType == "UNLINKED" then
-		
+		if chargeType == "UNLINKED" and string.find(itemName, "item_reflex_dash") then
+      callModApplier(caster, chargeModifier)
 		elseif chargeType == "HALF" then
 			--print(' HALF ')
 			if caster:HasModifier(chargeModifier) == false then
@@ -444,7 +609,50 @@ end
 				"HasFrontalCone"		"0"
 				"ProvidesVision"		"0"
 				"VisionRadius"			"0"]]
-                
+
+
+function makeForwardProjectile(keys)
+  --PrintTable(keys)
+  local caster = keys.caster
+  local ability = keys.ability
+  local origin = caster:GetOrigin()
+  origin.z = origin.z + 60
+  local projectiles = vPlayerProjectiles[caster:GetPlayerID()]
+  if projectiles == nil then
+    projectiles = {}
+    vPlayerProjectiles[caster:GetPlayerID()] = projectiles
+  end
+  
+  local info = {
+		EffectName = keys.EffectName,
+		Ability = ability,
+		vSpawnOrigin = caster:GetAbsOrigin(),
+		fDistance = tonumber(keys.FixedDistance),
+		fStartRadius = tonumber(keys.StartRadius),
+		fEndRadius = tonumber(keys.EndRadius),
+		Source = caster,
+		bHasFrontalCone = false,
+    iMoveSpeed = tonumber(keys.MoveSpeed),
+    bReplaceExisting = true,
+    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		--iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+		--iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		--iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_OTHER,
+		--fMaxSpeed = 5200,
+		fExpireTime = GameRules:GetGameTime() + 8.0,
+	}
+  
+  --print ('0-------------0')
+  --PrintTable(info)
+  --print ('0--------------0')
+  local speed = keys.MoveSpeed
+  
+  info.vVelocity = caster:GetForwardVector() * speed
+  
+  projectiles[ability:GetAbilityName()] = ProjectileManager:CreateLinearProjectile( info )
+end        
 
 function makeProjectile(keys)
   --PrintTable(keys)

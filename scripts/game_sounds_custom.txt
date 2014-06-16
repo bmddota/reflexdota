@@ -1147,3 +1147,37 @@
 		}
 	}
 }
+
+"Hero_EmberSpirit.FireRemnant.Create"
+{
+    "channel"		"CHAN_STATIC"
+    "volume"		"1.0"
+    "soundlevel"	"SNDLVL_81dB"
+    "rndwave"
+	{
+ 		"wave"	")weapons/hero/ember_spirit/remnant_create01.wav"
+		"wave"	")weapons/hero/ember_spirit/remnant_create02.wav"
+		"wave"	")weapons/hero/ember_spirit/remnant_create03.wav"
+	}
+    "operator_stacks"
+    {
+        "start_stack"
+        {
+			"import_stack" "dota_attack_block_dist"
+// 			"play_second_layer"
+// 			{
+// 			"input_execute"	"1"
+// 			"entry_name" "Hero_EmberSpirit.Remnant.Appear"
+// 			}
+        }
+    }
+}
+
+"General.Ping"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"soundlevel"	"SNDLVL_NONE"
+
+	"wave"			"ui/ping.wav" 
+}

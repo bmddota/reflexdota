@@ -195,7 +195,7 @@
 			"03"
 			{	
 				"var_type"			"FIELD_INTEGER"
-				"drain_amount"		"75 110 145 180"
+				"drain_amount"		"100 130 170 200"
 			}
 			"04"
 			{	
@@ -299,7 +299,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"250 200 150 100"
+		"AbilityManaCost"				"175 150 125 100"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -355,7 +355,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"90 130 180 240"
+		"AbilityDamage"					"100 130 200 240"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -407,6 +407,172 @@
 			}
 		}
 	}
+  
+  //Flame Sword
+	"reflex_flame_sword"
+	{
+		//"ID"							"1837"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		//"Model"							"models/props_gameplay/salve_blue.mdl"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"reflex_flame_sword"
+		
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"10"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+		"AbilityDamage"					"210 315 420 525"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200"
+		
+    "OnToggleOn"
+    {
+      "ApplyModifier"
+      {
+        "Target"				"CASTER"
+				"ModifierName"			"modifier_blade_charge"
+      }
+      "RunScript"
+      {
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"toggleStart"
+        "MaxCharge"       "%max_charge"
+      }
+    }
+    
+		"OnToggleOff"
+		{
+      "RemoveModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_blade_charge"
+			}
+      
+			"FireSound"
+			{
+				"EffectName"		"Hero_EmberSpirit.FireRemnant.Create"
+				"Target"			"CASTER"
+			}
+
+			"RunScript"
+			{
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+        "Function"				"makeForwardProjectile"
+				"EffectName"			"ember_spirit_flameGuard"//"nian_roar_projectile_no_explode"//"ref_ember_spirit_weapon_blur"
+				"MoveSpeed"				"2000"
+				//"StartPosition"			"attach_attack1"
+				"FixedDistance"			"190"
+				"StartRadius"			"160"
+				"EndRadius"				"160"
+				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				//"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
+				"HasFrontalCone"		"0"
+				"ProvidesVision"		"1"
+				"VisionRadius"			"300"
+			}
+      
+      "RunScript"
+      {
+        "ScriptFile"			  "scripts/vscripts/abilities.lua"
+				"Function"				  "startFire"
+				"Duration"          "%duration"
+        "DistancePerCharge" "%distance_per_charge"
+        "MaxCharge"         "%max_charge"
+      }
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit" "0"
+      
+      "RunScript"
+      {
+        "ScriptFile"			"scripts/vscripts/abilities.lua"
+				"Function"				"swordHit"
+        "Target"          "TARGET"
+        "DamagePerSecond" "%damage_per_charge"
+        "MaxCharge"       "%max_charge"
+      }
+      
+			"Knockback"
+			{
+				"Target"		"TARGET"
+				"Center"		"CASTER"
+				"Duration"		"0.3"
+				"Distance"		"1000"
+				"Height"		"0"
+				"ShouldStun"	"0"
+			}
+		}
+    "Modifiers"
+    {
+      "modifier_blade_charge"
+      {
+        "OnCreated"
+        {
+          "AttachEffect"
+          {
+            "EffectName"        "mask_of_madness"
+            "EffectAttachType"	"follow_origin"
+            "Target"            "CASTER"
+          }
+        }
+        
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%speed_boost"
+        }
+      }
+    }
+    
+    // Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"		  "5 6 7 8"
+			}
+			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_charge"		  "3"
+			}
+			
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed_boost"		    	  "0 10 20 30"
+			}
+			
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_charge"			"70 105 140 175"
+			}
+			
+			"05"
+			{
+				"var_type"				      "FIELD_INTEGER"
+				"distance_per_charge"	  "800"
+			}
+      
+      "06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"50 100 150 200"
+			}
+		}
+  }
 	
 	"reflex_flame_breath"
 	{
@@ -1786,6 +1952,59 @@
 			}
 		}
 	}
+  
+  "reflex_firefly"
+  {
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		//"ID"					"5322"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "BaseClass"        "batrider_firefly"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"50 100 150 200"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"175 175 175 175"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"18.0 18.0 18.0 18.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"tick_interval"			"0.2 0.2 0.2 0.2"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tree_radius"			"100 100 100 100"
+			}
+		}
+	}
 	
 	"reflex_earthbind"
 	{
@@ -2057,6 +2276,170 @@
 // Modifier Appliers
 //------------------------
 	
+  "modifier_item_reflex_dash_applier"
+  {
+    "AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+    
+    "OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"6"
+				"ModifierName"			"modifier_item_reflex_dash"			
+			}
+		}
+		
+		"Modifiers"
+		{
+      "modifier_item_reflex_dash"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_dash"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "6"
+				"ThinkInterval" "6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"Item"					"item_reflex_dash"
+						"ChargeType"			"UNLINKED"
+					}
+				}
+			}
+    }
+  }
+  
+  "modifier_item_reflex_dash_2_applier"
+  {
+    "AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+    
+    "OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"6"
+				"ModifierName"			"modifier_item_reflex_dash_2"			
+			}
+		}
+		
+		"Modifiers"
+		{
+      "modifier_item_reflex_dash_2"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_dash_2"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "6"
+				"ThinkInterval" "6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"Item"					"item_reflex_dash_2"
+						"ChargeType"			"UNLINKED"
+					}
+				}
+			}
+    }
+  }
+  
+  "modifier_item_reflex_dash_3_applier"
+  {
+    "AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+    
+    "OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"6"
+				"ModifierName"			"modifier_item_reflex_dash_3"			
+			}
+		}
+		
+		"Modifiers"
+		{
+      "modifier_item_reflex_dash_3"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_dash_3"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "6"
+				"ThinkInterval" "6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"Item"					"item_reflex_dash_3"
+						"ChargeType"			"UNLINKED"
+					}
+				}
+			}
+    }
+  }
+  
+  "modifier_item_reflex_dash_4_applier"
+  {
+    "AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+    
+    "OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				//"Duration"				"6"
+				"ModifierName"			"modifier_item_reflex_dash_4"			
+			}
+		}
+		
+		"Modifiers"
+		{
+      "modifier_item_reflex_dash_4"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName" "item_reflex_dash_4"
+				//"EffectName" "healing_clarity"
+				"EffectAttachType" "follow_origin"
+				"Duration" "6"
+				"ThinkInterval" "6"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"itemChargeThink"
+						"Item"					"item_reflex_dash_4"
+						"ChargeType"			"UNLINKED"
+					}
+				}
+			}
+    }
+  }
+  
 	"modifier_item_shotgun_applier"
 	{
 		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"

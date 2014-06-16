@@ -99,6 +99,7 @@
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
 		"ItemRequiresCharges"			"1"
 		"ItemPurchasable"				"1"
@@ -120,11 +121,11 @@
 				"ChargeType"			"UNLINKED"
 				"ChargeModifier"		"modifier_item_reflex_dash"
 			}
-			"ApplyModifier"
-			{
-				"Target" "CASTER"
-				"ModifierName" "modifier_item_reflex_dash"
-			}
+			//"ApplyModifier"
+			//{
+				//"Target" "CASTER"
+				//"ModifierName" "modifier_item_reflex_dash"
+			//}
 			"ApplyModifier"
 			{
 				"Target" "CASTER"
@@ -213,6 +214,7 @@
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"3"
 		"ItemRequiresCharges"			"1"
 		"ItemPurchasable"				"1"
@@ -234,11 +236,11 @@
 				"ChargeType"			"UNLINKED"
 				"ChargeModifier"		"modifier_item_reflex_dash_2"
 			}
-			"ApplyModifier"
-			{
-				"Target" "CASTER"
-				"ModifierName" "modifier_item_reflex_dash_2"
-			}
+			//"ApplyModifier"
+			//{
+				//"Target" "CASTER"
+				//"ModifierName" "modifier_item_reflex_dash_2"
+			//}
 			"ApplyModifier"
 			{
 				"Target" "CASTER"
@@ -327,6 +329,7 @@
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"4"
 		"ItemRequiresCharges"			"1"
 		"ItemPurchasable"				"1"
@@ -348,11 +351,11 @@
 				"ChargeType"			"UNLINKED"
 				"ChargeModifier"		"modifier_item_reflex_dash_3"
 			}
-			"ApplyModifier"
-			{
-				"Target" "CASTER"
-				"ModifierName" "modifier_item_reflex_dash_3"
-			}
+			//"ApplyModifier"
+			//{
+				//"Target" "CASTER"
+				//"ModifierName" "modifier_item_reflex_dash_3"
+			//}
 			"ApplyModifier"
 			{
 				"Target" "CASTER"
@@ -441,6 +444,7 @@
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"5"
 		"ItemRequiresCharges"			"1"
 		"ItemPurchasable"				"1"
@@ -462,11 +466,11 @@
 				"ChargeType"			"UNLINKED"
 				"ChargeModifier"		"modifier_item_reflex_dash_4"
 			}
-			"ApplyModifier"
-			{
-				"Target" "CASTER"
-				"ModifierName" "modifier_item_reflex_dash_4"
-			}
+			//"ApplyModifier"
+			//{
+				//"Target" "CASTER"
+				//"ModifierName" "modifier_item_reflex_dash_4"
+			//}
 			"ApplyModifier"
 			{
 				"Target" "CASTER"
@@ -716,7 +720,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"100 125 150 175"
+				"damage"				"100 120 140 160"
 			}
 			
 			"03"
@@ -848,7 +852,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"100 125 150 175"
+				"damage"				"100 120 140 160"
 			}
 			
 			"03"
@@ -980,7 +984,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"100 125 150 175"
+				"damage"				"100 120 140 160"
 			}
 			
 			"03"
@@ -1112,7 +1116,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"100 125 150 175"
+				"damage"				"100 120 140 160"
 			}
 			
 			"03"
@@ -1178,6 +1182,83 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"duration"					"2.0 2.5 3.0 3.5"
+			}
+		}
+	}
+  
+  "item_ability_reflex_flame_sword"
+	{
+		"ID"							"1858"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		//"Model"							"models/props_gameplay/salve_blue.mdl"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_ability_reflex_flame_sword"
+		"ItemKillable"					"0"
+		"ItemSellable"					"0"
+		"ItemDroppable"					"1"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"10"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+    "AbilityDamage"					"210 315 420 525"
+		
+		"precache"
+		{
+			
+		}
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200"
+		"ItemCost"						"500"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemPurchasable"				"1"
+		"SideShop"						"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"		  "5 6 7 8"
+			}
+			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_charge"		  "3"
+			}
+			
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed_boost"		    	  "0 10 20 30"
+			}
+			
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_charge"			"70 105 140 175"
+			}
+			
+			"05"
+			{
+				"var_type"				      "FIELD_INTEGER"
+				"distance_per_charge"	  "800"
+			}
+      
+      "06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"50 100 150 200"
 			}
 		}
 	}
@@ -1283,7 +1364,7 @@
 			"03"
 			{	
 				"var_type"			"FIELD_INTEGER"
-				"drain_amount"		"75 110 145 180"
+				"drain_amount"		"100 130 170 200"
 			}
 			"04"
 			{	
@@ -1392,7 +1473,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"250 200 150 100"
+		"AbilityManaCost"				"175 150 125 100"
 		"ItemCost"						"2000"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -1437,7 +1518,7 @@
 		"AbilityChannelTime"			"1.0 1.0 1.0 1.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"90 130 180 240"
+		"AbilityDamage"					"100 130 200 240"
 		
 		"precache"
 		{
@@ -1612,7 +1693,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"hero_damage"				"25 50 75 100"
+				"hero_damage"				"40 60 80 100"
 			}
 			"02"
 			{
@@ -3508,7 +3589,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000 2300 2650 3000"
-		"AbilityCastPoint"				"0.25"
+		"AbilityCastPoint"				"0.15"
 		"AbilityCooldown"				"0.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
@@ -3649,7 +3730,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000 2300 2650 3000"
-		"AbilityCastPoint"				"0.25"
+		"AbilityCastPoint"				"0.15"
 		"AbilityCooldown"				"0.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
@@ -3790,7 +3871,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000 2300 2650 3000"
-		"AbilityCastPoint"				"0.25"
+		"AbilityCastPoint"				"0.15"
 		"AbilityCooldown"				"0.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
@@ -3931,7 +4012,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000 2300 2650 3000"
-		"AbilityCastPoint"				"0.25"
+		"AbilityCastPoint"				"0.15"
 		"AbilityCooldown"				"0.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
@@ -12885,7 +12966,7 @@
     
     // Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"250"
+		"AbilityManaCost"				"150"
 		"ItemCost"						"400"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -12952,4 +13033,4 @@
     }
 	}
 }
-//"ID"							"1857"
+//"ID"							"1858"

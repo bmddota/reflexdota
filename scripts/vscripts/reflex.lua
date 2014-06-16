@@ -4,7 +4,7 @@ USE_LOBBY=true
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.04.07"
+REFLEX_VERSION = "0.05.00"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 150 --240
@@ -14,8 +14,8 @@ POST_ROUND_TIME = 2
 POST_GAME_TIME = 30
 
 STARTING_GOLD = 500--650
-GOLD_PER_ROUND_LOSER = 900--750
-GOLD_PER_ROUND_WINNER = 1250--1100
+GOLD_PER_ROUND_LOSER = 1150--750
+GOLD_PER_ROUND_WINNER = 1150--1100
 GOLD_PER_KILL = 300
 GOLD_PER_MVP = 500
 GOLD_PER_SURVIVE = 250
@@ -32,6 +32,25 @@ XP_PER_LEVEL_TABLE = {}
 for i=1,MAX_LEVEL do
   XP_PER_LEVEL_TABLE[i] = i * 100
 end
+
+MAP_DATA = {
+  reflex = {
+    bounds = {
+      left = -2760,
+      right = 2760,
+      bottom = -2300,
+      top = 2200
+    }
+  },
+  glacier = {
+    bounds = {
+      left = -2760,
+      right = 2760,
+      bottom = -2300,
+      top = 2200
+    }
+  }
+}
 
 ADDED_ABILITIES = {
   "reflex_dash",
@@ -63,6 +82,7 @@ ABILITY_ITEM_TABLE = {
   reflex_wisp_spirits = 0,
   reflex_energy_drain = 0,
   reflex_magnetic_orb = 0,
+  reflex_flame_sword = 0,
   reflex_bristleback = 1,
   reflex_hp_boost = 1,
   reflex_energy_boost = 1,
@@ -442,6 +462,18 @@ function ReflexGameMode:PlayerSay(keys)
     --APM:CreateProjectile(info, hero:GetAbsOrigin(), Vector(0,0,0), 600)
     APM:CreateCurvedProjectile(info, hero:GetAbsOrigin(), Vector(0,0,0), 15, 0.2, 10, 2000)
     --ProjectileManager:CreateTrackingProjectile(info)
+  end
+  
+  local mi1 = string.match(text, "^-mi%s+(-?%d+)")
+  if DEBUG and mi1 ~= nil then
+    print ('MI: ' .. mi1)
+    player.hero:__KeyValueFromInt("MovementCapabilities", tonumber(mi1))
+  end
+  
+  local ms1 = string.match(text, "^-ms%s+(.+)")
+  if DEBUG and ms1 ~= nil then
+    print ('MS: ' .. ms1)
+    player.hero:__KeyValueFromString("MovementCapabilities", ms1)
   end
   
   local mh1,mh2,mh3 = string.match(text, "^-mh%s+(-?%d+)%s+(%d)%s+(-?%d+)")

@@ -7,6 +7,7 @@
 		"item"		"item_ability_reflex_power_shot"
 		"item"		"item_ability_reflex_wisp_spirits"
 		"item"		"item_ability_reflex_rocket_flare"
+    "item"		"item_ability_reflex_flame_sword"
 	}
 
 	"attributes"
@@ -37,15 +38,21 @@
 	// Level 1 - Green Recipes
 	"basics"
 	{
-		"item"		"item_reflex_holy_shield"
-		"item"		"item_reflex_shotgun"
-		"item"		"item_reflex_long_shot"
-    "item"		"item_reflex_air_burst"
+    "item"		"item_reflex_dash_2"
+		"item"		"item_simple_shooter_2"
 	}
 
 	// Level 2 - Blue Recipes
 	"support"
 	{
+    "item"		"item_reflex_holy_shield"
+		"item"		"item_reflex_shotgun"
+		"item"		"item_reflex_long_shot"
+	}
+
+	"magics"
+	{
+    "item"		"item_reflex_air_burst"
 		"item"		"item_reflex_wall_of_pain"
 		"item"		"item_reflex_blast_cannon"
 		"item"		"item_reflex_detonator"
@@ -53,12 +60,6 @@
 		"item"		"item_reflex_meteor_cannon"
     "item"		"item_reflex_net_cannon"
 		"item"		"item_reflex_crippler"
-	}
-
-	"magics"
-	{
-		"item"		"item_reflex_illuminate"
-		"item"		"item_reflex_mega_flare"
 	}
 
 	// Level 3 - Purple Recipes
@@ -72,7 +73,8 @@
 
 	"weapons"
 	{
-		
+		"item"		"item_reflex_illuminate"
+		"item"		"item_reflex_mega_flare"
 	}
 
 	// Level 4 - Orange / Orb / Artifacts

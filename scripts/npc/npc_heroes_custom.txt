@@ -1677,6 +1677,7 @@
 		"StatusMana"				"387"										// Base mana.
 		"StatusManaRegen"			"99.96"									// Mana regeneration rate.
 
+    "VisionDaytimeRange"		"1800"									// Range of vision at daytime.
 		"VisionNighttimeRange"		"1800"									// Range of vision at night time.
 	}
 
@@ -3357,6 +3358,7 @@
 		"StatusMana"				"387"										// Base mana.
 		"StatusManaRegen"			"99.96"									// Mana regeneration rate.
 
+    "VisionDaytimeRange"		"1800"									// Range of vision at daytime.
 		"VisionNighttimeRange"		"1800"									// Range of vision at night time.
 	}
 
