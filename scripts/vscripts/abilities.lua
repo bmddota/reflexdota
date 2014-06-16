@@ -20,7 +20,7 @@ function toggleStart(keys)
     endTime = GameRules:GetGameTime() + delay,
     useGameTime = true,
     callback = function(reflex, args)
-      EmitSoundOnClient("General.Ping", caster:GetPlayerOwner())
+      EmitSoundOnClient("Hero_EmberSpirit.FireRemnant.Stop", caster:GetPlayerOwner()) -- "General.Ping"
     end
   })
 end

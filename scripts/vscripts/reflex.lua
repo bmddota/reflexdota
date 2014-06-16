@@ -1,7 +1,7 @@
 print ('[REFLEX] reflex.lua' )
 
-USE_LOBBY=false
-DEBUG=true
+USE_LOBBY=true
+DEBUG=false
 THINK_TIME = 0.1
 
 REFLEX_VERSION = "0.05.00"
@@ -1862,8 +1862,13 @@ function callModApplier( caster, modName, abilityLevel)
   caster:RemoveAbility(applier)
 end
 
+-- A helper function for dealing damage from a source unit to a target unit.  Damage dealt is pure damage
 function dealDamage(source, target, damage)
   local unit = nil
+  if damage == 0 then
+    return
+  end
+  
   if source ~= nil then
     unit = CreateUnitByName("npc_dota_danger_indicator", target:GetAbsOrigin(), false, source, source, source:GetTeamNumber())
   else
@@ -1872,57 +1877,35 @@ function dealDamage(source, target, damage)
   unit:AddNewModifier(unit, nil, "modifier_invulnerable", {})
   unit:AddNewModifier(unit, nil, "modifier_phased", {})
   
-  local abilityName = "modifier_damage_applier"
+  local abilIndex = math.floor((damage-1) / 20) + 1
+  local abilLevel = math.floor(((damage-1) % 20)) + 1
+  print (abilIndex .. " -- " .. abilLevel)
+  if abilIndex > 100 then
+    abilIndex = 100
+    abilLevel = 20
+  end
+  
+  local abilityName = "modifier_damage_applier" .. abilIndex
   unit:AddAbility(abilityName)
   ability = unit:FindAbilityByName( abilityName )
-  
-  local abilityName2 = "modifier_damage_applier2"
-  unit:AddAbility(abilityName2)
-  ability2 = unit:FindAbilityByName( abilityName2 )
-  
-  local maxTimesTwo = math.floor(damage / 400)
-  local twoLevel = math.floor((damage % 400) / 20)
-  local level = math.floor(damage % 20)
+  ability:SetLevel(abilLevel)
   
   local diff = nil
   
   local hp = target:GetHealth()
   
-  local i = 0
-  while i < maxTimesTwo do
-    ability2:SetLevel( 20 )
-    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
-    diff.z = 0
-    unit:SetForwardVector(diff:Normalized())
-    unit:CastAbilityOnTarget(target, ability2, 0 )
-    i = i + 1
-  end
-  
-  ability2:SetLevel( twoLevel )
-  if twoLevel > 0 then
-    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
-    diff.z = 0
-    unit:SetForwardVector(diff:Normalized())
-    unit:CastAbilityOnTarget(target, ability2, 0)
-  end
-
-  ability:SetLevel( level)
-  if level > 0 then
-    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
-    diff.z = 0
-    unit:SetForwardVector(diff:Normalized())
-    unit:CastAbilityOnTarget(target, ability, 0 )
-  end
+  diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
+  diff.z = 0
+  unit:SetForwardVector(diff:Normalized())
+  unit:CastAbilityOnTarget(target, ability, 0 )
   
   ReflexGameMode:CreateTimer(DoUniqueString("damage"), {
-    endTime = GameRules:GetGameTime() + 0.2,
+    endTime = GameRules:GetGameTime() + 0.3,
     useGameTime = true,
     callback = function(reflex, args)
       unit:Destroy()
       if target:GetHealth() == hp and hp ~= 0 and damage ~= 0 then
-        print ("[REFLEX] --------------------------------------")
         print ("[REFLEX] WARNING: dealDamage did no damage: " .. hp)
-        print ("[REFLEX] -------------RERUNNING----------------")
         dealDamage(source, target, damage)
       end
     end

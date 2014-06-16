@@ -1181,3 +1181,74 @@
 
 	"wave"			"ui/ping.wav" 
 }
+
+"Hero_EmberSpirit.FireRemnant.Stop"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"1"
+	"soundlevel"  	"SNDLVL_81dB"
+	"wave"			")weapons/hero/ember_spirit/fire_remnant_stop.wav"
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"import_stack" "dota_update_default"
+			"mixer"
+			{
+				"mixgroup" "Weapons"
+			}
+			"speakers_spatialize"
+			{
+				"input_radius"  "300"
+			}
+		}
+	}
+}
+
+"Hero_SkeletonKing.Attack"
+{
+	"channel"		"CHAN_WEAPON"
+	"volume"		"1.0"
+	"soundlevel"  	"SNDLVL_78dB"
+	"pitch"			"95,105"
+	"rndwave"
+	{
+ 		"wave"	")weapons/hero/skeleton_king/attack01.wav"
+		"wave"	")weapons/hero/skeleton_king/attack02.wav"
+		"wave"	")weapons/hero/skeleton_king/attack03.wav"
+	}
+	"soundentry_version" "2"
+	"operator_stacks"
+	{
+		"start_stack"
+		{
+			"import_stack" "dota_attack_block_dist"
+			"play_second_layer"
+			{
+			"input_execute"	"1"
+			"entry_name" "Hero_SkeletonKing.Attack.Impact"
+			}
+			"play_third_layer"
+			{
+			"input_execute"	"1"
+			"entry_name" "Hero_SkeletonKing.Attack.Ring"
+			}
+		}
+		"update_stack"
+		{
+			"import_stack"	"dota_update_default"
+// 			"volume_adjust_local_player"
+// 			{
+// 			"input2" "0.0" // this adds to local player volume only, 0.0 = mult x 1.
+// 			}
+			"mixer"
+			{
+				"mixgroup" "BaseAttacks"
+			}
+			"speakers_spatialize"
+			{
+				"input_radius"  "150"
+			}
+		}
+	}
+}
