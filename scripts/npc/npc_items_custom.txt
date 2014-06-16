@@ -3047,25 +3047,25 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"150 180 210 240"
+				"damage"				"160 190 220 250"
 			}
 			
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"begin_radius"			"100 110 120 130"
+				"begin_radius"			"130"
 			}
 			
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"200 225 250 275"
+				"end_radius"			"240"
 			}
 			
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"distance"				"350 400 450 500"
+				"distance"				"400 450 500 500"
 			}
 			
 			"06"
@@ -3190,25 +3190,25 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"150 180 210 240"
+				"damage"				"160 190 220 250"
 			}
 			
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"begin_radius"			"100 110 120 130"
+				"begin_radius"			"130"
 			}
 			
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"200 225 250 275"
+				"end_radius"			"240"
 			}
 			
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"distance"				"350 400 450 500"
+				"distance"				"400 450 500 500"
 			}
 			
 			"06"
@@ -3333,25 +3333,25 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"150 180 210 240"
+				"damage"				"160 190 220 250"
 			}
 			
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"begin_radius"			"100 110 120 130"
+				"begin_radius"			"130"
 			}
 			
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"200 225 250 275"
+				"end_radius"			"240"
 			}
 			
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"distance"				"350 400 450 500"
+				"distance"				"400 450 500 500"
 			}
 			
 			"06"
@@ -3476,25 +3476,25 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"150 180 210 240"
+				"damage"				"160 190 220 250"
 			}
 			
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"begin_radius"			"100 110 120 130"
+				"begin_radius"			"130"
 			}
 			
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"200 225 250 275"
+				"end_radius"			"240"
 			}
 			
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"distance"				"350 400 450 500"
+				"distance"				"400 450 500 500"
 			}
 			
 			"06"
