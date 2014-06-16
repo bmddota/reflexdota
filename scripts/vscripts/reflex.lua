@@ -1879,7 +1879,6 @@ function dealDamage(source, target, damage)
   
   local abilIndex = math.floor((damage-1) / 20) + 1
   local abilLevel = math.floor(((damage-1) % 20)) + 1
-  print (abilIndex .. " -- " .. abilLevel)
   if abilIndex > 100 then
     abilIndex = 100
     abilLevel = 20

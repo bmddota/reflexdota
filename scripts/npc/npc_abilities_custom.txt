@@ -3843,7 +3843,7 @@
   // Deal Damage stuff
   //-------------------------------
   
-    "modifier_damage_applier1"
+  "modifier_damage_applier1"
   {
     "AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TURN |DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
     "BaseClass" 					"ability_datadriven"
