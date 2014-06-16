@@ -1,7 +1,7 @@
 print ('[REFLEX] reflex.lua' )
 
-USE_LOBBY=true
-DEBUG=false
+USE_LOBBY=false
+DEBUG=true
 THINK_TIME = 0.1
 
 REFLEX_VERSION = "0.05.00"
@@ -36,10 +36,10 @@ end
 MAP_DATA = {
   reflex = {
     bounds = {
-      left = -2760,
-      right = 2760,
-      bottom = -2300,
-      top = 2200
+      left = -2700,
+      right = 2700,
+      bottom = -2260,
+      top = 2140
     }
   },
   glacier = {
@@ -1884,32 +1884,47 @@ function dealDamage(source, target, damage)
   local twoLevel = math.floor((damage % 400) / 20)
   local level = math.floor(damage % 20)
   
-  local diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
-  diff.z = 0
-  unit:SetForwardVector(diff:Normalized())
+  local diff = nil
+  
+  local hp = target:GetHealth()
   
   local i = 0
   while i < maxTimesTwo do
     ability2:SetLevel( 20 )
+    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
+    diff.z = 0
+    unit:SetForwardVector(diff:Normalized())
     unit:CastAbilityOnTarget(target, ability2, 0 )
     i = i + 1
   end
   
   ability2:SetLevel( twoLevel )
   if twoLevel > 0 then
+    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
+    diff.z = 0
+    unit:SetForwardVector(diff:Normalized())
     unit:CastAbilityOnTarget(target, ability2, 0)
   end
 
   ability:SetLevel( level)
   if level > 0 then
+    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
+    diff.z = 0
+    unit:SetForwardVector(diff:Normalized())
     unit:CastAbilityOnTarget(target, ability, 0 )
   end
   
   ReflexGameMode:CreateTimer(DoUniqueString("damage"), {
-    endTime = GameRules:GetGameTime() + 0.1,
+    endTime = GameRules:GetGameTime() + 0.2,
     useGameTime = true,
     callback = function(reflex, args)
       unit:Destroy()
+      if target:GetHealth() == hp and hp ~= 0 and damage ~= 0 then
+        print ("[REFLEX] --------------------------------------")
+        print ("[REFLEX] WARNING: dealDamage did no damage: " .. hp)
+        print ("[REFLEX] -------------RERUNNING----------------")
+        dealDamage(source, target, damage)
+      end
     end
   })
 end

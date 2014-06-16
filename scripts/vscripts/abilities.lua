@@ -20,45 +20,7 @@ function toggleStart(keys)
     endTime = GameRules:GetGameTime() + delay,
     useGameTime = true,
     callback = function(reflex, args)
-      print('sound play')
       EmitSoundOnClient("General.Ping", caster:GetPlayerOwner())
-    end
-  })
-end
-
-function spawnDummy(keys)
-  local caster = keys.caster
-  local maxCharge = tonumber(keys.MaxCharge)
-  
-  local dummies = vPlayerDummies[caster:GetPlayerID()]
-  
-  if dummies == nil then
-    dummies = {}
-    vPlayerDummies[caster:GetPlayerID()] = dummies
-  end 
-  
-  local unit = CreateUnitByName("npc_firefly_dummy", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
-  local ability = unit:FindAbilityByName("reflex_dummy_unit")
-  ability:SetLevel(1)
-  
-  unit:AddNewModifier(unit, nil, "modifier_faceless_void_chronosphere_speed", {})
-  
-  dummies[keys.ability:GetAbilityName()] = unit  
-  
-end
-
-function soundDelay(keys)
-  local caster = keys.caster
-  local delay = tonumber(keys.delay)
-  local soundName = keys.EffectName
-  local timerName = keys.TimerName or ""
-  
-  ReflexGameMode:CreateTimer(timerName .. caster:GetPlayerOwnerID(), {
-    endTime = GameRules:GetGameTime() + delay,
-    useGameTime = true,
-    callback = function(reflex, args)
-      print('sound play')
-      EmitSoundOnClient(soundName, caster:GetPlayerOwner())
     end
   })
 end
@@ -161,10 +123,35 @@ function startFire(keys)
     callback = function(reflex, args)
       --unit:MoveToPosition(caster:GetAbsOrigin() + diff * 800)
       unit:Remove()
+      unit = nil
     end
   })
   
-  
+  local lastplace = unit:GetAbsOrigin()
+  local oldplace = nil
+  ReflexGameMode:CreateTimer(DoUniqueString("fireflydanger"), {
+    endTime = GameRules:GetGameTime() + 0.1,
+    useGameTime = true,
+    callback = function(reflex, args)
+      local dur = tonumber(duration)
+      if dur <= 0 or unit == nil or unit:GetAbsOrigin() == oldplace then
+        return
+      end
+      oldplace = unit:GetAbsOrigin()
+      
+      dangerIndicator({
+        caster = caster,
+        Target = "POINT",
+        target_points = { oldplace },
+        target_entities = {},
+        Radius = 120,
+        Duration = dur * 2.5,
+        NoEnemy = true
+      })
+      
+      return GameRules:GetGameTime() + 0.1
+    end
+  })
 end
 
 function warpToPoint(keys)
@@ -199,7 +186,8 @@ end
 function dangerIndicator(keys)
   local target = keys.Target
   local caster = keys.caster
-  local duration = keys.duration or 1.5
+  local duration = tonumber(keys.Duration) or 6
+  local noEnemy = keys.NoEnemy or nil
   
   if caster == nil or keys.Radius == nil then
 		return
@@ -217,6 +205,8 @@ function dangerIndicator(keys)
     targetEntity = CreateUnitByName("npc_dota_danger_indicator", point, false, nil, nil, DOTA_TEAM_NOTEAM)
     targetEntity:AddNewModifier(unit, nil, "modifier_invulnerable", {})
     targetEntity:AddNewModifier(unit, nil, "modifier_phased", {})
+    local ability = targetEntity:FindAbilityByName("reflex_dummy_unit")
+    ability:SetLevel(1)
 	end
 	if keys.target_entities[1] then
 		targetEntity = keys.target_entities[1]
@@ -231,10 +221,13 @@ function dangerIndicator(keys)
   --print ('team: ' .. team)
   
   ReflexGameMode:LoopOverPlayers(function(ply, plyID)
+    if noEnemy ~= nil and ply.nTeam ~= team then
+      return
+    end
     local particle = ParticleManager:CreateParticleForPlayer("generic_aoe_shockwave_1", attach, targetEntity, PlayerResource:GetPlayer(plyID))--cmdPlayer:GetAssignedHero())
     ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
     ParticleManager:SetParticleControl(particle, 1, Vector(radius,0,0)) -- radius
-    ParticleManager:SetParticleControl(particle, 2, Vector(6,0,1)) -- something
+    ParticleManager:SetParticleControl(particle, 2, Vector(duration,0,1)) -- something
     if ply.nTeam == team then
       ParticleManager:SetParticleControl(particle, 3, Vector(0,200,0)) -- color
     else
@@ -249,7 +242,7 @@ function dangerIndicator(keys)
     local particle = ParticleManager:CreateParticleForPlayer("generic_aoe_shockwave_1", attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
     ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
     ParticleManager:SetParticleControl(particle, 1, Vector(radius,0,0)) -- radius
-    ParticleManager:SetParticleControl(particle, 2, Vector(6,0,1)) -- something
+    ParticleManager:SetParticleControl(particle, 2, Vector(duration,0,1)) -- something
     if team == DOTA_TEAM_GOODGUYS then
       ParticleManager:SetParticleControl(particle, 3, Vector(0,200,0)) -- color
     else
@@ -263,7 +256,7 @@ function dangerIndicator(keys)
     local particle = ParticleManager:CreateParticleForPlayer("generic_aoe_shockwave_1", attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
     ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
     ParticleManager:SetParticleControl(particle, 1, Vector(radius,0,0)) -- radius
-    ParticleManager:SetParticleControl(particle, 2, Vector(6,0,1)) -- something
+    ParticleManager:SetParticleControl(particle, 2, Vector(duration,0,1)) -- something
     if team == DOTA_TEAM_GOODGUYS then
       ParticleManager:SetParticleControl(particle, 3, Vector(0,200,0)) -- color
     else
@@ -813,70 +806,6 @@ function itemApplyChannelDamage(keys)
   --keys.target:AddNewModifier(caster, nil, "modifier_invoker_chaos_meteor_burn", {burn_dps = damage, freeze_damage = damage, damage = damage, hero_slow_duration = 2, duration = 1})--, duration = 0})
   --keys.target:AddNewModifier(caster, nil, "modifier_roshan_halloween_apocalypse", {damage = damage, duration = 0})
   --keys.target:AddNewModifier(caster, nil, "modifier_invoker_tornado", {land_damage = damage, duration = 0} )
-end
-
-function dealDamage(source, target, damage)
-  local unit = nil
-  if source ~= nil then
-    unit = CreateUnitByName("npc_dota_danger_indicator", target:GetAbsOrigin(), false, source, source, source:GetTeamNumber())
-  else
-    unit = CreateUnitByName("npc_dota_danger_indicator", target:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NOTEAM)
-  end
-  unit:AddNewModifier(unit, nil, "modifier_invulnerable", {})
-  unit:AddNewModifier(unit, nil, "modifier_phased", {})
-  
-  local abilityName = "modifier_damage_applier"
-  unit:AddAbility(abilityName)
-  ability = unit:FindAbilityByName( abilityName )
-  
-  local abilityName2 = "modifier_damage_applier2"
-  unit:AddAbility(abilityName2)
-  ability2 = unit:FindAbilityByName( abilityName2 )
-  
-  local maxTimesTwo = math.floor(damage / 400)
-  local twoLevel = math.floor((damage % 400) / 20)
-  local level = math.floor(damage % 20)
-  
-  local diff = nil
-  
-  local hp = target:GetHealth()
-  
-  local i = 0
-  while i < maxTimesTwo do
-    ability2:SetLevel( 20 )
-    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
-    diff.z = 0
-    unit:SetForwardVector(diff:Normalized())
-    unit:CastAbilityOnTarget(target, ability2, 0 )
-    i = i + 1
-  end
-  
-  ability2:SetLevel( twoLevel )
-  if twoLevel > 0 then
-    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
-    diff.z = 0
-    unit:SetForwardVector(diff:Normalized())
-    unit:CastAbilityOnTarget(target, ability2, 0)
-  end
-
-  ability:SetLevel( level)
-  if level > 0 then
-    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
-    diff.z = 0
-    unit:SetForwardVector(diff:Normalized())
-    unit:CastAbilityOnTarget(target, ability, 0 )
-  end
-  
-  ReflexGameMode:CreateTimer(DoUniqueString("damage"), {
-    endTime = GameRules:GetGameTime() + 0.2,
-    useGameTime = true,
-    callback = function(reflex, args)
-      if target:GetHealth() == hp and hp ~= 0 then
-        print ("[REFLEX] WARNING: dealDamage did no damage: " .. hp)
-      end
-      unit:Destroy()
-    end
-  })
 end
 
 function getItemByName( hero, name )
