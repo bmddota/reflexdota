@@ -1992,7 +1992,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"160 160 160 160"
+				"radius"				"150 150 150 150"
 			}
 			"03"
 			{

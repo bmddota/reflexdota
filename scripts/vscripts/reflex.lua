@@ -1876,6 +1876,8 @@ function dealDamage(source, target, damage)
   end
   unit:AddNewModifier(unit, nil, "modifier_invulnerable", {})
   unit:AddNewModifier(unit, nil, "modifier_phased", {})
+  local dummy = unit:FindAbilityByName("reflex_dummy_unit")
+  dummy:SetLevel(1)
   
   local abilIndex = math.floor((damage-1) / 20) + 1
   local abilLevel = math.floor(((damage-1) % 20)) + 1
