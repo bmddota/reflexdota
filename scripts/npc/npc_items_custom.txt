@@ -10312,7 +10312,7 @@
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"5"
+				"recharge_time"			"6"
 			}
 			"14"
 			{
@@ -10468,7 +10468,7 @@
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"5"
+				"recharge_time"			"6"
 			}
 			"14"
 			{
@@ -10624,7 +10624,7 @@
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"5"
+				"recharge_time"			"6"
 			}
 			"14"
 			{
@@ -10780,7 +10780,7 @@
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"5"
+				"recharge_time"			"6"
 			}
 			"14"
 			{
