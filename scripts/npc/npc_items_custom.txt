@@ -2953,7 +2953,7 @@
 		"AbilityCooldown"				"0.75"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"150 180 210 240"
+		"AbilityDamage"					"160 190 220 250"
 		
 		"precache"
 		{
@@ -3059,7 +3059,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"240"
+				"end_radius"			"215"
 			}
 			
 			"05"
@@ -3096,7 +3096,7 @@
 		"AbilityCooldown"				"0.75"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"150 180 210 240"
+		"AbilityDamage"					"160 190 220 250"
 		
 		"precache"
 		{
@@ -3202,7 +3202,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"240"
+				"end_radius"			"215"
 			}
 			
 			"05"
@@ -3239,7 +3239,7 @@
 		"AbilityCooldown"				"0.75"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"150 180 210 240"
+		"AbilityDamage"					"160 190 220 250"
 		
 		"precache"
 		{
@@ -3345,7 +3345,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"240"
+				"end_radius"			"215"
 			}
 			
 			"05"
@@ -3382,7 +3382,7 @@
 		"AbilityCooldown"				"0.75"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"150 180 210 240"
+		"AbilityDamage"					"160 190 220 250"
 		
 		"precache"
 		{
@@ -3488,7 +3488,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"240"
+				"end_radius"			"215"
 			}
 			
 			"05"
@@ -5434,7 +5434,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1.0"
+		"AbilityCooldown"				"1.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		"AbilityDamage"					"250 300 300 300"
@@ -5446,7 +5446,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 185 170 155"
+		"AbilityManaCost"				"200"
 		"ItemCost"						"2300"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -5594,7 +5594,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1.0"
+		"AbilityCooldown"				"1.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		"AbilityDamage"					"250 300 300 300"
@@ -5606,7 +5606,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 185 170 155"
+		"AbilityManaCost"				"200"
 		"ItemCost"						"2300"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -5754,7 +5754,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1.0"
+		"AbilityCooldown"				"1.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		"AbilityDamage"					"250 300 300 300"
@@ -5766,7 +5766,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 185 170 155"
+		"AbilityManaCost"				"200"
 		"ItemCost"						"2300"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -5914,7 +5914,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1.0"
+		"AbilityCooldown"				"1.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		"AbilityDamage"					"250 300 300 300"
@@ -5926,7 +5926,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 185 170 155"
+		"AbilityManaCost"				"200"
 		"ItemCost"						"2300"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
