@@ -1246,7 +1246,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"320 340 360 380"
+				"radius"				"350 350 350 350"
 			}
 			"03"
 			{
@@ -1335,7 +1335,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"320 340 360 380"
+				"radius"				"350 350 350 350"
 			}
 			"03"
 			{
@@ -1424,7 +1424,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"320 340 360 380"
+				"radius"				"350 350 350 350"
 			}
 			"03"
 			{
@@ -1513,7 +1513,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"320 340 360 380"
+				"radius"				"350 350 350 350"
 			}
 			"03"
 			{

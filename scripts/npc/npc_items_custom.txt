@@ -10284,7 +10284,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"320 340 360 380"
+				"radius"				"350 350 350 350"
 			}
 			"03"
 			{
@@ -10424,7 +10424,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"320 340 360 380"
+				"radius"				"350 350 350 350"
 			}
 			"03"
 			{
@@ -10563,7 +10563,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"320 340 360 380"
+				"radius"				"350 350 350 350"
 			}
 			"03"
 			{
@@ -10702,7 +10702,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"320 340 360 380"
+				"radius"				"350 350 350 350"
 			}
 			"03"
 			{
@@ -10863,7 +10863,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"400 450 500 500"
+		"AbilityManaCost"				"400"
 		"ItemCost"						"4000"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -11005,7 +11005,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"400 450 500 500"
+		"AbilityManaCost"				"400"
 		"ItemCost"						"4000"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -11146,7 +11146,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"400 450 500 500"
+		"AbilityManaCost"				"400"
 		"ItemCost"						"4000"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -11287,7 +11287,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"400 450 500 500"
+		"AbilityManaCost"				"400"
 		"ItemCost"						"4000"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
