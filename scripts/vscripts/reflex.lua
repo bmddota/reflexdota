@@ -4,7 +4,7 @@ USE_LOBBY=true
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.05.00"
+REFLEX_VERSION = "0.05.01"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 150 --240
@@ -127,12 +127,17 @@ function ReflexGameMode:InitGameMode()
 
   -- Hooks
   ListenToGameEvent('entity_killed', Dynamic_Wrap(ReflexGameMode, 'OnEntityKilled'), self)
+  --ListenToGameEvent('dota_player_kill', Dynamic_Wrap(ReflexGameMode, 'OnPlayerKilled'), self)
   print('[REFLEX] entity_killed event set')
   ListenToGameEvent('player_connect_full', Dynamic_Wrap(ReflexGameMode, 'AutoAssignPlayer'), self)
   ListenToGameEvent('player_disconnect', Dynamic_Wrap(ReflexGameMode, 'CleanupPlayer'), self)
   ListenToGameEvent('dota_item_purchased', Dynamic_Wrap(ReflexGameMode, 'ShopReplacement'), self)
   ListenToGameEvent('player_say', Dynamic_Wrap(ReflexGameMode, 'PlayerSay'), self)
   ListenToGameEvent('player_connect', Dynamic_Wrap(ReflexGameMode, 'PlayerConnect'), self)
+  --ListenToGameEvent('dota_inventory_changed', Dynamic_Wrap(ReflexGameMode, 'InventoryChanged'), self)
+  --ListenToGameEvent('dota_inventory_item_changed', Dynamic_Wrap(ReflexGameMode, 'InventoryItemChanged'), self)
+  --ListenToGameEvent('dota_action_item', Dynamic_Wrap(ReflexGameMode, 'ActionItem'), self)
+  
   ------
   --ListenToGameEvent('player_info', Dynamic_Wrap(ReflexGameMode, 'PlayerInfo'), self)
   --ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(ReflexGameMode, 'AbilityUsed'), self)
@@ -292,6 +297,7 @@ function ReflexGameMode:CaptureGameMode()
     GameMode:SetUseCustomHeroLevels ( true )
     GameMode:SetCustomHeroMaxLevel ( MAX_LEVEL )
     GameMode:SetTopBarTeamValuesOverride ( true )
+    GameMode:SetRemoveIllusionsOnDeath( false )
 
     GameRules:SetHeroMinimapIconSize( 300 )
 
@@ -320,6 +326,24 @@ end]]
 function ReflexGameMode:CleanupPlayer(keys)
   print('[REFLEX] Player Disconnected ' .. tostring(keys.userid))
   self.nConnected = self.nConnected - 1
+end
+
+function ReflexGameMode:ActionItem(keys)
+  print('ActionItem')
+  PrintTable(keys)
+  PrintTable(getmetatable(keys))
+end
+
+function ReflexGameMode:InventoryItemChanged(keys)
+  print('InventoryItemChanged')
+  PrintTable(keys)
+  PrintTable(getmetatable(keys))
+end
+
+function ReflexGameMode:InventoryChanged(keys)
+  print('InventoryChanged')
+  PrintTable(keys)
+  PrintTable(getmetatable(keys))
 end
 
 function ReflexGameMode:CloseServer()
@@ -428,6 +452,21 @@ function ReflexGameMode:PlayerSay(keys)
       local roundDamage = player.nRoundDamage
       Say(ply, "  " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
     end
+  end
+  
+  if string.find(text, "^-illu") and DEBUG then
+    print(player.hero:GetClassname())
+    local unit = CreateUnitByName('npc_dota_danger_indicator', player.hero:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NOTEAM)
+    unit:AddAbility("reflex_dummy_unit")
+    local dummy = unit:FindAbilityByName("reflex_dummy_unit")
+    dummy:SetLevel(1)
+    unit:AddNewModifier(unit, nil, "modifier_invulnerable", {})
+    unit:AddNewModifier(unit, nil, "modifier_item_ethereal_blade_ethereal", {duration = 10})
+    unit:AddNewModifier(unit, nil, "modifier_phased", {})
+    unit:SetModel('models/heroes/lycan/lycan_wolf.mdl')
+    unit:SetForwardVector(player.hero:GetForwardVector())
+    
+    
   end
   
   if string.find(text, "^-curveshot") and DEBUG then
@@ -1193,6 +1232,7 @@ end
 function ReflexGameMode:InitializeRound()
   print ( '[REFLEX] InitializeRound called' )
   bInPreRound = true
+  GameRules:SetUseUniversalShopMode( true )
 
   --cancelTimer = false
   --Init Round (give level ups/points/gold back)
@@ -1320,8 +1360,10 @@ function ReflexGameMode:InitializeRound()
         player.nUnspentGold = PlayerResource:GetGold(plyID)
         --PlayerResource:SetGold(plyID, 0, true)
         player.hero:SetGold(0, true)
+        player.hero:SetGold(0, false)
         player.nUnspentAbilityPoints = player.hero:GetAbilityPoints()
         player.hero:SetAbilityPoints(0)
+        GameRules:SetUseUniversalShopMode( false )
 
         --if has modifier remove it
         if player.hero:HasModifier("modifier_stunned") then
@@ -1692,6 +1734,13 @@ function ReflexGameMode:_WatConsoleCommand()
   print( '*********************************************' )
 end
 
+function ReflexGameMode:OnPlayerKilled(keys)
+  print('[REFLEX] OnPlayerKilled')
+  PrintTable(keys)
+  PrintTable(getmetatable(keys))
+  print('-----------------------')
+end
+
 function ReflexGameMode:OnEntityKilled( keys )
   print( '[REFLEX] OnEntityKilled Called' )
   PrintTable( keys )
@@ -1726,7 +1775,7 @@ function ReflexGameMode:OnEntityKilled( keys )
     -- Fix Gold
     self:LoopOverPlayers(function(player, plyID)
       player.hero:SetGold(0, true)
-      player.hero:SetGold(0, false)
+      --player.hero:SetGold(0, false)
       --PlayerResource:SetGold(plyID, 0, true)
       --PlayerResource:SetGold(plyID, 0, false)
     end)

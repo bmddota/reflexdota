@@ -491,7 +491,7 @@
 			//"model"			"models/heroes/weaver/weaver_bug.mdl"
 			//"model"			"models/heroes/gyro/gyro_missile.mdl"
 			//"model"			"models/heroes/invoker/forge_spirit.mdl"
-			//"model"			"models/heroes/lycan/lycan_wolf.mdl"
+			"model"			"models/heroes/lycan/lycan_wolf.mdl"
 			//"model"			"models/heroes/lone_druid/true_form.mdl"
 			//"model"			"models/heroes/undying/undying_flesh_golem.mdl"
 			"model"			"models/development/invisiblebox.mdl"

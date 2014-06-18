@@ -3178,7 +3178,7 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				//"Duration"				"6"
+				//"Duration"				"7"
 				"ModifierName"			"modifier_item_illuminate"			
 			}
 		}
@@ -3191,8 +3191,8 @@
 				"TextureName" "item_reflex_illuminate"
 				//"EffectName" "healing_clarity"
 				"EffectAttachType" "follow_origin"
-				"Duration" "6"
-				"ThinkInterval" "6"
+				"Duration" "7"
+				"ThinkInterval" "7"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -3220,7 +3220,7 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				//"Duration"				"6"
+				//"Duration"				"7"
 				"ModifierName"			"modifier_item_illuminate_2"			
 			}
 		}
@@ -3233,8 +3233,8 @@
 				"TextureName" "item_reflex_illuminate_2"
 				//"EffectName" "healing_clarity"
 				"EffectAttachType" "follow_origin"
-				"Duration" "6"
-				"ThinkInterval" "6"
+				"Duration" "7"
+				"ThinkInterval" "7"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -3262,7 +3262,7 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				//"Duration"				"6"
+				//"Duration"				"7"
 				"ModifierName"			"modifier_item_illuminate_3"			
 			}
 		}
@@ -3275,8 +3275,8 @@
 				"TextureName" "item_reflex_illuminate_3"
 				//"EffectName" "healing_clarity"
 				"EffectAttachType" "follow_origin"
-				"Duration" "6"
-				"ThinkInterval" "6"
+				"Duration" "7"
+				"ThinkInterval" "7"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -3304,7 +3304,7 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				//"Duration"				"6"
+				//"Duration"				"7"
 				"ModifierName"			"modifier_item_illuminate_4"			
 			}
 		}
@@ -3317,8 +3317,8 @@
 				"TextureName" "item_reflex_illuminate_4"
 				//"EffectName" "healing_clarity"
 				"EffectAttachType" "follow_origin"
-				"Duration" "6"
-				"ThinkInterval" "6"
+				"Duration" "7"
+				"ThinkInterval" "7"
 				"OnIntervalThink"
 				{
 					"RunScript"

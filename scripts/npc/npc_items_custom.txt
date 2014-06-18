@@ -15,6 +15,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -38,6 +39,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"750"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -61,6 +63,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1000"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -103,7 +106,7 @@
 		"ItemInitialCharges"			"2"
 		"ItemRequiresCharges"			"1"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"1"
@@ -218,7 +221,7 @@
 		"ItemInitialCharges"			"3"
 		"ItemRequiresCharges"			"1"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"2"
@@ -333,7 +336,7 @@
 		"ItemInitialCharges"			"4"
 		"ItemRequiresCharges"			"1"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"3"
@@ -448,7 +451,7 @@
 		"ItemInitialCharges"			"5"
 		"ItemRequiresCharges"			"1"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"4"
@@ -548,6 +551,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -571,6 +575,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -594,6 +599,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -615,7 +621,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_simple_shooter"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -641,7 +647,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"1"
@@ -747,7 +753,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_simple_shooter_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -773,7 +779,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"2"
@@ -879,7 +885,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_simple_shooter_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -905,7 +911,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"3"
@@ -1011,7 +1017,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_simple_shooter_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1037,7 +1043,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"4"
@@ -1134,8 +1140,6 @@
 	}
 	
 	
-	// Previously overwritten
-	
 	//-----------------
 	//Ability Items	
 	//-----------------		
@@ -1148,7 +1152,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_haste"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1172,7 +1176,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1194,7 +1198,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_flame_sword"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1219,7 +1223,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1272,7 +1276,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_phase_shift"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1297,7 +1301,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1320,7 +1324,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_power_cogs"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1344,7 +1348,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		
 		// Special	
@@ -1398,7 +1402,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_kinetic_field"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1422,7 +1426,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1455,7 +1459,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_borrowed_time"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1479,7 +1483,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1507,7 +1511,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_power_shot"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1533,7 +1537,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1591,7 +1595,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_flame_breath"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1616,7 +1620,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1659,7 +1663,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_wisp_spirits"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1684,7 +1688,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1752,7 +1756,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_energy_drain"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1776,7 +1780,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1816,7 +1820,7 @@
     "AbilityCastRange"				"1600 1800 2000 2200"
 		"AbilityCooldown"				"10.0 8.5 7.0 5.5"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1835,7 +1839,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1893,7 +1897,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_bristleback"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1914,7 +1918,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1957,7 +1961,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_hp_boost"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -1979,7 +1983,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -2002,7 +2006,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_energy_boost"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -2022,7 +2026,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -2045,7 +2049,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_energy_regen_boost"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -2065,7 +2069,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -2088,7 +2092,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_bulk_up"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -2108,7 +2112,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -2141,7 +2145,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_rocket_flare"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -2164,7 +2168,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -2202,7 +2206,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_vengeance"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -2222,7 +2226,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -2250,7 +2254,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_ability_reflex_scaredy_cat"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -2270,7 +2274,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -2311,6 +2315,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -2334,6 +2339,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -2357,6 +2363,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -2391,10 +2398,11 @@
 		"ItemCost"						"750"
 		"ItemInitialCharges"			"0"
 		"ItemDroppable"					"1"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemRequiresCharges"			"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"1"
@@ -2514,10 +2522,11 @@
 		"ItemCost"						"100"
 		"ItemInitialCharges"			"0"
 		"ItemDroppable"					"1"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemRequiresCharges"			"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"2"
@@ -2638,10 +2647,11 @@
 		"ItemCost"						"100"
 		"ItemInitialCharges"			"0"
 		"ItemDroppable"					"1"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemRequiresCharges"			"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"3"
@@ -2762,10 +2772,11 @@
 		"ItemCost"						"100"
 		"ItemInitialCharges"			"0"
 		"ItemDroppable"					"1"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemRequiresCharges"			"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"4"
@@ -2876,6 +2887,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -2899,6 +2911,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -2922,6 +2935,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -2942,7 +2956,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_shotgun"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 		
 
@@ -2968,7 +2982,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
@@ -3085,7 +3099,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_shotgun_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 		
 
@@ -3111,7 +3125,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
@@ -3228,7 +3242,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_shotgun_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 		
 
@@ -3254,7 +3268,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
@@ -3371,7 +3385,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_shotgun_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 		
 
@@ -3397,7 +3411,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
@@ -3517,6 +3531,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -3540,6 +3555,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -3563,6 +3579,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -3583,7 +3600,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_long_shot"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -3612,7 +3629,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"1"
@@ -3724,7 +3741,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_long_shot_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -3756,7 +3773,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"OnSpellStart"
 		{
@@ -3865,7 +3882,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_long_shot_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -3897,7 +3914,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"OnSpellStart"
 		{
@@ -4006,7 +4023,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_long_shot_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -4035,7 +4052,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"4"
@@ -4152,6 +4169,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -4175,6 +4193,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -4198,6 +4217,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -4218,7 +4238,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_air_burst"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -4238,7 +4258,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"1"
@@ -4322,7 +4342,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_air_burst_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -4342,7 +4362,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"2"
@@ -4426,7 +4446,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_air_burst_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -4446,7 +4466,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"3"
@@ -4530,7 +4550,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_air_burst_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -4550,7 +4570,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"4"
@@ -4638,6 +4658,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -4661,6 +4682,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -4684,6 +4706,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -4704,7 +4727,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_wall_of_pain"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -4729,7 +4752,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"1"
@@ -4867,7 +4890,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_wall_of_pain_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -4892,7 +4915,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"1"
@@ -5030,7 +5053,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_wall_of_pain_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -5055,7 +5078,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
@@ -5193,7 +5216,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_wall_of_pain_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -5218,7 +5241,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
@@ -5361,6 +5384,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -5384,6 +5408,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -5407,6 +5432,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -5427,7 +5453,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_blast_cannon"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -5452,7 +5478,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"1"
@@ -5587,7 +5613,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_blast_cannon_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -5612,7 +5638,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"1"
@@ -5747,7 +5773,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_blast_cannon_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -5772,7 +5798,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
@@ -5907,7 +5933,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_blast_cannon_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -5932,7 +5958,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"3"
@@ -6072,6 +6098,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -6095,6 +6122,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -6118,6 +6146,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -6138,7 +6167,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_detonator"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -6166,7 +6195,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"0"
 		"ItemInitialCharges"			"0"
@@ -6371,7 +6400,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_detonator_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -6399,7 +6428,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"0"
 		"ItemInitialCharges"			"0"
@@ -6605,7 +6634,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_detonator_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -6633,7 +6662,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"0"
 		"ItemInitialCharges"			"0"
@@ -6838,7 +6867,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_detonator_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -6866,7 +6895,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"0"
 		"ItemInitialCharges"			"0"
@@ -7076,6 +7105,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -7099,6 +7129,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -7122,6 +7153,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -7142,7 +7174,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_sunstrike_barrage"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
     "AOERadius"						"%area_of_effect"
 
@@ -7167,7 +7199,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
@@ -7295,7 +7327,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_sunstrike_barrage_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
     "AOERadius"						"%area_of_effect"
 
@@ -7320,7 +7352,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"3"
@@ -7448,7 +7480,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_sunstrike_barrage_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
     "AOERadius"						"%area_of_effect"
 
@@ -7473,7 +7505,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"4"
@@ -7601,7 +7633,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_sunstrike_barrage_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
     "AOERadius"						"%area_of_effect"
 
@@ -7626,7 +7658,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"5"
@@ -7759,6 +7791,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -7782,6 +7815,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -7805,6 +7839,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -7826,7 +7861,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_meteor_cannon"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -7852,7 +7887,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"1"
@@ -8051,7 +8086,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_meteor_cannon_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -8077,7 +8112,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"2"
@@ -8276,7 +8311,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_meteor_cannon_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -8302,7 +8337,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"3"
@@ -8501,7 +8536,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_meteor_cannon_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -8527,7 +8562,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"4"
@@ -8730,6 +8765,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -8753,6 +8789,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -8776,6 +8813,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -8796,7 +8834,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_net_cannon"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -8819,7 +8857,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
@@ -8972,7 +9010,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_net_cannon_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -8995,7 +9033,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
@@ -9149,7 +9187,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_net_cannon_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -9173,7 +9211,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
@@ -9327,7 +9365,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_net_cannon_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -9350,7 +9388,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
@@ -9509,6 +9547,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -9532,6 +9571,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -9555,6 +9595,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"700"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -9575,7 +9616,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_crippler"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -9599,7 +9640,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"1"
@@ -9707,7 +9748,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_crippler_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -9731,7 +9772,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"2"
@@ -9839,7 +9880,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_crippler_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -9863,7 +9904,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"3"
@@ -9971,7 +10012,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_crippler_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -9995,7 +10036,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"4"
@@ -10108,6 +10149,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1000"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -10131,6 +10173,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1000"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -10154,6 +10197,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1000"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -10174,7 +10218,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_illuminate"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -10192,13 +10236,13 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"300 225 190 175"
+		"AbilityManaCost"				"300 225 200 200"
 		"ItemCost"						"4000"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"1"
@@ -10219,30 +10263,13 @@
 				"Ability"				"reflex_illuminate"
 				"ChargeType"			"HALF"
 				"ChargeModifier"		"modifier_item_illuminate"
+        "Duration"      "%max_channel_time"
 			}
-			"ApplyModifier"
-			{
-				"Target" "CASTER"
-				"ModifierName" "modifier_item_illuminate_drop_ability"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_item_illuminate_drop_ability"
-			{
-				"IsHidden" "1"
-				"Duration" "4.5"
-				"ThinkInterval" "4.5"
-				"OnIntervalThink"
-				{
-					"RemoveAbility"
-					{
-						"Target" "CASTER"
-						"AbilityName" "reflex_illuminate"
-					}
-				}
-			}
+      "FireSound"
+      {
+        "EffectName"  "Hero_Lycan.Howl"
+        "Target"      "CASTER"
+      }
 		}
 		
 		// Special	
@@ -10312,7 +10339,7 @@
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"6"
+				"recharge_time"			"7"
 			}
 			"14"
 			{
@@ -10330,7 +10357,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_illuminate_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -10348,13 +10375,13 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"300 225 190 175"
+		"AbilityManaCost"				"300 225 200 200"
 		"ItemCost"						"4000"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"2"
@@ -10375,31 +10402,15 @@
 				"Ability"				"reflex_illuminate"
 				"ChargeType"			"HALF"
 				"ChargeModifier"		"modifier_item_illuminate_2"
+        "Duration"      "%max_channel_time"
 			}
-			"ApplyModifier"
-			{
-				"Target" "CASTER"
-				"ModifierName" "modifier_item_illuminate_drop_ability"
-			}
+      "FireSound"
+      {
+        "EffectName"  "Hero_Lycan.Howl"
+        "Target"      "CASTER"
+      }
 		}
 
-		"Modifiers"
-		{
-			"modifier_item_illuminate_drop_ability"
-			{
-				"IsHidden" "1"
-				"Duration" "4.5"
-				"ThinkInterval" "4.5"
-				"OnIntervalThink"
-				{
-					"RemoveAbility"
-					{
-						"Target" "CASTER"
-						"AbilityName" "reflex_illuminate"
-					}
-				}
-			}
-		}
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -10468,7 +10479,7 @@
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"6"
+				"recharge_time"			"7"
 			}
 			"14"
 			{
@@ -10486,7 +10497,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_illuminate_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -10504,13 +10515,13 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"300 225 190 175"
+		"AbilityManaCost"				"300 225 200 200"
 		"ItemCost"						"4000"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"3"
@@ -10531,30 +10542,13 @@
 				"Ability"				"reflex_illuminate"
 				"ChargeType"			"HALF"
 				"ChargeModifier"		"modifier_item_illuminate_3"
+        "Duration"      "%max_channel_time"
 			}
-			"ApplyModifier"
-			{
-				"Target" "CASTER"
-				"ModifierName" "modifier_item_illuminate_drop_ability"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_item_illuminate_drop_ability"
-			{
-				"IsHidden" "1"
-				"Duration" "4.5"
-				"ThinkInterval" "4.5"
-				"OnIntervalThink"
-				{
-					"RemoveAbility"
-					{
-						"Target" "CASTER"
-						"AbilityName" "reflex_illuminate"
-					}
-				}
-			}
+      "FireSound"
+      {
+        "EffectName"  "Hero_Lycan.Howl"
+        "Target"      "CASTER"
+      }
 		}
 		
 		// Special	
@@ -10624,7 +10618,7 @@
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"6"
+				"recharge_time"			"7"
 			}
 			"14"
 			{
@@ -10642,7 +10636,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_illuminate_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -10660,13 +10654,13 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"300 225 190 175"
+		"AbilityManaCost"				"300 225 200 200"
 		"ItemCost"						"4000"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"ItemDisplayCharges"			"1"
 		"ItemInitialCharges"			"4"
@@ -10687,30 +10681,13 @@
 				"Ability"				"reflex_illuminate"
 				"ChargeType"			"HALF"
 				"ChargeModifier"		"modifier_item_illuminate_4"
+        "Duration"      "%max_channel_time"
 			}
-			"ApplyModifier"
-			{
-				"Target" "CASTER"
-				"ModifierName" "modifier_item_illuminate_drop_ability"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_item_illuminate_drop_ability"
-			{
-				"IsHidden" "1"
-				"Duration" "4.5"
-				"ThinkInterval" "4.5"
-				"OnIntervalThink"
-				{
-					"RemoveAbility"
-					{
-						"Target" "CASTER"
-						"AbilityName" "reflex_illuminate"
-					}
-				}
-			}
+      "FireSound"
+      {
+        "EffectName"  "Hero_Lycan.Howl"
+        "Target"      "CASTER"
+      }
 		}
 		
 		// Special	
@@ -10780,7 +10757,7 @@
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"6"
+				"recharge_time"			"7"
 			}
 			"14"
 			{
@@ -10803,6 +10780,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1000"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -10826,6 +10804,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1000"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -10849,6 +10828,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1000"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -10869,7 +10849,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_mega_flare"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
     "AOERadius"						"%radius"
 
@@ -10889,7 +10869,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"1"
@@ -11010,7 +10990,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_mega_flare_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
     "AOERadius"						"%radius"
 
@@ -11031,7 +11011,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"2"
@@ -11152,7 +11132,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_mega_flare_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
     "AOERadius"						"%radius"
 
@@ -11172,7 +11152,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"3"
@@ -11293,7 +11273,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_mega_flare_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
     "AOERadius"						"%radius"
 
@@ -11313,7 +11293,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"4"
@@ -11439,6 +11419,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -11462,6 +11443,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -11485,6 +11467,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -11505,7 +11488,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_hp_booster"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -11524,7 +11507,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"1"
@@ -11563,7 +11546,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_hp_booster_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -11582,7 +11565,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"2"
@@ -11621,7 +11604,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_hp_booster_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -11640,7 +11623,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"3"
@@ -11679,7 +11662,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_hp_booster_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -11698,7 +11681,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"4"
@@ -11742,6 +11725,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -11765,6 +11749,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -11788,6 +11773,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -11808,7 +11794,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_energy_booster"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -11827,7 +11813,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"1"
@@ -11866,7 +11852,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_energy_booster_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -11885,7 +11871,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"2"
@@ -11924,7 +11910,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_energy_booster_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -11943,7 +11929,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"3"
@@ -11982,7 +11968,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_energy_booster_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -12001,7 +11987,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"4"
@@ -12046,6 +12032,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -12069,6 +12056,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -12092,6 +12080,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"500"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -12112,7 +12101,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_regen_booster"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -12131,7 +12120,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"1"
@@ -12170,7 +12159,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_regen_booster_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -12189,7 +12178,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"2"
@@ -12228,7 +12217,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_regen_booster_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -12247,7 +12236,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"3"
@@ -12286,7 +12275,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_regen_booster_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -12305,7 +12294,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"4"
@@ -12347,6 +12336,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -12369,6 +12359,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -12393,6 +12384,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -12416,6 +12408,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
+    "SecretShop"						"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -12438,7 +12431,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_soul_booster"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -12457,7 +12450,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"1"
@@ -12508,7 +12501,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_soul_booster_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -12527,7 +12520,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"2"
@@ -12578,7 +12571,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_soul_booster_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -12597,7 +12590,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"3"
@@ -12648,7 +12641,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_soul_booster_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -12667,7 +12660,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		
 		"MaxUpgradeLevel"				"4"
 		"ItemBaseLevel"					"4"
@@ -12719,7 +12712,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_smoke_grenade"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -12742,7 +12735,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		"ItemStackable"					"1"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
@@ -12842,7 +12835,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_haste_grenade"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -12866,7 +12859,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		"ItemStackable"					"1"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
@@ -12948,7 +12941,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_reflex_worm_hole"
 		"ItemKillable"					"0"
-		"ItemSellable"					"0"
+		"ItemSellable"					"1"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -12972,7 +12965,7 @@
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
-		"SideShop"						"1"
+		"SecretShop"						"1"
 		"ItemStackable"					"1"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"

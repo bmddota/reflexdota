@@ -384,31 +384,95 @@ function itemSpellStart (keys)
         
         abilityName = "reflex_illuminate_" .. vPlayerIlluminate[plyID]
       end
+      
+      local diff = point - caster:GetAbsOrigin()
+      diff = diff:Normalized()
+      
+      local unit = CreateUnitByName('npc_dota_danger_indicator', caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+      local dummy = unit:FindAbilityByName("reflex_dummy_unit")
+      dummy:SetLevel(1)
+      unit:AddNewModifier(unit, nil, "modifier_invulnerable", {})
+      unit:AddNewModifier(unit, nil, "modifier_item_ethereal_blade_ethereal", {duration = 10})
+      unit:AddNewModifier(unit, nil, "modifier_phased", {})
+      unit:SetModel('models/heroes/lycan/lycan_wolf.mdl')
+      unit:SetOriginalModel('models/heroes/lycan/lycan_wolf.mdl')
+      
+      unit:SetForwardVector(diff)
+      
+      local unit2 = CreateUnitByName('npc_dota_danger_indicator', caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+      local dummy2 = unit:FindAbilityByName("reflex_dummy_unit")
+      dummy2:SetLevel(1)
+      unit2:AddNewModifier(unit2, nil, "modifier_invulnerable", {})
+      unit2:AddNewModifier(unit2, nil, "modifier_item_ethereal_blade_ethereal", {duration = 10})
+      unit2:AddNewModifier(unit2, nil, "modifier_phased", {})
+      unit2:SetModel('models/heroes/lycan/lycan_wolf.mdl')
+      unit:SetOriginalModel('models/heroes/lycan/lycan_wolf.mdl')
+      
+      unit2:SetForwardVector(diff)
+      
+      local ability = unit:FindAbilityByName( abilityName )
+      if ability == nil then
+        unit:AddAbility(abilityName)
+        ability = unit:FindAbilityByName( abilityName )
+      end
+      
+      ability:SetLevel( abilityLevel )
+      
+      if not ability:IsFullyCastable() then
+        local charges = item:GetCurrentCharges()
+        item:SetCurrentCharges(charges + 1)
+        return
+      end
+
+      unit:CastAbilityOnPosition ( point, ability, 0 )
+      
+      dangerIndicator({
+        caster = caster,
+        Target = "POINT",
+        target_points = { unit:GetAbsOrigin() },
+        target_entities = {},
+        Radius = 225,
+        Duration = tonumber(keys.Duration) * 3.25
+      })
+
+      local dir = RotatePosition(Vector(0,0,0), QAngle(0,90,0), diff)
+      unit:SetAbsOrigin(unit:GetAbsOrigin() + 160 * dir)
+      unit2:SetAbsOrigin(unit2:GetAbsOrigin() + -160 * dir)
+      
+      ReflexGameMode:CreateTimer(DoUniqueString("wolf"), {
+        endTime = GameRules:GetGameTime() + tonumber(keys.Duration),
+        useGameTime = true,
+        callback = function(reflex, args)
+          unit:Remove()
+          unit2:Remove()
+        end
+      })
+    else
+      local ability = caster:FindAbilityByName( abilityName )
+      if ability == nil then
+        caster:AddAbility(abilityName)
+        ability = caster:FindAbilityByName( abilityName )
+      end
+      --print(ability:GetLevel())
+      
+      ability:SetLevel( abilityLevel )
+      
+      if not ability:IsFullyCastable() then
+        local charges = item:GetCurrentCharges()
+        item:SetCurrentCharges(charges + 1)
+        return
+      end
+      
+      -- print ("[REFLEX] " ..target .. " -- " ..abilityName  .. " -- " .. tostring(point))
+      -- PrintTable(ability)
+      if target == nil then
+        caster:CastAbilityNoTarget (ability, -1 )
+      elseif target == "POINT" then
+        caster:CastAbilityOnPosition ( point, ability, 1 )
+      else
+        caster:CastAbilityOnTarget (targetEntity, ability, -1 )
+      end
     end
-		local ability = caster:FindAbilityByName( abilityName )
-		if ability == nil then
-			caster:AddAbility(abilityName)
-			ability = caster:FindAbilityByName( abilityName )
-		end
-		--print(ability:GetLevel())
-		
-		ability:SetLevel( abilityLevel )
-		
-		if not ability:IsFullyCastable() then
-			local charges = item:GetCurrentCharges()
-			item:SetCurrentCharges(charges + 1)
-			return
-		end
-		
-		-- print ("[REFLEX] " ..target .. " -- " ..abilityName  .. " -- " .. tostring(point))
-		-- PrintTable(ability)
-		if target == nil then
-			caster:CastAbilityNoTarget (ability, -1 )
-		elseif target == "POINT" then
-			caster:CastAbilityOnPosition ( point, ability, 1 )
-		else
-			caster:CastAbilityOnTarget (targetEntity, ability, -1 )
-		end
 	end
 	
 	--print ( '[REFLEX] removing dash ability' )
