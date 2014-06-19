@@ -145,8 +145,8 @@ function startFire(keys)
         target_points = { oldplace },
         target_entities = {},
         Radius = 120,
-        Duration = dur * 2.5,
-        NoEnemy = true
+        Duration = dur * 2.5
+        --NoEnemy = true
       })
       
       return GameRules:GetGameTime() + 0.1
@@ -386,9 +386,10 @@ function itemSpellStart (keys)
       end
       
       local diff = point - caster:GetAbsOrigin()
+      diff.z = 0
       diff = diff:Normalized()
       
-      local unit = CreateUnitByName('npc_dota_danger_indicator', caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+      local unit = CreateUnitByName('npc_firefly_dummy', caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
       local dummy = unit:FindAbilityByName("reflex_dummy_unit")
       dummy:SetLevel(1)
       unit:AddNewModifier(unit, nil, "modifier_invulnerable", {})
@@ -399,14 +400,14 @@ function itemSpellStart (keys)
       
       unit:SetForwardVector(diff)
       
-      local unit2 = CreateUnitByName('npc_dota_danger_indicator', caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+      local unit2 = CreateUnitByName('npc_firefly_dummy', caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
       local dummy2 = unit:FindAbilityByName("reflex_dummy_unit")
       dummy2:SetLevel(1)
       unit2:AddNewModifier(unit2, nil, "modifier_invulnerable", {})
       unit2:AddNewModifier(unit2, nil, "modifier_item_ethereal_blade_ethereal", {duration = 10})
       unit2:AddNewModifier(unit2, nil, "modifier_phased", {})
       unit2:SetModel('models/heroes/lycan/lycan_wolf.mdl')
-      unit:SetOriginalModel('models/heroes/lycan/lycan_wolf.mdl')
+      unit2:SetOriginalModel('models/heroes/lycan/lycan_wolf.mdl')
       
       unit2:SetForwardVector(diff)
       
@@ -439,19 +440,62 @@ function itemSpellStart (keys)
       unit:SetAbsOrigin(unit:GetAbsOrigin() + 160 * dir)
       unit2:SetAbsOrigin(unit2:GetAbsOrigin() + -160 * dir)
       
+      local bounds = MAP_DATA[GetMapName()].bounds
+      local dist = 1500
+      
       ReflexGameMode:CreateTimer(DoUniqueString("wolf"), {
-        endTime = GameRules:GetGameTime() + tonumber(keys.Duration),
+        endTime = GameRules:GetGameTime() + tonumber(keys.Duration) - 0.3,
         useGameTime = true,
         callback = function(reflex, args)
-          unit:SetModel("models/development/invisiblebox.mdl")
-          unit:SetOriginalModel("models/development/invisiblebox.mdl")
-          unit2:SetModel("models/development/invisiblebox.mdl")
-          unit2:SetOriginalModel("models/development/invisiblebox.mdl")
+          --unit:SetModel("models/development/invisiblebox.mdl")
+          --unit:SetOriginalModel("models/development/invisiblebox.mdl")
+          --unit2:SetModel("models/development/invisiblebox.mdl")
+          --unit2:SetOriginalModel("models/development/invisiblebox.mdl")
+          unit:AddNewModifier(unit, nil, "modifier_faceless_void_chronosphere_speed", {})
+          unit2:AddNewModifier(unit2, nil, "modifier_faceless_void_chronosphere_speed", {})
+          
+          local pos = unit:GetAbsOrigin() + diff * dist
+      
+          if pos.y < bounds.bottom then
+            pos.y = bounds.bottom
+          elseif pos.y > bounds.top then
+            pos.y = bounds.top
+          elseif pos.x < bounds.left then
+            pos.x = bounds.left
+          elseif pos.x > bounds.right then
+            pos.x = bounds.right
+          end
+
+          ExecuteOrderFromTable({
+            UnitIndex = unit:entindex(),
+            OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+            Position = pos,
+            Queue = true
+          })
+          
+          pos = unit2:GetAbsOrigin() + diff * dist
+      
+          if pos.y < bounds.bottom then
+            pos.y = bounds.bottom
+          elseif pos.y > bounds.top then
+            pos.y = bounds.top
+          elseif pos.x < bounds.left then
+            pos.x = bounds.left
+          elseif pos.x > bounds.right then
+            pos.x = bounds.right
+          end
+
+          ExecuteOrderFromTable({
+            UnitIndex = unit2:entindex(),
+            OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+            Position = pos,
+            Queue = true
+          })
         end
       })
       
       ReflexGameMode:CreateTimer(DoUniqueString("wolf2"), {
-        endTime = GameRules:GetGameTime() + tonumber(keys.Duration) + 5,
+        endTime = GameRules:GetGameTime() + tonumber(keys.Duration) + 1.3,
         useGameTime = true,
         callback = function(reflex, args)
           unit:Remove()
