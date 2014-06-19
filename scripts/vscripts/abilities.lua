@@ -437,8 +437,8 @@ function itemSpellStart (keys)
       })
 
       local dir = RotatePosition(Vector(0,0,0), QAngle(0,90,0), diff)
-      unit:SetAbsOrigin(unit:GetAbsOrigin() + 160 * dir)
-      unit2:SetAbsOrigin(unit2:GetAbsOrigin() + -160 * dir)
+      unit:SetAbsOrigin(unit:GetAbsOrigin() + 180 * dir)
+      unit2:SetAbsOrigin(unit2:GetAbsOrigin() + -180 * dir)
       
       local bounds = MAP_DATA[GetMapName()].bounds
       local dist = 1500
