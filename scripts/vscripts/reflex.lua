@@ -1650,8 +1650,10 @@ function ReflexGameMode:HandleEventError(name, event, err)
   err = tostring(err or 'unknown')
 
   -- Tell everyone there was an error
-  Say(nil, name .. ' threw an error on event '..event, false)
-  Say(nil, err, false)
+  print("[REFLEX] " .. name .. ' threw an error on event ' .. event)
+  print("[REFLEX] " .. err)
+  --Say(nil, name .. ' threw an error on event '..event, false)
+  --Say(nil, err, false)
 
   -- Prevent loop arounds
   if not self.errorHandled then
@@ -1797,7 +1799,6 @@ function ReflexGameMode:OnEntityKilled( keys )
           --print('     ' .. onDeath .. ' -- ' .. tostring(ability or 'NOPE'))
           if ability ~= nil and ability:GetLevel() ~= 0 then
             callModApplier(player.hero, onDeath, ability:GetLevel())
-            print(tostring(1 + ((scale - 1) * (ability:GetLevel() / 4))))
             player.hero:SetModelScale(1 + ((scale - 1) * (ability:GetLevel() / 4)), 1)
             self:CreateTimer('resetScale' .. plyID,{
               endTime = GameRules:GetGameTime() + ability:GetSpecialValueFor("duration") + (ability:GetLevel() - 1),

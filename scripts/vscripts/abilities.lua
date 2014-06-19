@@ -443,6 +443,17 @@ function itemSpellStart (keys)
         endTime = GameRules:GetGameTime() + tonumber(keys.Duration),
         useGameTime = true,
         callback = function(reflex, args)
+          unit:SetModel("models/development/invisiblebox.mdl")
+          unit:SetOriginalModel("models/development/invisiblebox.mdl")
+          unit2:SetModel("models/development/invisiblebox.mdl")
+          unit2:SetOriginalModel("models/development/invisiblebox.mdl")
+        end
+      })
+      
+      ReflexGameMode:CreateTimer(DoUniqueString("wolf2"), {
+        endTime = GameRules:GetGameTime() + tonumber(keys.Duration) + 5,
+        useGameTime = true,
+        callback = function(reflex, args)
           unit:Remove()
           unit2:Remove()
         end

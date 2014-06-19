@@ -1241,7 +1241,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_per_second"		"100.0 120.0 150.0 190.0"
+				"damage_per_second"		"100.0 115.0 134.0 160.0"
 			}
 			"02"
 			{
@@ -1296,7 +1296,7 @@
 			"12"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"400.0 410.0 450.0 475.0"
+				"damage"				"400.0 400.0 400.0 400.0"
 			}
 		}
 	}
@@ -1330,7 +1330,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_per_second"		"100.0 120.0 150.0 190.0"
+				"damage_per_second"		"100.0 115.0 134.0 160.0"
 			}
 			"02"
 			{
@@ -1385,7 +1385,7 @@
 			"12"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"400.0 410.0 450.0 475.0"
+				"damage"				"400.0 400.0 400.0 400.0"
 			}
 		}
 	}
@@ -1419,7 +1419,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_per_second"		"100.0 120.0 150.0 190.0"
+				"damage_per_second"		"100.0 115.0 134.0 160.0"
 			}
 			"02"
 			{
@@ -1474,7 +1474,7 @@
 			"12"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"400.0 410.0 450.0 475.0"
+				"damage"				"400.0 400.0 400.0 400.0"
 			}
 		}
 	}
@@ -1508,7 +1508,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_per_second"		"100.0 120.0 150.0 190.0"
+				"damage_per_second"		"100.0 115.0 134.0 160.0"
 			}
 			"02"
 			{
@@ -1563,7 +1563,7 @@
 			"12"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"400.0 410.0 450.0 475.0"
+				"damage"				"400.0 400.0 400.0 400.0"
 			}
 		}
 	}
