@@ -4,7 +4,7 @@ USE_LOBBY=true
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.05.01"
+REFLEX_VERSION = "0.05.02"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 150 --240
@@ -26,6 +26,9 @@ GOLD_TIME_BONUS_3 = 100
 LEVELS_PER_ROUND_LOSER = 2.5 -- 2
 LEVELS_PER_ROUND_WINNER = 1.25 -- 1
 MAX_LEVEL = 50
+
+MAX_TIPS = 21
+TIP_TIMEOUT = 2
 
 XP_PER_LEVEL_TABLE = {}
 
@@ -257,6 +260,10 @@ function ReflexGameMode:InitGameMode()
 
   -- Timers
   self.timers = {}
+  
+  -- Tip stuff
+  self.bTipsActive = false
+  self.nLastTipTime = 0
 
   -- userID map
   self.vUserNames = {}
@@ -454,19 +461,18 @@ function ReflexGameMode:PlayerSay(keys)
     end
   end
   
-  if string.find(text, "^-illu") and DEBUG then
-    print(player.hero:GetClassname())
-    local unit = CreateUnitByName('npc_dota_danger_indicator', player.hero:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NOTEAM)
-    unit:AddAbility("reflex_dummy_unit")
-    local dummy = unit:FindAbilityByName("reflex_dummy_unit")
-    dummy:SetLevel(1)
-    unit:AddNewModifier(unit, nil, "modifier_invulnerable", {})
-    unit:AddNewModifier(unit, nil, "modifier_item_ethereal_blade_ethereal", {duration = 10})
-    unit:AddNewModifier(unit, nil, "modifier_phased", {})
-    unit:SetModel('models/heroes/lycan/lycan_wolf.mdl')
-    unit:SetForwardVector(player.hero:GetForwardVector())
-    
-    
+  if string.find(text, "^-mod") and DEBUG then
+    for k,v in pairs(HeroList:GetAllHeroes()) do
+      if v ~= player.hero then
+        callModApplier(v, "reflex_vengeance", 2)
+        callModApplier(v, "reflex_scaredy_cat", 3)
+        callModApplier(v, "reflex_holy_shield", 4)
+      end
+    end
+  end
+  
+  if string.find(text, "^-colorblind") then
+    player.bColorblind = not player.bColorblind
   end
   
   if string.find(text, "^-curveshot") and DEBUG then
@@ -503,16 +509,27 @@ function ReflexGameMode:PlayerSay(keys)
     --ProjectileManager:CreateTrackingProjectile(info)
   end
   
-  local mi1 = string.match(text, "^-mi%s+(-?%d+)")
-  if DEBUG and mi1 ~= nil then
-    print ('MI: ' .. mi1)
-    player.hero:__KeyValueFromInt("MovementCapabilities", tonumber(mi1))
-  end
   
-  local ms1 = string.match(text, "^-ms%s+(.+)")
-  if DEBUG and ms1 ~= nil then
-    print ('MS: ' .. ms1)
-    player.hero:__KeyValueFromString("MovementCapabilities", ms1)
+  if string.find(text, "^-tip") then
+    local tip1 = string.match(text, "(%d+)")
+    if tip1 == nil then
+      tip1 = RandomInt(1, MAX_TIPS)
+      
+    else
+      tip1 = tonumber(tip1)
+      if tip1 > MAX_TIPS then
+        tip1 = MAX_TIPS
+      end
+      if tip1 < 1 then
+        tip1 = 1
+      end
+    end
+    
+    local nTime = Time() - TIP_TIMEOUT
+    if self.bTipsActive and nTime > self.nLastTipTime then
+      GameRules:SendCustomMessage("#Reflex_Tip" .. tip1, 0, 0)
+      self.nLastTipTime = Time()
+    end
   end
   
   local mh1,mh2,mh3 = string.match(text, "^-mh%s+(-?%d+)%s+(%d)%s+(-?%d+)")
@@ -521,7 +538,10 @@ function ReflexGameMode:PlayerSay(keys)
     if mh2 == "0" then
       bool = false
     end
-    player.hero:ModifyHealth(tonumber(mh1), player.hero, bool, tonumber(mh3))
+    GameRules:SendCustomMessage("#Reflex_Tip", tonumber(mh1), tonumber(mh2))
+    ShowGenericPopup("#Reflex_Tip", "#Reflex_Tip", "#Reflex_Tip", "#Reflex_Tip", tonumber(mh1) )
+    ShowMessage("#Reflex_Tip")
+    --player.hero:ModifyHealth(tonumber(mh1), player.hero, bool, tonumber(mh3))
   end
   
   local sAttach = string.match(text, "^-setattach%s+(%d+)")
@@ -1000,6 +1020,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
           nLastRoundDamage = 0,
           nRoundDamage = 0,
           name = self.vUserNames[keys.userid],
+          bColorblind = false,
           vAbilities = {
             "reflex_empty1",
             "reflex_empty2",
@@ -1276,6 +1297,10 @@ function ReflexGameMode:InitializeRound()
           local ability = ADDED_ABILITIES[i]
           self:FindAndRemove(player.hero, ability)
         end
+        
+        if player.hero:HasModifier("modifier_blade_charge") then
+          callModRemover(player.hero, "modifier_blade_charge")
+        end
 
         if not player.hero:HasModifier("modifier_stunned") then
           player.hero:AddNewModifier( player.hero, nil , "modifier_stunned", {})
@@ -1323,11 +1348,49 @@ function ReflexGameMode:InitializeRound()
       endTime = GameRules:GetGameTime() + 10,
       useGameTime = true,
       callback = function(reflex, args)
-        GameRules:SendCustomMessage("Welcome to Reflex!", 0, 0)
+        GameRules:SendCustomMessage("Welcome to <font color='#70EA72'>Reflex!</font>", 0, 0)
         GameRules:SendCustomMessage("Version: " .. REFLEX_VERSION, 0, 0)
-        GameRules:SendCustomMessage("Created by BMD", 0, 0)
-        GameRules:SendCustomMessage("Map by Azarak", 0, 0)
-        GameRules:SendCustomMessage("Send feedback to bmddota@gmail.com", 0, 0)
+        GameRules:SendCustomMessage("Created by <font color='#70EA72'>BMD</font>", 0, 0)
+        GameRules:SendCustomMessage("Map by <font color='#70EA72'>Azarak</font>", 0, 0)
+        GameRules:SendCustomMessage("Send feedback to <font color='#70EA72'>bmddota@gmail.com</font>", 0, 0)
+      end
+    })
+    
+    self:CreateTimer('reflexDetail1', {
+      endTime = GameRules:GetGameTime() + 20,
+      useGameTime = true,
+      callback = function(reflex, args)
+        GameRules:SendCustomMessage("#Reflex_Tip", 0, 0)
+        self.bTipsActive = true
+        self.nLastTipTime = Time() - TIP_TIMEOUT
+      end
+    })
+    
+    self:CreateTimer('reflexDetail2', {
+      endTime = GameRules:GetGameTime() + 30,
+      useGameTime = true,
+      callback = function(reflex, args)
+        local tip1 = RandomInt(1, MAX_TIPS)
+    
+        local nTime = Time() - TIP_TIMEOUT
+        if self.bTipsActive and nTime > self.nLastTipTime then
+          GameRules:SendCustomMessage("#Reflex_Tip" .. tip1, 0, 0)
+          self.nLastTipTime = Time()
+        end
+      end
+    })
+  else
+    self:CreateTimer('reflexDetail3', {
+      endTime = GameRules:GetGameTime() + 10,
+      useGameTime = true,
+      callback = function(reflex, args)
+        local tip1 = RandomInt(1, MAX_TIPS)
+    
+        local nTime = Time() - TIP_TIMEOUT
+        if self.bTipsActive and nTime > self.nLastTipTime then
+          GameRules:SendCustomMessage("#Reflex_Tip" .. tip1, 0, 0)
+          self.nLastTipTime = Time()
+        end
       end
     })
   end
@@ -1387,10 +1450,10 @@ function ReflexGameMode:InitializeRound()
               player.hero:AddNewModifier( player.hero, nil , "modifier_invulnerable", {})
             end)
             self:CreateTimer('victory', {
-            endTime = Time() + POST_ROUND_TIME,
-            callback = function(reflex, args)
-              ReflexGameMode:RoundComplete(true)
-            end})
+              endTime = Time() + POST_ROUND_TIME,
+              callback = function(reflex, args)
+                ReflexGameMode:RoundComplete(true)
+              end})
 
             return
           elseif timeoutCount == 13 then
@@ -1827,6 +1890,8 @@ function ReflexGameMode:OnEntityKilled( keys )
     print ('RAlive: ' .. tostring(nRadiantAlive) .. ' -- DAlive: ' .. tostring(nDireAlive))
 
     if nRadiantAlive == 0 or nDireAlive == 0 then
+      self:RemoveTimer('round_time_out')
+    
       self:LoopOverPlayers(function(player, plyID)
         if player.bDead == false then
           player.hero:AddNewModifier( player.hero, nil , "modifier_invulnerable", {})
@@ -1842,7 +1907,7 @@ function ReflexGameMode:OnEntityKilled( keys )
 
     -- Trigger Last Man Standing buff(s)
     if nRadiantAlive == 1 and nDireAlive == 1 then
-      -- Cancel LMS buffs
+      --[[ Cancel LMS buffs
       self:LoopOverPlayers(function(player, plyID)
         if player.bDead == false then
           self:FindAndRemoveMod(player.hero, 'reflex_lms_friendly')
@@ -1852,7 +1917,7 @@ function ReflexGameMode:OnEntityKilled( keys )
           self:FindAndRemoveMod(player.hero, 'reflex_lms_enemy_4')
           self:FindAndRemoveMod(player.hero, 'reflex_lms_enemy_5')
         end
-      end)
+      end)]]
     elseif killedUnit:GetTeam() == DOTA_TEAM_GOODGUYS and nRadiantAlive == 1 then
       self:LoopOverPlayers(function(player, plyID)
         --print('Player ' .. plyID .. ' -- Dead: ' .. tostring(player.bDead) .. ' -- Team: ' .. tostring(player.nTeam))
@@ -1894,6 +1959,23 @@ function ReflexGameMode:FindAndRemoveMod(hero, modName)
   if hero:HasModifier(modName) then
     hero:RemoveModifierByName(modName)
   end
+end
+
+function callModRemover( caster, modName, abilityLevel)
+  if abilityLevel == nil then
+    abilityLevel = ""
+  else
+    abilityLevel = "_" .. abilityLevel
+  end
+  local applier = modName .. abilityLevel .. "_applier"
+  local ab = caster:FindAbilityByName(applier)
+  if ab == nil then
+    caster:AddAbility(applier)
+    ab = caster:FindAbilityByName( applier )
+  end
+  ab:OnChannelFinish(true)
+  --caster:CastAbilityNoTarget(ab, -1)
+  caster:RemoveAbility(applier)
 end
 
 function callModApplier( caster, modName, abilityLevel)

@@ -228,8 +228,10 @@ function dangerIndicator(keys)
     ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
     ParticleManager:SetParticleControl(particle, 1, Vector(radius,0,0)) -- radius
     ParticleManager:SetParticleControl(particle, 2, Vector(duration,0,1)) -- something
-    if ply.nTeam == team then
+    if ply.nTeam == team and not ply.bColorblind then
       ParticleManager:SetParticleControl(particle, 3, Vector(0,200,0)) -- color
+    elseif ply.nTeam == team and ply.bColorblind then
+      ParticleManager:SetParticleControl(particle, 3, Vector(0,0,200)) -- color
     else
       ParticleManager:SetParticleControl(particle, 3, Vector(200,0,0)) -- color
     end
@@ -655,6 +657,21 @@ function itemChannelEnd( keys )
 	end
 end
 
+STEALABLE_MODIFIERS = {
+  modifier_reflex_vengeance_1 = "reflex_vengeance_1",
+  modifier_reflex_vengeance_2 = "reflex_vengeance_2",
+  modifier_reflex_vengeance_3 = "reflex_vengeance_3",
+  modifier_reflex_vengeance_4 = "reflex_vengeance_4",
+  modifier_reflex_scaredy_cat_1 = "reflex_scaredy_cat_1",
+  modifier_reflex_scaredy_cat_2 = "reflex_scaredy_cat_2",
+  modifier_reflex_scaredy_cat_3 = "reflex_scaredy_cat_3",
+  modifier_reflex_scaredy_cat_4 = "reflex_scaredy_cat_4",
+  modifier_item_shield_1 = "reflex_holy_shield_1",
+  modifier_item_shield_2 = "reflex_holy_shield_2",
+  modifier_item_shield_3 = "reflex_holy_shield_3",
+  modifier_item_shield_4 = "reflex_holy_shield_4"
+}
+
 function projectileHit(keys)
   --PrintTable(keys)
   local caster = keys.caster
@@ -668,6 +685,35 @@ function projectileHit(keys)
   
   local targetEntity = keys.target_entities[1]
   if caster == nil or targetEntity == nil or targetEntity == caster then
+    return
+  end
+    
+  ProjectileManager:DestroyLinearProjectile(projID)
+  
+  if targetEntity:GetTeamNumber() ~= caster:GetTeamNumber() then
+    local particle = ParticleManager:CreateParticle("zuus_static_field", PATTACH_ABSORIGIN_FOLLOW, targetEntity)
+    ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0))
+    ParticleManager:SetParticleControl(particle, 1, Vector(0,0,0)) -- radius, thickness, speed
+    
+    targetEntity:EmitSound("Hero_Zuus.StaticField")
+    targetEntity:SetModelScale(1, 1)
+    
+    if targetEntity:HasModifier("modifier_faceless_void_chronosphere_speed") then
+      targetEntity:RemoveModifierByName("modifier_faceless_void_chronosphere_speed")
+      callModRemover(targetEntity, "reflex_charge_turn")
+      
+      caster:AddNewModifier(caster, nil, "modifier_faceless_void_chronosphere_speed", {duration = 2.5})
+      callModApplier(caster, "reflex_charge_turn")
+    end
+    for k,v in pairs(STEALABLE_MODIFIERS) do
+      if targetEntity:HasModifier(k) then
+        --Remove mod
+        callModRemover(targetEntity, v)
+        
+        --Add mod
+        callModApplier(caster, v)
+      end
+    end
     return
   end
   
@@ -694,19 +740,16 @@ function projectileHit(keys)
   ParticleManager:SetParticleControl(particle, 1, Vector(100,5,1)) -- radius, thickness, speed
   ParticleManager:SetParticleControl(particle, 3, targetEntity:GetAbsOrigin()) -- position
   
-  ReflexGameMode:CreateTimer(DoUniqueString("grip"), {
+  --[[ReflexGameMode:CreateTimer(DoUniqueString("grip"), {
     endTime = GameRules:GetGameTime() + 5,
     useGameTime = true,
     callback = function(reflex, args)
       --dummy:CastAbilityOnTarget(caster, grip, 0 )
       dummy:Destroy()
     end
-  })
-  
-  ProjectileManager:DestroyLinearProjectile(projID)
+  })]]
   
 end
-
 --[["Target"				"POINT"
         "EffectName"			"nian_roar_projectile_no_explode"
 				"MoveSpeed"				"%speed"
@@ -746,7 +789,7 @@ function makeForwardProjectile(keys)
 		bHasFrontalCone = false,
     iMoveSpeed = tonumber(keys.MoveSpeed),
     bReplaceExisting = true,
-    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_BOTH,
 		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		--iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
@@ -795,7 +838,7 @@ function makeProjectile(keys)
 		bHasFrontalCone = false,
     iMoveSpeed = tonumber(keys.MoveSpeed),
     bReplaceExisting = true,
-    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_BOTH,
 		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		--iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_FRIENDLY,

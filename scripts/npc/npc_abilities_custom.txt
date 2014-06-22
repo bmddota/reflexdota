@@ -66,8 +66,84 @@
 			}
 		}
 	}
+  
+  "reflex_haste"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "spirit_breaker_charge_of_darkness"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"Duration"		"%duration"
+				"ModifierName"	"modifier_faceless_void_chronosphere_speed"
+			}
+      "ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"Duration"		"%duration"
+				"ModifierName"	"modifier_charge_turn"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Dark_Seer.Surge"
+				"Target"		"CASTER"
+			}
+		}
+    
+    "Modifiers"
+    {
+      "modifier_charge_turn"
+      {
+        "IsHidden" "1"
+        //"Passive"  "1"
+        //"OnCreated"
+        //{
+        //"AttachEffect"
+          //{
+            //"EffectName"        "mask_of_madness"
+            //"EffectAttachType"	"follow_origin"
+            //"Target"            "CASTER"
+          //}
+        //}
+        
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "%turnrate"
+        }
+      }
+    }
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"1.5 2.0 2.5 3.0"
+			}
+      "02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"turnrate"					"-200"
+			}
+		}
+	}
 	
-	"reflex_haste"
+	"reflex_haste2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -1727,7 +1803,7 @@
         "FixedDistance"   "%distance"
 				"StartRadius"			"%radius"
 				"EndRadius"				"%radius"
-				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 				"TargetTypes"			"DOTA_UNIT_TARGET_HERO"
 				"TargetFlags"			"DOTA_UNIT_TARGET_FLAG_NONE"
 				"HasFrontalCone"		"0"
@@ -2674,7 +2750,7 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				//"Duration"				"6"
+				//"Duration"				"8"
 				"ModifierName"			"modifier_item_barrier_wall"			
 			}
 		}
@@ -2687,8 +2763,8 @@
 				"TextureName" "item_reflex_wall_of_pain"
 				//"EffectName" "healing_clarity"
 				"EffectAttachType" "follow_origin"
-				"Duration" "6"
-				"ThinkInterval" "6"
+				"Duration" "8"
+				"ThinkInterval" "8"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -2716,7 +2792,7 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				//"Duration"				"6"
+				//"Duration"				"8"
 				"ModifierName"			"modifier_item_barrier_wall_2"			
 			}
 		}
@@ -2729,8 +2805,8 @@
 				"TextureName" "item_reflex_wall_of_pain_2"
 				//"EffectName" "healing_clarity"
 				"EffectAttachType" "follow_origin"
-				"Duration" "6"
-				"ThinkInterval" "6"
+				"Duration" "8"
+				"ThinkInterval" "8"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -2758,7 +2834,7 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				//"Duration"				"6"
+				//"Duration"				"8"
 				"ModifierName"			"modifier_item_barrier_wall_3"			
 			}
 		}
@@ -2771,8 +2847,8 @@
 				"TextureName" "item_reflex_wall_of_pain_3"
 				//"EffectName" "healing_clarity"
 				"EffectAttachType" "follow_origin"
-				"Duration" "6"
-				"ThinkInterval" "6"
+				"Duration" "8"
+				"ThinkInterval" "8"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -2800,7 +2876,7 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				//"Duration"				"6"
+				//"Duration"				"8"
 				"ModifierName"			"modifier_item_barrier_wall_4"			
 			}
 		}
@@ -2813,8 +2889,8 @@
 				"TextureName" "item_reflex_wall_of_pain_4"
 				//"EffectName" "healing_clarity"
 				"EffectAttachType" "follow_origin"
-				"Duration" "6"
-				"ThinkInterval" "6"
+				"Duration" "8"
+				"ThinkInterval" "8"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -3333,6 +3409,279 @@
 			}
 		}
 	}
+  
+  "reflex_holy_shield_1_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_1"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_2"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_3"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_4"			
+			}
+		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_1"			
+			}
+    }
+		
+		"Modifiers"
+		{
+			"modifier_item_shield_1"
+			{
+				"EffectName"		"damage_immunity"
+				"EffectAttachType"	"follow_origin"
+				"Target"			"CASTER"
+				
+				"Duration" "4"
+				"TextureName" "abaddon_aphotic_shield"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-50"
+				}
+			}
+		}
+	}
+  
+  "reflex_holy_shield_2_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_2"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_1"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_3"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_4"			
+			}
+		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_2"			
+			}
+    }
+		
+		"Modifiers"
+		{
+			"modifier_item_shield_2"
+			{
+				"EffectName"		"damage_immunity"
+				"EffectAttachType"	"follow_origin"
+				"Target"			"CASTER"
+				
+				"Duration" "4.5"
+				"TextureName" "abaddon_aphotic_shield"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-60"
+				}
+			}
+		}
+	}
+  
+  "reflex_holy_shield_3_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_3"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_2"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_1"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_4"			
+			}
+		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_3"			
+			}
+    }
+		
+		"Modifiers"
+		{
+			"modifier_item_shield_3"
+			{
+				"EffectName"		"damage_immunity"
+				"EffectAttachType"	"follow_origin"
+				"Target"			"CASTER"
+				
+				"Duration" "5.0"
+				"TextureName" "abaddon_aphotic_shield"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-70"
+				}
+			}
+		}
+	}
+  
+  "reflex_holy_shield_4_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_4"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_2"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_3"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_1"			
+			}
+		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_4"			
+			}
+    }
+		
+		"Modifiers"
+		{
+			"modifier_item_shield_4"
+			{
+				"EffectName"		"damage_immunity"
+				"EffectAttachType"	"follow_origin"
+				"Target"			"CASTER"
+				
+				"Duration" "5.5"
+				"TextureName" "abaddon_aphotic_shield"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-80"
+				}
+			}
+		}
+	}
+  
+  "reflex_charge_turn_applier"
+  {
+    "AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_charge_turn"			
+			}
+		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_charge_turn"			
+			}
+    }
+    
+    "Modifiers"
+    {
+      "modifier_charge_turn"
+      {
+        "IsHidden" "1"
+        //"Passive"  "1"
+        "Duration" "2.5"
+        
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-200"
+        }
+      }
+    }
+  }
 	
 	"reflex_vengeance_1_applier"
 	{
@@ -3346,13 +3695,22 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				"ModifierName"			"modifier_reflex_vengeance"			
+				"ModifierName"			"modifier_reflex_vengeance_1"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_vengeance_1"			
+			}
+    }
 		
 		"Modifiers"
 		{
-			"modifier_reflex_vengeance"
+			"modifier_reflex_vengeance_1"
 			{
 				"EffectName"		"ember_spirit_flameGuard"
 				"EffectAttachType"	"follow_origin"
@@ -3381,13 +3739,22 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				"ModifierName"			"modifier_reflex_vengeance"			
+				"ModifierName"			"modifier_reflex_vengeance_2"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_vengeance_2"			
+			}
+    }
 		
 		"Modifiers"
 		{
-			"modifier_reflex_vengeance"
+			"modifier_reflex_vengeance_2"
 			{
 				"EffectName"		"ember_spirit_flameGuard"
 				"EffectAttachType"	"follow_origin"
@@ -3416,13 +3783,22 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				"ModifierName"			"modifier_reflex_vengeance"			
+				"ModifierName"			"modifier_reflex_vengeance_3"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_vengeance_3"			
+			}
+    }
 		
 		"Modifiers"
 		{
-			"modifier_reflex_vengeance"
+			"modifier_reflex_vengeance_3"
 			{
 				"EffectName"		"ember_spirit_flameGuard"
 				"EffectAttachType"	"follow_origin"
@@ -3450,13 +3826,22 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				"ModifierName"			"modifier_reflex_vengeance"			
+				"ModifierName"			"modifier_reflex_vengeance_4"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_vengeance_4"			
+			}
+    }
 		
 		"Modifiers"
 		{
-			"modifier_reflex_vengeance"
+			"modifier_reflex_vengeance_4"
 			{
 				"EffectName"		"ember_spirit_flameGuard"
 				"EffectAttachType"	"follow_origin"
@@ -3485,13 +3870,22 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				"ModifierName"			"modifier_reflex_scaredy_cat"			
+				"ModifierName"			"modifier_reflex_scaredy_cat_1"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_scaredy_cat_1"			
+			}
+    }
 		
 		"Modifiers"
 		{
-			"modifier_reflex_scaredy_cat"
+			"modifier_reflex_scaredy_cat_1"
 			{
 				"TextureName" "courier_burst"
 				"EffectName" "healing_flask"
@@ -3508,7 +3902,7 @@
 					"RemoveModifier"
 					{
 						"Target" "UNIT"
-						"ModifierName" "modifier_reflex_scaredy_cat"
+						"ModifierName" "modifier_reflex_scaredy_cat_1"
 					}
 				}
 			}
@@ -3527,13 +3921,22 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				"ModifierName"			"modifier_reflex_scaredy_cat"			
+				"ModifierName"			"modifier_reflex_scaredy_cat_2"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_scaredy_cat_2"			
+			}
+    }
 		
 		"Modifiers"
 		{
-			"modifier_reflex_scaredy_cat"
+			"modifier_reflex_scaredy_cat_2"
 			{
 				"TextureName" "courier_burst"
 				"EffectName" "healing_flask"
@@ -3550,7 +3953,7 @@
 					"RemoveModifier"
 					{
 						"Target" "UNIT"
-						"ModifierName" "modifier_reflex_scaredy_cat"
+						"ModifierName" "modifier_reflex_scaredy_cat_2"
 					}
 				}
 			}
@@ -3569,13 +3972,22 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				"ModifierName"			"modifier_reflex_scaredy_cat"			
+				"ModifierName"			"modifier_reflex_scaredy_cat_3"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_scaredy_cat_3"			
+			}
+    }
 		
 		"Modifiers"
 		{
-			"modifier_reflex_scaredy_cat"
+			"modifier_reflex_scaredy_cat_3"
 			{
 				"TextureName" "courier_burst"
 				"EffectName" "healing_flask"
@@ -3592,7 +4004,7 @@
 					"RemoveModifier"
 					{
 						"Target" "UNIT"
-						"ModifierName" "modifier_reflex_scaredy_cat"
+						"ModifierName" "modifier_reflex_scaredy_cat_3"
 					}
 				}
 			}
@@ -3611,13 +4023,22 @@
 			"ApplyModifier"
 			{
 				"Target" 				"CASTER"
-				"ModifierName"			"modifier_reflex_scaredy_cat"			
+				"ModifierName"			"modifier_reflex_scaredy_cat_4"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_reflex_scaredy_cat_4"			
+			}
+    }
 		
 		"Modifiers"
 		{
-			"modifier_reflex_scaredy_cat"
+			"modifier_reflex_scaredy_cat_4"
 			{
 				"TextureName" "courier_burst"
 				"EffectName" "healing_flask"
@@ -3634,7 +4055,7 @@
 					"RemoveModifier"
 					{
 						"Target" "UNIT"
-						"ModifierName" "modifier_reflex_scaredy_cat"
+						"ModifierName" "modifier_reflex_scaredy_cat_4"
 					}
 				}
 			}
@@ -3656,6 +4077,15 @@
 				"ModifierName"			"modifier_lms_friendly"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_lms_friendly"			
+			}
+    }
 		
 		"Modifiers"
 		{
@@ -3684,6 +4114,15 @@
 				"ModifierName"			"modifier_lms_enemy"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_lms_enemy"			
+			}
+    }
 		
 		"Modifiers"
 		{
@@ -3718,6 +4157,15 @@
 				"ModifierName"			"modifier_lms_enemy"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_lms_enemy"			
+			}
+    }
 		
 		"Modifiers"
 		{
@@ -3752,6 +4200,15 @@
 				"ModifierName"			"modifier_lms_enemy"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_lms_enemy"			
+			}
+    }
 		
 		"Modifiers"
 		{
@@ -3786,6 +4243,15 @@
 				"ModifierName"			"modifier_lms_enemy"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_lms_enemy"			
+			}
+    }
 		
 		"Modifiers"
 		{
@@ -3820,6 +4286,15 @@
 				"ModifierName"			"modifier_lms_enemy"			
 			}
 		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_lms_enemy"			
+			}
+    }
 		
 		"Modifiers"
 		{
@@ -3837,6 +4312,33 @@
 				}
 			}
 		}
+	}
+  
+  
+  "modifier_blade_charge_applier"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityCooldown"				"0.0"
+		"AbilityTextureName"            "rubick_empty1"
+		
+		"OnSpellStart"
+		{
+			"RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_blade_charge"			
+			}
+		}
+    
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_blade_charge"			
+			}
+    }
 	}
   
   //-----------------------------

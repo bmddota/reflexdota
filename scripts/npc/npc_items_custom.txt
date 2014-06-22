@@ -1159,7 +1159,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"7.0 6.5 6.0 5.5"
+		"AbilityCooldown"				"10.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
 		
@@ -1185,7 +1185,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"2.0 2.5 3.0 3.5"
+				"duration"					"1.5 2.0 2.5 3.0"
 			}
 		}
 	}
@@ -2436,7 +2436,22 @@
       "ApplyModifier"
 			{
 				"Target"  		"CASTER"
-				"ModifierName"	"modifier_item_shield"
+				"ModifierName"	"modifier_item_shield_1"
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_2"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_3"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_4"			
 			}
     }
     
@@ -2446,13 +2461,28 @@
 			"ApplyModifier"
 			{
 				"Target"  		"TARGET"
-				"ModifierName"	"modifier_item_shield"
+				"ModifierName"	"modifier_item_shield_1"
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"TARGET"
+				"ModifierName"			"modifier_item_shield_2"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"TARGET"
+				"ModifierName"			"modifier_item_shield_3"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"TARGET"
+				"ModifierName"			"modifier_item_shield_4"			
 			}
 		}
 		
 		"Modifiers"
 		{
-			"modifier_item_shield"
+			"modifier_item_shield_1"
 			{
 				"EffectName"		"damage_immunity"
 				"EffectAttachType"	"follow_origin"
@@ -2561,7 +2591,22 @@
       "ApplyModifier"
 			{
 				"Target"  		"CASTER"
-				"ModifierName"	"modifier_item_shield"
+				"ModifierName"	"modifier_item_shield_2"
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_1"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_3"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_4"			
 			}
     }
     
@@ -2571,13 +2616,28 @@
 			"ApplyModifier"
 			{
 				"Target"  		"TARGET"
-				"ModifierName"	"modifier_item_shield"
+				"ModifierName"	"modifier_item_shield_2"
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"TARGET"
+				"ModifierName"			"modifier_item_shield_1"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"TARGET"
+				"ModifierName"			"modifier_item_shield_3"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"TARGET"
+				"ModifierName"			"modifier_item_shield_4"			
 			}
 		}
 		
 		"Modifiers"
 		{
-			"modifier_item_shield"
+			"modifier_item_shield_2"
 			{
 				"EffectName"		"damage_immunity"
 				"EffectAttachType"	"follow_origin"
@@ -2686,7 +2746,22 @@
       "ApplyModifier"
 			{
 				"Target"  		"CASTER"
-				"ModifierName"	"modifier_item_shield"
+				"ModifierName"	"modifier_item_shield_3"
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_2"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_1"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_4"			
 			}
     }
     
@@ -2696,13 +2771,28 @@
 			"ApplyModifier"
 			{
 				"Target"  		"TARGET"
-				"ModifierName"	"modifier_item_shield"
+				"ModifierName"	"modifier_item_shield_3"
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"TARGET"
+				"ModifierName"			"modifier_item_shield_2"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"TARGET"
+				"ModifierName"			"modifier_item_shield_1"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"TARGET"
+				"ModifierName"			"modifier_item_shield_4"			
 			}
 		}
 		
 		"Modifiers"
 		{
-			"modifier_item_shield"
+			"modifier_item_shield_3"
 			{
 				"EffectName"		"damage_immunity"
 				"EffectAttachType"	"follow_origin"
@@ -2811,7 +2901,22 @@
       "ApplyModifier"
 			{
 				"Target"  		"CASTER"
-				"ModifierName"	"modifier_item_shield"
+				"ModifierName"	"modifier_item_shield_4"
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_2"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_3"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"CASTER"
+				"ModifierName"			"modifier_item_shield_1"			
 			}
     }
     
@@ -2821,13 +2926,28 @@
 			"ApplyModifier"
 			{
 				"Target"  		"TARGET"
-				"ModifierName"	"modifier_item_shield"
+				"ModifierName"	"modifier_item_shield_4"
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"TARGET"
+				"ModifierName"			"modifier_item_shield_2"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"TARGET"
+				"ModifierName"			"modifier_item_shield_3"			
+			}
+      "RemoveModifier"
+			{
+				"Target" 				"TARGET"
+				"ModifierName"			"modifier_item_shield_1"			
 			}
 		}
 		
 		"Modifiers"
 		{
-			"modifier_item_shield"
+			"modifier_item_shield_4"
 			{
 				"EffectName"		"damage_immunity"
 				"EffectAttachType"	"follow_origin"
@@ -4737,7 +4857,7 @@
 		"AbilityCooldown"				"0.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"160 220 280 340"
+		"AbilityDamage"					"160 200 240 280"
 		
 		"precache"
 		{
@@ -4789,8 +4909,8 @@
 		{
 			"dark_seer_wall_of_discord_thinker"
 			{
-				"Duration" "%duration"
-				"ThinkInterval" "0.6"
+				"Duration" "6"
+				"ThinkInterval" "0.25"
 				"OnIntervalThink"
 				{
 					"ApplyModifier"
@@ -4802,7 +4922,23 @@
 							"Line"
 							{
 								"Length"	"800"
-								"Thickness"	"120"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
+					}
+          "Damage"
+					{
+						"Type"		"DAMAGE_TYPE_PURE"
+						"Damage"	"40"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"800"
+								"Thickness"	"100"
 							}
 							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
@@ -4818,23 +4954,16 @@
 						"EffectName"		"dark_seer_wall_of_replica"
 						"EffectAttachType"	"start_at_customorigin"
 						"EffectLineTarget"	"TARGET"
-						"EffectLineLength"	"%width"
+						"EffectLineLength"	"800"
 					}
 				}
 			}
 			
 			"modifier_dark_seer_wall_of_discord_target"
 			{
-				"Duration" "0.5" // Encourage you to drag them back and forth through the wall
+				"Duration" "0.25" // Encourage you to drag them back and forth through the wall
 				"OnCreated"
 				{
-					"Damage"
-					{
-						"Type"		"DAMAGE_TYPE_PURE"
-						"Damage"	"%damage"
-						"Target"	"TARGET"
-					}
-
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
@@ -4845,7 +4974,7 @@
 				
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-70"
 				}
 			}
 		}
@@ -4857,12 +4986,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"6.0 8.0 10.0 12.0"
+				"duration"				"6.0 7.0 8.0 9.0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"80 110 140 170"
+				"damage"				"40 50 60 70"
 			}
 			"03"
 			{
@@ -4872,7 +5001,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"15"
+				"recharge_time"			"8"
 			}
 			"05"
 			{
@@ -4900,7 +5029,7 @@
 		"AbilityCooldown"				"0.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"160 220 280 340"
+		"AbilityDamage"					"160 200 240 280"
 		
 		"precache"
 		{
@@ -4952,8 +5081,8 @@
 		{
 			"dark_seer_wall_of_discord_thinker"
 			{
-				"Duration" "%duration"
-				"ThinkInterval" "0.6"
+				"Duration" "7"
+				"ThinkInterval" "0.25"
 				"OnIntervalThink"
 				{
 					"ApplyModifier"
@@ -4965,7 +5094,23 @@
 							"Line"
 							{
 								"Length"	"1000"
-								"Thickness"	"120"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
+					}
+          "Damage"
+					{
+						"Type"		"DAMAGE_TYPE_PURE"
+						"Damage"	"50"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"1000"
+								"Thickness"	"100"
 							}
 							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
@@ -4981,23 +5126,16 @@
 						"EffectName"		"dark_seer_wall_of_replica"
 						"EffectAttachType"	"start_at_customorigin"
 						"EffectLineTarget"	"TARGET"
-						"EffectLineLength"	"%width"
+						"EffectLineLength"	"1000"
 					}
 				}
 			}
 			
 			"modifier_dark_seer_wall_of_discord_target"
 			{
-				"Duration" "0.5" // Encourage you to drag them back and forth through the wall
+				"Duration" "0.25" // Encourage you to drag them back and forth through the wall
 				"OnCreated"
 				{
-					"Damage"
-					{
-						"Type"		"DAMAGE_TYPE_PURE"
-						"Damage"	"%damage"
-						"Target"	"TARGET"
-					}
-
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
@@ -5008,7 +5146,7 @@
 				
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-70"
 				}
 			}
 		}
@@ -5020,12 +5158,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"6.0 8.0 10.0 12.0"
+				"duration"				"6.0 7.0 8.0 9.0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"80 110 140 170"
+				"damage"				"40 50 60 70"
 			}
 			"03"
 			{
@@ -5035,7 +5173,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"15"
+				"recharge_time"			"8"
 			}
 			"05"
 			{
@@ -5063,7 +5201,7 @@
 		"AbilityCooldown"				"0.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"160 220 280 340"
+		"AbilityDamage"					"160 200 240 280"
 		
 		"precache"
 		{
@@ -5115,8 +5253,8 @@
 		{
 			"dark_seer_wall_of_discord_thinker"
 			{
-				"Duration" "%duration"
-				"ThinkInterval" "0.6"
+				"Duration" "8"
+				"ThinkInterval" "0.25"
 				"OnIntervalThink"
 				{
 					"ApplyModifier"
@@ -5128,7 +5266,23 @@
 							"Line"
 							{
 								"Length"	"1200"
-								"Thickness"	"120"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
+					}
+          "Damage"
+					{
+						"Type"		"DAMAGE_TYPE_PURE"
+						"Damage"	"60"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"1200"
+								"Thickness"	"100"
 							}
 							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
@@ -5144,23 +5298,16 @@
 						"EffectName"		"dark_seer_wall_of_replica"
 						"EffectAttachType"	"start_at_customorigin"
 						"EffectLineTarget"	"TARGET"
-						"EffectLineLength"	"%width"
+						"EffectLineLength"	"1200"
 					}
 				}
 			}
 			
 			"modifier_dark_seer_wall_of_discord_target"
 			{
-				"Duration" "0.5" // Encourage you to drag them back and forth through the wall
+				"Duration" "0.25" // Encourage you to drag them back and forth through the wall
 				"OnCreated"
 				{
-					"Damage"
-					{
-						"Type"		"DAMAGE_TYPE_PURE"
-						"Damage"	"%damage"
-						"Target"	"TARGET"
-					}
-
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
@@ -5171,7 +5318,7 @@
 				
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-70"
 				}
 			}
 		}
@@ -5183,12 +5330,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"6.0 8.0 10.0 12.0"
+				"duration"				"6.0 7.0 8.0 9.0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"80 110 140 170"
+				"damage"				"40 50 60 70"
 			}
 			"03"
 			{
@@ -5198,7 +5345,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"15"
+				"recharge_time"			"8"
 			}
 			"05"
 			{
@@ -5226,7 +5373,7 @@
 		"AbilityCooldown"				"0.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"160 220 280 340"
+		"AbilityDamage"					"160 200 240 280"
 		
 		"precache"
 		{
@@ -5278,8 +5425,8 @@
 		{
 			"dark_seer_wall_of_discord_thinker"
 			{
-				"Duration" "%duration"
-				"ThinkInterval" "0.6"
+				"Duration" "9"
+				"ThinkInterval" "0.25"
 				"OnIntervalThink"
 				{
 					"ApplyModifier"
@@ -5291,7 +5438,23 @@
 							"Line"
 							{
 								"Length"	"1400"
-								"Thickness"	"120"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
+					}
+          "Damage"
+					{
+						"Type"		"DAMAGE_TYPE_PURE"
+						"Damage"	"70"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"1400"
+								"Thickness"	"100"
 							}
 							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
@@ -5307,23 +5470,16 @@
 						"EffectName"		"dark_seer_wall_of_replica"
 						"EffectAttachType"	"start_at_customorigin"
 						"EffectLineTarget"	"TARGET"
-						"EffectLineLength"	"%width"
+						"EffectLineLength"	"1400"
 					}
 				}
 			}
 			
 			"modifier_dark_seer_wall_of_discord_target"
 			{
-				"Duration" "0.5" // Encourage you to drag them back and forth through the wall
+				"Duration" "0.25" // Encourage you to drag them back and forth through the wall
 				"OnCreated"
 				{
-					"Damage"
-					{
-						"Type"		"DAMAGE_TYPE_PURE"
-						"Damage"	"%damage"
-						"Target"	"TARGET"
-					}
-
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
@@ -5334,7 +5490,7 @@
 				
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-70"
 				}
 			}
 		}
@@ -5346,12 +5502,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"6.0 8.0 10.0 12.0"
+				"duration"				"6.0 7.0 8.0 9.0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"80 110 140 170"
+				"damage"				"40 50 60 70"
 			}
 			"03"
 			{
@@ -5361,7 +5517,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"recharge_time"			"15"
+				"recharge_time"			"8"
 			}
 			"05"
 			{
@@ -8967,7 +9123,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.2 1.4 1.6 1.8"
+				"duration"				"1.2 1.5 1.8 2.1"
 			}
 			"02"
 			{
@@ -8977,7 +9133,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"857"
+				"speed"					"1100"
 			}
 			"04"
 			{
@@ -8992,7 +9148,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"distance"				"700 800 900 1000"
+				"distance"				"1000"
 			}
 			"07"
 			{
@@ -9144,7 +9300,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.2 1.4 1.6 1.8"
+				"duration"				"1.2 1.5 1.8 2.1"
 			}
 			"02"
 			{
@@ -9154,7 +9310,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"857"
+				"speed"					"1100"
 			}
 			"04"
 			{
@@ -9169,7 +9325,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"distance"				"700 800 900 1000"
+				"distance"				"1000"
 			}
 			"07"
 			{
@@ -9322,7 +9478,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.2 1.4 1.6 1.8"
+				"duration"				"1.2 1.5 1.8 2.1"
 			}
 			"02"
 			{
@@ -9332,7 +9488,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"857"
+				"speed"					"1100"
 			}
 			"04"
 			{
@@ -9347,7 +9503,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"distance"				"700 800 900 1000"
+				"distance"				"1000"
 			}
 			"07"
 			{
@@ -9499,7 +9655,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.2 1.4 1.6 1.8"
+				"duration"				"1.2 1.5 1.8 2.1"
 			}
 			"02"
 			{
@@ -9509,7 +9665,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"857"
+				"speed"					"1100"
 			}
 			"04"
 			{
@@ -9524,7 +9680,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"distance"				"700 800 900 1000"
+				"distance"				"1000"
 			}
 			"07"
 			{
@@ -12020,7 +12176,7 @@
 	
 	
 	
-	"item_recipe_reflex_energy_regen_booster_2"
+	"item_recipe_reflex_regen_booster_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -12044,7 +12200,7 @@
 		}
 	}
 	
-	"item_recipe_reflex_energy_regen_booster_3"
+	"item_recipe_reflex_regen_booster_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -12068,7 +12224,7 @@
 		}
 	}
 	
-	"item_recipe_reflex_energy_regen_booster_4"
+	"item_recipe_reflex_regen_booster_4"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
