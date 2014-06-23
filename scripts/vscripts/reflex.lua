@@ -4,7 +4,7 @@ USE_LOBBY=true
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.05.02"
+REFLEX_VERSION = "0.05.03"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 150 --240
@@ -940,7 +940,6 @@ function ReflexGameMode:AutoAssignPlayer(keys)
   self:RemoveTimer('all_disconnect')
   
   self.vUserIds[keys.userid] = ply
-  self.vSteamIds[PlayerResource:GetSteamAccountID(playerID)] = ply
   
   --print('--UserIds--')
   --PrintTable(vUserIds)
@@ -980,6 +979,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
   end
 
   print ('[REFLEX] playerID: ' .. playerID)
+  self.vSteamIds[PlayerResource:GetSteamAccountID(playerID)] = ply
   
   --PrintTable(PlayerResource)
   --PrintTable(getmetatable(PlayerResource))

@@ -789,7 +789,7 @@ function makeForwardProjectile(keys)
 		bHasFrontalCone = false,
     iMoveSpeed = tonumber(keys.MoveSpeed),
     bReplaceExisting = true,
-    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_BOTH,
+    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		--iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_FRIENDLY,
