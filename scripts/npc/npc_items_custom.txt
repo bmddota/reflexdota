@@ -4857,7 +4857,7 @@
 		"AbilityCooldown"				"0.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"160 200 240 280"
+		"AbilityDamage"					"160 192 224 256"
 		
 		"precache"
 		{
@@ -5006,7 +5006,7 @@
 				
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-65"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-60"
 				}
 			}
 		}
@@ -5023,7 +5023,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"40 50 60 70"
+				"damage"				"40 48 56 64"
 			}
 			"03"
 			{
@@ -5061,7 +5061,7 @@
 		"AbilityCooldown"				"0.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"160 200 240 280"
+		"AbilityDamage"					"160 192 224 256"
 		
 		"precache"
 		{
@@ -5155,7 +5155,7 @@
           "Damage"
 					{
 						"Type"		"DAMAGE_TYPE_PURE"
-						"Damage"	"50"
+						"Damage"	"48"
 						"Target"
 						{
 							"Center"	"TARGET"
@@ -5210,7 +5210,7 @@
 				
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-65"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-60"
 				}
 			}
 		}
@@ -5227,7 +5227,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"40 50 60 70"
+				"damage"				"40 48 56 64"
 			}
 			"03"
 			{
@@ -5265,7 +5265,7 @@
 		"AbilityCooldown"				"0.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"160 200 240 280"
+		"AbilityDamage"					"160 192 224 256"
 		
 		"precache"
 		{
@@ -5359,7 +5359,7 @@
           "Damage"
 					{
 						"Type"		"DAMAGE_TYPE_PURE"
-						"Damage"	"60"
+						"Damage"	"56"
 						"Target"
 						{
 							"Center"	"TARGET"
@@ -5414,7 +5414,7 @@
 				
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-65"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-60"
 				}
 			}
 		}
@@ -5431,7 +5431,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"40 50 60 70"
+				"damage"				"40 48 56 64"
 			}
 			"03"
 			{
@@ -5469,7 +5469,7 @@
 		"AbilityCooldown"				"0.5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"160 200 240 280"
+		"AbilityDamage"					"160 192 224 256"
 		
 		"precache"
 		{
@@ -5563,7 +5563,7 @@
           "Damage"
 					{
 						"Type"		"DAMAGE_TYPE_PURE"
-						"Damage"	"70"
+						"Damage"	"64"
 						"Target"
 						{
 							"Center"	"TARGET"
@@ -5618,7 +5618,7 @@
 				
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-65"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-60"
 				}
 			}
 		}
@@ -5635,7 +5635,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"40 50 60 70"
+				"damage"				"40 48 56 64"
 			}
 			"03"
 			{
