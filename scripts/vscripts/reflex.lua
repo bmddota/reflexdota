@@ -4,7 +4,7 @@ USE_LOBBY=true
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.05.07"
+REFLEX_VERSION = "0.05.08"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 150 --240
@@ -479,14 +479,14 @@ function ReflexGameMode:PlayerSay(keys)
           local name = player.name
           local total = PlayerResource:GetRawPlayerDamage(plyID)
           local roundDamage = player.nRoundDamage
-          Say(" " .. ply, "  " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
+          Say(ply, " _ " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
         end
       end)
     else
       local name = player.name
       local total = PlayerResource:GetRawPlayerDamage(plyID)
       local roundDamage = player.nRoundDamage
-      Say(" " .. ply, "  " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
+      Say(ply, " _ " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
     end
   end
   
