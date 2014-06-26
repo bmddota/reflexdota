@@ -382,7 +382,7 @@ end
 
 function ReflexGameMode:CloseServer()
   -- Just exit
-  SendToServerConsole('exit')
+  --SendToServerConsole('exit')
 end
 
 function ReflexGameMode:PlayerConnect(keys)
