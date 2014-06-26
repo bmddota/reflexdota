@@ -1185,7 +1185,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"1.5 2.0 2.5 3.0"
+				"duration"					"1.0 1.5 2.0 2.5"
 			}
 		}
 	}
@@ -4885,8 +4885,20 @@
 		{
 			"CreateThinker"
 			{
-				"ModifierName"	"dark_seer_wall_of_discord_thinker"
+				"ModifierName"	"dark_seer_wall_of_discord_thinker2"
 				"Target"		"POINT"
+			}
+      "DelayedAction"		
+			{
+				"Delay"			"0.5"
+				"Action"
+				{
+					"CreateThinker"
+          {
+            "ModifierName"	"dark_seer_wall_of_discord_thinker"
+            "Target"		"POINT"
+          }
+				}
 			}
 			"SpendCharge"
 			{}
@@ -4903,13 +4915,21 @@
 				"EffectName"	"Hero_Dark_Seer.Wall_of_Replica_Start"
 				"Target"		"CASTER"
 			}
+      "RunScript"
+      {
+        "ScriptFile"			  "scripts/vscripts/abilities.lua"
+        "Function"				  "teamBasedWall"
+        "Target"				    "POINT"
+        "EffectLineLength"	"%width"
+        "Duration"          "%duration"
+      }
 		}
 
 		"Modifiers"
 		{
 			"dark_seer_wall_of_discord_thinker"
 			{
-				"Duration" "6"
+				"Duration" "5.5"
 				"ThinkInterval" "0.25"
 				"OnIntervalThink"
 				{
@@ -4945,16 +4965,28 @@
 						}
 					}
 				}
-
-				"OnCreated"
+			}
+      
+      "dark_seer_wall_of_discord_thinker2"
+			{
+				"Duration" "0.5"
+				"ThinkInterval" "0.25"
+				"OnIntervalThink"
 				{
-					"AttachEffect"
+					"ApplyModifier"
 					{
-						"Target"			"TARGET"
-						"EffectName"		"dark_seer_wall_of_replica"
-						"EffectAttachType"	"start_at_customorigin"
-						"EffectLineTarget"	"TARGET"
-						"EffectLineLength"	"800"
+						"ModifierName"	"modifier_dark_seer_wall_of_discord_target"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"800"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
 					}
 				}
 			}
@@ -4967,14 +4999,14 @@
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
-						"EffectName"		"dark_seer_wall_of_replica_replicate"
+						"EffectName"		"ref_dark_seer_wall_of_replica_replicate"
 						"EffectAttachType"	"follow_origin"
 					}
 				}
 				
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-70"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-65"
 				}
 			}
 		}
@@ -5057,8 +5089,20 @@
 		{
 			"CreateThinker"
 			{
-				"ModifierName"	"dark_seer_wall_of_discord_thinker"
+				"ModifierName"	"dark_seer_wall_of_discord_thinker2"
 				"Target"		"POINT"
+			}
+      "DelayedAction"		
+			{
+				"Delay"			"0.5"
+				"Action"
+				{
+					"CreateThinker"
+          {
+            "ModifierName"	"dark_seer_wall_of_discord_thinker"
+            "Target"		"POINT"
+          }
+				}
 			}
 			"SpendCharge"
 			{}
@@ -5075,13 +5119,21 @@
 				"EffectName"	"Hero_Dark_Seer.Wall_of_Replica_Start"
 				"Target"		"CASTER"
 			}
+      "RunScript"
+      {
+        "ScriptFile"			  "scripts/vscripts/abilities.lua"
+        "Function"				  "teamBasedWall"
+        "Target"				    "POINT"
+        "EffectLineLength"	"%width"
+        "Duration"          "%duration"
+      }
 		}
 
 		"Modifiers"
 		{
 			"dark_seer_wall_of_discord_thinker"
 			{
-				"Duration" "7"
+				"Duration" "6.5"
 				"ThinkInterval" "0.25"
 				"OnIntervalThink"
 				{
@@ -5117,16 +5169,28 @@
 						}
 					}
 				}
-
-				"OnCreated"
+			}
+      
+      "dark_seer_wall_of_discord_thinker2"
+			{
+				"Duration" "0.5"
+				"ThinkInterval" "0.25"
+				"OnIntervalThink"
 				{
-					"AttachEffect"
+					"ApplyModifier"
 					{
-						"Target"			"TARGET"
-						"EffectName"		"dark_seer_wall_of_replica"
-						"EffectAttachType"	"start_at_customorigin"
-						"EffectLineTarget"	"TARGET"
-						"EffectLineLength"	"1000"
+						"ModifierName"	"modifier_dark_seer_wall_of_discord_target"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"1000"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
 					}
 				}
 			}
@@ -5139,14 +5203,14 @@
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
-						"EffectName"		"dark_seer_wall_of_replica_replicate"
+						"EffectName"		"ref_dark_seer_wall_of_replica_replicate"
 						"EffectAttachType"	"follow_origin"
 					}
 				}
 				
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-70"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-65"
 				}
 			}
 		}
@@ -5229,8 +5293,20 @@
 		{
 			"CreateThinker"
 			{
-				"ModifierName"	"dark_seer_wall_of_discord_thinker"
+				"ModifierName"	"dark_seer_wall_of_discord_thinker2"
 				"Target"		"POINT"
+			}
+      "DelayedAction"		
+			{
+				"Delay"			"0.5"
+				"Action"
+				{
+					"CreateThinker"
+          {
+            "ModifierName"	"dark_seer_wall_of_discord_thinker"
+            "Target"		"POINT"
+          }
+				}
 			}
 			"SpendCharge"
 			{}
@@ -5247,13 +5323,21 @@
 				"EffectName"	"Hero_Dark_Seer.Wall_of_Replica_Start"
 				"Target"		"CASTER"
 			}
+      "RunScript"
+      {
+        "ScriptFile"			  "scripts/vscripts/abilities.lua"
+        "Function"				  "teamBasedWall"
+        "Target"				    "POINT"
+        "EffectLineLength"	"%width"
+        "Duration"          "%duration"
+      }
 		}
 
 		"Modifiers"
 		{
 			"dark_seer_wall_of_discord_thinker"
 			{
-				"Duration" "8"
+				"Duration" "7.5"
 				"ThinkInterval" "0.25"
 				"OnIntervalThink"
 				{
@@ -5289,16 +5373,28 @@
 						}
 					}
 				}
-
-				"OnCreated"
+			}
+      
+      "dark_seer_wall_of_discord_thinker2"
+			{
+				"Duration" "0.5"
+				"ThinkInterval" "0.25"
+				"OnIntervalThink"
 				{
-					"AttachEffect"
+					"ApplyModifier"
 					{
-						"Target"			"TARGET"
-						"EffectName"		"dark_seer_wall_of_replica"
-						"EffectAttachType"	"start_at_customorigin"
-						"EffectLineTarget"	"TARGET"
-						"EffectLineLength"	"1200"
+						"ModifierName"	"modifier_dark_seer_wall_of_discord_target"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"1200"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
 					}
 				}
 			}
@@ -5311,14 +5407,14 @@
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
-						"EffectName"		"dark_seer_wall_of_replica_replicate"
+						"EffectName"		"ref_dark_seer_wall_of_replica_replicate"
 						"EffectAttachType"	"follow_origin"
 					}
 				}
 				
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-70"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-65"
 				}
 			}
 		}
@@ -5401,8 +5497,20 @@
 		{
 			"CreateThinker"
 			{
-				"ModifierName"	"dark_seer_wall_of_discord_thinker"
+				"ModifierName"	"dark_seer_wall_of_discord_thinker2"
 				"Target"		"POINT"
+			}
+      "DelayedAction"		
+			{
+				"Delay"			"0.5"
+				"Action"
+				{
+					"CreateThinker"
+          {
+            "ModifierName"	"dark_seer_wall_of_discord_thinker"
+            "Target"		"POINT"
+          }
+				}
 			}
 			"SpendCharge"
 			{}
@@ -5419,13 +5527,21 @@
 				"EffectName"	"Hero_Dark_Seer.Wall_of_Replica_Start"
 				"Target"		"CASTER"
 			}
+      "RunScript"
+      {
+        "ScriptFile"			  "scripts/vscripts/abilities.lua"
+        "Function"				  "teamBasedWall"
+        "Target"				    "POINT"
+        "EffectLineLength"	"%width"
+        "Duration"          "%duration"
+      }
 		}
 
 		"Modifiers"
 		{
 			"dark_seer_wall_of_discord_thinker"
 			{
-				"Duration" "9"
+				"Duration" "8.5"
 				"ThinkInterval" "0.25"
 				"OnIntervalThink"
 				{
@@ -5461,16 +5577,28 @@
 						}
 					}
 				}
-
-				"OnCreated"
+			}
+      
+      "dark_seer_wall_of_discord_thinker2"
+			{
+				"Duration" "0.5"
+				"ThinkInterval" "0.25"
+				"OnIntervalThink"
 				{
-					"AttachEffect"
+					"ApplyModifier"
 					{
-						"Target"			"TARGET"
-						"EffectName"		"dark_seer_wall_of_replica"
-						"EffectAttachType"	"start_at_customorigin"
-						"EffectLineTarget"	"TARGET"
-						"EffectLineLength"	"1400"
+						"ModifierName"	"modifier_dark_seer_wall_of_discord_target"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"1400"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
 					}
 				}
 			}
@@ -5483,14 +5611,14 @@
 					"AttachEffect"
 					{
 						"Target"			"TARGET"
-						"EffectName"		"dark_seer_wall_of_replica_replicate"
+						"EffectName"		"ref_dark_seer_wall_of_replica_replicate"
 						"EffectAttachType"	"follow_origin"
 					}
 				}
 				
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-70"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-65"
 				}
 			}
 		}
@@ -9847,6 +9975,12 @@
 				"Target"		"TARGET"
 				"ModifierName"	"modifier_hamstring"
 			}
+      "RunScript"
+      {
+        "ScriptFile"		"scripts/vscripts/abilities.lua"
+				"Function"			"removeCharge"
+        "Target"        "TARGET"
+      }
 		}
 		
 		"Modifiers"
@@ -9979,6 +10113,12 @@
 				"Target"		"TARGET"
 				"ModifierName"	"modifier_hamstring_2"
 			}
+      "RunScript"
+      {
+        "ScriptFile"		"scripts/vscripts/abilities.lua"
+				"Function"			"removeCharge"
+        "Target"        "TARGET"
+      }
 		}
 		
 		"Modifiers"
@@ -10111,6 +10251,12 @@
 				"Target"		"TARGET"
 				"ModifierName"	"modifier_hamstring_3"
 			}
+      "RunScript"
+      {
+        "ScriptFile"		"scripts/vscripts/abilities.lua"
+				"Function"			"removeCharge"
+        "Target"        "TARGET"
+      }
 		}
 		
 		"Modifiers"
@@ -10243,6 +10389,12 @@
 				"Target"		"TARGET"
 				"ModifierName"	"modifier_hamstring_4"
 			}
+      "RunScript"
+      {
+        "ScriptFile"		"scripts/vscripts/abilities.lua"
+				"Function"			"removeCharge"
+        "Target"        "TARGET"
+      }
 		}
 		
 		"Modifiers"

@@ -154,33 +154,178 @@ function startFire(keys)
   })
 end
 
-function warpToPoint(keys)
-  local target = keys.Target
+function removeCharge(keys)
+  local target = keys.target
   local caster = keys.caster
   
-  if caster == nil then
-		return
-	end
-
-  local point = nil
-	if target == "POINT" and keys.target_points[1] then
-		point = keys.target_points[1]
-	else
+  if caster == nil or target == nil then
     return
   end
   
-  --print(tostring(point))
-  -- prevent top left
-  if point.x < -2700 and point.y > 2200 then
-    point = Vector(-2180, 1368, 0)
+  if target:HasModifier("modifier_faceless_void_chronosphere_speed") then
+    target:RemoveModifierByName("modifier_faceless_void_chronosphere_speed")
+    callModRemover(target, "reflex_charge_turn")
   end
   
-  -- prevent top right
-  if point.x > 2700 and point.y > 2200 then
-    point = Vector(2180, 1368, 0)
-  end
+end
 
-  FindClearSpaceForUnit(caster, point, true)
+function teamBasedCircle(keys)
+  local target = keys.Target
+  local caster = keys.caster
+  local duration = tonumber(keys.Duration) or 6
+  local safeEffect = keys.SafeEffect
+  local dangerEffect = keys.DangerEffect
+  local sound = keys.Sound or nil
+  
+  if caster == nil or keys.Radius == nil then
+		return
+	end
+  
+  local radius = tonumber(keys.Radius)
+  
+  local targetEntity = nil
+    
+  local attach = PATTACH_ABSORIGIN_FOLLOW
+  
+  local point = keys.target_points[1]
+  local team = caster:GetTeam()
+  
+  targetEntity = CreateUnitByName("npc_dota_danger_indicator", point, false, caster, caster, team)
+  targetEntity:AddNewModifier(unit, nil, "modifier_invulnerable", {})
+  targetEntity:AddNewModifier(unit, nil, "modifier_phased", {})
+  local ability = targetEntity:FindAbilityByName("reflex_dummy_unit")
+  ability:SetLevel(1)
+  
+  if sound ~= nil then
+    targetEntity:EmitSound(sound)
+  end
+  
+  ReflexGameMode:LoopOverPlayers(function(ply, plyID)
+    local particle = nil
+    if ply.nTeam == team then
+      particle = ParticleManager:CreateParticleForPlayer(safeEffect, attach, targetEntity, PlayerResource:GetPlayer(plyID))--cmdPlayer:GetAssignedHero())
+    else
+      particle = ParticleManager:CreateParticleForPlayer(dangerEffect, attach, targetEntity, PlayerResource:GetPlayer(plyID))--cmdPlayer:GetAssignedHero())
+    end
+    ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
+    ParticleManager:SetParticleControl(particle, 1, Vector(radius,1,1)) -- endpoint
+    ParticleManager:SetParticleControl(particle, 2, Vector(0,0,0)) -- something
+  end)
+  -- Test Lua-particle generation
+
+  -- Bots
+  for k,v in pairs(ReflexGameMode.vBots) do
+    local particle = nil
+    if team == DOTA_TEAM_GOODGUYS then
+      particle = ParticleManager:CreateParticleForPlayer(safeEffect, attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
+    else
+      particle = ParticleManager:CreateParticleForPlayer(dangerEffect, attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
+    end
+    ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
+    ParticleManager:SetParticleControl(particle, 1, Vector(radius,1,1)) -- endpoint
+    ParticleManager:SetParticleControl(particle, 2, Vector(0,0,0)) -- something
+  end
+  
+  -- Broadcasters
+  for k,v in pairs(ReflexGameMode.vBroadcasters) do
+    local particle = nil
+    if team == DOTA_TEAM_GOODGUYS then
+      particle = ParticleManager:CreateParticleForPlayer(safeEffect, attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
+    else
+      particle = ParticleManager:CreateParticleForPlayer(dangerEffect, attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
+    end
+    ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
+    ParticleManager:SetParticleControl(particle, 1, Vector(radius,1,1)) -- endpoint
+    ParticleManager:SetParticleControl(particle, 2, Vector(0,0,0)) -- something
+  end
+ 
+  ReflexGameMode:CreateTimer(DoUniqueString("circle"), {
+    endTime = GameRules:GetGameTime() + duration,
+    useGameTime = true,
+    callback = function(reflex, args)
+      if sound ~= nil then
+        targetEntity:StopSound(sound)
+      end
+      targetEntity:Destroy()
+    end
+  })
+end
+
+function teamBasedWall(keys)
+  local target = keys.Target
+  local caster = keys.caster
+  local duration = tonumber(keys.Duration) or 6
+  
+  if caster == nil or keys.EffectLineLength == nil then
+		return
+	end
+  
+  local length = tonumber(keys.EffectLineLength)
+  
+  local targetEntity = nil
+    
+  local attach = PATTACH_ABSORIGIN_FOLLOW
+  
+  local point = keys.target_points[1]
+  local diff = point - caster:GetAbsOrigin()
+  diff.z = 0
+  diff = diff:Normalized()
+  
+  local vec = RotatePosition( Vector(0,0,0), QAngle(0, 90, 0), diff )
+  local team = caster:GetTeam()
+  
+  targetEntity = CreateUnitByName("npc_dota_danger_indicator", point + (vec * length / 2), false, caster, caster, team)
+  targetEntity:AddNewModifier(unit, nil, "modifier_invulnerable", {})
+  targetEntity:AddNewModifier(unit, nil, "modifier_phased", {})
+  local ability = targetEntity:FindAbilityByName("reflex_dummy_unit")
+  ability:SetLevel(1)
+  
+  ReflexGameMode:LoopOverPlayers(function(ply, plyID)
+    local particle = nil
+    if ply.nTeam == team then
+      particle = ParticleManager:CreateParticleForPlayer("ref_dark_seer_wall_of_replica", attach, targetEntity, PlayerResource:GetPlayer(plyID))--cmdPlayer:GetAssignedHero())
+    else
+      particle = ParticleManager:CreateParticleForPlayer("dark_seer_wall_of_replica", attach, targetEntity, PlayerResource:GetPlayer(plyID))--cmdPlayer:GetAssignedHero())
+    end
+    ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
+    ParticleManager:SetParticleControl(particle, 1, point + (vec * length / -2)) -- endpoint
+    ParticleManager:SetParticleControl(particle, 2, Vector(0,0,0)) -- something
+  end)
+  -- Test Lua-particle generation
+
+  -- Bots
+  for k,v in pairs(ReflexGameMode.vBots) do
+    local particle = nil
+    if team == DOTA_TEAM_GOODGUYS then
+      particle = ParticleManager:CreateParticleForPlayer("ref_dark_seer_wall_of_replica", attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
+    else
+      particle = ParticleManager:CreateParticleForPlayer("dark_seer_wall_of_replica", attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
+    end
+    ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
+    ParticleManager:SetParticleControl(particle, 1, point + (vec * length / -2)) -- endpoint
+    ParticleManager:SetParticleControl(particle, 2, Vector(0,0,0)) -- something
+  end
+  
+  -- Broadcasters
+  for k,v in pairs(ReflexGameMode.vBroadcasters) do
+    local particle = nil
+    if team == DOTA_TEAM_GOODGUYS then
+      particle = ParticleManager:CreateParticleForPlayer("ref_dark_seer_wall_of_replica", attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
+    else
+      particle = ParticleManager:CreateParticleForPlayer("dark_seer_wall_of_replica", attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
+    end
+    ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
+    ParticleManager:SetParticleControl(particle, 1, point + (vec * length / -2)) -- endpoint
+    ParticleManager:SetParticleControl(particle, 2, Vector(0,0,0)) -- something
+  end
+ 
+  ReflexGameMode:CreateTimer(DoUniqueString("wall"), {
+    endTime = GameRules:GetGameTime() + duration,
+    useGameTime = true,
+    callback = function(reflex, args)
+      targetEntity:Destroy()
+    end
+  })
 end
 
 function dangerIndicator(keys)

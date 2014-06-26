@@ -4,7 +4,7 @@ USE_LOBBY=true
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.05.03"
+REFLEX_VERSION = "0.05.06"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 150 --240
@@ -193,6 +193,20 @@ function ReflexGameMode:InitGameMode()
     if not Convars:GetCommandClient() or DEBUG then
       -- Create fake Players
       SendToServerConsole('dota_create_fake_clients')
+      
+      local fakes = {
+        "npc_dota_hero_ancient_apparition",
+        "npc_dota_hero_antimage",
+        "npc_dota_hero_bane",
+        "npc_dota_hero_beastmaster",
+        "npc_dota_hero_bloodseeker",
+        "npc_dota_hero_chen",
+        "npc_dota_hero_crystal_maiden",
+        "npc_dota_hero_dark_seer",
+        "npc_dota_hero_dazzle",
+        "npc_dota_hero_dragon_knight",
+        "npc_dota_hero_doom_bringer"
+      }
         
       self:CreateTimer('assign_fakes', {
         endTime = Time(),
@@ -204,8 +218,21 @@ function ReflexGameMode:InitGameMode()
               local ply = PlayerResource:GetPlayer(i)
               -- Make sure we actually found a player instance
               if ply then
-                CreateHeroForPlayer('npc_dota_hero_axe', ply)
+                CreateHeroForPlayer(fakes[i], ply)
               end
+            end
+          end
+          
+          local ply = Convars:GetCommandClient()
+          local plyID = ply:GetPlayerID()
+          local hero = ply:GetAssignedHero()
+          for k,v in pairs(HeroList:GetAllHeroes()) do
+            if v ~= hero then
+              v:SetControllableByPlayer(plyID, true)
+              local dash = CreateItem("item_reflex_dash", v, v)
+              v:AddItem(dash)
+              local shooter = CreateItem("item_simple_shooter", v, v)
+              v:AddItem(shooter)
             end
           end
         end})
@@ -371,6 +398,7 @@ local hook = nil
 local attach = 0
 local controlPoints = {}
 local particleEffect = ""
+local abilPoints = false
 
 function ReflexGameMode:PlayerSay(keys)
   --print ('[REFLEX] PlayerSay')
@@ -450,23 +478,36 @@ function ReflexGameMode:PlayerSay(keys)
           local name = player.name
           local total = PlayerResource:GetRawPlayerDamage(plyID)
           local roundDamage = player.nRoundDamage
-          Say(ply, "  " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
+          Say(" " .. ply, "  " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
         end
       end)
     else
       local name = player.name
       local total = PlayerResource:GetRawPlayerDamage(plyID)
       local roundDamage = player.nRoundDamage
-      Say(ply, "  " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
+      Say(" " .. ply, "  " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
     end
   end
   
   if string.find(text, "^-mod") and DEBUG then
-    for k,v in pairs(HeroList:GetAllHeroes()) do
-      if v ~= player.hero then
-        callModApplier(v, "reflex_vengeance", 2)
-        callModApplier(v, "reflex_scaredy_cat", 3)
-        callModApplier(v, "reflex_holy_shield", 4)
+    local m = string.match(text, "(%d)")
+    if m ~= nil then
+      local p = PlayerResource:GetPlayer(tonumber(m))
+      local v = p:GetAssignedHero()
+      callModApplier(v, "reflex_vengeance", 2)
+      callModApplier(v, "reflex_scaredy_cat", 3)
+      callModApplier(v, "reflex_holy_shield", 4)
+      v:AddNewModifier(v,nil,"modifier_faceless_void_chronosphere_speed", {duration = 2.5})
+      callModApplier(v, "reflex_charge_turn")
+    else 
+      for k,v in pairs(HeroList:GetAllHeroes()) do
+        if v ~= player.hero then
+          callModApplier(v, "reflex_vengeance", 2)
+          callModApplier(v, "reflex_scaredy_cat", 3)
+          callModApplier(v, "reflex_holy_shield", 4)
+          v:AddNewModifier(v,nil,"modifier_faceless_void_chronosphere_speed", {duration = 2.5})
+          callModApplier(v, "reflex_charge_turn")
+        end
       end
     end
   end
@@ -532,6 +573,99 @@ function ReflexGameMode:PlayerSay(keys)
     end
   end
   
+  local lvl1 = string.match(text, "^-lvl%s+(%d+)")
+  if DEBUG and lvl1 ~= nil then
+    local num = tonumber(lvl1)
+    for k,v in pairs(HeroList:GetAllHeroes()) do
+      for i=1,num do
+        v:HeroLevelUp(false)
+      end
+    end
+  end
+  
+  local ap = abilPoints
+  
+  if DEBUG and string.find(text, "^-points") then
+    for k,v in pairs(HeroList:GetAllHeroes()) do
+      if ap then
+        abilPoints = false
+        v:SetAbilityPoints(0)
+      else
+        abilPoints = true
+        v:SetAbilityPoints(25)
+      end
+    end
+  end
+  
+  if DEBUG and string.find(text, "^-res") then
+    local m = string.match(text, "(%d)")
+    if m ~= nil then
+      local p = PlayerResource:GetPlayer(tonumber(m))
+      local v = p:GetAssignedHero()
+      v:SetRespawnPosition(v:GetAbsOrigin())
+      v:RespawnHero(false, false, false)
+    else 
+      for k,v in pairs(HeroList:GetAllHeroes()) do
+        if not v:IsAlive() then
+          v:SetRespawnPosition(v:GetAbsOrigin())
+          v:RespawnHero(false, false, false)
+        end
+      end
+    end
+  end
+  
+  if DEBUG and string.find(text, "^-gold") then
+    for k,v in pairs(HeroList:GetAllHeroes()) do
+      v:SetGold(50000, true)
+      GameRules:SetUseUniversalShopMode( true )
+    end
+  end
+  
+  local abil1 = string.match(text, "^-abil%s+(.+)")
+  if DEBUG and abil1 ~= nil then
+    for k,v in pairs(HeroList:GetAllHeroes()) do
+      if player.hero ~= v then
+        local found = false
+        for k2,i in pairs({1,2,3,6,4,5}) do
+          if not found then
+            local ability = v:FindAbilityByName( 'reflex_empty' .. i)
+            if ability ~= nil then
+              --print ( '[REFLEX] found empty' .. i .. " replacing")
+              v:RemoveAbility('reflex_empty' .. i)
+              v:AddAbility(abil1)
+              found = true
+            end
+          end
+        end
+      end
+    end
+  end
+  
+  local item1 = string.match(text, "^-item%s+(.+)")
+  if DEBUG and item1 ~= nil then
+    for k,v in pairs(HeroList:GetAllHeroes()) do
+      if player.hero ~= v then
+        local item = CreateItem(item1, v, v)
+        v:AddItem(item)
+      end
+    end
+  end
+  
+  if DEBUG and string.find(text, "^-heal") then
+    local m = string.match(text, "(%d)")
+    if m ~= nil then
+      local p = PlayerResource:GetPlayer(tonumber(m))
+      local v = p:GetAssignedHero()
+      v:SetHealth(v:GetMaxHealth())
+    else 
+      for k,v in pairs(HeroList:GetAllHeroes()) do
+        if v ~= player.hero then
+          v:SetHealth(v:GetMaxHealth())
+        end
+      end
+    end
+  end
+  
   local mh1,mh2,mh3 = string.match(text, "^-mh%s+(-?%d+)%s+(%d)%s+(-?%d+)")
   if DEBUG and mh1 ~= nil and mh2 ~= nil and mh3 ~= nil then
     local bool = true
@@ -544,13 +678,13 @@ function ReflexGameMode:PlayerSay(keys)
     --player.hero:ModifyHealth(tonumber(mh1), player.hero, bool, tonumber(mh3))
   end
   
-  local sAttach = string.match(text, "^-setattach%s+(%d+)")
+  local sAttach = string.match(text, "^-attach%s+(%d+)")
   if DEBUG and sAttach ~= nil then
     attach = tonumber(sAttach)
     Say(nil, 'Attach set ' .. sAttach, false)
   end
   
-  local cp,nill = string.match(text, "^-setcp%s+(%d+)%s+nil")
+  local cp,nill = string.match(text, "^-cp%s+(%d+)%s+nil")
   if DEBUG and cp ~= nil and nill ~= nil then
     controlPoints[tonumber(cp)] = nil
     Say(nil, 'CP ' .. cp .. ' set to nil', false)
@@ -566,6 +700,11 @@ function ReflexGameMode:PlayerSay(keys)
   if effect ~= nil and effect ~= "" then
     particleEffect = effect
     local particle = ParticleManager:CreateParticle(effect, attach, player.hero)--cmdPlayer:GetAssignedHero())
+    for cp,vec in pairs(controlPoints) do
+      ParticleManager:SetParticleControl(particle, cp, vec)--Vector(0,0,0)) -- something
+    end
+  elseif effect ~= nil and effect == "" then
+    local particle = ParticleManager:CreateParticle(particleEffect, attach, player.hero)--cmdPlayer:GetAssignedHero())
     for cp,vec in pairs(controlPoints) do
       ParticleManager:SetParticleControl(particle, cp, vec)--Vector(0,0,0)) -- something
     end

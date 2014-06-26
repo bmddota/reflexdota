@@ -133,7 +133,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"1.5 2.0 2.5 3.0"
+				"duration"					"1.0 1.5 2.0 2.5"
 			}
       "02"
 			{
@@ -841,6 +841,17 @@
 				"ModifierName"	"reflex_energy_drain_effect"
 				"Target"		"POINT"
 			}
+      "RunScript"
+      {
+        "ScriptFile"		"scripts/vscripts/abilities.lua"
+				"Function"			"teamBasedCircle"
+        "SafeEffect"    "ref_enigma_midnight_pulse"
+        "DangerEffect"  "enigma_midnight_pulse"
+        "Duration"      "%duration"
+        "Radius"        "%effect_radius"
+        "Target"        "POINT"
+        "Sound"         "Hero_Enigma.Midnight_Pulse"
+      }
 		}
 		
 		// Modifiers
@@ -876,24 +887,17 @@
 
 				"OnCreated"
 				{
-					"AttachEffect"
-					{
-						"EffectName"		"enigma_midnight_pulse"//"alchemist_acid_spray"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "%effect_radius 1 1"
-							"15" "28 225 28"
-							"16" "1 0 0"
-						}
-					}
-					"FireSound"
-					{
-						"EffectName"		"Hero_Enigma.Midnight_Pulse"
-						"Target"			"TARGET"
-					}
+					//"AttachEffect"
+					//{
+						//"EffectName"		"enigma_midnight_pulse"//"alchemist_acid_spray"
+						//"EffectAttachType"	"follow_origin"
+						//"Target"			"TARGET"
+						//"ControlPoints"
+						//{
+							//"00" "0 0 0"
+							//"01" "%effect_radius 1 1"
+            //}
+					//}
 				}
 			}
 		}

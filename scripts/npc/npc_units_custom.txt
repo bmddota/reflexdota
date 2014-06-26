@@ -509,7 +509,7 @@
 			"particlefile"				"particles/units/heroes/hero_morphling.pcf"
 			//"particlefile"				"particles/units/heroes/hero_phantom_lancer.pcf"
 			//"particlefile"				"particles/units/heroes/hero_puck.pcf"
-			//"particlefile"				"particles/units/heroes/hero_pudge.pcf"
+			"particlefile"				"particles/units/heroes/hero_pudge.pcf"
 			//"particlefile"				"particles/units/heroes/hero_razor.pcf"
 			//"particlefile"				"particles/units/heroes/hero_sandking.pcf"
 			//"particlefile"				"particles/units/heroes/hero_stormspirit.pcf"
@@ -604,7 +604,7 @@
 			//"particlefile"				"particles/units/heroes/hero_phoenix.pcf"
 			"particlefile"					"particles/units/heroes/hero_windrunner"
 			"particlefile"				"particles/frostivus_herofx.pcf"
-      "particlefile"				"particles/pudge_reflex3.pcf"
+      //"particlefile"				"particles/pudge_reflex3.pcf"
       "particlefile"				"particles/reflex_puck.pcf"
       "particlefile"				"particles/hlw_phoenix.pcf"
       "particlefile"				"particles/nian_gameplay.pcf"
@@ -612,6 +612,7 @@
       "particlefile"				"particles/generic_gameplay.pcf"
       "particlefile"				"particles/econ/generic/generic_timer.pcf"
       "particlefile"				"particles/reflex_ember.pcf"
+      "particlefile"				"particles/reflex_particles.pcf"
       
 			
 			"soundfile"				"scripts/game_sounds_heroes/game_sounds_antimage.txt"
