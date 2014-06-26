@@ -399,6 +399,7 @@ local attach = 0
 local controlPoints = {}
 local particleEffect = ""
 local abilPoints = false
+local particle = nil
 
 function ReflexGameMode:PlayerSay(keys)
   --print ('[REFLEX] PlayerSay')
@@ -689,22 +690,33 @@ function ReflexGameMode:PlayerSay(keys)
     controlPoints[tonumber(cp)] = nil
     Say(nil, 'CP ' .. cp .. ' set to nil', false)
   else
-    local cp,c1,c2,c3 = string.match(text, "^-setcp%s+(%d+)%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)")
+    local cp,c1,c2,c3 = string.match(text, "^-cp%s+(%d+)%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)")
     if DEBUG and cp ~= nil and c1 ~= nil and c2 ~= nil and c3 ~= nil then
       controlPoints[tonumber(cp)] = Vector(tonumber(c1), tonumber(c2), tonumber(c3))
+      if particle ~= nil then
+        ParticleManager:SetParticleControl(particle, tonumber(cp), controlPoints[tonumber(cp)])
+      end
       Say(nil, 'CP ' .. cp .. ' set to Vector(' .. c1 .. ', ' .. c2 .. ', ' .. c3 .. ')', false)
     end
+  end
+  
+  if DEBUG and string.find(text, "^-newp") then
+    particle = nil
+  end
+  
+  if DEBUG and string.find(text, "^-rpi") and particle ~= nil then
+    ParticleManager:ReleaseParticleIndex(particle)
   end
   
   local effect = string.match(text, "^-particle%s*(.*)")
   if effect ~= nil and effect ~= "" then
     particleEffect = effect
-    local particle = ParticleManager:CreateParticle(effect, attach, player.hero)--cmdPlayer:GetAssignedHero())
+    particle = ParticleManager:CreateParticle(effect, attach, player.hero)--cmdPlayer:GetAssignedHero())
     for cp,vec in pairs(controlPoints) do
       ParticleManager:SetParticleControl(particle, cp, vec)--Vector(0,0,0)) -- something
     end
   elseif effect ~= nil and effect == "" then
-    local particle = ParticleManager:CreateParticle(particleEffect, attach, player.hero)--cmdPlayer:GetAssignedHero())
+    particle = ParticleManager:CreateParticle(particleEffect, attach, player.hero)--cmdPlayer:GetAssignedHero())
     for cp,vec in pairs(controlPoints) do
       ParticleManager:SetParticleControl(particle, cp, vec)--Vector(0,0,0)) -- something
     end

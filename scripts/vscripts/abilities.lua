@@ -725,7 +725,7 @@ function itemChargeThink (keys)
 	if chargeType == "UNLINKED" then
 		
 	elseif chargeType == "HALF" or chargeType == "FULL" then
-		if charges + 1 ~= maxCharges then
+		if charges + 1 < maxCharges then
 			callModApplier(caster, chargeModifier)
 		end
 	elseif chargeType == "ALL" then
