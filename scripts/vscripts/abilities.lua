@@ -4,6 +4,35 @@ vPlayerProjectiles = {}
 vPlayerDummies = {}
 vPlayerToggles = {}
 
+function warpToPoint(keys)
+  local target = keys.Target
+  local caster = keys.caster
+  
+  if caster == nil then
+		return
+	end
+
+  local point = nil
+	if target == "POINT" and keys.target_points[1] then
+		point = keys.target_points[1]
+	else
+    return
+  end
+  
+  --print(tostring(point))
+  -- prevent top left
+  if point.x < -2700 and point.y > 2200 then
+    point = Vector(-2180, 1368, 0)
+  end
+  
+  -- prevent top right
+  if point.x > 2700 and point.y > 2200 then
+    point = Vector(2180, 1368, 0)
+  end
+
+  FindClearSpaceForUnit(caster, point, true)
+end
+
 function toggleStart(keys)
   local caster = keys.caster
   local toggles = vPlayerDummies[caster:GetPlayerID()]
@@ -317,6 +346,19 @@ function teamBasedWall(keys)
     ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
     ParticleManager:SetParticleControl(particle, 1, point + (vec * length / -2)) -- endpoint
     ParticleManager:SetParticleControl(particle, 2, Vector(0,0,0)) -- something
+  end
+  
+  local endPoint = point + (vec * length / 2)
+  
+  for i=0,length,200 do
+    dangerIndicator({
+        caster = caster,
+        Target = "POINT",
+        target_points = { endPoint - vec * i },
+        target_entities = {},
+        Radius = 110,
+        Duration = duration * 3.25
+      })
   end
  
   ReflexGameMode:CreateTimer(DoUniqueString("wall"), {

@@ -490,6 +490,34 @@ function ReflexGameMode:PlayerSay(keys)
     end
   end
   
+  if DEBUG and string.find(text, "-reset") then
+    for k,v in pairs(HeroList:GetAllHeroes()) do
+      if v ~= player.hero then
+        for k2,ab in pairs(player.vAbilities) do
+          v:RemoveAbility(ab)
+        end
+        for k2,ab in pairs(player.vAbilities) do
+          v:AddAbility('reflex_empty' .. k2)
+        end
+      end
+    end
+    
+    for k2,ab in pairs(player.vAbilities) do
+      player.hero:RemoveAbility(ab)
+    end
+    for k2,ab in pairs(player.vAbilities) do
+      player.hero:AddAbility('reflex_empty' .. k2)
+    end
+    player.vAbilities = {
+      "reflex_empty1",
+      "reflex_empty2",
+      "reflex_empty3",
+      "reflex_empty4",
+      "reflex_empty5",
+      "reflex_empty6"
+    }
+  end
+  
   if string.find(text, "^-mod") and DEBUG then
     local m = string.match(text, "(%d)")
     if m ~= nil then
@@ -709,13 +737,13 @@ function ReflexGameMode:PlayerSay(keys)
   end
   
   local effect = string.match(text, "^-particle%s*(.*)")
-  if effect ~= nil and effect ~= "" then
+  if DEBUG and effect ~= nil and effect ~= "" then
     particleEffect = effect
     particle = ParticleManager:CreateParticle(effect, attach, player.hero)--cmdPlayer:GetAssignedHero())
     for cp,vec in pairs(controlPoints) do
       ParticleManager:SetParticleControl(particle, cp, vec)--Vector(0,0,0)) -- something
     end
-  elseif effect ~= nil and effect == "" then
+  elseif DEBUG and effect ~= nil and effect == "" then
     particle = ParticleManager:CreateParticle(particleEffect, attach, player.hero)--cmdPlayer:GetAssignedHero())
     for cp,vec in pairs(controlPoints) do
       ParticleManager:SetParticleControl(particle, cp, vec)--Vector(0,0,0)) -- something
@@ -725,8 +753,8 @@ function ReflexGameMode:PlayerSay(keys)
   local mA, mB, mC = string.match(text, "^-sequence%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)")
   
   local hooks = {}
-  local speed = 1500
-  local distance = 9000
+  local speed = 500
+  local distance = 5000
   local radius = 150
   local hookCount = 1
   local hooked = nil
@@ -757,6 +785,15 @@ function ReflexGameMode:PlayerSay(keys)
     hooks[hookCount]:FindAbilityByName("reflex_dummy_unit"):SetLevel(1)
     hookCount = hookCount + 1
     
+    local particle = ParticleManager:CreateParticle("ref_pudge_meathook_chain", PATTACH_RENDERORIGIN_FOLLOW, hooks[1])
+    local position = hero:GetAbsOrigin()
+    local endPosition = hooks[1]:GetAbsOrigin()
+    local pu = ParticleUnit.new(particle, position, endPosition, 6, 0, 10) --cpStart, cpEnd, cpDelete)
+    
+    hooks[hookCount] = pu
+    
+    hookCount = hookCount + 1
+    
     local timeout = GameRules:GetGameTime() + distance / speed
     
     self:CreateTimer(DoUniqueString('hook_test2'), {
@@ -773,19 +810,35 @@ function ReflexGameMode:PlayerSay(keys)
               dropped = true
             end
           end
+          
+          --Move close chain
+          if #hooks > 1 then
+            local direction = hero:GetAbsOrigin() - hooks[#hooks]:GetAbsOrigin()
+            direction.z = 0
+            direction = direction:Normalized()
+            hooks[#hooks]:SetStart(hero:GetAbsOrigin() + Vector(0,0,128))
+            hooks[#hooks]:SetEnd(hooks[#hooks]:GetEnd() + direction * speed / 30)
+          end
         
-          for i=#hooks - 1,1,-1 do
+          for i=#hooks - 1,2,-1 do
             local diff = hooks[i+1]:GetAbsOrigin() - hooks[i]:GetAbsOrigin()
             if diff:Length() > 80 then
-              hooks[i]:SetAbsOrigin(hooks[i]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - 80))
-              diff = diff:Normalized() * -1
               diff.z = 0
-              hooks[i]:SetForwardVector(diff)
+              hooks[i]:SetStart(hooks[i]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - 80))
+              hooks[i]:SetEnd(hooks[i+1]:GetAbsOrigin())
             end
           end
           
+          if #hooks > 1 then
+            local diff = hooks[2]:GetAbsOrigin() - hooks[1]:GetAbsOrigin()
+            diff.z = 0
+            hooks[1]:SetAbsOrigin(hooks[1]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - 80))
+            hooks[1]:SetForwardVector(-1 * diff:Normalized())
+          end
+          
           local diff = hooks[#hooks]:GetAbsOrigin() - hero:GetAbsOrigin()
-          if diff:Length() < 75 then
+          diff.z = 0
+          if diff:Length() < 150 then
             hooks[#hooks]:Destroy()
             hooks[#hooks] = nil
           end
@@ -797,11 +850,6 @@ function ReflexGameMode:PlayerSay(keys)
             end
             return
           end
-          
-          local direction = hero:GetAbsOrigin() - hooks[#hooks]:GetAbsOrigin()
-          direction = direction:Normalized()
-          hooks[#hooks]:SetAbsOrigin(hooks[#hooks]:GetAbsOrigin() + direction * speed / 30)
-          hooks[#hooks]:SetForwardVector(Vector(direction.x, direction.y, 0) * -1)
           
           --print(tostring(hooks[#hooks]:GetAbsOrigin()) .. " -- " .. tostring(dir) .. " -- " .. speed .. " -- " .. tostring(#hooks))
           
@@ -823,38 +871,45 @@ function ReflexGameMode:PlayerSay(keys)
             end
           end
         else
-          for i=2,#hooks do
-            local diff = hooks[i-1]:GetAbsOrigin() - hooks[i]:GetAbsOrigin()
-            if diff:Length() > 80 then
-              hooks[i]:SetAbsOrigin(hooks[i]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - 80))
-              local d = diff:Normalized()
-              d.z = 0
-              hooks[i]:SetForwardVector(d)
-            end
-          end
-          
-          local diff = hooks[#hooks]:GetAbsOrigin() - hero:GetAbsOrigin()
-          if diff:Length() > 150 then
-            local direction = hooks[#hooks]:GetAbsOrigin() - hero:GetAbsOrigin()
-            direction = direction:Normalized()
-            hooks[hookCount] = CreateUnitByName("npc_reflex_hook_chain", hero:GetOrigin() + direction * 75, false, hero, hero, hero:GetTeamNumber())
-            direction.z = 0
-            hooks[hookCount]:SetForwardVector(direction)
-            hooks[hookCount]:FindAbilityByName("reflex_dummy_unit"):SetLevel(1)
-            --hooks[hookCount]:FindAbilityByName("reflex_flame_guard"):SetLevel(1)
-            --hooks[hookCount]:FindAbilityByName("reflex_double_damage"):SetLevel(1)
-            --hooks[hookCount]:FindAbilityByName("reflex_rupture"):SetLevel(1)
-            
-            hookCount = hookCount + 1
-          end
-          
-          --local direction = Vector(tonumber(mA),tonumber(mB),tonumber(mC)) - hooks[1]:GetAbsOrigin()
-          --dir.z = direction:Normalized().z
+          -- Move hook
           dir.z = 0
-          --print(tostring(dir))
           hooks[1]:SetAbsOrigin(hooks[1]:GetAbsOrigin() + dir * speed / 30)
           dir.z = 0
           hooks[1]:SetForwardVector(dir)
+          
+          local diff = hooks[1]:GetAbsOrigin() - hooks[2]:GetAbsOrigin()
+          diff.z = 0
+          if diff:Length() > 80 then
+            hooks[2]:SetStart(hooks[2]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - 80))
+          end
+          hooks[2]:SetEnd(hooks[1]:GetAbsOrigin())
+          
+          -- Move chains
+          for i=3,#hooks do
+            local diff = hooks[i-1]:GetAbsOrigin() - hooks[i]:GetAbsOrigin()
+            diff.z = 0
+            if diff:Length() > 80 then
+              hooks[i]:SetStart(hooks[i]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - 80))
+            end
+            hooks[i]:SetEnd(hooks[i-1]:GetAbsOrigin())
+          end
+          
+          -- Create New Chain link
+          local diff = hooks[#hooks]:GetAbsOrigin() - hero:GetAbsOrigin()
+          if diff:Length() > 150 then
+            diff.z = 0
+            local direction = diff:Normalized()
+            local particle = ParticleManager:CreateParticle("ref_pudge_meathook_chain", PATTACH_ABSORIGIN, hero)
+            local position = hero:GetAbsOrigin() + Vector(0,0,128)
+            local endPosition = hero:GetAbsOrigin() + direction * 75 + Vector(0,0,128)
+            local pu = ParticleUnit.new(particle, position, endPosition) --cpStart, cpEnd, cpDelete)
+            
+            hooks[hookCount] = pu
+            
+            hookCount = hookCount + 1
+          elseif #hooks > 1 then
+            hooks[#hooks]:SetStart(hero:GetAbsOrigin() + Vector(0,0,128))
+          end
           
           --Collision detection
           if hooked == nil then
@@ -999,7 +1054,32 @@ function ReflexGameMode:PlayerSay(keys)
   
   if string.find(text, "^-hook") and DEBUG then
     local hero = player.hero
-    --hook = CreateUnitByName("npc_reflex_hook_test", hero:GetOrigin(), false, hero, hero, hero:GetTeamNumber())
+    
+    local particle = ParticleManager:CreateParticle("ref_pudge_meathook_chain", PATTACH_POINT, hero)
+    local position = hero:GetAbsOrigin()
+    local endPosition = position + Vector(200,200,0)
+    local pu = ParticleUnit.new(particle, position, endPosition) --cpStart, cpEnd, cpDelete)
+    PrintTable(pu)
+    PrintTable(getmetatable(pu))
+    local timeout = GameRules:GetGameTime() + 5
+    
+    self:CreateTimer('hook_test', {
+      endTime = GameRules:GetGameTime(),
+      callback = function(reflex, args)
+        print('---------------')
+        PrintTable(pu)
+        local speed = 500 / 30
+        local dir = Vector(200,200,0):Normalized()
+        pu:SetEnd(pu:GetEnd() + dir * speed)
+        
+        if GameRules:GetGameTime() > timeout then
+          pu:Destroy()
+          return
+        end
+        return GameRules:GetGameTime()
+      end})
+    
+    --[[hook = CreateUnitByName("npc_reflex_hook_test", hero:GetOrigin(), false, hero, hero, hero:GetTeamNumber())
     --hook:FindAbilityByName("reflex_dummy_unit"):SetLevel(1)
     local direction = Vector(0,0,128) - hero:GetAbsOrigin()
     direction = direction:Normalized()
@@ -1052,7 +1132,7 @@ function ReflexGameMode:PlayerSay(keys)
           return GameRules:GetGameTime()
         end
         return GameRules:GetGameTime()
-      end})
+      end})]]
     
   end
 end
@@ -1306,7 +1386,19 @@ function ReflexGameMode:ShopReplacement( keys )
   end
 
   -- We're done if it's not an ability item
-  if string.find(item:GetAbilityName(), "item_ability_reflex_") == nil then return end
+  if string.find(item:GetAbilityName(), "item_ability_reflex_") == nil then 
+    -- Copy to debug heroes
+    if DEBUG then
+      for i=0,9 do
+        if PlayerResource:IsFakeClient(i) then
+          local v = PlayerResource:GetPlayer(i):GetAssignedHero()
+          local item2 = CreateItem(item:GetAbilityName(), v, v)
+          v:AddItem(item2)
+        end
+      end
+    end
+    return
+  end
 
   --local abilityToAdd = ABILITY_ITEM_TABLE[item:GetAbilityName()]
   local abilityToAdd = string.gsub(item:GetAbilityName(), "item_ability_", "")
@@ -1339,6 +1431,16 @@ function ReflexGameMode:ShopReplacement( keys )
           player.hero:AddAbility(abilityToAdd)
           player.vAbilities[i] = abilityToAdd
           found = true
+          
+          if DEBUG then
+            for j=0,9 do
+              if PlayerResource:IsFakeClient(j) then
+                local v = PlayerResource:GetPlayer(j):GetAssignedHero()
+                v:RemoveAbility('reflex_empty' .. i)
+                v:AddAbility(abilityToAdd)
+              end
+            end
+          end
         end
       end
     end
@@ -1354,6 +1456,16 @@ function ReflexGameMode:ShopReplacement( keys )
           player.hero:AddAbility(abilityToAdd)
           player.vAbilities[i] = abilityToAdd
           found = true
+          
+          if DEBUG then
+            for j=0,9 do
+              if PlayerResource:IsFakeClient(j) then
+                local v = PlayerResource:GetPlayer(j):GetAssignedHero()
+                v:RemoveAbility('reflex_empty' .. i)
+                v:AddAbility(abilityToAdd)
+              end
+            end
+          end
         end
       end
     end
