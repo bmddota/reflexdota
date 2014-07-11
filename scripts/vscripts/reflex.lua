@@ -645,6 +645,16 @@ function ReflexGameMode:PlayerSay(keys)
       end
     end
   end
+
+  local mDam = string.match(text, "^-dam%s(%d+)")
+  if DEBUG and mDam ~= nil then
+    local dam = tonumber(mDam)
+    for k,v in pairs(HeroList:GetAllHeroes()) do
+      if v ~= player.hero then
+        dealDamage(player.hero, v, dam)
+      end
+    end
+  end
   
   if DEBUG and string.find(text, "^-units") then
     local m = string.match(text, "(%d+)")
@@ -2531,6 +2541,27 @@ end
 
 -- A helper function for dealing damage from a source unit to a target unit.  Damage dealt is pure damage
 function dealDamage(source, target, damage)
+    if damage <= 0 or source == nil or target == nil then
+      return
+    end
+    -- target:AddNewModifier(source, nil, "modifier_invoker_tornado", {land_damage = damage, duration = 0} )
+    local dmgTable = {4096,2048,1024,512,256,128,64,32,16,8,4,2,1}
+    local item = CreateItem( "item_deal_damage", source, source) --creates an item
+    for i=1,#dmgTable do
+      local val = dmgTable[i]
+      local count = math.floor(damage / val)
+      if count >= 1 then
+          item:ApplyDataDrivenModifier( source, target, "dealDamage" .. val, {duration=0} )
+          damage = damage - val
+      end
+    end
+    UTIL_RemoveImmediate(item)
+    item = nil
+    --print("removed")
+end
+
+
+function dealDamage2(source, target, damage)
   local unit = nil
   if damage == 0 then
     return
