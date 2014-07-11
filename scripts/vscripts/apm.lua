@@ -73,7 +73,7 @@ function APM:start()
   self.projectiles = {}
   
   local wspawn = Entities:FindByClassname(nil, 'worldspawn')
-  wspawn:SetContextThink("APMThink", Dynamic_Wrap( APM, 'Think' ), 0.1 )
+  --wspawn:SetContextThink("APMThink", Dynamic_Wrap( APM, 'Think' ), 0.1 )
 end
 
 function APM:Think()

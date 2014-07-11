@@ -4,7 +4,7 @@ USE_LOBBY=true
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.05.08"
+REFLEX_VERSION = "0.05.09"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 150 --240
@@ -400,6 +400,9 @@ local controlPoints = {}
 local particleEffect = ""
 local abilPoints = false
 local particle = nil
+local paused = nil
+local unitNum = 0
+local units = {}
 
 function ReflexGameMode:PlayerSay(keys)
   --print ('[REFLEX] PlayerSay')
@@ -643,11 +646,256 @@ function ReflexGameMode:PlayerSay(keys)
     end
   end
   
+  if DEBUG and string.find(text, "^-units") then
+    local m = string.match(text, "(%d+)")
+    if m ~= nil then
+      unitNum = unitNum + m
+      print (unitNum)
+      for i=1,m do 
+        local unit = CreateUnitByName('npc_dummy_blank', player.hero:GetAbsOrigin(), true, player.hero, player.hero, player.hero:GetTeamNumber())
+        unit:AddNewModifier(unit, nil, "modifier_phased", {})
+        unit:SetModel('models/heroes/lycan/lycan_wolf.mdl')
+        unit:SetOriginalModel('models/heroes/lycan/lycan_wolf.mdl')
+        
+        Physics:Unit(unit)
+        unit:SetPhysicsFriction(0)
+        unit:SetPhysicsVelocity(RandomVector(2000))
+        unit:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+      end
+    end
+  end
+  
+  if DEBUG and string.find(text, "^-entprint") then
+    local m = string.match(text, "(%d+)")
+    if m == nil then
+      local ent = Entities:First()
+      while ent ~= nil do
+        print(tostring(ent:entindex()) .. " -- " .. ent:GetClassname() .. " -- " .. ent:GetName())
+        ent = Entities:Next(ent)
+      end
+    else
+      local ent = Entities:FindInSphere(nil, player.hero:GetAbsOrigin(), tonumber(m))
+      while ent ~= nil do
+        print(tostring(ent:entindex()) .. " -- " .. ent:GetClassname() .. " -- " .. ent:GetName())
+        ent = Entities:FindInSphere(ent, player.hero:GetAbsOrigin(), tonumber(m))
+      end
+    end
+  end
+
+  if DEBUG and string.find(text, "^-plyprint") then
+    for i=-1,32 do
+      local valid = "valid"
+      local teamvalid = "teamvalid"
+      local team = PlayerResource:GetTeam(i)
+      local acct = PlayerResource:GetSteamAccountID(i)
+      local fake = "fake"
+      local ply = PlayerResource:GetPlayer(i)
+
+      if not PlayerResource:IsValidPlayer(i) then
+        valid = "invalid"
+      end
+      if not PlayerResource:IsValidTeamPlayer(i) then
+        teamvalid = "teaminvalid"
+      end
+      if not PlayerResource:IsFakeClient(i) then
+        fake = "notfake"
+      end
+
+      local userId = "N"
+      for k,v in pairs(self.vUserIds) do
+        if v == ply then
+          userId = k
+        end
+      end
+
+      local name="N"
+      if userId ~= "N" then
+        name = self.vUserNames[userId]
+      end
+
+      print(i .. ": " .. valid .. ", " .. teamvalid .. ", " .. tostring(team) .. ", " .. tostring(acct) .. ", " .. tostring(userId) .. ", " .. tostring(name))
+    end
+  end
+
+  if DEBUG and string.find(text, "^-botprint") then
+    for k,v in pairs(self.vBots) do
+      local name = self.vUserNames[k]
+      print(k .. " -- " .. v .. " -- " .. tostring(name))
+    end
+  end
+  
+  if DEBUG and string.find(text, "^-hibtest") then
+    local m = string.match(text, "(%d+)")
+    if m ~= nil and m == "0" then
+      self:CreateTimer('units2',{
+        useGameTime = true,
+        endTime = GameRules:GetGameTime(),
+        callback = function(reflex, args)
+          local pushNum = math.floor(#units / 10) + 1
+          for i=1,pushNum do
+            local unit = units[RandomInt(1, #units)]
+            unit:AddPhysicsVelocity(RandomVector(RandomInt(1000,2000)))
+          end
+          
+          return GameRules:GetGameTime() + 1
+        end
+      })
+    elseif m ~= nil then
+      unitNum = unitNum + m
+      print (unitNum)
+      for i=1,m do 
+        local unit = CreateUnitByName('npc_dummy_blank', player.hero:GetAbsOrigin(), true, player.hero, player.hero, player.hero:GetTeamNumber())
+        unit:AddNewModifier(unit, nil, "modifier_phased", {})
+        unit:SetModel('models/heroes/lycan/lycan_wolf.mdl')
+        unit:SetOriginalModel('models/heroes/lycan/lycan_wolf.mdl')
+        
+        Physics:Unit(unit)
+        unit:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+        
+        units[#units + 1] = unit
+      end
+    end
+  end
+  
+  if DEBUG and string.find(text, "^-tractor") then
+    print('tractor')
+    local m = string.match(text, "(%d)")
+    if m ~= nil then
+      local p = PlayerResource:GetPlayer(tonumber(m))
+      local target = p:GetAssignedHero()
+      local source = player.hero
+      
+      target:SetPhysicsVelocityMax(500)
+      target:PreventDI()
+      
+      local direction = source:GetAbsOrigin() - target:GetAbsOrigin()
+      direction = direction:Normalized()
+      target:SetPhysicsAcceleration(direction * 50)
+      
+      target:OnPhysicsFrame(function(unit)
+        -- Retarget acceleration vector
+        local distance = source:GetAbsOrigin() - target:GetAbsOrigin()
+        local direction = distance:Normalized()
+        target:SetPhysicsAcceleration(direction * 50)
+        
+        -- Stop if reached the unit
+        if distance:Length() < 100 then
+          target:SetPhysicsAcceleration(Vector(0,0,0))
+          target:SetPhysicsVelocity(Vector(0,0,0))
+          target:OnPhysicsFrame(nil)
+        end
+      end)
+    end
+  end
+  
   if DEBUG and string.find(text, "^-gold") then
     for k,v in pairs(HeroList:GetAllHeroes()) do
       v:SetGold(50000, true)
       GameRules:SetUseUniversalShopMode( true )
     end
+  end
+  
+  if DEBUG and string.find(text, "^-phys") then
+    Physics:Unit(player.hero)
+    player.hero:SetPhysicsVelocity(Vector(1000,0,0))
+    for k,v in pairs(HeroList:GetAllHeroes()) do
+      if v ~= hero then
+        Physics:Unit(v)
+        v:SetPhysicsVelocity(Vector(1000,0,0))
+        v:OnPhysicsFrame(function(unit)
+          local pos = unit:GetAbsOrigin()
+          local groundPos = GetGroundPosition(pos, unit)
+          print(tostring(pos) .. " -- " .. tostring(groundPos))
+          if pos.z > groundPos.z then
+            unit:PreventDI(true)
+            unit:SetPhysicsFriction(0)
+          else
+            unit:PreventDI(false)
+            unit:SetPhysicsFriction(0.05)
+          end
+        end)
+      end
+    end
+  end
+  
+  local vel1,vel2,vel3 = string.match(text, "^-vel%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)")
+  if DEBUG and vel1 ~= nil and vel2 ~= nil and vel3 ~= nil then
+    player.hero:AddPhysicsVelocity(Vector(tonumber(vel1), tonumber(vel2), tonumber(vel3)))
+  end
+  
+  local velmax1 = string.match(text, "^-velmax%s+(%d+)")
+  if DEBUG and velmax1 ~= nil then
+    player.hero:SetPhysicsVelocityMax(tonumber(velmax1))
+    print('-velmax' .. tonumber(velmax1))
+  end
+  
+  local acc1,acc2,acc3 = string.match(text, "^-acc%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)")
+  if DEBUG and acc1 ~= nil and acc2 ~= nil and acc3 ~= nil then
+    player.hero:SetPhysicsAcceleration(Vector(tonumber(acc1), tonumber(acc2), tonumber(acc3)))
+  end
+  
+  local fric1 = string.match(text, "^-fric%s+(-?%d+)")
+  if DEBUG and fric1 ~= nil then
+    player.hero:SetPhysicsFriction(tonumber(fric1) / 100 )
+  end
+  
+  local slide1 = string.match(text, "^-slidemult%s+(-?%d+)")
+  if DEBUG and slide1 ~= nil then
+    player.hero:SetSlideMultiplier(tonumber(slide1) / 100 )
+  end
+  
+  if DEBUG and string.find(text, "^-prevent") then
+    player.hero:PreventDI(not player.hero:IsPreventDI())
+  end
+  
+  if DEBUG and string.find(text, "^-onframe") then
+    player.hero:OnPhysicsFrame(function(unit)
+      PrintTable(unit)
+      print('----------------')
+    end)
+  end
+  
+  if DEBUG and string.find(text, "^-slide$") then
+    player.hero:Slide(not player.hero:IsSlide())
+    print(player.hero:IsSlide())
+  end
+  
+  if DEBUG and string.find(text, "^-nav$") then
+    player.hero:FollowNavMesh(not player.hero:IsFollowNavMesh())
+  end
+  
+  local clamp1 = string.match(text, "^-clamp%s+(%d+)")
+  if DEBUG and clamp1 ~= nil then
+    player.hero:SetVelocityClamp( tonumber(clamp1))
+  end
+  
+  if DEBUG and string.find(text, "^-hibernate") then
+    player.hero:Hibernate(not player.hero:IsHibernate())
+    print(player.hero:IsHibernate())
+  end
+  
+  if DEBUG and string.find(text, "^-navtype") then
+      local navType = player.hero:GetNavCollisionType()
+      navType = (navType + 1) % 4
+      print('navtype: ' .. tostring(navType))
+      player.hero:SetNavCollisionType(navType)
+  end
+  
+  if DEBUG and string.find(text, "^-ground") then
+    local ground = player.hero:GetGroundBehavior()
+    ground = (ground + 1) % 3
+    print('ground: ' .. tostring(ground))
+    player.hero:SetGroundBehavior(ground)
+  end
+  
+  if DEBUG and string.find(text, "^-pause") then
+    paused = self.timers['round_time_out']
+    self:RemoveTimer('round_time_out')
+  end
+  
+  if DEBUG and string.find(text, "^-unpause") and paused ~= nil then
+    self.timers['round_time_out'] = paused
+    paused = nil
   end
   
   local abil1 = string.match(text, "^-abil%s+(.+)")
@@ -685,7 +933,7 @@ function ReflexGameMode:PlayerSay(keys)
     if m ~= nil then
       local p = PlayerResource:GetPlayer(tonumber(m))
       local v = p:GetAssignedHero()
-      v:SetHealth(v:GetMaxHealth())
+      v:SetHealth(v:GetMaxHealth()) 
     else 
       for k,v in pairs(HeroList:GetAllHeroes()) do
         if v ~= player.hero then
@@ -753,8 +1001,8 @@ function ReflexGameMode:PlayerSay(keys)
   local mA, mB, mC = string.match(text, "^-sequence%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)")
   
   local hooks = {}
-  local speed = 500
-  local distance = 5000
+  local speed = 1500
+  local distance = 10000
   local radius = 150
   local hookCount = 1
   local hooked = nil
@@ -767,6 +1015,9 @@ function ReflexGameMode:PlayerSay(keys)
   local centerRadius = 150
   local rebounceTolerance = 0
   local ancientPosition = Vector(0,-10,0)
+  local linkCreationTolerance = 250
+  local linkFollowDistance = 200
+  local linkDeletionTolerance = 150
   
   --[[local topBound = 1600
   local bottomBound = -1600
@@ -804,7 +1055,7 @@ function ReflexGameMode:PlayerSay(keys)
           if hooked ~= nil then
             hooked:SetAbsOrigin(hooks[1]:GetAbsOrigin())
             local diff = hero:GetAbsOrigin() - hooked:GetAbsOrigin()
-            if diff:Length() < 150 then
+            if diff:Length() < linkDeletionTolerance then
               hooked:RemoveModifierByName("modifier_rooted")
               hooked = nil
               dropped = true
@@ -813,34 +1064,49 @@ function ReflexGameMode:PlayerSay(keys)
           
           --Move close chain
           if #hooks > 1 then
+            local direction = hero:GetAbsOrigin() - hooks[#hooks]:GetEnd()
+            direction.z = 0
+            direction = direction:Normalized()
+            hooks[#hooks]:SetStart(hero:GetAbsOrigin() + Vector(0,0,140))
+            hooks[#hooks]:SetEnd(hooks[#hooks]:GetEnd() + direction * speed / 30)
+          else
             local direction = hero:GetAbsOrigin() - hooks[#hooks]:GetAbsOrigin()
             direction.z = 0
             direction = direction:Normalized()
-            hooks[#hooks]:SetStart(hero:GetAbsOrigin() + Vector(0,0,128))
-            hooks[#hooks]:SetEnd(hooks[#hooks]:GetEnd() + direction * speed / 30)
+            hooks[#hooks]:SetAbsOrigin(hooks[#hooks]:GetAbsOrigin() + direction * speed / 30)
           end
         
           for i=#hooks - 1,2,-1 do
-            local diff = hooks[i+1]:GetAbsOrigin() - hooks[i]:GetAbsOrigin()
-            if diff:Length() > 80 then
+            local diff = hooks[i+1]:GetEnd() - hooks[i]:GetEnd()
+            if diff:Length() > linkFollowDistance then
               diff.z = 0
-              hooks[i]:SetStart(hooks[i]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - 80))
-              hooks[i]:SetEnd(hooks[i+1]:GetAbsOrigin())
+              hooks[i]:SetEnd(hooks[i]:GetEnd() + diff:Normalized() * (diff:Length() - linkFollowDistance))
+            end
+            if hooks[i]:GetStart() ~= hooks[i+1]:GetEnd() then
+              hooks[i]:SetStart(hooks[i+1]:GetEnd())
             end
           end
           
           if #hooks > 1 then
             local diff = hooks[2]:GetAbsOrigin() - hooks[1]:GetAbsOrigin()
             diff.z = 0
-            hooks[1]:SetAbsOrigin(hooks[1]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - 80))
+            hooks[1]:SetAbsOrigin(hooks[1]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - linkFollowDistance))
             hooks[1]:SetForwardVector(-1 * diff:Normalized())
           end
           
-          local diff = hooks[#hooks]:GetAbsOrigin() - hero:GetAbsOrigin()
+          local diff = nil
+          if #hooks > 1 then
+            diff = hooks[#hooks]:GetEnd() - hero:GetAbsOrigin()
+          else
+            diff = hooks[#hooks]:GetAbsOrigin() - hero:GetAbsOrigin()
+          end
           diff.z = 0
-          if diff:Length() < 150 then
+          if diff:Length() < linkDeletionTolerance then
             hooks[#hooks]:Destroy()
             hooks[#hooks] = nil
+            if #hooks > 1 then
+              hooks[#hooks]:SetStart(hero:GetAbsOrigin() + Vector(0,0,140))
+            end
           end
           
           if #hooks == 0 then
@@ -879,36 +1145,40 @@ function ReflexGameMode:PlayerSay(keys)
           
           local diff = hooks[1]:GetAbsOrigin() - hooks[2]:GetAbsOrigin()
           diff.z = 0
-          if diff:Length() > 80 then
-            hooks[2]:SetStart(hooks[2]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - 80))
+          if diff:Length() > linkFollowDistance then
+            hooks[2]:SetStart(hooks[2]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - linkFollowDistance))
           end
-          hooks[2]:SetEnd(hooks[1]:GetAbsOrigin())
+          if hooks[2]:GetEnd() ~= hooks[1]:GetAbsOrigin() then
+            hooks[2]:SetEnd(hooks[1]:GetAbsOrigin())
+          end
           
           -- Move chains
           for i=3,#hooks do
             local diff = hooks[i-1]:GetAbsOrigin() - hooks[i]:GetAbsOrigin()
             diff.z = 0
-            if diff:Length() > 80 then
-              hooks[i]:SetStart(hooks[i]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - 80))
+            if diff:Length() > linkFollowDistance then
+              hooks[i]:SetStart(hooks[i]:GetAbsOrigin() + diff:Normalized() * (diff:Length() - linkFollowDistance))
             end
-            hooks[i]:SetEnd(hooks[i-1]:GetAbsOrigin())
+            if hooks[i]:GetEnd() ~= hooks[i-1]:GetAbsOrigin() then
+              hooks[i]:SetEnd(hooks[i-1]:GetAbsOrigin())
+            end
           end
           
           -- Create New Chain link
           local diff = hooks[#hooks]:GetAbsOrigin() - hero:GetAbsOrigin()
-          if diff:Length() > 150 then
+          if diff:Length() > linkCreationTolerance then
             diff.z = 0
             local direction = diff:Normalized()
             local particle = ParticleManager:CreateParticle("ref_pudge_meathook_chain", PATTACH_ABSORIGIN, hero)
-            local position = hero:GetAbsOrigin() + Vector(0,0,128)
-            local endPosition = hero:GetAbsOrigin() + direction * 75 + Vector(0,0,128)
+            local position = hero:GetAbsOrigin() + Vector(0,0,140)
+            local endPosition = hero:GetAbsOrigin() + direction * 75 + Vector(0,0,140)
             local pu = ParticleUnit.new(particle, position, endPosition) --cpStart, cpEnd, cpDelete)
             
             hooks[hookCount] = pu
             
             hookCount = hookCount + 1
           elseif #hooks > 1 then
-            hooks[#hooks]:SetStart(hero:GetAbsOrigin() + Vector(0,0,128))
+            hooks[#hooks]:SetStart(hero:GetAbsOrigin() + Vector(0,0,140))
           end
           
           --Collision detection
@@ -2088,9 +2358,32 @@ function ReflexGameMode:OnEntityKilled( keys )
     print( '[REFLEX] KilledUnit exists' )
     if killerEntity then
       local killerID = killerEntity:GetPlayerOwnerID()
-      self.vPlayers[killerID].nKillsThisRound = self.vPlayers[killerID].nKillsThisRound + 1
-      print( string.format( '%s killed %s', killerEntity:GetPlayerOwnerID(), killedUnit:GetPlayerOwnerID()) )
+      if self.vPlayers[killedID] ~= nil then
+        self.vPlayers[killerID].nKillsThisRound = self.vPlayers[killerID].nKillsThisRound + 1
+        print( string.format( '%s killed %s', killerEntity:GetPlayerOwnerID(), killedUnit:GetPlayerOwnerID()) )
+      end
     end
+    
+    -- Trigger OnDeath abilities
+    self:LoopOverPlayers(function(player, plyID)
+      --print('Player ' .. plyID .. ' -- Dead: ' .. tostring(player.bDead) .. ' -- Team: ' .. tostring(player.nTeam))
+      if player.bDead == false and player.nTeam == killedUnit:GetTeam() then
+        for onDeath,scale in pairs(ABILITY_ON_DEATH) do
+          local ability = player.hero:FindAbilityByName(onDeath)
+          --print('     ' .. onDeath .. ' -- ' .. tostring(ability or 'NOPE'))
+          if ability ~= nil and ability:GetLevel() ~= 0 then
+            callModApplier(player.hero, onDeath, ability:GetLevel())
+            player.hero:SetModelScale(1 + ((scale - 1) * (ability:GetLevel() / 4)), 1)
+            self:CreateTimer('resetScale' .. plyID,{
+              endTime = GameRules:GetGameTime() + ability:GetSpecialValueFor("duration") + (ability:GetLevel() - 1),
+              useGameTime = true,
+              callback = function() 
+                player.hero:SetModelScale(1, 1)
+              end})
+          end
+        end
+      end
+    end)
 
     local killedID = killedUnit:GetPlayerOwnerID()
     self.vPlayers[killedID].bDead = true
@@ -2115,27 +2408,6 @@ function ReflexGameMode:OnEntityKilled( keys )
       self.nDireDead = self.nDireDead + 1
       self.nLastKilled = DOTA_TEAM_BADGUYS
     end
-
-    -- Trigger OnDeath abilities
-    self:LoopOverPlayers(function(player, plyID)
-      --print('Player ' .. plyID .. ' -- Dead: ' .. tostring(player.bDead) .. ' -- Team: ' .. tostring(player.nTeam))
-      if player.bDead == false and player.nTeam == killedUnit:GetTeam() then
-        for onDeath,scale in pairs(ABILITY_ON_DEATH) do
-          local ability = player.hero:FindAbilityByName(onDeath)
-          --print('     ' .. onDeath .. ' -- ' .. tostring(ability or 'NOPE'))
-          if ability ~= nil and ability:GetLevel() ~= 0 then
-            callModApplier(player.hero, onDeath, ability:GetLevel())
-            player.hero:SetModelScale(1 + ((scale - 1) * (ability:GetLevel() / 4)), 1)
-            self:CreateTimer('resetScale' .. plyID,{
-              endTime = GameRules:GetGameTime() + ability:GetSpecialValueFor("duration") + (ability:GetLevel() - 1),
-              useGameTime = true,
-              callback = function() 
-                player.hero:SetModelScale(1, 1)
-              end})
-          end
-        end
-      end
-    end)
 
     -- Victory Check
     local nRadiantAlive = 0
@@ -2271,37 +2543,47 @@ function dealDamage(source, target, damage)
   end
   unit:AddNewModifier(unit, nil, "modifier_invulnerable", {})
   unit:AddNewModifier(unit, nil, "modifier_phased", {})
-  local dummy = unit:FindAbilityByName("reflex_dummy_unit")
-  dummy:SetLevel(1)
+  --local dummy = unit:FindAbilityByName("reflex_dummy_unit")
+  --dummy:SetLevel(1)
   
-  local abilIndex = math.floor((damage-1) / 20) + 1
-  local abilLevel = math.floor(((damage-1) % 20)) + 1
-  if abilIndex > 100 then
-    abilIndex = 100
-    abilLevel = 20
-  end
-  
-  local abilityName = "modifier_damage_applier" .. abilIndex
-  unit:AddAbility(abilityName)
-  ability = unit:FindAbilityByName( abilityName )
-  ability:SetLevel(abilLevel)
-  
-  local diff = nil
+  local maxTimes = math.floor(damage / 2000)
+  local remainder = math.floor(damage % 2000)
+  local abilIndex = math.floor((remainder-1) / 20) + 1
+  local abilLevel = math.floor(((remainder-1) % 20)) + 1
   
   local hp = target:GetHealth()
   
-  diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
-  diff.z = 0
-  unit:SetForwardVector(diff:Normalized())
-  unit:CastAbilityOnTarget(target, ability, 0 )
+  if remainder ~= 0 then
+    local abilityName = "modifier_damage_applier" .. abilIndex
+    unit:AddAbility(abilityName)
+    local ability = unit:FindAbilityByName( abilityName )
+    ability:SetLevel(abilLevel)
+    
+    local diff = nil
+    
+    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
+    diff.z = 0
+    unit:SetForwardVector(diff:Normalized())
+    unit:CastAbilityOnTarget(target, ability, 0 )
+  end
+  
+  for i=1,maxTimes do
+    unit:AddAbility("modifier_damage_applier100")
+    local ability = unit:FindAbilityByName( "modifier_damage_applier100" )
+    ability:SetLevel(20)
+    diff = target:GetAbsOrigin() - unit:GetAbsOrigin()
+    diff.z = 0
+    unit:SetForwardVector(diff:Normalized())
+    unit:CastAbilityOnTarget(target, ability, 0 )
+  end
   
   ReflexGameMode:CreateTimer(DoUniqueString("damage"), {
-    endTime = GameRules:GetGameTime() + 0.3,
+    endTime = GameRules:GetGameTime() + 0.2,
     useGameTime = true,
     callback = function(reflex, args)
       unit:Destroy()
-      if target:GetHealth() == hp and hp ~= 0 and damage ~= 0 then
-        print ("[REFLEX] WARNING: dealDamage did no damage: " .. hp)
+      if IsValidEntity(target) and target:GetHealth() == hp and hp ~= 0 and damage ~= 0 then
+        print ("[REFLEX] WARNING: dealDamage did no damage -- retrying : " .. hp)
         dealDamage(source, target, damage)
       end
     end

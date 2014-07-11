@@ -28,8 +28,7 @@ local function loadModule(name)
     end
 end
 
-print ( '[[REFLEX]] test' )
-
 loadModule ( 'util' )
-loadModule ( 'apm')
+loadModule ( 'apm' )
+loadModule ( 'physics' )
 loadModule ( 'reflex')

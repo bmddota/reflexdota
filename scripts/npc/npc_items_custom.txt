@@ -9905,7 +9905,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400"
+		"AbilityCastRange"				"525"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"8.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -9942,7 +9942,7 @@
 				"EffectName"			"venomancer_venomous_gale"
 				"MoveSpeed"				"800"
 				"StartPosition"			"attach_attack1"
-				"FixedDistance"			"400"
+				"FixedDistance"			"525"
 				"StartRadius"			"125"
 				"EndRadius"				"150"
 				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -10043,7 +10043,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400"
+		"AbilityCastRange"				"525"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"8.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -10080,7 +10080,7 @@
 				"EffectName"			"venomancer_venomous_gale"
 				"MoveSpeed"				"800"
 				"StartPosition"			"attach_attack1"
-				"FixedDistance"			"400"
+				"FixedDistance"			"525"
 				"StartRadius"			"125"
 				"EndRadius"				"150"
 				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -10181,7 +10181,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400"
+		"AbilityCastRange"				"525"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"8.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -10218,7 +10218,7 @@
 				"EffectName"			"venomancer_venomous_gale"
 				"MoveSpeed"				"800"
 				"StartPosition"			"attach_attack1"
-				"FixedDistance"			"400"
+				"FixedDistance"			"525"
 				"StartRadius"			"125"
 				"EndRadius"				"150"
 				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -10319,7 +10319,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400"
+		"AbilityCastRange"				"525"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"8.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -10356,7 +10356,7 @@
 				"EffectName"			"venomancer_venomous_gale"
 				"MoveSpeed"				"800"
 				"StartPosition"			"attach_attack1"
-				"FixedDistance"			"400"
+				"FixedDistance"			"525"
 				"StartRadius"			"125"
 				"EndRadius"				"150"
 				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -10545,7 +10545,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"300 225 200 200"
-		"ItemCost"						"4000"
+		"ItemCost"						"3500"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
@@ -10684,7 +10684,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"300 225 200 200"
-		"ItemCost"						"4000"
+		"ItemCost"						"3500"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
@@ -10824,7 +10824,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"300 225 200 200"
-		"ItemCost"						"4000"
+		"ItemCost"						"3500"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
@@ -10963,7 +10963,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"300 225 200 200"
-		"ItemCost"						"4000"
+		"ItemCost"						"3500"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
@@ -11172,7 +11172,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"400"
-		"ItemCost"						"4000"
+		"ItemCost"						"3500"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
@@ -11314,7 +11314,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"400"
-		"ItemCost"						"4000"
+		"ItemCost"						"3500"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
@@ -11455,7 +11455,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"400"
-		"ItemCost"						"4000"
+		"ItemCost"						"3500"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
@@ -11596,7 +11596,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"400"
-		"ItemCost"						"4000"
+		"ItemCost"						"3500"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
