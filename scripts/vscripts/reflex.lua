@@ -4,7 +4,7 @@ USE_LOBBY=true
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.05.10"
+REFLEX_VERSION = "0.05.11"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 150 --240
@@ -14,9 +14,9 @@ POST_ROUND_TIME = 2
 POST_GAME_TIME = 30
 
 STARTING_GOLD = 500--650
-GOLD_PER_ROUND_LOSER = 1150--750
-GOLD_PER_ROUND_WINNER = 1150--1100
-GOLD_PER_KILL = 300
+GOLD_PER_ROUND_LOSER = 1250--750
+GOLD_PER_ROUND_WINNER = 1250--1100
+GOLD_PER_KILL = 200
 GOLD_PER_MVP = 500
 GOLD_PER_SURVIVE = 250
 GOLD_TIME_BONUS_1 = 250
@@ -211,7 +211,9 @@ function ReflexGameMode:InitGameMode()
       self:CreateTimer('assign_fakes', {
         endTime = Time(),
         callback = function(reflex, args)
+          local userID = 20
           for i=0, 9 do
+            userID = userID + 1
             -- Check if this player is a fake one
             if PlayerResource:IsFakeClient(i) then
               -- Grab player instance
@@ -219,6 +221,10 @@ function ReflexGameMode:InitGameMode()
               -- Make sure we actually found a player instance
               if ply then
                 CreateHeroForPlayer(fakes[i], ply)
+                self:AutoAssignPlayer({
+                  userid = userID,
+                  index = ply:entindex()-1
+                })
               end
             end
           end
@@ -2368,7 +2374,7 @@ function ReflexGameMode:OnEntityKilled( keys )
     print( '[REFLEX] KilledUnit exists' )
     if killerEntity then
       local killerID = killerEntity:GetPlayerOwnerID()
-      if self.vPlayers[killedID] ~= nil then
+      if self.vPlayers[killerID] ~= nil then
         self.vPlayers[killerID].nKillsThisRound = self.vPlayers[killerID].nKillsThisRound + 1
         print( string.format( '%s killed %s', killerEntity:GetPlayerOwnerID(), killedUnit:GetPlayerOwnerID()) )
       end
