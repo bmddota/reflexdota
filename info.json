@@ -12,5 +12,7 @@
   "features": ["Fast-paced and intense action.", "Develop skill and fast reaction times.", "Experiment with unique combos.", "Counter-pick your opponents with dynamic hero builds"],
   "playable": true,
   "spreadvideo": "https://s3-us-west-2.amazonaws.com/d2mpimages/reflex.webm",
-  "isPublic": true
+  "isPublic": true,
+  "bundle": "reflex.zip"
+  "enableGG": false
 }
