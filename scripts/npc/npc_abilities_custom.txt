@@ -1887,6 +1887,622 @@
 			}
 		}
 	}
+
+	"reflex_wall_of_pain_1"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		//"Model"							"models/props_gameplay/salve_blue.mdl"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"nyx_assassin_mana_burn"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"20000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.5"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+		"AbilityDamage"					"160 192 224 256"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		"OnSpellStart"
+		{
+			"CreateThinker"
+			{
+				"ModifierName"	"dark_seer_wall_of_discord_thinker"
+				"Target"		"POINT"
+			}
+      "DelayedAction"		
+			{
+				"Delay"			"0.5"
+				"Action"
+				{
+					"CreateThinker"
+          {
+            "ModifierName"	"dark_seer_wall_of_discord_thinker2"
+            "Target"		"POINT"
+          }
+				}
+			}
+
+      "RunScript"
+      {
+        "ScriptFile"			  "scripts/vscripts/abilities.lua"
+        "Function"				  "teamBasedWall"
+        "Target"				    "POINT"
+        "EffectLineLength"	"%width"
+        "Duration"          "%duration"
+      }
+		}
+
+		"Modifiers"
+		{
+			"dark_seer_wall_of_discord_thinker"
+			{
+				"Duration" "%duration"
+				"ThinkInterval" "0.25"
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_dark_seer_wall_of_discord_target"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"800"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
+					}
+				}
+			}
+      
+      "dark_seer_wall_of_discord_thinker2"
+			{
+				"Duration" "%duration - 0.5"
+				"ThinkInterval" "0.25"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Type"		"DAMAGE_TYPE_PURE"
+						"Damage"	"%damage"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"800"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
+					}
+				}
+			}
+			
+			"modifier_dark_seer_wall_of_discord_target"
+			{
+				"Duration" "0.25" // Encourage you to drag them back and forth through the wall
+				"IsHidden" "1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"ref_dark_seer_wall_of_replica_replicate"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-60"
+				}
+			}
+		}
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6.0 7.0 8.0 9.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"40 48 56 64"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"width"					"800 1000 1200 1400"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"recharge_time"			"8"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_charges"			"1 1 2 2"
+			}
+		}
+	}
+
+	"reflex_wall_of_pain_2"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		//"Model"							"models/props_gameplay/salve_blue.mdl"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"nyx_assassin_mana_burn"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"20000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.5"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+		"AbilityDamage"					"160 192 224 256"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		"OnSpellStart"
+		{
+			"CreateThinker"
+			{
+				"ModifierName"	"dark_seer_wall_of_discord_thinker"
+				"Target"		"POINT"
+			}
+      "DelayedAction"		
+			{
+				"Delay"			"0.5"
+				"Action"
+				{
+					"CreateThinker"
+          {
+            "ModifierName"	"dark_seer_wall_of_discord_thinker2"
+            "Target"		"POINT"
+          }
+				}
+			}
+
+      "RunScript"
+      {
+        "ScriptFile"			  "scripts/vscripts/abilities.lua"
+        "Function"				  "teamBasedWall"
+        "Target"				    "POINT"
+        "EffectLineLength"	"%width"
+        "Duration"          "%duration"
+      }
+		}
+
+		"Modifiers"
+		{
+			"dark_seer_wall_of_discord_thinker"
+			{
+				"Duration" "%duration"
+				"ThinkInterval" "0.25"
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_dark_seer_wall_of_discord_target"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"1000"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
+					}
+				}
+			}
+      
+      "dark_seer_wall_of_discord_thinker2"
+			{
+				"Duration" "%duration - 0.5"
+				"ThinkInterval" "0.25"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Type"		"DAMAGE_TYPE_PURE"
+						"Damage"	"%damage"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"1000"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
+					}
+				}
+			}
+			
+			"modifier_dark_seer_wall_of_discord_target"
+			{
+				"Duration" "0.25" // Encourage you to drag them back and forth through the wall
+				"IsHidden" "1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"ref_dark_seer_wall_of_replica_replicate"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-60"
+				}
+			}
+		}
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6.0 7.0 8.0 9.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"40 48 56 64"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"width"					"800 1000 1200 1400"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"recharge_time"			"8"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_charges"			"1 1 2 2"
+			}
+		}
+	}
+
+	"reflex_wall_of_pain_3"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		//"Model"							"models/props_gameplay/salve_blue.mdl"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"nyx_assassin_mana_burn"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"20000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.5"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+		"AbilityDamage"					"160 192 224 256"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		"OnSpellStart"
+		{
+			"CreateThinker"
+			{
+				"ModifierName"	"dark_seer_wall_of_discord_thinker"
+				"Target"		"POINT"
+			}
+      "DelayedAction"		
+			{
+				"Delay"			"0.5"
+				"Action"
+				{
+					"CreateThinker"
+          {
+            "ModifierName"	"dark_seer_wall_of_discord_thinker2"
+            "Target"		"POINT"
+          }
+				}
+			}
+
+      "RunScript"
+      {
+        "ScriptFile"			  "scripts/vscripts/abilities.lua"
+        "Function"				  "teamBasedWall"
+        "Target"				    "POINT"
+        "EffectLineLength"	"%width"
+        "Duration"          "%duration"
+      }
+		}
+
+		"Modifiers"
+		{
+			"dark_seer_wall_of_discord_thinker"
+			{
+				"Duration" "%duration"
+				"ThinkInterval" "0.25"
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_dark_seer_wall_of_discord_target"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"1200"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
+					}
+				}
+			}
+      
+      "dark_seer_wall_of_discord_thinker2"
+			{
+				"Duration" "%duration - 0.5"
+				"ThinkInterval" "0.25"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Type"		"DAMAGE_TYPE_PURE"
+						"Damage"	"%damage"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"1200"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
+					}
+				}
+			}
+			
+			"modifier_dark_seer_wall_of_discord_target"
+			{
+				"Duration" "0.25" // Encourage you to drag them back and forth through the wall
+				"IsHidden" "1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"ref_dark_seer_wall_of_replica_replicate"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-60"
+				}
+			}
+		}
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6.0 7.0 8.0 9.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"40 48 56 64"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"width"					"800 1000 1200 1400"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"recharge_time"			"8"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_charges"			"1 1 2 2"
+			}
+		}
+	}
+
+	"reflex_wall_of_pain_4"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		//"Model"							"models/props_gameplay/salve_blue.mdl"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"nyx_assassin_mana_burn"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"20000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.5"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
+		"AbilityDamage"					"160 192 224 256"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		"OnSpellStart"
+		{
+			"CreateThinker"
+			{
+				"ModifierName"	"dark_seer_wall_of_discord_thinker"
+				"Target"		"POINT"
+			}
+      "DelayedAction"		
+			{
+				"Delay"			"0.5"
+				"Action"
+				{
+					"CreateThinker"
+          {
+            "ModifierName"	"dark_seer_wall_of_discord_thinker2"
+            "Target"		"POINT"
+          }
+				}
+			}
+
+      "RunScript"
+      {
+        "ScriptFile"			  "scripts/vscripts/abilities.lua"
+        "Function"				  "teamBasedWall"
+        "Target"				    "POINT"
+        "EffectLineLength"	"%width"
+        "Duration"          "%duration"
+      }
+		}
+
+		"Modifiers"
+		{
+			"dark_seer_wall_of_discord_thinker"
+			{
+				"Duration" "%duration"
+				"ThinkInterval" "0.25"
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_dark_seer_wall_of_discord_target"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"1400"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
+					}
+				}
+			}
+      
+      "dark_seer_wall_of_discord_thinker2"
+			{
+				"Duration" "%duration - 0.5"
+				"ThinkInterval" "0.25"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Type"		"DAMAGE_TYPE_PURE"
+						"Damage"	"%damage"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Line"
+							{
+								"Length"	"1400"
+								"Thickness"	"100"
+							}
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+						}
+					}
+				}
+			}
+			
+			"modifier_dark_seer_wall_of_discord_target"
+			{
+				"Duration" "0.25" // Encourage you to drag them back and forth through the wall
+				"IsHidden" "1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"ref_dark_seer_wall_of_replica_replicate"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-60"
+				}
+			}
+		}
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6.0 7.0 8.0 9.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"40 48 56 64"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"width"					"800 1000 1200 1400"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"recharge_time"			"8"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_charges"			"1 1 2 2"
+			}
+		}
+	}
   
   "reflex_magnetic_burst"
 	{

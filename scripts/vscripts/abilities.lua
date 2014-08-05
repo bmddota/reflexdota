@@ -290,6 +290,41 @@ function teamBasedCircle(keys)
   })
 end
 
+function createWallOfPain(keys)
+  local point = keys.target_points[1]
+  local caster = keys.caster
+
+  local unit = CreateUnitByName("npc_dota_danger_indicator", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+  unit:AddNewModifier(unit, nil, "modifier_invulnerable", {})
+  unit:AddNewModifier(unit, nil, "modifier_phased", {})
+  local ability = unit:FindAbilityByName("reflex_dummy_unit")
+  ability:SetLevel(1)
+
+  local level = keys.ability:GetLevel()
+
+  unit:AddAbility("reflex_wall_of_pain_" .. level)
+  ability = unit:FindAbilityByName("reflex_wall_of_pain_" .. level)
+  ability:SetLevel(level)
+
+  unit:SetForwardVector((point - caster:GetAbsOrigin()):Normalized())
+
+  ExecuteOrderFromTable({
+    UnitIndex = unit:entindex(),
+    AbilityIndex = ability:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+    Position = point,
+    Queue = true
+  })
+
+  ReflexGameMode:CreateTimer(DoUniqueString("wallofpain"), {
+    useGameTime = true,
+    endTime = GameRules:GetGameTime() + 10.0,
+    callback = function(reflex, args)
+      unit:Remove()
+    end
+  })
+end
+
 function teamBasedWall(keys)
   local target = keys.Target
   local caster = keys.caster
