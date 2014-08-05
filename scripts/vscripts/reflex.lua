@@ -4,7 +4,7 @@ USE_LOBBY=true
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.05.11"
+REFLEX_VERSION = "0.06.00"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 150 --240
@@ -234,11 +234,11 @@ function ReflexGameMode:InitGameMode()
           local hero = ply:GetAssignedHero()
           for k,v in pairs(HeroList:GetAllHeroes()) do
             if v ~= hero then
-              v:SetControllableByPlayer(plyID, true)
-              local dash = CreateItem("item_reflex_dash", v, v)
-              v:AddItem(dash)
-              local shooter = CreateItem("item_simple_shooter", v, v)
-              v:AddItem(shooter)
+              --v:SetControllableByPlayer(plyID, true)
+              --local dash = CreateItem("item_reflex_dash", v, v)
+              --v:AddItem(dash)
+              --local shooter = CreateItem("item_simple_shooter", v, v)
+              --v:AddItem(shooter)
             end
           end
         end})
@@ -500,31 +500,53 @@ function ReflexGameMode:PlayerSay(keys)
   end
   
   if DEBUG and string.find(text, "-reset") then
-    for k,v in pairs(HeroList:GetAllHeroes()) do
-      if v ~= player.hero then
-        for k2,ab in pairs(player.vAbilities) do
-          v:RemoveAbility(ab)
+    for k,v in pairs(self.vPlayers) do
+      for k2,ab in pairs(v.vAbilities) do
+        v.hero:RemoveAbility(ab)
+      end
+      for k2,ab in pairs(v.vAbilities) do
+        v.hero:AddAbility('reflex_empty' .. k2)
+      end
+
+      v.vAbilities = {
+        "reflex_empty1",
+        "reflex_empty2",
+        "reflex_empty3",
+        "reflex_empty4",
+        "reflex_empty5",
+        "reflex_empty6"
+      }
+
+      for i=0,11 do
+        local item = v.hero:GetItemInSlot( i )
+        if item ~= nil then
+          item:Remove()
         end
-        for k2,ab in pairs(player.vAbilities) do
-          v:AddAbility('reflex_empty' .. k2)
+      end
+
+      v.hero:AddItem(CreateItem("item_reflex_dash", player.hero, player.hero))
+      v.hero:AddItem(CreateItem("item_simple_shooter", player.hero, player.hero))
+
+    end
+  end
+
+  if DEBUG and string.find(text, "-refresh") then
+    for k,v in pairs(self.vPlayers) do
+      for k2,ab in pairs(v.vAbilities) do
+        local abil = v.hero:FindAbilityByName(ab)
+        if abil ~= nil then
+          abil:EndCooldown()
+        end
+      end
+
+      for i=0,11 do
+        local item = v.hero:GetItemInSlot( i )
+        if item ~= nil then
+          item:EndCooldown()
+          item:SetCurrentCharges(item:GetInitialCharges())
         end
       end
     end
-    
-    for k2,ab in pairs(player.vAbilities) do
-      player.hero:RemoveAbility(ab)
-    end
-    for k2,ab in pairs(player.vAbilities) do
-      player.hero:AddAbility('reflex_empty' .. k2)
-    end
-    player.vAbilities = {
-      "reflex_empty1",
-      "reflex_empty2",
-      "reflex_empty3",
-      "reflex_empty4",
-      "reflex_empty5",
-      "reflex_empty6"
-    }
   end
   
   if string.find(text, "^-mod") and DEBUG then
@@ -634,6 +656,25 @@ function ReflexGameMode:PlayerSay(keys)
       end
     end
   end
+
+  local ddl1x, ddl1y, ddl1z, ddl2x, ddl2y, ddl2z, ddlr, ddlg, ddlb
+    = string.match(text, "^-ddl%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)%s+(-?%d+)%s+(%d+)%s+(%d+)%s+(%d+)")
+  if DEBUG and ddl1x ~= nil and ddl1y ~= nil and ddl1z ~= nil and ddl2x ~= nil 
+    and ddl2y ~= nil and ddl2z ~= nil and ddlr ~= nil and ddlg ~= nil and ddlb ~= nil then
+    print('here')
+    print(ddl1x)
+    print(ddl1y)
+    print(ddl1z)
+    print(ddl2x)
+    print(ddl2y)
+    print(ddl2z)
+    print(ddlr)
+    print(ddlg)
+    print(ddlb)
+    DebugDrawLine( Vector(tonumber(ddl1x), tonumber(ddl1y), tonumber(ddl1z))
+      , Vector(tonumber(ddl2x), tonumber(ddl2y), tonumber(ddl2z))
+      , tonumber(ddlr), tonumber(ddlg), tonumber(ddlb), true, 5.0)
+  end
   
   if DEBUG and string.find(text, "^-res") then
     local m = string.match(text, "(%d)")
@@ -642,11 +683,13 @@ function ReflexGameMode:PlayerSay(keys)
       local v = p:GetAssignedHero()
       v:SetRespawnPosition(v:GetAbsOrigin())
       v:RespawnHero(false, false, false)
+      self.vPlayers[v:GetPlayerID()].bDead = false
     else 
       for k,v in pairs(HeroList:GetAllHeroes()) do
         if not v:IsAlive() then
           v:SetRespawnPosition(v:GetAbsOrigin())
           v:RespawnHero(false, false, false)
+          self.vPlayers[v:GetPlayerID()].bDead = false
         end
       end
     end
@@ -1504,7 +1547,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
   print('[REFLEX] SteamID: ' .. PlayerResource:GetSteamAccountID(playerID))
 
   --Autoassign player
-  self:CreateTimer('assign_player_'..entIndex, {
+  self:CreateTimer(DoUniqueString('assign_player_'), {
   endTime = Time(),
   callback = function(reflex, args)
     if GameRules:State_Get() >= DOTA_GAMERULES_STATE_PRE_GAME then
@@ -1512,11 +1555,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
       -- Assign a hero to a fake client
       local heroEntity = ply:GetAssignedHero()
       if PlayerResource:IsFakeClient(playerID) then
-        if heroEntity == nil then
-          CreateHeroForPlayer('npc_dota_hero_axe', ply)
-        else
-          PlayerResource:ReplaceHeroWith(playerID, 'npc_dota_hero_axe', 0, 0)
-        end
+        heroEntity:SetControllableByPlayer(0, true)
       end
       heroEntity = ply:GetAssignedHero()
       print ('[REFLEX] got assigned hero')
@@ -1622,7 +1661,18 @@ function ReflexGameMode:ShopReplacement( keys )
   if not player then return end
 
   local item = self:getItemByName(player.hero, keys.itemname)
-  if not item then return end
+  if not item then 
+    if DEBUG then
+      for i=0,9 do
+        if PlayerResource:IsFakeClient(i) then
+          local v = PlayerResource:GetPlayer(i):GetAssignedHero()
+          local item2 = CreateItem(keys.itemname, v, v)
+          v:AddItem(item2)
+        end
+      end
+    end
+    return 
+  end
 
   print ( item:GetAbilityName())
   --print ( ABILITY_ITEM_TABLE[item:GetAbilityName()] )
@@ -1637,6 +1687,18 @@ function ReflexGameMode:ShopReplacement( keys )
   if (string.find(item:GetAbilityName(), "item_recipe_") ~= nil) then
     local cost = item:GetCost()
     player.hero:SetGold(player.hero:GetGold() + cost, true)
+
+    -- Copy to debug heroes
+    if DEBUG then
+      for i=0,9 do
+        if PlayerResource:IsFakeClient(i) then
+          local v = PlayerResource:GetPlayer(i):GetAssignedHero()
+          local item2 = CreateItem(item:GetAbilityName(), v, v)
+          v:AddItem(item2)
+        end
+      end
+    end
+
     item:Remove()
     return
   end

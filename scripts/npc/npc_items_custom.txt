@@ -1185,7 +1185,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"1.0 1.5 2.0 2.5"
+				"duration"					"0.75 1.0 1.25 1.5"
 			}
 		}
 	}
@@ -2510,7 +2510,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"		"-50 -60 -70 -80"
+				"damage_reduction"		"-50 -58 -65 -70"
 			}
       "03"
 			{
@@ -2643,11 +2643,11 @@
 				"EffectAttachType"	"follow_origin"
 				"Target"			"CASTER"
 				
-				"Duration" "%duration"
+				"Duration" "4.5"
 				"TextureName" "abaddon_aphotic_shield"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%damage_reduction"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-58"
 				}
 			}
 		}
@@ -2665,7 +2665,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"		"-50 -60 -70 -80"
+				"damage_reduction"		"-50 -58 -65 -70"
 			}
       "03"
 			{
@@ -2798,11 +2798,11 @@
 				"EffectAttachType"	"follow_origin"
 				"Target"			"CASTER"
 				
-				"Duration" "%duration"
+				"Duration" "5.0"
 				"TextureName" "abaddon_aphotic_shield"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%damage_reduction"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-65"
 				}
 			}
 		}
@@ -2820,7 +2820,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"		"-50 -60 -70 -80"
+				"damage_reduction"		"-50 -58 -65 -70"
 			}
       "03"
 			{
@@ -2953,11 +2953,11 @@
 				"EffectAttachType"	"follow_origin"
 				"Target"			"CASTER"
 				
-				"Duration" "%duration"
+				"Duration" "5.5"
 				"TextureName" "abaddon_aphotic_shield"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%damage_reduction"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-70"
 				}
 			}
 		}
@@ -2975,7 +2975,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"		"-50 -60 -70 -80"
+				"damage_reduction"		"-50 -58 -65 -70"
 			}
       "03"
 			{
@@ -6459,10 +6459,10 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"3.0"
-		"AbilityChannelTime"			"2.0 1.8 1.6 1.5"
+		"AbilityChannelTime"			"1.9 1.8 1.7 1.6"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"400 600 800 1000"
+		"AbilityDamage"					"450 600 750 900"
 		
 		"precache"
 		{
@@ -6653,7 +6653,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 600 800 1000"
+				"damage"				"450 600 750 900"
 			}
 			
 			"03"
@@ -6673,6 +6673,12 @@
 				"var_type"				"FIELD_INTEGER"
 				"height"				"100 200 300 400"
 			}
+      
+      "06"
+      {
+      	"var_type"				"FIELD_FLOAT"
+      	"channel_time"		"1.9 1.8 1.7 1.6"
+      }
 		}
 	}
 	
@@ -6692,10 +6698,10 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"3.0"
-		"AbilityChannelTime"			"2.0 1.8 1.6 1.5"
+		"AbilityChannelTime"			"1.9 1.8 1.7 1.6"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"400 600 800 1000"
+		"AbilityDamage"					"450 600 750 900"
 		
 		"precache"
 		{
@@ -6886,7 +6892,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 600 800 1000"
+				"damage"				"450 600 750 900"
 			}
 			
 			"03"
@@ -6907,6 +6913,11 @@
 				"height"				"100 200 300 400"
 			}
       
+      "06"
+      {
+      	"var_type"				"FIELD_FLOAT"
+      	"channel_time"		"1.9 1.8 1.7 1.6"
+      }
 		}
 	}
 	
@@ -6926,10 +6937,10 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"3.0"
-		"AbilityChannelTime"			"2.0 1.8 1.6 1.5"
+		"AbilityChannelTime"			"1.9 1.8 1.7 1.6"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"400 600 800 1000"
+		"AbilityDamage"					"450 600 760 900"
 		
 		"precache"
 		{
@@ -7120,7 +7131,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 600 800 1000"
+				"damage"				"450 600 750 900"
 			}
 			
 			"03"
@@ -7140,6 +7151,12 @@
 				"var_type"				"FIELD_INTEGER"
 				"height"				"100 200 300 400"
 			}
+      
+      "06"
+      {
+      	"var_type"				"FIELD_FLOAT"
+      	"channel_time"		"1.9 1.8 1.7 1.6"
+      }
 		}
 	}
 	
@@ -7159,10 +7176,10 @@
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"3.0"
-		"AbilityChannelTime"			"2.0 1.8 1.6 1.5"
+		"AbilityChannelTime"			"1.9 1.8 1.7 1.6"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
-		"AbilityDamage"					"400 600 800 1000"
+		"AbilityDamage"					"450 600 750 900"
 		
 		"precache"
 		{
@@ -7353,7 +7370,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 600 800 1000"
+				"damage"				"450 600 750 900"
 			}
 			
 			"03"
@@ -7373,6 +7390,12 @@
 				"var_type"				"FIELD_INTEGER"
 				"height"				"100 200 300 400"
 			}
+      
+      "06"
+      {
+      	"var_type"				"FIELD_FLOAT"
+      	"channel_time"		"1.9 1.8 1.7 1.6"
+      }
 		}
 	}
 	

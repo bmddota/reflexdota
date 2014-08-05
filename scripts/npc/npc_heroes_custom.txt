@@ -41,7 +41,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -97,7 +97,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -153,7 +153,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -209,7 +209,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -265,7 +265,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -321,7 +321,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -377,7 +377,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -433,7 +433,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -489,7 +489,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -545,7 +545,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -601,7 +601,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -657,7 +657,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -713,7 +713,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -769,7 +769,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -825,7 +825,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -881,7 +881,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -937,7 +937,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -993,7 +993,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1049,7 +1049,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1105,7 +1105,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1161,7 +1161,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1217,7 +1217,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1273,7 +1273,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1329,7 +1329,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1385,7 +1385,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1441,7 +1441,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1497,7 +1497,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1553,7 +1553,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1609,7 +1609,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1665,7 +1665,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1722,7 +1722,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1778,7 +1778,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1834,7 +1834,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1890,7 +1890,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -1946,7 +1946,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2002,7 +2002,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2058,7 +2058,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2114,7 +2114,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2170,7 +2170,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2226,7 +2226,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2282,7 +2282,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2338,7 +2338,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2394,7 +2394,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2450,7 +2450,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2506,7 +2506,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2562,7 +2562,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2618,7 +2618,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2674,7 +2674,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2730,7 +2730,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2786,7 +2786,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2842,7 +2842,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2898,7 +2898,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -2954,7 +2954,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3010,7 +3010,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3066,7 +3066,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3122,7 +3122,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3178,7 +3178,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3234,7 +3234,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3290,7 +3290,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3346,7 +3346,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3403,7 +3403,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3459,7 +3459,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3515,7 +3515,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3571,7 +3571,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3627,7 +3627,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3683,7 +3683,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3739,7 +3739,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3795,7 +3795,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3851,7 +3851,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3907,7 +3907,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -3963,7 +3963,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4019,7 +4019,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4075,7 +4075,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4131,7 +4131,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4187,7 +4187,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4243,7 +4243,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4299,7 +4299,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4355,7 +4355,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4411,7 +4411,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4467,7 +4467,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4523,7 +4523,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4579,7 +4579,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4635,7 +4635,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4691,7 +4691,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4747,7 +4747,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4803,7 +4803,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4859,7 +4859,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4915,7 +4915,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -4971,7 +4971,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5027,7 +5027,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5083,7 +5083,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5139,7 +5139,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5195,7 +5195,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5251,7 +5251,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5307,7 +5307,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5363,7 +5363,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5419,7 +5419,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5475,7 +5475,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5531,7 +5531,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5587,7 +5587,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5643,7 +5643,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5699,7 +5699,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5755,7 +5755,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5811,7 +5811,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5867,7 +5867,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5923,7 +5923,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -5979,7 +5979,7 @@
 		"BountyGoldMin"				"0"										// Gold earned min.
 		"BountyGoldMax"				"0"										// Gold earned max.
 
-		//"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		//"RingRadius"				"70"
 
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"

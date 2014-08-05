@@ -133,7 +133,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"1.0 1.5 2.0 2.5"
+				"duration"					"0.75 1.0 1.25 1.5"
 			}
       "02"
 			{
@@ -568,24 +568,32 @@
 		{
 			"DeleteOnHit" "0"
       
-      "RunScript"
-      {
-        "ScriptFile"			"scripts/vscripts/abilities.lua"
-				"Function"				"swordHit"
-        "Target"          "TARGET"
-        "DamagePerSecond" "%damage_per_charge"
-        "MaxCharge"       "%max_charge"
-      }
-      
-			"Knockback"
+      "DelayedAction"		
 			{
-				"Target"		"TARGET"
-				"Center"		"CASTER"
-				"Duration"		"0.3"
-				"Distance"		"1000"
-				"Height"		"0"
-				"ShouldStun"	"0"
+				"Delay"			"0.15"
+				"Action"
+				{
+					"RunScript"
+		      {
+		        "ScriptFile"			"scripts/vscripts/abilities.lua"
+						"Function"				"swordHit"
+		        "Target"          "TARGET"
+		        "DamagePerSecond" "%damage_per_charge"
+		        "MaxCharge"       "%max_charge"
+		      }
+		      
+					"Knockback"
+					{
+						"Target"		"TARGET"
+						"Center"		"CASTER"
+						"Duration"		"0.3"
+						"Distance"		"1000"
+						"Height"		"0"
+						"ShouldStun"	"0"
+					}
+				}
 			}
+      
       
       "FireSound"
 			{
@@ -3524,7 +3532,7 @@
 				"TextureName" "abaddon_aphotic_shield"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-60"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-58"
 				}
 			}
 		}
@@ -3582,7 +3590,7 @@
 				"TextureName" "abaddon_aphotic_shield"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-70"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-65"
 				}
 			}
 		}
@@ -3640,7 +3648,7 @@
 				"TextureName" "abaddon_aphotic_shield"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-80"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-70"
 				}
 			}
 		}
