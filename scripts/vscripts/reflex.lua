@@ -1550,7 +1550,7 @@ function ReflexGameMode:AutoAssignPlayer(keys)
   self:CreateTimer(DoUniqueString('assign_player_'), {
   endTime = Time(),
   callback = function(reflex, args)
-    if GameRules:State_Get() >= DOTA_GAMERULES_STATE_PRE_GAME then
+    if GameRules:State_Get() >= DOTA_GAMERULES_STATE_PRE_GAME and IsValidEntity(ply) then
       print ('[REFLEX] in pregame')
       -- Assign a hero to a fake client
       local heroEntity = ply:GetAssignedHero()
