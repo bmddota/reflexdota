@@ -2,7 +2,7 @@
 {
      addonSteamAppID         816
      addontitle              "Reflex"
-     addonversion            0.06.01
+     addonversion            0.06.02
      addontagline            "Skillshots only."
      addonauthor             "BMD"
      addonSteamGroupName     ""                                                
