@@ -1,0 +1,114 @@
+"Creature.FireBreath.Cast"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"update_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/mini_rosh_firebreath.vsnd"
+						}
+					}
+					"volume_min"
+					{
+						"value"		"1.000000"
+					}
+					"volume_max"
+					{
+						"value"		"1.000000"
+					}
+					"pitch_min"
+					{
+						"value"		"0.950000"
+					}
+					"pitch_max"
+					{
+						"value"		"1.050000"
+					}
+					"chan_type"
+					{
+						"value"		"6"
+					}
+					"memory_type"
+					{
+						"value"		"0"
+					}
+					"soundlevel_min"
+					{
+						"value"		"90.000000"
+					}
+					"soundlevel_max"
+					{
+						"value"		"90.000000"
+					}
+				}
+			}
+		}
+	}
+}
+
+
+"Start"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"update_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/start.vsnd"
+						}
+					}
+					"volume_min"
+					{
+						"value"		"1.000000"
+					}
+					"volume_max"
+					{
+						"value"		"1.000000"
+					}
+					"pitch_min"
+					{
+						"value"		"0.950000"
+					}
+					"pitch_max"
+					{
+						"value"		"1.050000"
+					}
+					"chan_type"
+					{
+						"value"		"6"
+					}
+					"memory_type"
+					{
+						"value"		"0"
+					}
+					"soundlevel_min"
+					{
+						"value"		"90.000000"
+					}
+					"soundlevel_max"
+					{
+						"value"		"90.000000"
+					}
+				}
+			}
+		}
+	}
+}
