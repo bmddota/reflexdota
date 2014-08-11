@@ -20,17 +20,18 @@ function warpToPoint(keys)
   end
   
   --print(tostring(point))
-  --[[ prevent top left
-  if point.x < -2700 and point.y > 2200 then
+  --prevent top left
+  --[   VScript              ]: Vector 0000000000191460 [-2285.906250 1486.625000 181.593750]
+  if point.x < -2080 and point.y > 1368 then
     point = Vector(-2180, 1368, 0)
   end
   
   -- prevent top right
-  if point.x > 2700 and point.y > 2200 then
+  if point.x > 2080 and point.y > 1368 then
     point = Vector(2180, 1368, 0)
-  end]]
+  end
 
-  FindClearSpaceForUnit(caster, point, true)
+  FindClearSpaceForUnit(caster, point, false)
 end
 
 function toggleStart(keys)
@@ -372,7 +373,7 @@ function teamBasedWall(keys)
     ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
     ParticleManager:SetParticleControl(particle, 1, point + (vec * length / -2)) -- endpoint
     ParticleManager:SetParticleControl(particle, 2, Vector(0,0,0)) -- something
-    ParticleManager:SetParticleControl(particle, 3, targetEntity:GetAbsOrigin()) -- point to alpha alternate
+    ParticleManager:SetParticleControl(particle, 3, point) -- point to alpha alternate
   end)
   -- Test Lua-particle generation
 
@@ -386,7 +387,7 @@ function teamBasedWall(keys)
   ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
   ParticleManager:SetParticleControl(particle, 1, point + (vec * length / -2)) -- endpoint
   ParticleManager:SetParticleControl(particle, 2, Vector(0,0,0)) -- something
-  ParticleManager:SetParticleControl(particle, 3, targetEntity:GetAbsOrigin()) -- point to alpha alternate
+  ParticleManager:SetParticleControl(particle, 3, point) -- point to alpha alternate
   
   -- Broadcasters
   for k,v in pairs(ReflexGameMode.vBroadcasters) do
@@ -399,7 +400,7 @@ function teamBasedWall(keys)
     ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
     ParticleManager:SetParticleControl(particle, 1, point + (vec * length / -2)) -- endpoint
     ParticleManager:SetParticleControl(particle, 2, Vector(0,0,0)) -- something
-    ParticleManager:SetParticleControl(particle, 3, targetEntity:GetAbsOrigin()) -- point to alpha alternate
+    ParticleManager:SetParticleControl(particle, 3, point) -- point to alpha alternate
   end
   
   local endPoint = point + (vec * length / 2)

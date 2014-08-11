@@ -19,7 +19,7 @@ function Precache( context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
 		--PrecacheUnitByNameSync('npc_precache_everything', context)
-		PrecacheUnitByNameSync('npc_dota_hero_ancient_apparition', context)
+		--[[PrecacheUnitByNameSync('npc_dota_hero_ancient_apparition', context)
 		PrecacheUnitByNameSync('npc_dota_hero_antimage', context)
 		PrecacheUnitByNameSync('npc_dota_hero_axe', context)
 		PrecacheUnitByNameSync('npc_dota_hero_bane', context)
@@ -125,7 +125,7 @@ function Precache( context )
 		PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts", context)
 		PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts", context)
 		PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts", context)
-		PrecacheResource("soundfile", "soundevents/game_sounds_custom.vsndevts", context)
+		PrecacheResource("soundfile", "soundevents/game_sounds_custom.vsndevts", context)]]
 end
 
 -- Create the game mode when we activate

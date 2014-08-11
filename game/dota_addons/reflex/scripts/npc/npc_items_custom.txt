@@ -694,21 +694,6 @@
 				"Damage"				"%damage"
 				"Type"					"DAMAGE_TYPE_PURE"
 			}
-
-			"AttachEffect"
-			{
-				"Target" "TARGET"
-				"ControlPointEntities"
-				{
-					// Lol
-					"TARGET"		"attach_hitloc"
-					"TARGET"		"attach_hitloc"
-					"TARGET"		"attach_hitloc"
-					"TARGET"		"attach_hitloc"
-				}
-				"EffectName"		"particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast_explosion.vpcf"
-				"EffectAttachType"	"start_at_customorigin"
-			}
 		}
 
 		// Special	
@@ -818,21 +803,6 @@
 				"Target"				"TARGET"
 				"Damage"				"%damage"
 				"Type"					"DAMAGE_TYPE_PURE"
-			}
-
-			"AttachEffect"
-			{
-				"Target" "TARGET"
-				"ControlPointEntities"
-				{
-					// Lol
-					"TARGET"		"attach_hitloc"
-					"TARGET"		"attach_hitloc"
-					"TARGET"		"attach_hitloc"
-					"TARGET"		"attach_hitloc"
-				}
-				"EffectName"		"particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast_explosion.vpcf"
-				"EffectAttachType"	"start_at_customorigin"
 			}
 		}
 
@@ -944,21 +914,6 @@
 				"Damage"				"%damage"
 				"Type"					"DAMAGE_TYPE_PURE"
 			}
-
-			"AttachEffect"
-			{
-				"Target" "TARGET"
-				"ControlPointEntities"
-				{
-					// Lol
-					"TARGET"		"attach_hitloc"
-					"TARGET"		"attach_hitloc"
-					"TARGET"		"attach_hitloc"
-					"TARGET"		"attach_hitloc"
-				}
-				"EffectName"		"particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast_explosion.vpcf"
-				"EffectAttachType"	"start_at_customorigin"
-			}
 		}
 
 		// Special	
@@ -1068,21 +1023,6 @@
 				"Target"				"TARGET"
 				"Damage"				"%damage"
 				"Type"					"DAMAGE_TYPE_PURE"
-			}
-
-			"AttachEffect"
-			{
-				"Target" "TARGET"
-				"ControlPointEntities"
-				{
-					// Lol
-					"TARGET"		"attach_hitloc"
-					"TARGET"		"attach_hitloc"
-					"TARGET"		"attach_hitloc"
-					"TARGET"		"attach_hitloc"
-				}
-				"EffectName"		"particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast_explosion.vpcf"
-				"EffectAttachType"	"start_at_customorigin"
 			}
 		}
 
@@ -4213,7 +4153,6 @@
 			"AttachEffect"
 			{
 				"EffectName"		"particles/units/heroes/hero_death_prophet/death_prophet_silence.vpcf"
-				//"EffectName"		"generic_aoe_shockwave_1"
 				"EffectAttachType"	"follow_origin"
 				"Target"			"CASTER"
 				"ControlPoints"
@@ -4317,7 +4256,6 @@
 			"AttachEffect"
 			{
 				"EffectName"		"particles/units/heroes/hero_death_prophet/death_prophet_silence.vpcf"
-				//"EffectName"		"generic_aoe_shockwave_1"
 				"EffectAttachType"	"follow_origin"
 				"Target"			"CASTER"
 				"ControlPoints"
@@ -4421,7 +4359,6 @@
 			"AttachEffect"
 			{
 				"EffectName"		"particles/units/heroes/hero_death_prophet/death_prophet_silence.vpcf"
-				//"EffectName"		"generic_aoe_shockwave_1"
 				"EffectAttachType"	"follow_origin"
 				"Target"			"CASTER"
 				"ControlPoints"
@@ -4525,7 +4462,6 @@
 			"AttachEffect"
 			{
 				"EffectName"		"particles/units/heroes/hero_death_prophet/death_prophet_silence.vpcf"
-				//"EffectName"		"generic_aoe_shockwave_1"
 				"EffectAttachType"	"follow_origin"
 				"Target"			"CASTER"
 				"ControlPoints"
@@ -5959,28 +5895,6 @@
 		
 		"Modifiers"
 		{
-      "target_telegraph_fx"
-			{
-				"Duration"				"%hit_delay"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"generic_aoe_shockwave_1"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"CASTER"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "%radius 0 0"
-							"02" "6 0 1" // telegraph
-							"03" "200 0 0"
-							"04" "0 0 0"
-						}
-					}
-				}
-			}
 			"modifier_channel_start"
 			{
 				"OnCreated"
@@ -6192,28 +6106,6 @@
 		
 		"Modifiers"
 		{
-      "target_telegraph_fx"
-			{
-				"Duration"				"%hit_delay"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"generic_aoe_shockwave_1"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"CASTER"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "%radius 0 0"
-							"02" "6 0 1" // telegraph
-							"03" "200 0 0"
-							"04" "0 0 0"
-						}
-					}
-				}
-			}
 			"modifier_channel_start"
 			{
 				"OnCreated"
@@ -6425,28 +6317,6 @@
 		
 		"Modifiers"
 		{
-      "target_telegraph_fx"
-			{
-				"Duration"				"%hit_delay"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"generic_aoe_shockwave_1"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"CASTER"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "%radius 0 0"
-							"02" "6 0 1" // telegraph
-							"03" "200 0 0"
-							"04" "0 0 0"
-						}
-					}
-				}
-			}
 			"modifier_channel_start"
 			{
 				"OnCreated"
@@ -6658,28 +6528,6 @@
 		
 		"Modifiers"
 		{
-      "target_telegraph_fx"
-			{
-				"Duration"				"%hit_delay"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"generic_aoe_shockwave_1"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"CASTER"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "%radius 0 0"
-							"02" "6 0 1" // telegraph
-							"03" "200 0 0"
-							"04" "0 0 0"
-						}
-					}
-				}
-			}
 			"modifier_channel_start"
 			{
 				"OnCreated"
@@ -6893,28 +6741,6 @@
 
 		"Modifiers"
 		{
-			"target_telegraph_fx"
-			{
-				"Duration"				"%delay + 0.5"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"generic_aoe_shockwave_1"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "%area_of_effect 0 0"
-							"02" "6 0 1" // telegraph
-							"03" "200 0 0"
-							"04" "0 0 0"
-						}
-					}
-				}
-			}
 			
 			"modifier_item_sun_strike_drop_ability"
 			{
@@ -7047,28 +6873,6 @@
 
 		"Modifiers"
 		{
-			"target_telegraph_fx"
-			{
-				"Duration"				"%delay + 0.5"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"generic_aoe_shockwave_1"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "%area_of_effect 0 0"
-							"02" "6 0 1" // telegraph
-							"03" "200 0 0"
-							"04" "0 0 0"
-						}
-					}
-				}
-			}
 			
 			"modifier_item_sun_strike_drop_ability"
 			{
@@ -7201,28 +7005,6 @@
 
 		"Modifiers"
 		{
-			"target_telegraph_fx"
-			{
-				"Duration"				"%delay + 0.5"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"generic_aoe_shockwave_1"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "%area_of_effect 0 0"
-							"02" "6 0 1" // telegraph
-							"03" "200 0 0"
-							"04" "0 0 0"
-						}
-					}
-				}
-			}
 			
 			"modifier_item_sun_strike_drop_ability"
 			{
@@ -7355,28 +7137,6 @@
 
 		"Modifiers"
 		{
-			"target_telegraph_fx"
-			{
-				"Duration"				"%delay + 0.5"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"generic_aoe_shockwave_1"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "%area_of_effect 0 0"
-							"02" "6 0 1" // telegraph
-							"03" "200 0 0"
-							"04" "0 0 0"
-						}
-					}
-				}
-			}
 			
 			"modifier_item_sun_strike_drop_ability"
 			{
@@ -10528,28 +10288,6 @@
 
 		"Modifiers"
 		{
-			"target_telegraph_fx"
-			{
-				"Duration"				"%hit_delay"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"generic_aoe_shockwave_1"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "%radius 0 0"
-							"02" "6 0 1" // telegraph
-							"03" "200 0 0"
-							"04" "0 0 0"
-						}
-					}
-				}
-			}
 			
 			"modifier_item_mystic_flare_drop_ability"
 			{
@@ -10671,28 +10409,6 @@
 
 		"Modifiers"
 		{
-			"target_telegraph_fx"
-			{
-				"Duration"				"%hit_delay"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"generic_aoe_shockwave_1"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "400 0 0"
-							"02" "6 0 1" // telegraph
-							"03" "200 0 0"
-							"04" "0 0 0"
-						}
-					}
-				}
-			}
 			
 			"modifier_item_mystic_flare_drop_ability"
 			{
@@ -10813,28 +10529,6 @@
 
 		"Modifiers"
 		{
-			"target_telegraph_fx"
-			{
-				"Duration"				"%hit_delay"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"generic_aoe_shockwave_1"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "500 0 0"
-							"02" "6 0 1" // telegraph
-							"03" "200 0 0"
-							"04" "0 0 0"
-						}
-					}
-				}
-			}
 			
 			"modifier_item_mystic_flare_drop_ability"
 			{
@@ -10955,28 +10649,6 @@
 
 		"Modifiers"
 		{
-			"target_telegraph_fx"
-			{
-				"Duration"				"%hit_delay"
-
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"		"generic_aoe_shockwave_1"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-						"ControlPoints"
-						{
-							"00" "0 0 0"
-							"01" "600 0 0"
-							"02" "6 0 1" // telegraph
-							"03" "200 0 0"
-							"04" "0 0 0"
-						}
-					}
-				}
-			}
 			
 			"modifier_item_mystic_flare_drop_ability"
 			{

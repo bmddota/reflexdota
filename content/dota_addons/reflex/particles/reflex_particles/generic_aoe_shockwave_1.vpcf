@@ -51,7 +51,9 @@ CParticleSystemDefinition CParticleSystemDefinition_0
 		&C_OP_FadeAndKill_0,
 		&C_OP_BasicMovement_0,
 		&C_OP_PositionLock_2,
-		&C_OP_MovementPlaceOnGround_0
+		&C_OP_MovementPlaceOnGround_0,
+		&C_OP_SetControlPointToPlayer_0,
+		&C_OP_FadeOut_18
 	]
 	CParticleOperatorInstance*[] m_Renderers = 
 	[
@@ -120,7 +122,7 @@ C_OP_FadeAndKill C_OP_FadeAndKill_0
 {
 	float m_flStartFadeInTime = 0.000000
 	float m_flEndFadeInTime = 0.500000
-	float m_flStartFadeOutTime = 0.750000
+	float m_flStartFadeOutTime = 1.000000
 	float m_flEndFadeOutTime = 1.000000
 	float m_flStartAlpha = 1.000000
 	float m_flEndAlpha = 0.000000
@@ -221,6 +223,59 @@ C_OP_MovementPlaceOnGround C_OP_MovementPlaceOnGround_0
 	bool m_bIncludeWater = false
 	bool m_bSetNormal = false
 	bool m_bScaleOffset = false
+	bool m_bDisableOperator = false
+	float m_flOpStartFadeInTime = 0.000000
+	float m_flOpEndFadeInTime = 0.000000
+	float m_flOpStartFadeOutTime = 0.000000
+	float m_flOpEndFadeOutTime = 0.000000
+	float m_flOpFadeOscillatePeriod = 0.000000
+	float m_flOpTimeOffsetMin = 0.000000
+	float m_flOpTimeOffsetMax = 0.000000
+	int m_nOpTimeOffsetSeed = 0
+	int m_nOpStrengthScaleSeed = 0
+	float m_flOpStrengthMinScale = 1.000000
+	float m_flOpStrengthMaxScale = 1.000000
+	int m_nOpTimeScaleSeed = 0
+	float m_flOpTimeScaleMin = 1.000000
+	float m_flOpTimeScaleMax = 1.000000
+	int m_nOpEndCapState = -1
+	int m_nOpScaleCP = -1
+	string m_Notes = ""
+}
+
+C_OP_SetControlPointToPlayer C_OP_SetControlPointToPlayer_0
+{
+	int m_nCP1 = 5
+	float(3) m_vecCP1Pos = ( 0.000000, 0.000000, 0.000000 )
+	bool m_bOrientToEyes = false
+	bool m_bDisableOperator = false
+	float m_flOpStartFadeInTime = 0.000000
+	float m_flOpEndFadeInTime = 0.000000
+	float m_flOpStartFadeOutTime = 0.000000
+	float m_flOpEndFadeOutTime = 0.000000
+	float m_flOpFadeOscillatePeriod = 0.000000
+	float m_flOpTimeOffsetMin = 0.000000
+	float m_flOpTimeOffsetMax = 0.000000
+	int m_nOpTimeOffsetSeed = 0
+	int m_nOpStrengthScaleSeed = 0
+	float m_flOpStrengthMinScale = 1.000000
+	float m_flOpStrengthMaxScale = 1.000000
+	int m_nOpTimeScaleSeed = 0
+	float m_flOpTimeScaleMin = 1.000000
+	float m_flOpTimeScaleMax = 1.000000
+	int m_nOpEndCapState = -1
+	int m_nOpScaleCP = -1
+	string m_Notes = ""
+}
+
+C_OP_FadeOut C_OP_FadeOut_18
+{
+	float m_flFadeOutTimeMin = 0.150000
+	float m_flFadeOutTimeMax = 0.150000
+	float m_flFadeOutTimeExp = 1.000000
+	float m_flFadeBias = 0.500000
+	bool m_bProportional = true
+	bool m_bEaseInAndOut = false
 	bool m_bDisableOperator = false
 	float m_flOpStartFadeInTime = 0.000000
 	float m_flOpEndFadeInTime = 0.000000
@@ -370,7 +425,7 @@ C_OP_RenderSprites C_OP_RenderSprites_36
 	float m_flEdgeSoftnessStart = 0.600000
 	float m_flEdgeSoftnessEnd = 0.500000
 	bool m_bOutline = false
-	uint(4) m_OutlineColor = ( 255, 255, 255, 255 )
+	uint(4) m_OutlineColor = ( 0, 0, 0, 255 )
 	int m_nOutlineAlpha = 255
 	float m_flOutlineStart0 = 0.500000
 	float m_flOutlineStart1 = 0.600000
@@ -415,7 +470,7 @@ C_OP_RenderSprites C_OP_RenderSprites_36
 	{
 		float m_flCameraBias = 0.000000
 		float m_flInputMin = 0.000000
-		float m_flInputMax = 0.000000
+		float m_flInputMax = 1.000000
 		float m_flAlphaScaleMin = 0.000000
 		float m_flAlphaScaleMax = 1.000000
 		float m_flRadiusScaleMin = 1.000000
@@ -618,7 +673,7 @@ C_INIT_RemapCPtoScalar C_INIT_RemapCPtoScalar_8
 	float m_flInputMin = 0.000000
 	float m_flInputMax = 30.000000
 	float m_flOutputMin = 0.000000
-	float m_flOutputMax = 45.000000
+	float m_flOutputMax = 35.299999
 	float m_flStartTime = -1.000000
 	float m_flEndTime = -1.000000
 	bool m_bScaleInitialRange = false
