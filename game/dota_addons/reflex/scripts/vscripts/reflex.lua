@@ -1,10 +1,17 @@
 print ('[REFLEX] reflex.lua' )
 
+-- Stat Collection Library
+require('lib.statcollection')
+statcollection.addStats({
+  modID = '05d128cdad57094c9038b71c21f12b31', --GET THIS FROM http://getdotastats.com/#d2mods__my_mods
+  map = GetMapName()
+})
+
 USE_LOBBY=false
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.07.02"
+REFLEX_VERSION = "0.08.03"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 150 --240
@@ -131,6 +138,12 @@ function ReflexGameMode:new( o )
   return o
 end
 
+function testtest(hero)
+  print("atest")
+  PrintTable(hero:GetBounds())
+  
+end
+
 function ReflexGameMode:InitGameMode()
 
   ReflexGameMode = self
@@ -159,6 +172,7 @@ function ReflexGameMode:InitGameMode()
   ListenToGameEvent('dota_item_purchased', Dynamic_Wrap(ReflexGameMode, 'ShopReplacement'), self)
   ListenToGameEvent('player_say', Dynamic_Wrap(ReflexGameMode, 'PlayerSay'), self)
   ListenToGameEvent('player_connect', Dynamic_Wrap(ReflexGameMode, 'PlayerConnect'), self)
+  ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(ReflexGameMode, 'OnGameRulesStateChange'), self)
   --ListenToGameEvent('dota_inventory_changed', Dynamic_Wrap(ReflexGameMode, 'InventoryChanged'), self)
   --ListenToGameEvent('dota_inventory_item_changed', Dynamic_Wrap(ReflexGameMode, 'InventoryItemChanged'), self)
   --ListenToGameEvent('dota_action_item', Dynamic_Wrap(ReflexGameMode, 'ActionItem'), self)
@@ -179,7 +193,7 @@ function ReflexGameMode:InitGameMode()
         print ( '[REFLEX] Resetting player ' .. plyID)
         --PlayerResource:SetGold(plyID, 30000, true)
         player.hero:SetGold(30000, true)
-        player.hero:AddExperience(1000, true)
+        --player.hero:AddExperience(1000, true)
 
         --Remove dangerous abilities
         for i=1,#ADDED_ABILITIES do
@@ -194,6 +208,8 @@ function ReflexGameMode:InitGameMode()
         if player.hero:HasModifier("modifier_invulnerable") then
           player.hero:RemoveModifierByName("modifier_invulnerable")
         end
+
+        testtest(player.hero)
 
         for i=0,11 do
           local item = player.hero:GetItemInSlot( i )
@@ -232,7 +248,7 @@ function ReflexGameMode:InitGameMode()
       }
         
       self:CreateTimer('assign_fakes', {
-        endTime = Time(),
+        endTime = Time() + .5,
         callback = function(reflex, args)
           local userID = 20
           for i=0, 9 do
@@ -260,7 +276,7 @@ function ReflexGameMode:InitGameMode()
               --v:SetControllableByPlayer(plyID, true)
               --local dash = CreateItem("item_reflex_dash", v, v)
               --v:AddItem(dash)
-              --local shooter = CreateItem("item_simple_shooter", v, v)
+              --local shooter =  CreateItem("item_simple_shooter", v, v)
               --v:AddItem(shooter)
             end
           end
@@ -299,17 +315,15 @@ function ReflexGameMode:InitGameMode()
     end
   end, 'Tests the death function', 0)
 
-  Convars:RegisterCommand('debug', function(...)
+  Convars:RegisterCommand('player_say', function(...)
     local arg = {...}
     table.remove(arg,1)
     local cmdPlayer = Convars:GetCommandClient()
     keys = {}
     keys.ply = cmdPlayer
     keys.text = table.concat(arg, " ")
-    if DEBUG then
-      self:PlayerSay(keys)
-    end
-  end, 'debug functions', 0)
+    self:PlayerSay(keys)
+  end, 'player say', 0)
 
 
   -- Change random seed
@@ -366,7 +380,7 @@ function ReflexGameMode:CaptureGameMode()
     print('[REFLEX] Capturing game mode...')
     GameMode = GameRules:GetGameModeEntity()		
     GameMode:SetRecommendedItemsDisabled( true )
-    GameMode:SetCameraDistanceOverride( 1504.0 )
+    --GameMode:SetCameraDistanceOverride( 1504.0 )
     GameMode:SetCustomBuybackCostEnabled( true )
     GameMode:SetCustomBuybackCooldownEnabled( true )
     GameMode:SetBuybackEnabled( false )
@@ -375,7 +389,7 @@ function ReflexGameMode:CaptureGameMode()
     GameMode:SetTopBarTeamValuesOverride ( true )
     GameMode:SetRemoveIllusionsOnDeath( false )
 
-    GameRules:SetHeroMinimapIconSize( 300 )
+    GameRules:SetHeroMinimapIconScale( .45 )
 
     GameMode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 
@@ -448,6 +462,46 @@ function ReflexGameMode:PlayerConnect(keys)
   self.vUserNames[keys.userid] = keys.name
   if keys.bot == 1 then
     self.vBots[keys.userid] = 1
+  end
+end
+
+function ReflexGameMode:PostLoadPrecache()
+  print("[REFLEX] Performing Post-Load precache")    
+  --PrecacheItemByNameAsync("item_example_item", function(...) end)
+  --PrecacheItemByNameAsync("example_ability", function(...) end)
+
+  PrecacheUnitByNameAsync("npc_dota_hero_viper", function(...) end)
+  --PrecacheUnitByNameAsync("npc_dota_hero_enigma", function(...) end)
+  --PrecacheUnitByNameAsync("npc_precache_everything", function(...) end)
+end
+
+-- The overall game state has changed
+function ReflexGameMode:OnGameRulesStateChange(keys)
+  print("[REFLEX] GameRules State Changed")
+
+  local newState = GameRules:State_Get()
+  if newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD then
+    self.bSeenWaitForPlayers = true
+  elseif newState == DOTA_GAMERULES_STATE_INIT then
+    self:RemoveTimer("alljointimer")
+  elseif newState == DOTA_GAMERULES_STATE_HERO_SELECTION then
+    local et = 6
+    if self.bSeenWaitForPlayers then
+      et = .01
+    end
+    self:CreateTimer("alljointimer", {
+      useGameTime = true,
+      endTime = et,
+      callback = function()
+        if PlayerResource:HaveAllPlayersJoined() then
+          ReflexGameMode:PostLoadPrecache()
+          return 
+        end
+        return 1
+      end
+      })
+  --elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+    --GameMode:OnGameInProgress()
   end
 end
 
@@ -536,14 +590,14 @@ function ReflexGameMode:PlayerSay(keys)
       local team = player.nTeam
       self:LoopOverPlayers(function(player, plyID)
         if player.nTeam == team then
-          local name = player.name
+          local name = player.name or "Tools"
           local total = PlayerResource:GetRawPlayerDamage(plyID)
           local roundDamage = player.nRoundDamage
           Say(ply, " _ " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
         end
       end)
     else
-      local name = player.name
+      local name = player.name or "Tools"
       local total = PlayerResource:GetRawPlayerDamage(plyID)
       local roundDamage = player.nRoundDamage
       Say(ply, " _ " .. name .. ":  Last Round: " .. roundDamage .. "  --  Total: " .. total, true)
@@ -1597,6 +1651,10 @@ function ReflexGameMode:AutoAssignPlayer(keys)
   --PrintTable(getmetatable(PlayerResource))
   
   print('[REFLEX] SteamID: ' .. PlayerResource:GetSteamAccountID(playerID))
+  
+  if playerID >= 10 then
+	return
+  end
 
   --Autoassign player
   self:CreateTimer(DoUniqueString('assign_player_'), {
@@ -2021,6 +2079,41 @@ function ReflexGameMode:InitializeRound()
         GameRules:SendCustomMessage("Send feedback to <font color='#70EA72'>bmddota@gmail.com</font>", 0, 0)
       end
     })
+
+    self:CreateTimer('reflexDamage', {
+      endTime = Time(),
+      useGameTime = false,
+      callback = function(reflex, args)
+        local totals = "0"
+        local lasts = "0"
+
+        local ply = self.vPlayers[0]
+        if ply ~= nil then
+          totals = "" .. PlayerResource:GetRawPlayerDamage(0)
+          lasts = "" .. self.vPlayers[0].nRoundDamage
+        end
+
+        for i=1,9 do
+          ply = self.vPlayers[i]
+          if ply ~= nil then
+            totals = totals .. "," .. PlayerResource:GetRawPlayerDamage(i)
+            lasts = lasts .. "," .. self.vPlayers[i].nRoundDamage
+          else
+            totals = totals .. ",0"
+            lasts = lasts .. ",0"
+          end
+        end
+
+        --print("ref_damage_update {" .. totals .. "}")
+        --print("ref_lr_damage_update {" .. lasts .. "}")
+
+        FireGameEvent("ref_damage_update", {totals = totals})
+        FireGameEvent("ref_lr_damage_update", {lasts = lasts})
+
+
+        return Time() + 2
+      end
+    })
     
     self:CreateTimer('reflexDetail1', {
       endTime = GameRules:GetGameTime() + 20,
@@ -2233,6 +2326,8 @@ function ReflexGameMode:RoundComplete(timedOut)
     self.nDireScore = self.nDireScore + 1
   end
 
+  --print("ref_round_complete {round=" .. self.nCurrentRound .. ", victor=" .. victor .. "}")
+  FireGameEvent("ref_round_complete", {round = self.nCurrentRound, victor = victor})
   GameMode:SetTopBarTeamValue ( DOTA_TEAM_BADGUYS, self.nDireScore )
   GameMode:SetTopBarTeamValue ( DOTA_TEAM_GOODGUYS, self.nRadiantScore )
 
@@ -2319,6 +2414,10 @@ function ReflexGameMode:Think()
   print("---------------")]]
   -- If the game's over, it's over.
   if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
+    -- Send stats
+    statcollection.sendStats({lastRound = self.nCurrentRound})
+
+    -- Delete the thinker
     return
   end
 
@@ -2599,6 +2698,7 @@ function ReflexGameMode:OnEntityKilled( keys )
         end
       end)]]
     elseif killedUnit:GetTeam() == DOTA_TEAM_GOODGUYS and nRadiantAlive == 1 then
+      FireGameEvent("ref_last_man_standing", {});
       self:LoopOverPlayers(function(player, plyID)
         --print('Player ' .. plyID .. ' -- Dead: ' .. tostring(player.bDead) .. ' -- Team: ' .. tostring(player.nTeam))
         if player.bDead == false and player.nTeam == DOTA_TEAM_GOODGUYS then
@@ -2609,6 +2709,7 @@ function ReflexGameMode:OnEntityKilled( keys )
         end
       end)
     elseif killedUnit:GetTeam() == DOTA_TEAM_BADGUYS and nDireAlive == 1 then
+      FireGameEvent("ref_last_man_standing", {});
       self:LoopOverPlayers(function(player, plyID)
         --print('Player ' .. plyID .. ' -- Dead: ' .. tostring(player.bDead) .. ' -- Team: ' .. tostring(player.nTeam))
         if player.bDead == false and player.nTeam == DOTA_TEAM_BADGUYS then

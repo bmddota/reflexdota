@@ -1,9 +1,8 @@
 arena
 {
 	material materials/overviews/arena.vmat
-	pos_x -3968
-	pos_y 4128
-	scale 8.000
-	zoom 1.050
+	pos_x -2944
+	pos_y 2944
+	scale 5.750
 }
 

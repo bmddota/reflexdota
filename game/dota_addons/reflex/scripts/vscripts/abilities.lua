@@ -130,7 +130,7 @@ function startFire(keys)
 
   local bounds = nil
   if MAP_DATA[GetMapName()] == nil then
-    bounds = MAP_DATAT["default"].bounds
+    bounds = MAP_DATA["default"].bounds
   else  
     bounds = MAP_DATA[GetMapName()].bounds
   end
@@ -159,6 +159,8 @@ function startFire(keys)
     useGameTime = true,
     callback = function(reflex, args)
       --unit:MoveToPosition(caster:GetAbsOrigin() + diff * 800)
+      unit:StopSound("Hero_Batrider.Firefly.Cast")
+      unit:StopSound("Hero_Batrider.Firefly.loop")
       unit:RemoveSelf()
       unit = nil
     end
@@ -274,16 +276,19 @@ function teamBasedCircle(keys)
   ParticleManager:SetParticleControl(particle, 2, Vector(duration,0,0)) -- something
   
   -- Broadcasters
-  for k,v in pairs(ReflexGameMode.vBroadcasters) do
-    local particle = nil
-    if team == DOTA_TEAM_GOODGUYS then
-      particle = ParticleManager:CreateParticleForPlayer(safeEffect, attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
-    else
-      particle = ParticleManager:CreateParticleForPlayer(dangerEffect, attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
-    end
-    ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
-    ParticleManager:SetParticleControl(particle, 1, Vector(radius,1,1)) -- endpoint
-    ParticleManager:SetParticleControl(particle, 2, Vector(duration,0,0)) -- something
+  --for k,v in pairs(ReflexGameMode.vBroadcasters) do
+  for i=10,32 do 
+	if PlayerResource:IsValidPlayer(i) then
+		local particle = nil
+		if team == DOTA_TEAM_GOODGUYS then
+		  particle = ParticleManager:CreateParticleForPlayer(safeEffect, attach, targetEntity, PlayerResource:GetPlayer(i))--ReflexGameMode.vUserIds[k]--cmdPlayer:GetAssignedHero())
+		else
+		  particle = ParticleManager:CreateParticleForPlayer(dangerEffect, attach, targetEntity, PlayerResource:GetPlayer(i))--cmdPlayer:GetAssignedHero())
+		end
+		ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
+		ParticleManager:SetParticleControl(particle, 1, Vector(radius,1,1)) -- endpoint
+		ParticleManager:SetParticleControl(particle, 2, Vector(duration,0,0)) -- something
+	end
   end
  
   ReflexGameMode:CreateTimer(DoUniqueString("circle"), {
@@ -390,17 +395,20 @@ function teamBasedWall(keys)
   ParticleManager:SetParticleControl(particle, 3, point) -- point to alpha alternate
   
   -- Broadcasters
-  for k,v in pairs(ReflexGameMode.vBroadcasters) do
-    local particle = nil
-    if team == DOTA_TEAM_GOODGUYS then
-      particle = ParticleManager:CreateParticleForPlayer("particles/newplayer_fx/npx_barrier.vpcf", attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
-    else
-      particle = ParticleManager:CreateParticleForPlayer("particles/units/heroes/hero_dark_seer/dark_seer_wall_of_replica.vpcf", attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
-    end
-    ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
-    ParticleManager:SetParticleControl(particle, 1, point + (vec * length / -2)) -- endpoint
-    ParticleManager:SetParticleControl(particle, 2, Vector(0,0,0)) -- something
-    ParticleManager:SetParticleControl(particle, 3, point) -- point to alpha alternate
+  --for k,v in pairs(ReflexGameMode.vBroadcasters) do
+  for i=10,32 do 
+	if PlayerResource:IsValidPlayer(i) then
+		local particle = nil
+		if team == DOTA_TEAM_GOODGUYS then
+		  particle = ParticleManager:CreateParticleForPlayer("particles/newplayer_fx/npx_barrier.vpcf", attach, targetEntity, PlayerResource:GetPlayer(i))--ReflexGameMode.vUserIds[k]--cmdPlayer:GetAssignedHero())
+		else
+		  particle = ParticleManager:CreateParticleForPlayer("particles/units/heroes/hero_dark_seer/dark_seer_wall_of_replica.vpcf", attach, targetEntity, PlayerResource:GetPlayer(i))--cmdPlayer:GetAssignedHero())
+		end
+		ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
+		ParticleManager:SetParticleControl(particle, 1, point + (vec * length / -2)) -- endpoint
+		ParticleManager:SetParticleControl(particle, 2, Vector(0,0,0)) -- something
+		ParticleManager:SetParticleControl(particle, 3, point) -- point to alpha alternate
+	end
   end
   
   local endPoint = point + (vec * length / 2)
@@ -494,17 +502,20 @@ function dangerIndicator(keys)
   ParticleManager:SetParticleControl(particle, 4, Vector(0,0,0)) -- something
   
   -- Broadcasters
-  for k,v in pairs(ReflexGameMode.vBroadcasters) do
-    local particle = ParticleManager:CreateParticleForPlayer("particles/reflex_particles/generic_aoe_shockwave_1.vpcf", attach, targetEntity, ReflexGameMode.vUserIds[k])--cmdPlayer:GetAssignedHero())
-    --ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
-    ParticleManager:SetParticleControl(particle, 1, Vector(radius,0,0)) -- radius
-    ParticleManager:SetParticleControl(particle, 2, Vector(duration,0,1)) -- something
-    if team == DOTA_TEAM_GOODGUYS then
-      ParticleManager:SetParticleControl(particle, 3, Vector(0,200,0)) -- color
-    else
-      ParticleManager:SetParticleControl(particle, 3, Vector(200,0,0)) -- color
-    end
-    ParticleManager:SetParticleControl(particle, 4, Vector(0,0,0)) -- something
+  --for k,v in pairs(ReflexGameMode.vBroadcasters) do
+  for i=10,32 do 
+	if PlayerResource:IsValidPlayer(i) then
+		local particle = ParticleManager:CreateParticleForPlayer("particles/reflex_particles/generic_aoe_shockwave_1.vpcf", attach, targetEntity, PlayerResource:GetPlayer(i))--cmdPlayer:GetAssignedHero())
+		--ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
+		ParticleManager:SetParticleControl(particle, 1, Vector(radius,0,0)) -- radius
+		ParticleManager:SetParticleControl(particle, 2, Vector(duration,0,1)) -- something
+		if team == DOTA_TEAM_GOODGUYS then
+		  ParticleManager:SetParticleControl(particle, 3, Vector(0,200,0)) -- color
+		else
+		  ParticleManager:SetParticleControl(particle, 3, Vector(200,0,0)) -- color
+		end
+		ParticleManager:SetParticleControl(particle, 4, Vector(0,0,0)) -- something
+	end
   end
   
   if target == "POINT" then
@@ -927,12 +938,12 @@ function projectileHit(keys)
   local projID = projectiles[ability:GetAbilityName()]
   local dummy = dummies[ability:GetAbilityName()]
   
-  ReflexGameMode:RemoveTimer(caster:GetPlayerID() .. ability:GetAbilityName() .. "grip_dummy")
-  
   local targetEntity = keys.target_entities[1]
   if caster == nil or targetEntity == nil or targetEntity == caster then
     return
   end
+
+  ReflexGameMode:RemoveTimer(tostring(caster:GetPlayerID()) .. ability:GetAbilityName() .. "grip_dummy")
     
   ProjectileManager:DestroyLinearProjectile(projID)
   
@@ -987,14 +998,17 @@ function projectileHit(keys)
   ParticleManager:SetParticleControl(particle, 1, Vector(100,5,1)) -- radius, thickness, speed
   ParticleManager:SetParticleControl(particle, 3, targetEntity:GetAbsOrigin()) -- position
   
-  --[[ReflexGameMode:CreateTimer(DoUniqueString("grip"), {
+  ReflexGameMode:CreateTimer(DoUniqueString("grip"), {
     endTime = GameRules:GetGameTime() + 5,
     useGameTime = true,
     callback = function(reflex, args)
       --dummy:CastAbilityOnTarget(caster, grip, 0 )
-      dummy:Destroy()
+      if IsValidEntity(dummy) then
+        dummy:RemoveSelf()
+        dummy = nil
+      end
     end
-  })]]
+  })
   
 end
 --[["Target"        "POINT"
@@ -1114,11 +1128,14 @@ function makeProjectile(keys)
   dummy:AddNewModifier(dummy, nil, "modifier_phased", {})
   
   ReflexGameMode:CreateTimer(tostring(caster:GetPlayerID()) .. ability:GetAbilityName() .. "grip_dummy", {
-    endTime = GameRules:GetGameTime() + 10,
+    endTime = GameRules:GetGameTime() + 5,
     useGameTime = true,
     callback = function(reflex, args)
       --dummy:CastAbilityOnTarget(caster, grip, 0 )
-      dummy:Destroy()
+      if IsValidEntity(dummy) then
+        dummy:RemoveSelf()
+        dummy = nil
+      end
     end
   })
   
@@ -1171,7 +1188,7 @@ function itemMeteorCannon( channelTime, point, item , caster)
   --info.vVelocity = point:Normalized() * speed * channelTime--( RotatePosition( Vec3( 0, 0, 0 ), angle, Vec3( 1, 0, 0 ) ) ) * speed
   --info.vAcceleration = info.vVelocity * -0.15
 
-  ProjectileManager:CreateLinearProjectile( info )
+  local proj = ProjectileManager:CreateLinearProjectile( info )
 end
 
 function itemApplyChannelDamage(keys)

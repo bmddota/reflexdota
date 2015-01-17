@@ -213,6 +213,9 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
-Install Reflex.bat
-InstallReflex.vbs
+
+Install.bat
+Install.vbs
+PhysicsReadme.txt
+fix.bat
 Server Copy.bat

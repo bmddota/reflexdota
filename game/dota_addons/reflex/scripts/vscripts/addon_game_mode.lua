@@ -18,7 +18,7 @@ function Precache( context )
 			PrecacheResource( "particle", "*.vpcf", context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
-		--PrecacheUnitByNameSync('npc_precache_everything', context)
+		--PrecacheUnitByNameSync('npc_dota_danger_indicator', context)
 		--[[PrecacheUnitByNameSync('npc_dota_hero_ancient_apparition', context)
 		PrecacheUnitByNameSync('npc_dota_hero_antimage', context)
 		PrecacheUnitByNameSync('npc_dota_hero_axe', context)

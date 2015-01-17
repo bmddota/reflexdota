@@ -1,9 +1,8 @@
 reflex
 {
 	material materials/overviews/reflex.vmat
-	pos_x -4096
-	pos_y 4096
-	scale 8.000
-	zoom 1.050
+	pos_x -2944
+	pos_y 2784
+	scale 5.625
 }
 

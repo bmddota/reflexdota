@@ -80,7 +80,7 @@
 	"npc_dota_hero_lone_druid" "0"
 	"npc_dota_hero_brewmaster" "1"
 	"npc_dota_hero_phantom_lancer" "1"
-	"npc_dota_hero_treant" "1"
+	"npc_dota_hero_treant" "0"
 	"npc_dota_hero_ogre_magi" "0"
 	"npc_dota_hero_chaos_knight" "1"
 	"npc_dota_hero_phantom_assassin" "1"
@@ -113,4 +113,5 @@
 	"npc_dota_hero_phoenix" "1"
 	"npc_dota_hero_terrorblade" "1"
 	"npc_dota_hero_techies" "1"
+	"npc_dota_hero_oracle" "1"
 }

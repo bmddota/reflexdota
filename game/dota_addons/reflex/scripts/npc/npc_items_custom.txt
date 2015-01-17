@@ -12334,12 +12334,8 @@
 		"ItemCost"						"90"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
-		"ItemStackable"					"1"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
-		"ItemPermanent"					"0"
-		"ItemPurchaseable"			"0"
-		"ItemInitialCharges"			"1"
-		"SideShop"						"1"
+		"ItemPurchasable"			"0"
+		"ItemDroppable"			"0"
 
 
 		
