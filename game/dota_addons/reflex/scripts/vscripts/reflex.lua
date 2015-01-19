@@ -11,10 +11,10 @@ USE_LOBBY=false
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.08.03"
+REFLEX_VERSION = "0.08.05"
 
 ROUNDS_TO_WIN = 8
-ROUND_TIME = 150 --240
+ROUND_TIME = 240 --150 --240
 PRE_GAME_TIME = 30 -- 30
 PRE_ROUND_TIME = 30 --30
 POST_ROUND_TIME = 2
@@ -70,10 +70,10 @@ MAP_DATA = {
   },
   arena = {
     bounds = {
-      left = -2700,
-      right = 2700,
-      bottom = -2260,
-      top = 2140
+      left = -2650,
+      right = 2650,
+      bottom = -2100,
+      top = 2210
     }
   }
 }
@@ -470,9 +470,8 @@ function ReflexGameMode:PostLoadPrecache()
   --PrecacheItemByNameAsync("item_example_item", function(...) end)
   --PrecacheItemByNameAsync("example_ability", function(...) end)
 
-  PrecacheUnitByNameAsync("npc_dota_hero_viper", function(...) end)
+  PrecacheUnitByNameAsync("npc_precache_everything", function(...) end)
   --PrecacheUnitByNameAsync("npc_dota_hero_enigma", function(...) end)
-  --PrecacheUnitByNameAsync("npc_precache_everything", function(...) end)
 end
 
 -- The overall game state has changed

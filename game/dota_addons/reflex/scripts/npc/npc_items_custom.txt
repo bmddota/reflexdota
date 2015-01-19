@@ -1197,7 +1197,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 90 80 70"
+		"AbilityManaCost"				"40"
 		"ItemCost"						"1250"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -1448,7 +1448,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"arrow_speed"			"2400.0 2600.0 3800.0 3000.0"
+				"arrow_speed"			"2400.0 2600.0 2800.0 3000.0"
 			}
 			"06"
 			{
@@ -1702,6 +1702,8 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemPurchasable"				"1"
 		"SecretShop"						"1"
+
+		"AbilityManaCost"				"175"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -3509,7 +3511,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000 2300 2650 3000"
-		"AbilityCastPoint"				"0.15"
+		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"0.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
@@ -3645,7 +3647,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000 2300 2650 3000"
-		"AbilityCastPoint"				"0.15"
+		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"0.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
@@ -3781,7 +3783,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000 2300 2650 3000"
-		"AbilityCastPoint"				"0.15"
+		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"0.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"
@@ -3917,7 +3919,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000 2300 2650 3000"
-		"AbilityCastPoint"				"0.15"
+		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"0.0"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation"			"ACT_DOTA_DISABLED"

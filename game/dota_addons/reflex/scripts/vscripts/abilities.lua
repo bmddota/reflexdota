@@ -141,7 +141,9 @@ function startFire(keys)
     pos.y = bounds.bottom
   elseif pos.y > bounds.top then
     pos.y = bounds.top
-  elseif pos.x < bounds.left then
+  end
+  
+  if pos.x < bounds.left then
     pos.x = bounds.left
   elseif pos.x > bounds.right then
     pos.x = bounds.right
