@@ -4,10 +4,10 @@
 	{
 		"update_stack"
 		{
-			"update_operator"
+			"reference_operator"
 			{
 				"operator"		"sos_reference_stack"
-				"reference_stack"		"src1_3d"
+				"reference_stack"		"dota_update_default"
 				"operator_variables"
 				{
 					"vsnd_files"
@@ -48,6 +48,71 @@
 					"soundlevel_max"
 					{
 						"value"		"90.000000"
+					}
+				}
+			}
+		}
+	}
+}
+
+"Reflex.Midnight_Pulse"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/enigma/midnight_pulse.vsnd"
+						}
+					}
+					"volume_min"
+					{
+						"value"		"1.000000"
+					}
+					"volume_max"
+					{
+						"value"		"1.000000"
+					}
+					"pitch_min"
+					{
+						"value"		"1.000000"
+					}
+					"pitch_max"
+					{
+						"value"		"1.000000"
+					}
+					"chan_type"
+					{
+						"value"		"6"
+					}
+					"memory_type"
+					{
+						"value"		"0"
+					}
+					"soundlevel_min"
+					{
+						"value"		"81.000000"
+					}
+					"soundlevel_max"
+					{
+						"value"		"81.000000"
+					}
+					"mixgroup"
+					{
+						"value"		"Weapons"
+					}
+					"spread_radius"
+					{
+						"value"		"600.000000"
 					}
 				}
 			}

@@ -102,7 +102,7 @@ CParticleSystemDefinition CParticleSystemDefinition_0
 
 C_OP_BasicMovement C_OP_BasicMovement_0
 {
-	float(3) m_Gravity = ( 0.000000, 0.000000, 50.000000 )
+	float(3) m_Gravity = ( 0.000000, 0.000000, 0.000000 )
 	float m_fDrag = 0.050000
 	int m_nMaxConstraintPasses = 3
 	bool m_bLockULCorner = false
