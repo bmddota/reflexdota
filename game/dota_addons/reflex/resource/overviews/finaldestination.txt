@@ -1,0 +1,8 @@
+finaldestination
+{
+	material materials/overviews/finaldestination.vmat
+	pos_x -3048
+	pos_y 2979
+	scale 5.758
+}
+

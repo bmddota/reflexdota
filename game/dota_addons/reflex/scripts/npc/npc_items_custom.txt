@@ -621,7 +621,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_simple_shooter"
 		"ItemKillable"					"0"
-		"ItemSellable"					"1"
+		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -736,7 +736,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_simple_shooter_2"
 		"ItemKillable"					"0"
-		"ItemSellable"					"1"
+		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -846,7 +846,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_simple_shooter_3"
 		"ItemKillable"					"0"
-		"ItemSellable"					"1"
+		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
 
 		// Stats
@@ -956,7 +956,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_simple_shooter_4"
 		"ItemKillable"					"0"
-		"ItemSellable"					"1"
+		"ItemSellable"					"0"
 		"ItemDroppable"					"1"
 
 		// Stats

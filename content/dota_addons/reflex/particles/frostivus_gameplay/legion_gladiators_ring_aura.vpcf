@@ -1,135 +1,99 @@
-<!-- schema text {7e125a45-3d83-4043-b292-9e24f8ef27b4} generic {198980d8-3a93-4919-b4c6-dd1fb07a3a4b} -->
-CParticleSystemDefinition CParticleSystemDefinition_0
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	bool m_bPreventNameBasedLookup = false
-	int m_nMaxParticles = 128
-	string m_pszSnapshotName = ""
-	string m_hLowViolenceDef = ""
-	string m_hReferenceReplacement = ""
-	string m_hFallback = ""
-	int(4) m_ConstantColor = ( 255, 243, 216, 70 )
-	CParticleOperator*[] m_Renderers = 
+	_class = "CParticleSystemDefinition"
+	m_nMaxParticles = 128
+	m_ConstantColor =
 	[
-		&C_OP_RenderRopes_0
+		255,
+		243,
+		216,
+		70,
 	]
-	CParticleOperator*[] m_Operators = 
+	m_Renderers =
 	[
-		&C_OP_FadeOutSimple_0,
-		&C_OP_InterpolateRadius_0,
-		&C_OP_RampScalarLinearSimple_0,
-		&C_OP_AlphaDecay_0,
-		&C_OP_BasicMovement_0,
-		&C_OP_ColorInterpolate_0
+		{
+			_class = "C_OP_RenderRopes"
+			m_bAdditive = true
+			m_flSelfIllumAmount = 2.000000
+			m_hTexture = resource:"materials/particle/beam_arc.vtex"
+			m_flTextureVWorldSize = 1999.999878
+			m_nMaxTesselation = 2
+			m_nMinTesselation = 2
+		},
 	]
-	CParticleOperator*[] m_Initializers = 
+	m_Operators =
 	[
-		&C_INIT_RingWave_0,
-		&C_INIT_RandomRadius_0,
-		&C_INIT_RandomLifeTime_0,
-		&C_INIT_RandomAlpha_0
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.500000
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndScale = 20.000000
+			m_flStartScale = 0.000000
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_nOpEndCapState = 1
+			m_nField = 7
+			m_Rate = -2.000000
+			m_flEndTime = 999999.000000
+		},
+		{
+			_class = "C_OP_AlphaDecay"
+			m_flMinAlpha = 0.001000
+		},
+		{
+			_class = "C_OP_BasicMovement"
+			m_Gravity =
+			[
+				0.000000,
+				0.000000,
+				35.000000,
+			]
+		},
+		{
+			_class = "C_OP_ColorInterpolate"
+			m_ColorFade =
+			[
+				140,
+				100,
+				36,
+				255,
+			]
+		},
 	]
-	CParticleOperator*[] m_Emitters = 
+	m_Initializers =
 	[
-		&C_OP_ContinuousEmitter_0
+		{
+			_class = "C_INIT_RingWave"
+			m_flInitialRadius = 625.000000
+			m_bEvenDistribution = true
+			m_flParticlesPerOrbit = 10.000000
+			m_flInitialSpeedMax = 20.000000
+			m_nControlPointNumber = 7
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMin = 10.000000
+			m_flRadiusMax = 10.000000
+		},
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 2.500000
+			m_fLifetimeMax = 2.500000
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMin = 50
+			m_nAlphaMax = 50
+		},
 	]
-	CParticleOperator*[] m_ForceGenerators = 
+	m_Emitters =
 	[
-		
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmitRate = 15.000000
+		},
 	]
-	CParticleOperator*[] m_Constraints = 
-	[
-		
-	]
-	ParticleChildrenInfo_t[] m_Children = 
-	[
-		
-	]
-}
-
-C_OP_RenderRopes C_OP_RenderRopes_0
-{
-	int m_bAdditive = 1
-	float m_flSelfIllumAmount = 2.000000
-	string m_hTexture = "materials\\particle\\beam_arc.vtex"
-	string m_Notes = ""
-	float m_flTextureVWorldSize = 1999.999878
-	int m_nMaxTesselation = 2
-	int m_nMinTesselation = 2
-}
-
-C_OP_FadeOutSimple C_OP_FadeOutSimple_0
-{
-	string m_Notes = ""
-	float m_flFadeOutTime = 0.500000
-}
-
-C_OP_InterpolateRadius C_OP_InterpolateRadius_0
-{
-	string m_Notes = ""
-	float m_flEndScale = 20.000000
-	float m_flStartScale = 0.000000
-}
-
-C_OP_RampScalarLinearSimple C_OP_RampScalarLinearSimple_0
-{
-	int m_nOpEndCapState = 1
-	string m_Notes = ""
-	int m_nField = 7
-	float m_Rate = -2.000000
-	float m_flEndTime = 999999.000000
-}
-
-C_OP_AlphaDecay C_OP_AlphaDecay_0
-{
-	string m_Notes = ""
-	float m_flMinAlpha = 0.001000
-}
-
-C_OP_BasicMovement C_OP_BasicMovement_0
-{
-	float(3) m_Gravity = ( 0.000000, 0.000000, 35.000000 )
-	string m_Notes = ""
-}
-
-C_OP_ColorInterpolate C_OP_ColorInterpolate_0
-{
-	int(4) m_ColorFade = ( 140, 100, 36, 255 )
-	string m_Notes = ""
-}
-
-C_INIT_RingWave C_INIT_RingWave_0
-{
-	string m_Notes = ""
-	float m_flInitialRadius = 625.000000
-	bool m_bEvenDistribution = true
-	float m_flParticlesPerOrbit = 10.000000
-	float m_flInitialSpeedMax = 20.000000
-	int m_nControlPointNumber = 7
-}
-
-C_INIT_RandomRadius C_INIT_RandomRadius_0
-{
-	string m_Notes = ""
-	float m_flRadiusMin = 10.000000
-	float m_flRadiusMax = 10.000000
-}
-
-C_INIT_RandomLifeTime C_INIT_RandomLifeTime_0
-{
-	string m_Notes = ""
-	float m_fLifetimeMin = 2.500000
-	float m_fLifetimeMax = 2.500000
-}
-
-C_INIT_RandomAlpha C_INIT_RandomAlpha_0
-{
-	string m_Notes = ""
-	int m_nAlphaMin = 50
-	int m_nAlphaMax = 50
-}
-
-C_OP_ContinuousEmitter C_OP_ContinuousEmitter_0
-{
-	float m_flEmitRate = 15.000000
-	string m_Notes = ""
 }

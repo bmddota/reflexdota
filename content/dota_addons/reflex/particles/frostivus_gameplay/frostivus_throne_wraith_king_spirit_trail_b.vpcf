@@ -1,108 +1,70 @@
-<!-- schema text {7e125a45-3d83-4043-b292-9e24f8ef27b4} generic {198980d8-3a93-4919-b4c6-dd1fb07a3a4b} -->
-CParticleSystemDefinition CParticleSystemDefinition_0
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	bool m_bPreventNameBasedLookup = false
-	int m_nMaxParticles = 32
-	string m_pszSnapshotName = ""
-	string m_hLowViolenceDef = ""
-	string m_hReferenceReplacement = ""
-	string m_hFallback = ""
-	float m_flConstantRadius = 48.000000
-	int(4) m_ConstantColor = ( 91, 241, 158, 15 )
-	float m_flMaxRecreationTime = -1.000000
-	CParticleOperator*[] m_Renderers = 
+	_class = "CParticleSystemDefinition"
+	m_nMaxParticles = 32
+	m_flConstantRadius = 48.000000
+	m_ConstantColor =
 	[
-		&C_OP_RenderRopes_0
+		91,
+		241,
+		158,
+		15,
 	]
-	CParticleOperator*[] m_Operators = 
+	m_flMaxRecreationTime = -1.000000
+	m_Renderers =
 	[
-		&C_OP_Decay_0,
-		&C_OP_InterpolateRadius_0,
-		&C_OP_PositionLock_0,
-		&C_OP_FadeInSimple_0,
-		&C_OP_RemapParticleCountOnScalarEndCap_0,
-		&C_OP_RemapParticleCountOnScalarEndCap_2
+		{
+			_class = "C_OP_RenderRopes"
+			m_flSelfIllumAmount = 1.000000
+			m_hTexture = resource:"materials/particle/beam_plasma_06.vtex"
+			m_flTextureVScrollRate = -0.170000
+			m_flTextureVWorldSize = 250.000015
+			m_nMaxTesselation = 3
+			m_nMinTesselation = 3
+		},
 	]
-	CParticleOperator*[] m_Initializers = 
+	m_Operators =
 	[
-		&C_INIT_CreateWithinSphere_0
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndScale = 0.000000
+			m_flBias = 0.750000
+		},
+		{
+			_class = "C_OP_PositionLock"
+			m_flStartTime_max = -10.000000
+			m_flStartTime_min = -10.000000
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+		},
+		{
+			_class = "C_OP_RemapParticleCountOnScalarEndCap"
+			m_bBackwards = true
+			m_nInputMax = 10
+			m_nFieldOutput = 16
+		},
+		{
+			_class = "C_OP_RemapParticleCountOnScalarEndCap"
+			m_bBackwards = true
+			m_nInputMax = 25
+			m_bScaleCurrent = true
+		},
 	]
-	CParticleOperator*[] m_Emitters = 
+	m_Initializers =
 	[
-		&C_OP_ContinuousEmitter_0
+		{
+			_class = "C_INIT_CreateWithinSphere"
+		},
 	]
-	CParticleOperator*[] m_ForceGenerators = 
+	m_Emitters =
 	[
-		
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmitRate = 32.000000
+		},
 	]
-	CParticleOperator*[] m_Constraints = 
-	[
-		
-	]
-	ParticleChildrenInfo_t[] m_Children = 
-	[
-		
-	]
-}
-
-C_OP_RenderRopes C_OP_RenderRopes_0
-{
-	float m_flSelfIllumAmount = 1.000000
-	string m_hTexture = "materials\\particle\\beam_plasma_06.vtex"
-	string m_Notes = ""
-	float m_flTextureVScrollRate = -0.170000
-	float m_flTextureVWorldSize = 250.000015
-	int m_nMaxTesselation = 3
-	int m_nMinTesselation = 3
-}
-
-C_OP_Decay C_OP_Decay_0
-{
-	string m_Notes = ""
-}
-
-C_OP_InterpolateRadius C_OP_InterpolateRadius_0
-{
-	float m_flEndScale = 0.000000
-	string m_Notes = ""
-	float m_flBias = 0.750000
-}
-
-C_OP_PositionLock C_OP_PositionLock_0
-{
-	float m_flStartTime_max = -10.000000
-	float m_flStartTime_min = -10.000000
-	string m_Notes = ""
-}
-
-C_OP_FadeInSimple C_OP_FadeInSimple_0
-{
-	string m_Notes = ""
-}
-
-C_OP_RemapParticleCountOnScalarEndCap C_OP_RemapParticleCountOnScalarEndCap_0
-{
-	string m_Notes = ""
-	bool m_bBackwards = true
-	int m_nInputMax = 10
-	int m_nFieldOutput = 16
-}
-
-C_OP_RemapParticleCountOnScalarEndCap C_OP_RemapParticleCountOnScalarEndCap_2
-{
-	string m_Notes = ""
-	bool m_bBackwards = true
-	int m_nInputMax = 25
-	bool m_bScaleCurrent = true
-}
-
-C_INIT_CreateWithinSphere C_INIT_CreateWithinSphere_0
-{
-	string m_Notes = ""
-}
-
-C_OP_ContinuousEmitter C_OP_ContinuousEmitter_0
-{
-	float m_flEmitRate = 32.000000
-	string m_Notes = ""
 }

@@ -3,14 +3,19 @@
 	// swf files should be published into the same folder as this file
 
 	// Add a numbered block for each swf file to load when your addon starts
-    "1"
+    //"1"
+//    {
+//        "File" "StatsCollection"
+//        "Depth" "1"
+//    }
+//    "2"
+//    {
+//        "File" "ReflexUI"
+//        "Depth" "50"
+//    }
+    "3"
     {
-        "File" "StatsCollection"
-        "Depth" "1"
-    }
-    "2"
-    {
-        "File" "ReflexUI"
+        "File" "PlayerSay"
         "Depth" "50"
     }
 }

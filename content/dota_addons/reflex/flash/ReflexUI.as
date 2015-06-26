@@ -22,6 +22,7 @@
 	import scaleform.gfx.KeyboardEventEx;
 	import flash.events.KeyboardEvent;
 	import flash.events.EventDispatcher;
+	import scaleform.gfx.MouseEventEx;
 	
 	public class ReflexUI extends MovieClip{
 		
@@ -80,19 +81,33 @@
 			this.origScaleY = dashClips[0].scaleY;
 		}
 		
+		public function onUnloaded() : void {
+			trace("[ReflexUI] Reflex UI unloaded!");
+			
+			abilitiesTimer.stop();
+			abilitiesTimer.removeEventListener(TimerEvent.TIMER, abilitiesUpdate);
+			abilitiesTimer = null;
+			
+			dashTimer.stop();
+			dashTimer.removeEventListener(TimerEvent.TIMER, dashUpdate);
+			dashTimer = null;
+		}
+		
 		//this function is called when the UI is loaded
 		public function onLoaded() : void {			
 			//make this UI visible
 			visible = true;
 			var pID:int = this.globals.Players.GetLocalPlayer();
+			clickStage.visible = false;
 			
 			//let the client rescale the UI
-			Globals.instance.resizeManager.AddListener(this);
+			//Globals.instance.resizeManager.AddListener(this);
 			
 			//this is not needed, but it shows you your UI has loaded (needs 'scaleform_spew 1' in console)
 			trace("[ReflexUI] Reflex UI loaded!");
-			trace("[ReflexUI] BUILD: 1000000022");
+			trace("[ReflexUI] BUILD: 1000000059");
 			
+			trace("1");
 			//pass the gameAPI on to the module
 			this.radiantVictory.setup(this.gameAPI, this.globals);
 			this.direVictory.setup(this.gameAPI, this.globals);
@@ -100,19 +115,27 @@
 			this.lastManStanding.setup(this.gameAPI, this.globals);
 			//this.testButton.addEventListener(MouseEvent.CLICK, onButtonClicked);
 			
+			trace("2");
+			
 			damageButton.addEventListener(ButtonEvent.CLICK, onButtonClicked, false,0, true);
 			
 			this.origChatY = globals.Loader_hud_chat.movieClip.y;
+			trace("3");
 			
-			var oldChatSay:Function = globals.Loader_hud_chat.movieClip.gameAPI.ChatSay;
+			/*var oldChatSay:Function = globals.Loader_hud_chat.movieClip.gameAPI.ChatSay;
 			globals.Loader_hud_chat.movieClip.gameAPI.ChatSay = function(obj:Object, bool:Boolean){
-				gameAPI.SendServerCommand( "player_say " + obj.toString());
+				var type:int = globals.Loader_hud_chat.movieClip.m_nLastMessageMode
+				if (bool)
+					type = 4
+				
+				gameAPI.SendServerCommand( "player_say " + type + " " + obj.toString());
 				oldChatSay(obj, bool);
-			};
+			};*/
 
-			scoreboardPatch();
+			//scoreboardPatch();
+			trace("4");
 			abilitiesTimer = new Timer(2000, 0);
-			abilitiesTimer.addEventListener(TimerEvent.TIMER, abilitiesUpdate);
+			//abilitiesTimer.addEventListener(TimerEvent.TIMER, abilitiesUpdate);
 			abilitiesTimer.start();
 			
 			dashTimer = new Timer(200, 0);
@@ -121,9 +144,36 @@
 				dashTimer.addEventListener(TimerEvent.TIMER, dashUpdate);
 			}
 			
+			trace("5");
 			this.gameAPI.SubscribeToGameEvent("ref_round_complete", this.onRoundComplete);
 			trace("setting camera distance");
 			Globals.instance.GameInterface.SetConvar("dota_camera_distance", "1504");
+		}
+		
+		private function rightClicked(e:MouseEventEx){
+			if (e.buttonIdx == MouseEventEx.RIGHT_BUTTON){
+				trace("RIGHT CLICKED");
+				trace(e.stageX);
+				trace(e.stageY);
+				var a:Array = globals.Game.ScreenXYToWorld(e.stageX, e.stageY)
+				trace(a);
+				clickStage.visible = !clickStage.visible
+			}
+			
+			trace('---------------');
+			var pID:int = this.globals.Players.GetLocalPlayer();
+			var b:Array = globals.Players.GetSelectedEntities(pID);
+			trace(b);
+			PrintTable(globals.Loader_actionpanel.movieClip.middle.multiunit.slot0);
+			PrintTable(globals.Loader_actionpanel.movieClip.middle.multiunit.slot1);
+			
+			trace('---------------');
+			var c = globals.Entities.GetSelectionEntities(pID);
+			trace(c);
+			trace('---------------');
+			c = globals.Entities.GetSelectionEntities(1);
+			trace(c);
+			
 		}
 		
 		private function abilitiesUpdate(event:TimerEvent):void{
@@ -527,5 +577,125 @@
 			
 			return newObject;
 		}
+		
+		public function strRep(str, count) {
+            var output = "";
+            for(var i=0; i<count; i++) {
+                output = output + str;
+            }
+
+            return output;
+        }
+
+        public function isPrintable(t) {
+        	if(t == null || t is Number || t is String || t is Boolean || t is Function || t is Array) {
+        		return true;
+        	}
+        	// Check for vectors
+        	if(flash.utils.getQualifiedClassName(t).indexOf('__AS3__.vec::Vector') == 0) return true;
+
+        	return false;
+        }
+
+        public function PrintTable(t, indent=0, done=null) {
+            var i:int, key, key1, v:*;
+
+            // Validate input
+            if(isPrintable(t)) {
+                trace("PrintTable called with incorrect arguments!");
+                return;
+            }
+
+            if(indent == 0) {
+                trace(t.name+" "+t+": {")
+            }
+
+            // Stop loops
+            done ||= new flash.utils.Dictionary(true);
+            if(done[t]) {
+                trace(strRep("\t", indent)+"<loop object> "+t);
+                return;
+            }
+            done[t] = true;
+
+            // Grab this class
+            var thisClass = flash.utils.getQualifiedClassName(t);
+
+            // Print methods
+            for each(key1 in flash.utils.describeType(t)..method) {
+                // Check if this is part of our class
+                if(key1.@declaredBy == thisClass) {
+                    // Yes, log it
+                    trace(strRep("\t", indent+1)+key1.@name+"()");
+                }
+            }
+
+            // Check for text
+            if("text" in t) {
+                trace(strRep("\t", indent+1)+"text: "+t.text);
+            }
+            if("label" in t) {
+                trace(strRep("\t", indent+1)+"label: "+t.label);
+            }
+
+            // Print variables
+            for each(key1 in flash.utils.describeType(t)..variable) {
+                key = key1.@name;
+                v = t[key];
+
+                // Check if we can print it in one line
+                if(isPrintable(v)) {
+                    trace(strRep("\t", indent+1)+key+": "+v);
+                } else {
+                    // Open bracket
+                    trace(strRep("\t", indent+1)+key+": {");
+
+                    // Recurse!
+                    PrintTable(v, indent+1, done)
+
+                    // Close bracket
+                    trace(strRep("\t", indent+1)+"}");
+                }
+            }
+
+            // Find other keys
+            for(key in t) {
+                v = t[key];
+
+                // Check if we can print it in one line
+                if(isPrintable(v)) {
+                    trace(strRep("\t", indent+1)+key+": "+v);
+                } else {
+                    // Open bracket
+                    trace(strRep("\t", indent+1)+key+": {");
+
+                    // Recurse!
+                    PrintTable(v, indent+1, done)
+
+                    // Close bracket
+                    trace(strRep("\t", indent+1)+"}");
+                }
+            }
+
+            // Get children
+            if(t is MovieClip) {
+                // Loop over children
+                for(i = 0; i < t.numChildren; i++) {
+                    // Open bracket
+                    trace(strRep("\t", indent+1)+t.name+" "+t+": {");
+
+                    // Recurse!
+                    PrintTable(t.getChildAt(i), indent+1, done);
+
+                    // Close bracket
+                    trace(strRep("\t", indent+1)+"}");
+                }
+            }
+
+            // Close bracket
+            if(indent == 0) {
+                trace("}");
+            }
+        }
 	}
 }

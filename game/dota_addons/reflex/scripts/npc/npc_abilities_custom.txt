@@ -2533,7 +2533,7 @@
           "AttachEffect"
           {
             "Target"      "TARGET"
-            "EffectName"    "rune_doubledamage"
+            "EffectName"    "particles/generic_gameplay/rune_doubledamage.vpcf"
             "EffectAttachType"  "follow_origin"
           }
         }
@@ -2566,21 +2566,31 @@
       }
     }
   }
-  
+
   "reflex_grip"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     //"ID"              "5610"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TURN |DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-    "BaseClass"        "earth_spirit_geomagnetic_grip"
-    "AbilityCastRange"        "GLOBAL"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
-    "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "0"
-    "AbilityManaCost"       "0"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE"
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TURN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "BaseClass"        "earth_spirit_geomagnetic_grip"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "GLOBAL"
+    "AbilityCastPoint"        "0.00"
+    
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "0"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "0"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -2594,33 +2604,38 @@
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "rock_damage"     "100 150 200 250"
+        "miss_rate"     "75"
       }
       "03"
       {
-        "var_type"        "FIELD_INTEGER"
-        "speed"         "1400 1600 1800 2000"
+        "var_type"        "FIELD_FLOAT"
+        "miss_duration"     "2.5 3 3.5 4"
       }
       "04"
       {
         "var_type"        "FIELD_FLOAT"
-        "stun_duration"       "0"
-      }
+        "pull_units_per_second_heroes"   "1400 1600 1800 2000"
+      }       
       "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "rock_damage"     "50 100 150 200"
+      }       
+      "06"
       {
         "var_type"        "FIELD_FLOAT"
         "pull_units_per_second"   "1400 1600 1800 2000"
       }
-      "06"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "total_pull_distance"   "4000"
-      }
       "07"
       {
+        "var_type"        "FIELD_INTEGER"
+        "speed"         "1400 1600 1800 2000"
+      } 
+      "08"
+      {
         "var_type"        "FIELD_FLOAT"
-        "silence_duration"    "0"
-      }
+        "total_pull_distance"   "5000"
+      }     
     }
   }
   

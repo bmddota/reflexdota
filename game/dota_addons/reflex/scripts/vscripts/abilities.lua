@@ -554,7 +554,6 @@ function itemSpellStart (keys)
   --print ('Item')
   --PrintTable(item)
   --PrintTable(getmetatable(item))
-  --print(item:GetLevel())
   if item == nil then
     item = caster:FindAbilityByName(itemName)
     if item == nil then 
@@ -564,7 +563,6 @@ function itemSpellStart (keys)
   
     
   if string.find(itemName, "item_reflex_dash") ~= nil then
-    --print (tostring(caster:HasModifier("modifier_hamstring")))
     if caster:HasModifier("modifier_hamstring") or caster:HasModifier("modifier_hamstring_2") 
       or caster:HasModifier("modifier_hamstring_3") or caster:HasModifier("modifier_hamstring_4") 
       or caster:HasModifier("modifier_blade_charge") then
@@ -779,8 +777,13 @@ function itemSpellStart (keys)
         return
       end
       
-      -- print ("[REFLEX] " ..target .. " -- " ..abilityName  .. " -- " .. tostring(point))
-      -- PrintTable(ability)
+      --print ("[REFLEX] " ..target .. " -- " ..abilityName  .. " -- " .. tostring(point))
+      --PrintTable(ability)
+      if string.find(ability:GetAbilityName(), "reflex_dash") ~= nil then
+        caster:AddNewModifier(caster, nil, 'modifier_item_forcestaff_active', {push_length = 600})
+        EmitSoundOn('DOTA_Item.ForceStaff.Activate', caster)
+        return
+      end
       if target == nil then
         caster:CastAbilityNoTarget (ability, -1 )
       elseif target == "POINT" then
@@ -991,7 +994,10 @@ function projectileHit(keys)
   dummy:SetForwardVector(diff:Normalized())
   
   local point = targetEntity:GetAbsOrigin()
+  --dummy:SetCursorCastTarget(targetEntity)
+  --grip:OnSpellStart()
   dummy:CastAbilityOnTarget(targetEntity, grip, 0 )
+  
   dummy:CastAbilityOnPosition(point, burst, 0)
   
   --particles/reflex_particles/nian_roar_prj_gasexplode_shockwave.vpcf
@@ -1125,7 +1131,7 @@ function makeProjectile(keys)
   
   info.vVelocity = diff:Normalized() * speed
   
-  local dummy = CreateUnitByName("npc_reflex_dummy_grip", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+  local dummy = CreateUnitByName("npc_reflex_dummy_grip", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
   dummy:FindAbilityByName("reflex_dummy_unit"):SetLevel(1)
   dummy:AddNewModifier(dummy, nil, "modifier_phased", {})
   
@@ -1134,6 +1140,7 @@ function makeProjectile(keys)
     useGameTime = true,
     callback = function(reflex, args)
       --dummy:CastAbilityOnTarget(caster, grip, 0 )
+      print('removing dummy')
       if IsValidEntity(dummy) then
         dummy:RemoveSelf()
         dummy = nil

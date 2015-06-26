@@ -1,116 +1,77 @@
-<!-- schema text {7e125a45-3d83-4043-b292-9e24f8ef27b4} generic {198980d8-3a93-4919-b4c6-dd1fb07a3a4b} -->
-CParticleSystemDefinition CParticleSystemDefinition_0
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	bool m_bPreventNameBasedLookup = false
-	int m_nMaxParticles = 4
-	string m_pszSnapshotName = ""
-	string m_hLowViolenceDef = ""
-	string m_hReferenceReplacement = ""
-	string m_hFallback = ""
-	CParticleOperator*[] m_Renderers = 
+	_class = "CParticleSystemDefinition"
+	m_nMaxParticles = 4
+	m_Renderers =
 	[
-		&C_OP_RenderSprites_0
+		{
+			_class = "C_OP_RenderSprites"
+			m_bAdditive = true
+			m_bDisableZBuffering = true
+			m_hTexture = resource:"materials/particle/particle_glow_05.vtex"
+		},
 	]
-	CParticleOperator*[] m_Operators = 
+	m_Operators =
 	[
-		&C_OP_BasicMovement_0,
-		&C_OP_InterpolateRadius_0,
-		&C_OP_Decay_0,
-		&C_OP_FadeOutSimple_0,
-		&C_OP_ColorInterpolate_0
+		{
+			_class = "C_OP_BasicMovement"
+			m_Gravity =
+			[
+				0.000000,
+				0.000000,
+				-200.000000,
+			]
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flStartScale = 0.500000
+			m_flEndScale = 1.800000
+		},
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.850000
+		},
+		{
+			_class = "C_OP_ColorInterpolate"
+			m_ColorFade =
+			[
+				251,
+				171,
+				171,
+				255,
+			]
+		},
 	]
-	CParticleOperator*[] m_Initializers = 
+	m_Initializers =
 	[
-		&C_INIT_RandomLifeTime_0,
-		&C_INIT_CreateWithinSphere_0,
-		&C_INIT_RandomRadius_0,
-		&C_INIT_RandomAlpha_0
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 0.180000
+			m_fLifetimeMax = 0.200000
+		},
+		{
+			_class = "C_INIT_CreateWithinSphere"
+			m_fSpeedMax = 48.000000
+			m_fSpeedMin = 24.000000
+			m_nControlPointNumber = 3
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMax = 124.000000
+			m_flRadiusMin = 20.000000
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+		},
 	]
-	CParticleOperator*[] m_Emitters = 
+	m_Emitters =
 	[
-		&C_OP_InstantaneousEmitter_0
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 3
+		},
 	]
-	CParticleOperator*[] m_ForceGenerators = 
-	[
-		
-	]
-	CParticleOperator*[] m_Constraints = 
-	[
-		
-	]
-	ParticleChildrenInfo_t[] m_Children = 
-	[
-		
-	]
-}
-
-C_OP_RenderSprites C_OP_RenderSprites_0
-{
-	int m_bAdditive = 1
-	bool m_bDisableZBuffering = true
-	string m_hTexture = "materials\\particle\\particle_glow_05.vtex"
-	string m_Notes = ""
-}
-
-C_OP_BasicMovement C_OP_BasicMovement_0
-{
-	float(3) m_Gravity = ( 0.000000, 0.000000, -200.000000 )
-	string m_Notes = ""
-}
-
-C_OP_InterpolateRadius C_OP_InterpolateRadius_0
-{
-	float m_flStartScale = 0.500000
-	float m_flEndScale = 1.800000
-	string m_Notes = ""
-}
-
-C_OP_Decay C_OP_Decay_0
-{
-	string m_Notes = ""
-}
-
-C_OP_FadeOutSimple C_OP_FadeOutSimple_0
-{
-	float m_flFadeOutTime = 0.850000
-	string m_Notes = ""
-}
-
-C_OP_ColorInterpolate C_OP_ColorInterpolate_0
-{
-	int(4) m_ColorFade = ( 251, 171, 171, 255 )
-	string m_Notes = ""
-}
-
-C_INIT_RandomLifeTime C_INIT_RandomLifeTime_0
-{
-	float m_fLifetimeMin = 0.180000
-	float m_fLifetimeMax = 0.200000
-	string m_Notes = ""
-}
-
-C_INIT_CreateWithinSphere C_INIT_CreateWithinSphere_0
-{
-	float m_fSpeedMax = 48.000000
-	float m_fSpeedMin = 24.000000
-	int m_nControlPointNumber = 3
-	string m_Notes = ""
-}
-
-C_INIT_RandomRadius C_INIT_RandomRadius_0
-{
-	float m_flRadiusMax = 124.000000
-	float m_flRadiusMin = 20.000000
-	string m_Notes = ""
-}
-
-C_INIT_RandomAlpha C_INIT_RandomAlpha_0
-{
-	string m_Notes = ""
-}
-
-C_OP_InstantaneousEmitter C_OP_InstantaneousEmitter_0
-{
-	int m_nParticlesToEmit = 3
-	string m_Notes = ""
 }

@@ -1,0 +1,138 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_BoundingBoxMin =
+	[
+		20.000000,
+		20.000000,
+		0.000000,
+	]
+	m_BoundingBoxMax =
+	[
+		-20.000000,
+		-20.000000,
+		0.000000,
+	]
+	m_nMaxParticles = 20
+	m_Operators =
+	[
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndTime = 0.150000
+			m_flStartScale = 0.100000
+			m_flBias = 0.850000
+		},
+		{
+			_class = "C_OP_FadeAndKill"
+			m_flStartFadeOutTime = 1.000000
+		},
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		{
+			_class = "C_OP_PositionLock"
+		},
+		{
+			_class = "C_OP_MovementPlaceOnGround"
+			m_flOffset = 3.000000
+		},
+		{
+			_class = "C_OP_SetControlPointToPlayer"
+			m_nCP1 = 5
+		},
+		{
+			_class = "C_OP_FadeOut"
+			m_flFadeOutTimeMin = 0.150000
+			m_flFadeOutTimeMax = 0.150000
+			m_bEaseInAndOut = false
+		},
+	]
+	m_Renderers =
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_nOrientationType = 3
+			m_bAdditive = true
+			m_flRefractAmount = 1.015000
+			m_hTexture = resource:"materials/particle/particle_flares/particle_flare_001.vtex"
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RenderSprites"
+			m_nOrientationType = 2
+			m_OutlineColor =
+			[
+				0,
+				0,
+				0,
+				255,
+			]
+			m_hTexture = resource:"materials/particle/warp_circle_convex_01.vtex"
+			VisibilityInputs =
+			{
+				m_flInputMax = 1.000000
+			}
+		},
+	]
+	m_Initializers =
+	[
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMin = 40
+			m_nAlphaMax = 60
+		},
+		{
+			_class = "C_INIT_RemapCPtoVector"
+			m_nCPInput = 3
+			m_nFieldOutput = 6
+			m_vInputMax =
+			[
+				255.000000,
+				255.000000,
+				255.000000,
+			]
+			m_vOutputMax =
+			[
+				1.000000,
+				1.000000,
+				1.000000,
+			]
+		},
+		{
+			_class = "C_INIT_RemapParticleCountToScalar"
+			m_nFieldOutput = 4
+			m_flOutputMax = 36.000000
+		},
+		{
+			_class = "C_INIT_RemapScalar"
+			m_nFieldInput = 1
+			m_nFieldOutput = 9
+			m_flInputMin = 0.500000
+			m_flOutputMin = 3.000000
+			m_flOutputMax = 7.000000
+		},
+		{
+			_class = "C_INIT_RemapCPtoScalar"
+			m_nCPInput = 1
+			m_flInputMax = 3000.000000
+			m_flOutputMax = 3000.000000
+		},
+		{
+			_class = "C_INIT_RemapCPtoScalar"
+			m_nCPInput = 2
+			m_nFieldOutput = 1
+			m_flInputMax = 30.000000
+			m_flOutputMax = 35.299999
+		},
+		{
+			_class = "C_INIT_CreateOnModel"
+		},
+	]
+	m_Emitters =
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 10
+		},
+	]
+}

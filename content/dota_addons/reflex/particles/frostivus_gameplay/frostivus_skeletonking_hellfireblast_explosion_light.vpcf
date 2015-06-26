@@ -1,112 +1,89 @@
-<!-- schema text {7e125a45-3d83-4043-b292-9e24f8ef27b4} generic {198980d8-3a93-4919-b4c6-dd1fb07a3a4b} -->
-CParticleSystemDefinition CParticleSystemDefinition_0
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	bool m_bPreventNameBasedLookup = false
-	int m_nMaxParticles = 4
-	string m_pszSnapshotName = ""
-	string m_hLowViolenceDef = ""
-	string m_hReferenceReplacement = ""
-	string m_hFallback = ""
-	float m_flConstantRadius = 120.000000
-	int(4) m_ConstantColor = ( 95, 251, 161, 225 )
-	CParticleOperator*[] m_Renderers = 
+	_class = "CParticleSystemDefinition"
+	m_nMaxParticles = 4
+	m_flConstantRadius = 120.000000
+	m_ConstantColor =
 	[
-		&C_OP_RenderDeferredLight_0,
-		&C_OP_RenderScreenShake_0,
-		&C_OP_RenderScreenShake_2
+		95,
+		251,
+		161,
+		225,
 	]
-	CParticleOperator*[] m_Operators = 
+	m_Renderers =
 	[
-		&C_OP_BasicMovement_0,
-		&C_OP_InterpolateRadius_0,
-		&C_OP_Decay_0,
-		&C_OP_FadeOutSimple_0
+		{
+			_class = "C_OP_RenderDeferredLight"
+			m_ColorScale =
+			[
+				32,
+				215,
+				131,
+			]
+			m_flStartFalloff = 0.100000
+			m_flAlphaScale = 6.000000
+			m_hTexture = resource:"materials/particle/fire_particle_2/fire_particle_2.vtex"
+		},
+		{
+			_class = "C_OP_RenderScreenShake"
+			m_flDurationScale = 0.350000
+			m_flRadiusScale = 2000.000000
+			m_flFrequencyScale = 3.000000
+			m_flAmplitudeScale = 12.000000
+			m_nFilterCP = 9
+		},
+		{
+			_class = "C_OP_RenderScreenShake"
+			m_nFilterCP = 1
+			m_flAmplitudeScale = 12.000000
+			m_flFrequencyScale = 3.000000
+			m_flRadiusScale = 2000.000000
+			m_flDurationScale = 0.350000
+		},
 	]
-	CParticleOperator*[] m_Initializers = 
+	m_Operators =
 	[
-		&C_INIT_CreateWithinSphere_0
+		{
+			_class = "C_OP_BasicMovement"
+			m_fDrag = 0.100000
+			m_Gravity =
+			[
+				0.000000,
+				0.000000,
+				200.000000,
+			]
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndScale = 5.000000
+			m_flBias = 0.800000
+		},
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 1.000000
+		},
 	]
-	CParticleOperator*[] m_Emitters = 
+	m_Initializers =
 	[
-		&C_OP_InstantaneousEmitter_0
+		{
+			_class = "C_INIT_CreateWithinSphere"
+			m_nControlPointNumber = 1
+			m_LocalCoordinateSystemSpeedMax =
+			[
+				-40.000000,
+				0.000000,
+				0.000000,
+			]
+		},
 	]
-	CParticleOperator*[] m_ForceGenerators = 
+	m_Emitters =
 	[
-		
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 1
+		},
 	]
-	CParticleOperator*[] m_Constraints = 
-	[
-		
-	]
-	ParticleChildrenInfo_t[] m_Children = 
-	[
-		
-	]
-}
-
-C_OP_RenderDeferredLight C_OP_RenderDeferredLight_0
-{
-	int(4) m_ColorScale = ( 32, 215, 131, 255 )
-	float m_flStartFalloff = 0.100000
-	float m_flAlphaScale = 6.000000
-	string m_Notes = ""
-	string m_hTexture = "materials\\particle\\fire_particle_2\\fire_particle_2.vtex"
-}
-
-C_OP_RenderScreenShake C_OP_RenderScreenShake_0
-{
-	float m_flDurationScale = 0.350000
-	float m_flRadiusScale = 2000.000000
-	float m_flFrequencyScale = 3.000000
-	float m_flAmplitudeScale = 12.000000
-	int m_nFilterCP = 9
-	string m_Notes = ""
-}
-
-C_OP_RenderScreenShake C_OP_RenderScreenShake_2
-{
-	string m_Notes = ""
-	int m_nFilterCP = 1
-	float m_flAmplitudeScale = 12.000000
-	float m_flFrequencyScale = 3.000000
-	float m_flRadiusScale = 2000.000000
-	float m_flDurationScale = 0.350000
-}
-
-C_OP_BasicMovement C_OP_BasicMovement_0
-{
-	float m_fDrag = 0.100000
-	float(3) m_Gravity = ( 0.000000, 0.000000, 200.000000 )
-	string m_Notes = ""
-}
-
-C_OP_InterpolateRadius C_OP_InterpolateRadius_0
-{
-	float m_flEndScale = 5.000000
-	float m_flBias = 0.800000
-	string m_Notes = ""
-}
-
-C_OP_Decay C_OP_Decay_0
-{
-	string m_Notes = ""
-}
-
-C_OP_FadeOutSimple C_OP_FadeOutSimple_0
-{
-	float m_flFadeOutTime = 1.000000
-	string m_Notes = ""
-}
-
-C_INIT_CreateWithinSphere C_INIT_CreateWithinSphere_0
-{
-	int m_nControlPointNumber = 1
-	float(3) m_LocalCoordinateSystemSpeedMax = ( -40.000000, 0.000000, 0.000000 )
-	string m_Notes = ""
-}
-
-C_OP_InstantaneousEmitter C_OP_InstantaneousEmitter_0
-{
-	int m_nParticlesToEmit = 1
-	string m_Notes = ""
 }

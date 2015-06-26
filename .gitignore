@@ -214,8 +214,17 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-Install.bat
-Install.vbs
-PhysicsReadme.txt
-fix.bat
-Server Copy.bat
+#############
+#  DOTA 2
+#############
+
+*.vpk
+*.vpcf_c
+*.vsnd_c
+*.vsndevts_c
+*.vmat_c
+*.vtex_c
+*.bin
+*.vxml_c
+*.vcss_c
+*.vjs_c

@@ -1,0 +1,165 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_BoundingBoxMin =
+	[
+		-32.000000,
+		-128.000000,
+		-10.000000,
+	]
+	m_BoundingBoxMax =
+	[
+		32.000000,
+		28.000000,
+		640.000000,
+	]
+	m_ConstantColor =
+	[
+		102,
+		102,
+		102,
+		255,
+	]
+	m_flConstantRadius = 1.000000
+	m_nMaxParticles = 15
+	m_Operators =
+	[
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_SetSingleControlPointPosition"
+			m_nCP1 = 3
+			m_vecCP1Pos =
+			[
+				0.000000,
+				0.000000,
+				0.000000,
+			]
+		},
+		{
+			_class = "C_OP_SetControlPointOrientation"
+			m_nCP = 3
+		},
+		{
+			_class = "C_OP_RemapCPOrientationToYaw"
+			m_nCP = 3
+			m_flRotOffset = 90.000000
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_OscillateScalar"
+			m_RateMin = 0.100000
+			m_RateMax = 1.000000
+			m_FrequencyMin = 35.000000
+			m_FrequencyMax = 55.000000
+			m_nField = 3
+			m_flEndTime_min = 999999.000000
+			m_flEndTime_max = 999999.000000
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndScale = 10.000000
+			m_flBias = 0.100000
+			m_bDisableOperator = true
+			m_nOpEndCapState = 1
+		},
+	]
+	m_Renderers =
+	[
+		{
+			_class = "C_OP_RenderModels"
+			m_ModelList =
+			[
+				{
+					m_model = resource:"models/props_structures/bad_ancient_sphere.vmdl"
+				},
+			]
+			m_bOrientZ = true
+			m_nBodyGroupField = 18
+			m_nAnimationField = 9
+			m_flAnimationRate = 15.000000
+			m_bAnimated = true
+			m_bForceDrawInterlevedWithSiblings = true
+		},
+	]
+	m_Initializers =
+	[
+		{
+			_class = "C_INIT_CreateWithinSphere"
+		},
+		{
+			_class = "C_INIT_RemapInitialCPDirectionToRotation"
+			m_nCP = 3
+			m_nFieldOutput = 12
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin =
+			[
+				0.000000,
+				50.000000,
+				225.000000,
+			]
+			m_OffsetMax =
+			[
+				0.000000,
+				50.000000,
+				225.000000,
+			]
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMin = 175
+			m_nAlphaMax = 200
+		},
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 7.000000
+			m_fLifetimeMax = 7.000000
+		},
+		{
+			_class = "C_INIT_RandomSequence"
+			m_nSequenceMin = 1
+			m_nSequenceMax = 1
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMin = 1.100000
+			m_flRadiusMax = 1.250000
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin =
+			[
+				102,
+				80,
+				80,
+				255,
+			]
+			m_ColorMax =
+			[
+				132,
+				59,
+				59,
+				255,
+			]
+			m_nTintBlendMode = "2"
+		},
+	]
+	m_Emitters =
+	[
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmitRate = 250.000000
+		},
+		{
+			_class = "C_OP_MaintainEmitter"
+			m_bDisableOperator = true
+		},
+	]
+	m_bShouldSort = false
+}

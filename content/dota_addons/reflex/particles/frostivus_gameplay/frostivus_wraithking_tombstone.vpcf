@@ -1,185 +1,150 @@
-<!-- schema text {7e125a45-3d83-4043-b292-9e24f8ef27b4} generic {198980d8-3a93-4919-b4c6-dd1fb07a3a4b} -->
-CParticleSystemDefinition CParticleSystemDefinition_0
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	bool m_bPreventNameBasedLookup = false
-	int m_nMaxParticles = 16
-	string m_pszSnapshotName = ""
-	string m_hLowViolenceDef = ""
-	string m_hReferenceReplacement = ""
-	string m_hFallback = ""
-	float m_flConstantRadius = 110.000000
-	int(4) m_ConstantColor = ( 50, 239, 134, 255 )
-	int m_nConstantSequenceNumber = 4
-	bool m_bShouldSort = false
-	CParticleOperator*[] m_Renderers = 
+	_class = "CParticleSystemDefinition"
+	m_nMaxParticles = 16
+	m_flConstantRadius = 110.000000
+	m_ConstantColor =
 	[
-		&C_OP_RenderTrails_0,
-		&C_OP_RenderDeferredLight_0
+		50,
+		239,
+		134,
+		255,
 	]
-	CParticleOperator*[] m_Operators = 
+	m_nConstantSequenceNumber = 4
+	m_bShouldSort = false
+	m_Renderers =
 	[
-		&C_OP_BasicMovement_0,
-		&C_OP_Decay_0,
-		&C_OP_SetChildControlPoints_0,
-		&C_OP_SetControlPointOrientation_0,
-		&C_OP_StopAfterCPDuration_0
+		{
+			_class = "C_OP_RenderTrails"
+			m_flSelfIllumAmount = 2.000000
+			m_hTexture = resource:"materials/particle/sparks/sparks.vtex"
+			m_flMinLength = 64.000000
+			m_flLengthFadeInTime = 0.100000
+			m_flMaxLength = 100.000000
+		},
+		{
+			_class = "C_OP_RenderDeferredLight"
+			m_ColorScale =
+			[
+				50,
+				239,
+				174,
+			]
+			m_flStartFalloff = 0.100000
+			m_flAlphaScale = 6.000000
+			m_flRadiusScale = 3.000000
+			m_hTexture = resource:"materials/particle/sparks/sparks.vtex"
+		},
 	]
-	CParticleOperator*[] m_Initializers = 
+	m_Operators =
 	[
-		&C_INIT_CreateWithinSphere_0,
-		&C_INIT_RandomLifeTime_0
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_SetChildControlPoints"
+			m_bSetOrientation = true
+			m_nFirstControlPoint = 3
+		},
+		{
+			_class = "C_OP_SetControlPointOrientation"
+			m_vecRotation =
+			[
+				-90.000000,
+				0.000000,
+				0.000000,
+			]
+			m_vecRotationB =
+			[
+				-90.000000,
+				0.000000,
+				0.000000,
+			]
+			m_bUseWorldLocation = true
+		},
+		{
+			_class = "C_OP_StopAfterCPDuration"
+			m_flDuration = 1.250000
+		},
 	]
-	CParticleOperator*[] m_Emitters = 
+	m_Initializers =
 	[
-		&C_OP_InstantaneousEmitter_0
+		{
+			_class = "C_INIT_CreateWithinSphere"
+		},
+		{
+			_class = "C_INIT_RandomLifeTime"
+		},
 	]
-	CParticleOperator*[] m_ForceGenerators = 
+	m_Emitters =
 	[
-		
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 1
+		},
 	]
-	CParticleOperator*[] m_Constraints = 
+	m_Constraints =
 	[
-		&C_OP_ConstrainDistanceToPath_0
+		{
+			_class = "C_OP_ConstrainDistanceToPath"
+			m_flMaxDistance0 = 0.000000
+			m_flTravelTime = 1.250000
+			m_PathParameters =
+			{
+				m_flBulge = 0.500000
+				m_nEndControlPointNumber = 1
+				m_nBulgeControl = 2
+			}
+		},
 	]
-	ParticleChildrenInfo_t[] m_Children = 
+	m_Children =
 	[
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_skull.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_skull.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_i.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_i.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_f.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_f.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_e.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_e.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			bool m_bEndCap = true
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_explosion.vpcf"
+			m_bEndCap = true
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_explosion.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_h.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_h.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_b.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_b.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_g.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_g.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_sphere_glow.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_sphere_glow.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_launch.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_launch.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_d.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_d.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_detail.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_trail_detail.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_sphere_glow_b.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_sphere_glow_b.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/frostivus_wraithking_tombstone_warmup.vpcf"
-		}
+			m_ChildRef = resource:"particles/frostivus_gameplay/frostivus_wraithking_tombstone_warmup.vpcf"
+		},
 	]
-}
-
-C_OP_RenderTrails C_OP_RenderTrails_0
-{
-	float m_flSelfIllumAmount = 2.000000
-	string m_hTexture = "materials\\particle\\sparks\\sparks.vtex"
-	float m_flMinLength = 64.000000
-	string m_Notes = ""
-	float m_flLengthFadeInTime = 0.100000
-	float m_flMaxLength = 100.000000
-}
-
-C_OP_RenderDeferredLight C_OP_RenderDeferredLight_0
-{
-	string m_Notes = ""
-	int(4) m_ColorScale = ( 50, 239, 174, 255 )
-	float m_flStartFalloff = 0.100000
-	float m_flAlphaScale = 6.000000
-	float m_flRadiusScale = 3.000000
-	string m_hTexture = "materials\\particle\\sparks\\sparks.vtex"
-}
-
-C_OP_BasicMovement C_OP_BasicMovement_0
-{
-	string m_Notes = ""
-}
-
-C_OP_Decay C_OP_Decay_0
-{
-	string m_Notes = ""
-	int m_nOpEndCapState = 1
-}
-
-C_OP_SetChildControlPoints C_OP_SetChildControlPoints_0
-{
-	string m_Notes = ""
-	bool m_bSetOrientation = true
-	int m_nFirstControlPoint = 3
-}
-
-C_OP_SetControlPointOrientation C_OP_SetControlPointOrientation_0
-{
-	string m_Notes = ""
-	float(3) m_vecRotation = ( -90.000000, 0.000000, 0.000000 )
-	float(3) m_vecRotationB = ( -90.000000, 0.000000, 0.000000 )
-	bool m_bUseWorldLocation = true
-}
-
-C_OP_StopAfterCPDuration C_OP_StopAfterCPDuration_0
-{
-	string m_Notes = ""
-	float m_flDuration = 1.250000
-}
-
-C_INIT_CreateWithinSphere C_INIT_CreateWithinSphere_0
-{
-	string m_Notes = ""
-}
-
-C_INIT_RandomLifeTime C_INIT_RandomLifeTime_0
-{
-	string m_Notes = ""
-}
-
-C_OP_InstantaneousEmitter C_OP_InstantaneousEmitter_0
-{
-	string m_Notes = ""
-	int m_nParticlesToEmit = 1
-}
-
-C_OP_ConstrainDistanceToPath C_OP_ConstrainDistanceToPath_0
-{
-	string m_Notes = ""
-	float m_flMaxDistance0 = 0.000000
-	float m_flTravelTime = 1.250000
-	CPathParameters m_PathParameters = CPathParameters
-	{
-		float m_flBulge = 0.500000
-		int m_nEndControlPointNumber = 1
-		int m_nBulgeControl = 2
-	}
 }

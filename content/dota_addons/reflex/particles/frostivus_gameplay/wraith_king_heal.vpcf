@@ -1,53 +1,20 @@
-<!-- schema text {7e125a45-3d83-4043-b292-9e24f8ef27b4} generic {198980d8-3a93-4919-b4c6-dd1fb07a3a4b} -->
-CParticleSystemDefinition CParticleSystemDefinition_0
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	bool m_bPreventNameBasedLookup = false
-	int m_nMaxParticles = 32
-	string m_pszSnapshotName = ""
-	string m_hLowViolenceDef = ""
-	string m_hReferenceReplacement = ""
-	string m_hFallback = ""
-	CParticleOperator*[] m_Renderers = 
+	_class = "CParticleSystemDefinition"
+	m_nMaxParticles = 32
+	m_Children =
 	[
-		
-	]
-	CParticleOperator*[] m_Operators = 
-	[
-		
-	]
-	CParticleOperator*[] m_Initializers = 
-	[
-		
-	]
-	CParticleOperator*[] m_Emitters = 
-	[
-		
-	]
-	CParticleOperator*[] m_ForceGenerators = 
-	[
-		
-	]
-	CParticleOperator*[] m_Constraints = 
-	[
-		
-	]
-	ParticleChildrenInfo_t[] m_Children = 
-	[
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/wraith_king_heal_flash_glow.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/wraith_king_heal_flash_glow.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/wraith_king_heal_flash_b.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/wraith_king_heal_flash_b.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/wraith_king_heal_twinkle.vpcf"
+			m_ChildRef = resource:"particles/frostivus_gameplay/wraith_king_heal_twinkle.vpcf"
 		},
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/wraith_king_heal_rings.vpcf"
-		}
+			m_ChildRef = resource:"particles/frostivus_gameplay/wraith_king_heal_rings.vpcf"
+		},
 	]
 }

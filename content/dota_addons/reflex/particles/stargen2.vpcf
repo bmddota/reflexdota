@@ -1,0 +1,203 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_nMaxParticles = 1625
+	m_Operators =
+	[
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		{
+			_class = "C_OP_MaxVelocity"
+			m_flMaxVelocity = 2500.000000
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_SpinUpdate"
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_Spin"
+			m_nSpinRateDegrees = 500
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_OscillateScalarSimple"
+			m_Rate = 10.000000
+			m_Frequency = 0.200000
+			m_nField = 3
+			m_flOscMult = 5.000000
+			m_flOscAdd = 0.000000
+		},
+		{
+			_class = "C_OP_RemapCPtoVelocity"
+			m_nCPInput = 1
+			m_bScaleCurrent = true
+		},
+	]
+	m_Renderers =
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_nOrientationType = 2
+			m_flSelfIllumAmount = 1.000000
+		},
+		{
+			_class = "C_OP_RenderTrails"
+			m_nOrientationType = 2
+			m_flMinLength = 30.000000
+			m_hTexture = resource:"materials/particle/particle_ring_wave_17.vtex"
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RenderDeferredLight"
+			m_ColorScale =
+			[
+				255,
+				255,
+				255,
+			]
+			m_bDisableOperator = true
+		},
+	]
+	m_Initializers =
+	[
+		{
+			_class = "C_INIT_VelocityFromNormal"
+			m_fSpeedMax = 799.000000
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_VelocityRadialRandom"
+			m_fSpeedMin = 800.000000
+			m_fSpeedMax = 800.000000
+			m_vecLocalCoordinateSystemSpeedScale =
+			[
+				1.000000,
+				1.000000,
+				0.000000,
+			]
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_InitialVelocityNoise"
+			m_vecOutputMin =
+			[
+				-20000.000000,
+				-20000.000000,
+				0.000000,
+			]
+			m_vecOutputMax =
+			[
+				20000.000000,
+				20000.000000,
+				0.000000,
+			]
+			m_flNoiseScale = 55.000000
+			m_flNoiseScaleLoc = 55.000000
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_VelocityFromNormal"
+			m_fSpeedMax = 800.000000
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomYaw"
+		},
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 0.100000
+			m_fLifetimeMax = 14.340000
+		},
+		{
+			_class = "C_INIT_CreateWithinSphere"
+			m_fRadiusMax = 3000.000000
+			m_vecDistanceBias =
+			[
+				1.000000,
+				1.000000,
+				0.000000,
+			]
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMax = 18.000000
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMax =
+			[
+				102,
+				215,
+				255,
+				255,
+			]
+			m_TintMin =
+			[
+				83,
+				83,
+				83,
+				0,
+			]
+			m_nTintBlendMode = "PARTICLEBLEND_DEFAULT"
+		},
+		{
+			_class = "C_INIT_RandomRotationSpeed"
+			m_nFieldOutput = 5
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_RandomScalar"
+			m_nFieldOutput = 23
+		},
+	]
+	m_Emitters =
+	[
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmitRate = 93.900002
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_MaintainEmitter"
+			m_nParticlesToMaintain = 650
+			m_nScaleControlPoint = 2
+		},
+	]
+	m_ForceGenerators =
+	[
+		{
+			_class = "C_OP_RandomForce"
+			m_MinForce =
+			[
+				-100000.000000,
+				-100000.000000,
+				0.000000,
+			]
+			m_MaxForce =
+			[
+				100000.000000,
+				100000.000000,
+				0.000000,
+			]
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_LocalAccelerationForce"
+			m_vecAccel =
+			[
+				800.000000,
+				800.000000,
+				0.000000,
+			]
+			m_bDisableOperator = true
+		},
+	]
+}

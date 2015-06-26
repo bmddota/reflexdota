@@ -1,5 +1,6 @@
 print ('[REFLEX] reflex.lua' )
 
+require('notifications')
 -- Stat Collection Library
 require('lib.statcollection')
 statcollection.addStats({
@@ -11,7 +12,7 @@ USE_LOBBY=false
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.08.05"
+REFLEX_VERSION = "0.09.08"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 210 --150 --240
@@ -19,6 +20,11 @@ PRE_GAME_TIME = 30 -- 30
 PRE_ROUND_TIME = 30 --30
 POST_ROUND_TIME = 2
 POST_GAME_TIME = 30
+
+if DEBUG then
+  PRE_GAME_TIME = 0
+  PRE_ROUND_TIME = 10
+end
 
 STARTING_GOLD = 500--650
 GOLD_PER_ROUND_LOSER = 1250--750
@@ -43,40 +49,7 @@ for i=1,MAX_LEVEL do
   XP_PER_LEVEL_TABLE[i] = i * 100
 end
 
-MAP_DATA = {
-  default = {
-    bounds = {
-      left = -2700,
-      right = 2700,
-      bottom = -2260,
-      top = 2140
-    }
-  },
-  reflex = {
-    bounds = {
-      left = -2700,
-      right = 2700,
-      bottom = -2260,
-      top = 2140
-    }
-  },
-  glacier = {
-    bounds = {
-      left = -2760,
-      right = 2760,
-      bottom = -2300,
-      top = 2200
-    }
-  },
-  arena = {
-    bounds = {
-      left = -2650,
-      right = 2650,
-      bottom = -2100,
-      top = 2210
-    }
-  }
-}
+MAP_DATA = LoadKeyValues("scripts/mapdata.kv")
 
 ADDED_ABILITIES = {
   "reflex_dash",
@@ -94,6 +67,7 @@ ABILITY_ON_DEATH = {
   reflex_scaredy_cat = 0.6
 }
 
+bMapInitialized = false
 bInPreRound = true
 roundOne = true
 
@@ -318,11 +292,25 @@ function ReflexGameMode:InitGameMode()
   Convars:RegisterCommand('player_say', function(...)
     local arg = {...}
     table.remove(arg,1)
+    local sayType = arg[1]
+    table.remove(arg,1)
+
     local cmdPlayer = Convars:GetCommandClient()
     keys = {}
     keys.ply = cmdPlayer
     keys.text = table.concat(arg, " ")
-    self:PlayerSay(keys)
+
+    if (sayType == 4) then
+      -- Student messages
+    elseif (sayType == 3) then
+      -- Coach messages
+    elseif (sayType == 2) then
+      -- Team only
+      self:PlayerSay(keys)
+    else
+      -- All chat
+      self:PlayerSay(keys)
+    end
   end, 'player say', 0)
 
 
@@ -380,7 +368,7 @@ function ReflexGameMode:CaptureGameMode()
     print('[REFLEX] Capturing game mode...')
     GameMode = GameRules:GetGameModeEntity()		
     GameMode:SetRecommendedItemsDisabled( true )
-    --GameMode:SetCameraDistanceOverride( 1504.0 )
+    GameMode:SetCameraDistanceOverride( 1504.0 )
     GameMode:SetCustomBuybackCostEnabled( true )
     GameMode:SetCustomBuybackCooldownEnabled( true )
     GameMode:SetBuybackEnabled( false )
@@ -389,7 +377,7 @@ function ReflexGameMode:CaptureGameMode()
     GameMode:SetTopBarTeamValuesOverride ( true )
     GameMode:SetRemoveIllusionsOnDeath( false )
 
-    GameRules:SetHeroMinimapIconScale( .45 )
+    GameRules:SetHeroMinimapIconScale( 1 )
 
     GameMode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 
@@ -472,6 +460,12 @@ function ReflexGameMode:PostLoadPrecache()
 
   PrecacheUnitByNameAsync("npc_precache_everything", function(...) end)
   --PrecacheUnitByNameAsync("npc_dota_hero_enigma", function(...) end)
+
+  if MAP_DATA[GetMapName()].mapscript and not bMapInitialized then
+    require(MAP_DATA[GetMapName()].mapscript)
+    bMapInitialized = true
+    MapScript:Initialize()
+  end
 end
 
 -- The overall game state has changed
@@ -2701,6 +2695,9 @@ function ReflexGameMode:OnEntityKilled( keys )
       self:LoopOverPlayers(function(player, plyID)
         --print('Player ' .. plyID .. ' -- Dead: ' .. tostring(player.bDead) .. ' -- Team: ' .. tostring(player.nTeam))
         if player.bDead == false and player.nTeam == DOTA_TEAM_GOODGUYS then
+          Notifications:Top(player, "LAST MAN STANDING", 3, nil, {color="red", ["font-size"]="60px"})
+          Notifications:Top(player, "DAMAGE INCREASED", 3, nil, {color="purple", ["font-size"]="40px"})
+
           callModApplier(player.hero, "reflex_lms_friendly")
         elseif player.bDead == false and player.nTeam == DOTA_TEAM_BADGUYS then
           --print ('     Rad Dead:' .. self.nRadiantDead)
@@ -2712,6 +2709,9 @@ function ReflexGameMode:OnEntityKilled( keys )
       self:LoopOverPlayers(function(player, plyID)
         --print('Player ' .. plyID .. ' -- Dead: ' .. tostring(player.bDead) .. ' -- Team: ' .. tostring(player.nTeam))
         if player.bDead == false and player.nTeam == DOTA_TEAM_BADGUYS then
+          Notifications:Top(player, "LAST MAN STANDING", 3, nil, {color="red", ["font-size"]="60px"})
+          Notifications:Top(player, "DAMAGE INCREASED", 3, nil, {color="purple", ["font-size"]="40px"})
+
           callModApplier(player.hero, "reflex_lms_friendly")
         elseif player.bDead == false and player.nTeam == DOTA_TEAM_GOODGUYS then
           --print ('     Dire Dead:' .. self.nDireDead)
@@ -2779,20 +2779,16 @@ function dealDamage(source, target, damage)
     if damage <= 0 or source == nil or target == nil then
       return
     end
-    -- target:AddNewModifier(source, nil, "modifier_invoker_tornado", {land_damage = damage, duration = 0} )
-    local dmgTable = {4096,2048,1024,512,256,128,64,32,16,8,4,2,1}
-    local item = CreateItem( "item_deal_damage", source, source) --creates an item
-    for i=1,#dmgTable do
-      local val = dmgTable[i]
-      local count = math.floor(damage / val)
-      if count >= 1 then
-          item:ApplyDataDrivenModifier( source, target, "dealDamage" .. val, {duration=0} )
-          damage = damage - val
-      end
-    end
-    UTIL_RemoveImmediate(item)
-    item = nil
-    --print("removed")
+
+    local damTable = {
+      victim = target,
+      attacker = source,
+      damage = damage,
+      damage_type = DAMAGE_TYPE_PURE,
+      damage_flags = 0
+    }
+
+    ApplyDamage(damTable)
 end
 
 

@@ -1,167 +1,117 @@
-<!-- schema text {7e125a45-3d83-4043-b292-9e24f8ef27b4} generic {198980d8-3a93-4919-b4c6-dd1fb07a3a4b} -->
-CParticleSystemDefinition CParticleSystemDefinition_0
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	bool m_bPreventNameBasedLookup = false
-	int m_nMaxParticles = 16
-	string m_pszSnapshotName = ""
-	string m_hLowViolenceDef = ""
-	string m_hReferenceReplacement = ""
-	string m_hFallback = ""
-	float m_flConstantRadius = 1.000000
-	bool m_bShouldSort = false
-	float m_flMaxRecreationTime = -1.000000
-	CParticleOperator*[] m_Renderers = 
+	_class = "CParticleSystemDefinition"
+	m_nMaxParticles = 16
+	m_flConstantRadius = 1.000000
+	m_bShouldSort = false
+	m_flMaxRecreationTime = -1.000000
+	m_Renderers =
 	[
-		&C_OP_RenderModels_0
-	]
-	CParticleOperator*[] m_Operators = 
-	[
-		&C_OP_BasicMovement_0,
-		&C_OP_Decay_0,
-		&C_OP_SetControlPointsToParticle_0,
-		&C_OP_InterpolateRadius_0,
-		&C_OP_MovementPlaceOnGround_0,
-		&C_OP_OrientTo2dDirection_0
-	]
-	CParticleOperator*[] m_Initializers = 
-	[
-		&C_INIT_CreateWithinSphere_0,
-		&C_INIT_RandomLifeTime_0,
-		&C_INIT_VelocityFromCP_0,
-		&C_INIT_RadiusFromCPObject_0,
-		&C_INIT_PositionOffset_0
-	]
-	CParticleOperator*[] m_Emitters = 
-	[
-		&C_OP_InstantaneousEmitter_0
-	]
-	CParticleOperator*[] m_ForceGenerators = 
-	[
-		
-	]
-	CParticleOperator*[] m_Constraints = 
-	[
-		
-	]
-	ParticleChildrenInfo_t[] m_Children = 
-	[
-		ParticleChildrenInfo_t
 		{
-			string m_ChildRef = "particles/frostivus_gameplay/holdout_juggernaut_omnislash_image_ember.vpcf"
+			_class = "C_OP_RenderModels"
+			m_ActivityName = "ACT_DOTA_RUN"
+			m_bIgnoreNormal = true
+			m_nModelCP = 0
+			m_ModelList =
+			[
+				{
+					m_model = resource:"models/heroes/juggernaut/juggernaut.vmdl"
+				},
+			]
+			m_bAnimated = true
 		},
-		ParticleChildrenInfo_t
-		{
-			string m_ChildRef = "particles/frostivus_gameplay/holdout_juggernaut_omnislash_image_flash.vpcf"
-		},
-		ParticleChildrenInfo_t
-		{
-			string m_ChildRef = "particles/frostivus_gameplay/holdout_omnislash_trail_glow.vpcf"
-		},
-		ParticleChildrenInfo_t
-		{
-			string m_ChildRef = "particles/frostivus_gameplay/holdout_omnislash_trail_glow_b.vpcf"
-		},
-		ParticleChildrenInfo_t
-		{
-			string m_ChildRef = "particles/frostivus_gameplay/holdout_juggernaut_omnislash_burst.vpcf"
-		}
 	]
-}
-
-C_OP_RenderModels C_OP_RenderModels_0
-{
-	string m_hOverrideMaterial = ""
-	string m_EconSlotName = ""
-	string m_ActivityName = "ACT_DOTA_RUN"
-	bool m_bIgnoreNormal = true
-	string m_Notes = ""
-	int m_nModelCP = 0
-	ModelReference_t[] m_ModelList = 
+	m_Operators =
 	[
-		ModelReference_t
 		{
-			string m_model = "models/heroes/juggernaut/juggernaut.vmdl"
-		}
+			_class = "C_OP_BasicMovement"
+		},
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = 1
+		},
+		{
+			_class = "C_OP_SetControlPointsToParticle"
+			m_bSetOrientation = true
+			m_nFirstControlPoint = 3
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flEndScale = 1.100000
+			m_flBias = 0.750000
+			m_flEndTime = 0.500000
+			m_flStartScale = 0.000000
+		},
+		{
+			_class = "C_OP_MovementPlaceOnGround"
+			m_CollisionGroupName = "DEBRIS"
+			m_flTraceOffset = 256.000000
+			m_flMaxTraceLength = 1024.000000
+			m_flTolerance = 0.000000
+		},
+		{
+			_class = "C_OP_OrientTo2dDirection"
+			m_nFieldOutput = 12
+			m_flRotOffset = 180.000000
+		},
 	]
-	bool m_bAnimated = true
-}
-
-C_OP_BasicMovement C_OP_BasicMovement_0
-{
-	string m_Notes = ""
-}
-
-C_OP_Decay C_OP_Decay_0
-{
-	string m_Notes = ""
-	int m_nOpEndCapState = 1
-}
-
-C_OP_SetControlPointsToParticle C_OP_SetControlPointsToParticle_0
-{
-	string m_Notes = ""
-	bool m_bSetOrientation = true
-	int m_nFirstControlPoint = 3
-}
-
-C_OP_InterpolateRadius C_OP_InterpolateRadius_0
-{
-	float m_flEndScale = 1.100000
-	string m_Notes = ""
-	float m_flBias = 0.750000
-	float m_flEndTime = 0.500000
-	float m_flStartScale = 0.000000
-}
-
-C_OP_MovementPlaceOnGround C_OP_MovementPlaceOnGround_0
-{
-	string m_Notes = ""
-	string m_CollisionGroupName = "DEBRIS"
-	float m_flTraceOffset = 256.000000
-	float m_flMaxTraceLength = 1024.000000
-	float m_flTolerance = 0.000000
-}
-
-C_OP_OrientTo2dDirection C_OP_OrientTo2dDirection_0
-{
-	int m_nFieldOutput = 12
-	float m_flRotOffset = 180.000000
-	string m_Notes = ""
-}
-
-C_INIT_CreateWithinSphere C_INIT_CreateWithinSphere_0
-{
-	string m_Notes = ""
-}
-
-C_INIT_RandomLifeTime C_INIT_RandomLifeTime_0
-{
-	string m_Notes = ""
-	float m_fLifetimeMin = 0.200000
-	float m_fLifetimeMax = 0.200000
-}
-
-C_INIT_VelocityFromCP C_INIT_VelocityFromCP_0
-{
-	string m_Notes = ""
-	int m_nControlPoint = 1
-}
-
-C_INIT_RadiusFromCPObject C_INIT_RadiusFromCPObject_0
-{
-	string m_Notes = ""
-}
-
-C_INIT_PositionOffset C_INIT_PositionOffset_0
-{
-	bool m_bLocalCoords = true
-	float(3) m_OffsetMax = ( -32.000000, 0.000000, 0.000000 )
-	float(3) m_OffsetMin = ( -32.000000, 0.000000, 0.000000 )
-	string m_Notes = ""
-}
-
-C_OP_InstantaneousEmitter C_OP_InstantaneousEmitter_0
-{
-	string m_Notes = ""
-	int m_nParticlesToEmit = 1
+	m_Initializers =
+	[
+		{
+			_class = "C_INIT_CreateWithinSphere"
+		},
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 0.200000
+			m_fLifetimeMax = 0.200000
+		},
+		{
+			_class = "C_INIT_VelocityFromCP"
+			m_nControlPoint = 1
+		},
+		{
+			_class = "C_INIT_RadiusFromCPObject"
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_bLocalCoords = true
+			m_OffsetMax =
+			[
+				-32.000000,
+				0.000000,
+				0.000000,
+			]
+			m_OffsetMin =
+			[
+				-32.000000,
+				0.000000,
+				0.000000,
+			]
+		},
+	]
+	m_Emitters =
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 1
+		},
+	]
+	m_Children =
+	[
+		{
+			m_ChildRef = resource:"particles/frostivus_gameplay/holdout_juggernaut_omnislash_image_ember.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/frostivus_gameplay/holdout_juggernaut_omnislash_image_flash.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/frostivus_gameplay/holdout_omnislash_trail_glow.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/frostivus_gameplay/holdout_omnislash_trail_glow_b.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/frostivus_gameplay/holdout_juggernaut_omnislash_burst.vpcf"
+		},
+	]
 }
