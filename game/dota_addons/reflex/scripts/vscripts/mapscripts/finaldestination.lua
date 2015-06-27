@@ -10,6 +10,8 @@ PHASE_SUN = 2
 PHASE_TRAVEL = 3
 PHASE_BLACKHOLE = 4
 
+DANGER_INDICATOR_OVERRIDE = "particles/reflex_particles/generic_aoe_shockwave_2.vpcf"
+
 function MapScript:Initialize()
 	print("INITIALIZE MAP")
 	local stars = {}

@@ -39,4 +39,9 @@ Layer0
 	{
 		dota.nav.walkable "1"
 	}
+
+	SystemAttributes
+	{
+		PhysicsSurfaceProperties "water"
+	}
 }

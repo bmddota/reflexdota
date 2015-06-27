@@ -126,6 +126,10 @@
 		},
 		{
 			_class = "C_INIT_CreateOnModel"
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_INIT_CreateWithinSphere"
 		},
 	]
 	m_Emitters =

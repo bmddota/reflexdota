@@ -1,6 +1,6 @@
 "AddonInfo"
 {
 
-	maps		"reflex glacier arena"
+	maps		"reflex glacier arena finaldestination"
 	"IsPlayable"	"1"
 }

@@ -476,7 +476,7 @@ function dangerIndicator(keys)
     if noEnemy ~= nil and ply.nTeam ~= team then
       return
     end
-    local particle = ParticleManager:CreateParticleForPlayer("particles/reflex_particles/generic_aoe_shockwave_1.vpcf", attach, targetEntity, PlayerResource:GetPlayer(plyID))--cmdPlayer:GetAssignedHero())
+    local particle = ParticleManager:CreateParticleForPlayer(DANGER_INDICATOR_OVERRIDE or "particles/reflex_particles/generic_aoe_shockwave_1.vpcf", attach, targetEntity, PlayerResource:GetPlayer(plyID))--cmdPlayer:GetAssignedHero())
     --ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
     ParticleManager:SetParticleControl(particle, 1, Vector(radius,0,0)) -- radius
     ParticleManager:SetParticleControl(particle, 2, Vector(duration,0,1)) -- something
@@ -492,7 +492,7 @@ function dangerIndicator(keys)
   -- Test Lua-particle generation
 
   -- Bots
-  local particle = ParticleManager:CreateParticleForPlayer("particles/reflex_particles/generic_aoe_shockwave_1.vpcf", attach, targetEntity, PlayerResource:GetPlayer(-1))--cmdPlayer:GetAssignedHero())
+  local particle = ParticleManager:CreateParticleForPlayer(DANGER_INDICATOR_OVERRIDE or "particles/reflex_particles/generic_aoe_shockwave_1.vpcf", attach, targetEntity, PlayerResource:GetPlayer(-1))--cmdPlayer:GetAssignedHero())
   --ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
   ParticleManager:SetParticleControl(particle, 1, Vector(radius,0,0)) -- radius
   ParticleManager:SetParticleControl(particle, 2, Vector(duration,0,1)) -- something
@@ -507,7 +507,7 @@ function dangerIndicator(keys)
   --for k,v in pairs(ReflexGameMode.vBroadcasters) do
   for i=10,32 do 
 	if PlayerResource:IsValidPlayer(i) then
-		local particle = ParticleManager:CreateParticleForPlayer("particles/reflex_particles/generic_aoe_shockwave_1.vpcf", attach, targetEntity, PlayerResource:GetPlayer(i))--cmdPlayer:GetAssignedHero())
+		local particle = ParticleManager:CreateParticleForPlayer(DANGER_INDICATOR_OVERRIDE or "particles/reflex_particles/generic_aoe_shockwave_1.vpcf", attach, targetEntity, PlayerResource:GetPlayer(i))--cmdPlayer:GetAssignedHero())
 		--ParticleManager:SetParticleControl(particle, 0, Vector(0,0,0)) -- something
 		ParticleManager:SetParticleControl(particle, 1, Vector(radius,0,0)) -- radius
 		ParticleManager:SetParticleControl(particle, 2, Vector(duration,0,1)) -- something

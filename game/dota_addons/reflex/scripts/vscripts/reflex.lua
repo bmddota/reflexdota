@@ -12,7 +12,7 @@ USE_LOBBY=false
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.09.08"
+REFLEX_VERSION = "0.09.09"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 210 --150 --240
@@ -2695,8 +2695,8 @@ function ReflexGameMode:OnEntityKilled( keys )
       self:LoopOverPlayers(function(player, plyID)
         --print('Player ' .. plyID .. ' -- Dead: ' .. tostring(player.bDead) .. ' -- Team: ' .. tostring(player.nTeam))
         if player.bDead == false and player.nTeam == DOTA_TEAM_GOODGUYS then
-          Notifications:Top(player, "LAST MAN STANDING", 3, nil, {color="red", ["font-size"]="60px"})
-          Notifications:Top(player, "DAMAGE INCREASED", 3, nil, {color="purple", ["font-size"]="40px"})
+          Notifications:Top(plyID, "LAST MAN STANDING", 3, nil, {color="red", ["font-size"]="60px"})
+          Notifications:Top(plyID, "DAMAGE INCREASED", 3, nil, {color="purple", ["font-size"]="40px"})
 
           callModApplier(player.hero, "reflex_lms_friendly")
         elseif player.bDead == false and player.nTeam == DOTA_TEAM_BADGUYS then
@@ -2709,8 +2709,8 @@ function ReflexGameMode:OnEntityKilled( keys )
       self:LoopOverPlayers(function(player, plyID)
         --print('Player ' .. plyID .. ' -- Dead: ' .. tostring(player.bDead) .. ' -- Team: ' .. tostring(player.nTeam))
         if player.bDead == false and player.nTeam == DOTA_TEAM_BADGUYS then
-          Notifications:Top(player, "LAST MAN STANDING", 3, nil, {color="red", ["font-size"]="60px"})
-          Notifications:Top(player, "DAMAGE INCREASED", 3, nil, {color="purple", ["font-size"]="40px"})
+          Notifications:Top(plyID, "LAST MAN STANDING", 3, nil, {color="red", ["font-size"]="60px"})
+          Notifications:Top(plyID, "DAMAGE INCREASED", 3, nil, {color="purple", ["font-size"]="40px"})
 
           callModApplier(player.hero, "reflex_lms_friendly")
         elseif player.bDead == false and player.nTeam == DOTA_TEAM_GOODGUYS then
