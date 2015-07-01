@@ -45,8 +45,8 @@
 		},
 		{
 			_class = "C_OP_FadeOut"
-			m_flFadeOutTimeMin = 0.150000
-			m_flFadeOutTimeMax = 0.150000
+			m_flFadeOutTimeMin = 0.100000
+			m_flFadeOutTimeMax = 0.100000
 			m_bEaseInAndOut = false
 		},
 	]
@@ -137,7 +137,7 @@
 			m_nCPInput = 2
 			m_nFieldOutput = 1
 			m_flInputMax = 30.000000
-			m_flOutputMax = 35.299999
+			m_flOutputMax = 35.300000
 		},
 		{
 			_class = "C_INIT_CreateOnModel"

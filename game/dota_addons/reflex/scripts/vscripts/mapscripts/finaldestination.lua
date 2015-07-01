@@ -1,5 +1,5 @@
-require('util')
-require('timers')
+require('internal/util')
+require('libraries/timers')
 
 MapScript = {}
 

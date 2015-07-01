@@ -1,6 +1,26 @@
 "AddonInfo"
 {
+  "TeamCount" "2"
+	"maps"   "reflex glacier arena finaldestination"
+  "IsPlayable"  "1"
+	
+  "reflex"
+	{
+		"MaxPlayers"		"10"
+	}
 
-	maps		"reflex glacier arena finaldestination"
-	"IsPlayable"	"1"
+  "glacier"
+  {
+    "MaxPlayers"    "10"
+  }
+
+  "arena"
+  {
+    "MaxPlayers"    "10"
+  }
+
+  "finaldestination"
+  {
+    "MaxPlayers"    "10"
+  }
 }

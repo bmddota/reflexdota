@@ -129,11 +129,11 @@
 				//"Target" "CASTER"
 				//"ModifierName" "modifier_item_reflex_dash"
 			//}
-			"ApplyModifier"
-			{
-				"Target" "CASTER"
-				"ModifierName" "modifier_item_reflex_dash_drop_ability"
-			}
+			//"ApplyModifier"
+			//{
+//				"Target" "CASTER"
+//				"ModifierName" "modifier_item_reflex_dash_drop_ability"
+			//}
 		}
 
 		"Modifiers"
@@ -244,11 +244,11 @@
 				//"Target" "CASTER"
 				//"ModifierName" "modifier_item_reflex_dash_2"
 			//}
-			"ApplyModifier"
-			{
-				"Target" "CASTER"
-				"ModifierName" "modifier_item_reflex_dash_2_drop_ability"
-			}
+			//"ApplyModifier"
+			//{
+//				"Target" "CASTER"
+				//"ModifierName" "modifier_item_reflex_dash_2_drop_ability"
+			//}
 		}
 
 		"Modifiers"
@@ -359,11 +359,11 @@
 				//"Target" "CASTER"
 				//"ModifierName" "modifier_item_reflex_dash_3"
 			//}
-			"ApplyModifier"
-			{
-				"Target" "CASTER"
-				"ModifierName" "modifier_item_reflex_dash_3_drop_ability"
-			}
+			//"ApplyModifier"
+			//{
+//				"Target" "CASTER"
+				//"ModifierName" "modifier_item_reflex_dash_3_drop_ability"
+			//}
 		}
 
 		"Modifiers"
@@ -474,11 +474,11 @@
 				//"Target" "CASTER"
 				//"ModifierName" "modifier_item_reflex_dash_4"
 			//}
-			"ApplyModifier"
-			{
-				"Target" "CASTER"
-				"ModifierName" "modifier_item_reflex_dash_4_drop_ability"
-			}
+			//"ApplyModifier"
+			//{
+//				"Target" "CASTER"
+				//"ModifierName" "modifier_item_reflex_dash_4_drop_ability"
+			//}
 		}
 
 		"Modifiers"
