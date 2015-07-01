@@ -1,15 +1,9 @@
--- TODO
--- test all this stuff
-
-
--- Set this to true if you want to see a complete debug output of all events/processes done by barebones
--- You can also change the cvar 'barebones_spew' at any time to 1 or 0 for output/no output
 BAREBONES_DEBUG_SPEW = false 
 
 DEBUG=false
 THINK_TIME = 0.1
 
-REFLEX_VERSION = "0.2.01"
+REFLEX_VERSION = "0.20.02"
 
 ROUNDS_TO_WIN = 8
 ROUND_TIME = 210 --150 --240

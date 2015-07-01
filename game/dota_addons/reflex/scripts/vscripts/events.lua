@@ -424,7 +424,7 @@ function GameMode:OnEntityKilled( keys )
     -- Trigger Last Man Standing buff(s)
     local killedTeam = killedUnit:GetTeam()
     local killerTeam = killerEntity:GetTeam()
-    if nAlive[killedTeam] == 1 then
+    if nAlive[killedTeam] == 1 and nAlive[killerTeam] ~= 1 then
       for i=1,#heroes do
         local hero = heroes[i]
         if hero:IsAlive() and hero:GetTeam() == killedTeam then
